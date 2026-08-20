@@ -45,12 +45,16 @@ def _extract_claims(letter):
     for match in re.finditer(r"\$[\d,]+\.?\d*", letter):
         claims.append({"type": "amount", "value": match.group(), "position": match.start()})
 
-    # Payment assertions
+    # Payment assertions — catch the model asserting payments happened
     payment_phrases = [
-        r"payment\s+(?:of\s+)?\$[\d,]+\.?\d*\s+(?:was\s+)?(?:made|received|processed|recorded)",
-        r"you\s+paid\s+\$[\d,]+",
-        r"paid\s+(?:on|in)\s+\w+",
-        r"payment\s+date\s*(?:of|:)\s*\S+",
+        r"payment\s+(?:of\s+)?\$[\d,]+\.?\d*\s+(?:was\s+)?(?:made|received|processed|recorded|applied)",
+        r"you\s+(?:have\s+)?paid\s+\$[\d,]+",
+        r"(?:a|your)\s+payment\s+(?:of\s+)?\$[\d,]+",
+        r"paid\s+(?:on|in)\s+(?:January|February|March|April|May|June|July|August|September|October|November|December|\d)",
+        r"payment\s+(?:date|received)\s*(?:of|on|:)\s*\S+",
+        r"last\s+payment\s+(?:of|was|received)\s+",
+        r"records?\s+(?:show|indicate|confirm)\s+(?:a|that\s+a|your|the)\s+payment",
+        r"payment\s+history\s+(?:shows?|indicates?|confirms?)\s+(?:a|that|your)",
     ]
     for pattern in payment_phrases:
         for match in re.finditer(pattern, letter, re.IGNORECASE):
@@ -273,7 +277,7 @@ def review_letter(record, strict=True):
 
         if not is_supported:
             findings.append({
-                "severity": "warning" if claim["type"] == "amount" else "critical",
+                "severity": "critical",
                 "claim_type": claim["type"],
                 "claim_value": claim["value"],
                 "reason": reason,
