@@ -1,0 +1,27 @@
+# Raw data NEVER gets committed. This is constraint #1.
+data/raw/
+*.csv.zip
+complaints.csv
+
+# Secrets
+.env
+.env.*
+*.key
+*.pem
+credentials.json
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# Node
+node_modules/
+
+# OS
+.DS_Store
+
+# Model caches
+offline/cache/*.bin
