@@ -107,3 +107,31 @@ python3 run.py
 (Correct routing is the default.)
 
 **Recovery time:** ~5 seconds.
+
+---
+
+## Failover Test: Tier 1 → Tier 2
+
+**What it proves:** When the cloud API fails (connection refused, bad key,
+timeout), the pipeline falls through to Ollama without crashing or hanging.
+This IS the stage scenario — "the wifi died and the local model picked it
+up" is a better moment than the wifi never dying.
+
+**Run:**
+```bash
+python3 break/test_failover.py
+```
+
+**What it tests:**
+
+1. **Connection refused** — API server unreachable. Falls through in <1s.
+2. **401 Unauthorized** — bad or revoked key. Falls through in <1s.
+3. **Timeout** — server accepts connection but never responds. Times out
+   in 3s, falls through to Ollama in ~1s.
+
+All three modes produce a real Ollama response. The tier indicator changes
+from "Cloud API" to "Local model" — visible in terminal and UI.
+
+**Rehearsal beat:** During the hands-on session, if you want to show the
+failover live, set `ANTHROPIC_API_KEY=fake` and run the pipeline. The API
+will 401, Ollama will pick it up, and the audience sees the tier badge change.
