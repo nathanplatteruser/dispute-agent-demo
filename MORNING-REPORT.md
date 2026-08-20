@@ -33,10 +33,10 @@ Open `ui/index.html` in a browser to see results.
 
 ## NEEDS NATHAN
 
-1. **Tier 1 API key.** Set `ANTHROPIC_API_KEY` environment variable to test cloud API path. The code uses `claude-sonnet-4-20250514` — confirm this is the model you want.
-2. **Session format clarity.** The brief says 60-minute cooking show. CLAUDE.md says 25-minute solo + separate hands-on. RUN-OF-SHOW.md is built to 60 minutes. Confirm which format.
-3. **Offline verification.** Turn wifi off and run `python3 run.py --records 10 --max-drafts 3`. Ollama should handle it. Then kill Ollama and run again — should fall through to Tier 3 cached responses.
-4. **Cold open narrative.** Pick the CFPB narrative you want to open with. Run: `python3 -c "import csv; [print(row['Consumer complaint narrative'][:500]) for i,row in enumerate(csv.DictReader(open('data/raw/cfpb_sample_3000.csv'))) if i < 20]"` and choose one.
+1. **Tier 1 API key.** Set `ANTHROPIC_API_KEY` environment variable to test cloud API path. The code uses `claude-sonnet-4-20250514` — confirm this is the model you want. Nathan will test separately.
+2. ~~**Session format.**~~ RESOLVED — two slots confirmed. `RUN-OF-SHOW-solo.md` (25 min) and `RUN-OF-SHOW-handson.md` (60 min).
+3. **Offline verification.** Nathan will do this manually.
+4. **Cold open narrative.** 20 candidates printed. Pick one.
 
 ## Next Action
 
