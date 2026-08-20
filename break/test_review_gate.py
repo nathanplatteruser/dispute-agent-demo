@@ -220,17 +220,223 @@ def test_clean_letter_passes():
         return False
 
 
+# --- Regression-specific letters for the false-positive bugs ---
+
+LETTER_ENGLISH_DATE_MATCHES_RECORD = """\
+August 1, 2026
+
+Test Consumer
+123 Main St
+Arlington, TX 76010
+
+RE: Account TEST-001
+
+Dear Test Consumer,
+
+We acknowledge your dispute. The charge-off date for this account was
+June 15, 2023. We are reviewing the matter.
+
+Your current balance is $5,000.00.
+
+Sincerely,
+Test Agency
+"""
+
+LETTER_HEADER_DATE_ONLY = """\
+March 17, 2026
+
+Test Consumer
+123 Main St
+Arlington, TX 76010
+
+RE: Account TEST-001
+
+Dear Test Consumer,
+
+We acknowledge your dispute and are reviewing the matter. We will
+respond within 30 days.
+
+Your current balance is $5,000.00.
+
+Sincerely,
+Test Agency
+"""
+
+LETTER_TWO_FABRICATED_AMOUNTS = """\
+August 1, 2026
+
+Test Consumer
+123 Main St
+Arlington, TX 76010
+
+RE: Account TEST-001
+
+Dear Test Consumer,
+
+Our records indicate the current balance is $33,660.66. A fee of
+$1,299.00 was applied to the account.
+
+Sincerely,
+Test Agency
+"""
+
+LETTER_TWO_DATES_ONE_BAD = """\
+August 1, 2026
+
+Test Consumer
+123 Main St
+Arlington, TX 76010
+
+RE: Account TEST-001
+
+Dear Test Consumer,
+
+The charge-off date was June 15, 2023. We note a payment was received
+on November 3, 2024, which has been applied.
+
+Sincerely,
+Test Agency
+"""
+
+
+def test_english_date_must_not_flag():
+    """'June 15, 2023' matches record '2023-06-15' — must NOT flag."""
+    rec = make_record(draft_letter=LETTER_ENGLISH_DATE_MATCHES_RECORD)
+    review_letter(rec, strict=True)
+    findings = rec["review_findings"]
+    date_findings = [f for f in findings if f["claim_type"] == "date"]
+
+    if len(date_findings) == 0 and rec["review_passed"]:
+        print(f"  PASS: 'June 15, 2023' correctly matched record '2023-06-15', 0 date findings")
+        return True
+    else:
+        print(f"  FAIL: date was incorrectly flagged")
+        print(f"    date_findings={date_findings}")
+        return False
+
+
+def test_header_date_must_not_flag():
+    """Letter date 'March 17, 2026' in header must NOT flag."""
+    rec = make_record(draft_letter=LETTER_HEADER_DATE_ONLY)
+    review_letter(rec, strict=True)
+    findings = rec["review_findings"]
+    date_findings = [f for f in findings if f["claim_type"] == "date"]
+
+    if len(date_findings) == 0 and rec["review_passed"]:
+        print(f"  PASS: header date not flagged, 0 date findings")
+        return True
+    else:
+        print(f"  FAIL: header date was incorrectly flagged")
+        print(f"    date_findings={date_findings}")
+        return False
+
+
+def test_fabricated_amount_is_critical():
+    """$33,660.66 not in record — must flag as critical, not warning."""
+    rec = make_record(draft_letter=LETTER_TWO_FABRICATED_AMOUNTS)
+    review_letter(rec, strict=True)
+    findings = rec["review_findings"]
+    amt_findings = [f for f in findings if f["claim_type"] == "amount"]
+    critical_amts = [f for f in amt_findings if f["severity"] == "critical"]
+
+    if len(critical_amts) == 2 and not rec["review_passed"]:
+        print(f"  PASS: 2 fabricated amounts flagged as critical")
+        return True
+    else:
+        print(f"  FAIL: expected 2 critical amount findings, got {len(critical_amts)}")
+        print(f"    all amount findings: {[(f['severity'], f['claim_value']) for f in amt_findings]}")
+        print(f"    review_passed={rec['review_passed']}")
+        return False
+
+
+def test_fabricated_date_is_critical():
+    """Nov 3, 2024 not in record — must flag as critical."""
+    rec = make_record(draft_letter=LETTER_TWO_DATES_ONE_BAD)
+    review_letter(rec, strict=True)
+    findings = rec["review_findings"]
+    date_findings = [f for f in findings if f["claim_type"] == "date"]
+    critical_dates = [f for f in date_findings if f["severity"] == "critical"]
+
+    # June 15, 2023 should match. November 3, 2024 should not.
+    if len(critical_dates) == 1 and critical_dates[0]["claim_value"] == "November 3, 2024" and not rec["review_passed"]:
+        print(f"  PASS: 1 fabricated date flagged as critical ('November 3, 2024'), record date passed")
+        return True
+    else:
+        print(f"  FAIL: expected exactly 1 critical date finding for 'November 3, 2024'")
+        print(f"    date_findings={[(f['severity'], f['claim_value']) for f in date_findings]}")
+        print(f"    review_passed={rec['review_passed']}")
+        return False
+
+
+def test_finding_counts_exact():
+    """Assert exact finding counts on a letter with known issues."""
+    # Letter with: 1 fabricated date, 1 fabricated amount, 1 valid date, 1 valid amount
+    letter = """\
+August 1, 2026
+
+Test Consumer
+123 Main St
+Arlington, TX 76010
+
+RE: Account TEST-001
+
+Dear Test Consumer,
+
+The charge-off date was June 15, 2023. Your current balance is $5,000.00.
+
+We also note a payment of $999.99 was received on April 4, 2025.
+
+Sincerely,
+Test Agency
+"""
+    rec = make_record(draft_letter=letter)
+    review_letter(rec, strict=True)
+    findings = rec["review_findings"]
+
+    # Expected: April 4, 2025 = fabricated date (critical)
+    #           $999.99 = fabricated amount (critical)
+    #           payment assertion (critical)
+    #           June 15, 2023 = matches record (no finding)
+    #           $5,000.00 = matches record (no finding)
+    critical = [f for f in findings if f["severity"] == "critical"]
+    date_crits = [f for f in critical if f["claim_type"] == "date"]
+    amt_crits = [f for f in critical if f["claim_type"] == "amount"]
+    pay_crits = [f for f in critical if f["claim_type"] == "payment_assertion"]
+
+    ok = True
+    if len(date_crits) != 1:
+        print(f"  FAIL: expected 1 critical date, got {len(date_crits)}: {[(f['claim_value']) for f in date_crits]}")
+        ok = False
+    if len(amt_crits) != 1:
+        print(f"  FAIL: expected 1 critical amount, got {len(amt_crits)}: {[(f['claim_value']) for f in amt_crits]}")
+        ok = False
+    if not rec["review_passed"] == False:
+        print(f"  FAIL: review_passed should be False")
+        ok = False
+    if ok:
+        total = len(critical)
+        print(f"  PASS: {total} critical findings (1 date, 1 amount, {len(pay_crits)} payment), review_passed=False")
+    return ok
+
+
 if __name__ == "__main__":
     print("=" * 55)
     print("  REVIEW GATE REGRESSION TEST")
     print("=" * 55)
 
     tests = [
-        ("Fabricated date", test_fabricated_date),
-        ("Fabricated amount (critical)", test_fabricated_amount),
-        ("Fabricated citation", test_fabricated_citation),
-        ("Payment with no history", test_payment_no_history),
+        # Original tests
+        ("Fabricated date flagged", test_fabricated_date),
+        ("Fabricated amount flagged", test_fabricated_amount),
+        ("Fabricated citation flagged", test_fabricated_citation),
+        ("Payment with no history flagged", test_payment_no_history),
         ("Clean letter passes", test_clean_letter_passes),
+        # New regression tests for the specific bugs
+        ("English date matching record must NOT flag", test_english_date_must_not_flag),
+        ("Header date must NOT flag", test_header_date_must_not_flag),
+        ("Fabricated amounts must be CRITICAL", test_fabricated_amount_is_critical),
+        ("Fabricated date must be CRITICAL", test_fabricated_date_is_critical),
+        ("Exact finding counts on mixed letter", test_finding_counts_exact),
     ]
 
     results = {}
@@ -248,9 +454,12 @@ if __name__ == "__main__":
         if not passed:
             all_pass = False
 
+    print(f"\n  {sum(results.values())}/{len(results)} passed")
+
     if all_pass:
-        print("\n  Review gate catches all known fabrication types.")
+        print("  Review gate catches all known fabrication types")
+        print("  and does not false-positive on valid data.")
     else:
-        print("\n  REGRESSION DETECTED. Fix the gate before rehearsal.")
+        print("  REGRESSION DETECTED. Fix the gate before rehearsal.")
 
     sys.exit(0 if all_pass else 1)
