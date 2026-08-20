@@ -74,8 +74,8 @@ def main():
     records = classify.run(records, use_llm=not args.no_llm)
 
     # Stage 4: Draft
-    max_drafts = args.max_drafts if args.max_drafts else (args.records if args.no_llm else min(args.records, 20))
-    records = draft.run(records, max_drafts=max_drafts)
+    max_drafts = args.max_drafts if args.max_drafts else args.records
+    records = draft.run(records, max_drafts=max_drafts, use_llm=not args.no_llm)
 
     # Stage 5: Review
     records = review.run(records, strict=not args.loose_review)

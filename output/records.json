@@ -1,0 +1,272 @@
+[
+  {
+    "account_id": "ACC-437902",
+    "consumer_name": "Natasha Graham",
+    "original_creditor": "Metro Physicians Group",
+    "current_servicer": "Redstone Collections Group",
+    "balance_original": 12877.12,
+    "balance_current": 10221.03,
+    "charge_off_date": "2024-06-18",
+    "last_payment_date": "",
+    "last_payment_amount": "",
+    "state": "TX",
+    "dispute_type": "identity_theft",
+    "validation_requested": "True",
+    "prior_contacts": "10",
+    "contact_log": "2024-08-12;2024-09-03;2024-10-21;2024-12-15;2025-02-06;2025-03-05;2025-04-11;2025-05-21;2025-05-30;2025-06-26",
+    "has_contradiction": "False",
+    "narrative": "The absence of valid evidence corroborating its accuracy and its reporting without substantiated proof contravene the 15 USC 1681i ( 7 ). I urge for the swift removal of this account unless sufficient evidence affirming its validity is furnished.",
+    "complaint_id": "8798374",
+    "cfpb_product": "Debt collection",
+    "cfpb_issue": "Attempts to collect debt not owed",
+    "cfpb_sub_issue": "Debt was result of identity theft",
+    "cfpb_company_response": "Closed with non-monetary relief",
+    "classified_type": "identity_theft",
+    "classification_method": "ledger",
+    "classification_confidence": 0.5,
+    "draft_letter": "[Date]\n[CONSUMER ADDRESS]\nRE: Account reference: ACC-437902\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Account ACC-437902\n\nWe acknowledge receipt of your dispute regarding the account ACC-437902, citing concerns about the account's validity due to the lack of substantiated proof. We understand that you have requested validation of this account.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA) and Texas state law, we are required to investigate your dispute. We will review the account information and verify the original creditor, Metro Physicians Group, to determine the accuracy of the account.\n\nWe have confirmed that the account was charged off on 2024-06-18, and the current balance is 10221.03. Unfortunately, we do not have a record of any payments made on this account.\n\nWe will conduct a thorough investigation and provide you with a response regarding the validity of the account. We will also provide any requested validation information, as required by law.\n\nPlease note that you have the right to dispute this account further if you believe that our investigation does not resolve your concerns. You may also request that we remove the account from our records if we are unable to validate it.\n\nWe appreciate your prompt attention to this matter and will keep you informed of our progress.\n\nSincerely,\n\n[AGENCY NAME]",
+    "draft_tier": "ollama",
+    "review_findings": [],
+    "review_passed": true,
+    "review_warnings": 0,
+    "review_critical": 0,
+    "consumer_annotations": [
+      {
+        "id": "jargon_wall",
+        "matched_text": "Pursuant to",
+        "position": 344,
+        "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
+        "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
+        "severity": "medium"
+      },
+      {
+        "id": "urgency_without_clarity",
+        "matched_text": "prompt attention",
+        "position": 1238,
+        "flag": "Urgency language without clear action steps \u2014 triggers panic or avoidance, not compliance",
+        "cfpb_grounding": "CFPB pattern: 'They said it was urgent but didn't tell me what to actually do'",
+        "severity": "high"
+      },
+      {
+        "id": "buried_rights",
+        "matched_text": "you have the right",
+        "position": 999,
+        "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+        "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+        "severity": "medium"
+      }
+    ],
+    "engagement_risk_score": 7,
+    "engagement_risk_level": "high",
+    "agency_intent": "We're investigating your identity theft claim and pausing collection.",
+    "consumer_impact": [
+      "'I can't understand this' \u2014 consumer stops reading",
+      "'Something bad is about to happen but I don't know what to do' \u2014 paralysis",
+      "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
+    ],
+    "consumer_view": {
+      "letter_text": "[Date]\n[CONSUMER ADDRESS]\nRE: Account reference: ACC-437902\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Account ACC-437902\n\nWe acknowledge receipt of your dispute regarding the account ACC-437902, citing concerns about the account's validity due to the lack of substantiated proof. We understand that you have requested validation of this account.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA) and Texas state law, we are required to investigate your dispute. We will review the account information and verify the original creditor, Metro Physicians Group, to determine the accuracy of the account.\n\nWe have confirmed that the account was charged off on 2024-06-18, and the current balance is 10221.03. Unfortunately, we do not have a record of any payments made on this account.\n\nWe will conduct a thorough investigation and provide you with a response regarding the validity of the account. We will also provide any requested validation information, as required by law.\n\nPlease note that you have the right to dispute this account further if you believe that our investigation does not resolve your concerns. You may also request that we remove the account from our records if we are unable to validate it.\n\nWe appreciate your prompt attention to this matter and will keep you informed of our progress.\n\nSincerely,\n\n[AGENCY NAME]",
+      "annotations": [
+        {
+          "id": "jargon_wall",
+          "matched_text": "Pursuant to",
+          "position": 344,
+          "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
+          "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
+          "severity": "medium"
+        },
+        {
+          "id": "urgency_without_clarity",
+          "matched_text": "prompt attention",
+          "position": 1238,
+          "flag": "Urgency language without clear action steps \u2014 triggers panic or avoidance, not compliance",
+          "cfpb_grounding": "CFPB pattern: 'They said it was urgent but didn't tell me what to actually do'",
+          "severity": "high"
+        },
+        {
+          "id": "buried_rights",
+          "matched_text": "you have the right",
+          "position": 999,
+          "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+          "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+          "severity": "medium"
+        }
+      ],
+      "risk_score": 7,
+      "risk_level": "high",
+      "intent": "We're investigating your identity theft claim and pausing collection.",
+      "impact": [
+        "'I can't understand this' \u2014 consumer stops reading",
+        "'Something bad is about to happen but I don't know what to do' \u2014 paralysis",
+        "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
+      ],
+      "account_id": "ACC-437902",
+      "dispute_type": "identity_theft"
+    }
+  },
+  {
+    "account_id": "ACC-356736",
+    "consumer_name": "Oscar Fitzgerald",
+    "original_creditor": "Heartland Savings Bank",
+    "current_servicer": "Bridgeport Recovery Inc",
+    "balance_original": 10478.14,
+    "balance_current": 6598.77,
+    "charge_off_date": "2021-02-02",
+    "last_payment_date": "",
+    "last_payment_amount": "",
+    "state": "MO",
+    "dispute_type": "wrong_amount",
+    "validation_requested": "False",
+    "prior_contacts": "2",
+    "contact_log": "2023-01-04;2023-02-06",
+    "has_contradiction": "False",
+    "narrative": "I have been harassed by this company they have called repeated time and sent repeated things in the mail. On XX/XX/2021 I got a letter from Revenue Group that states that they are collecting and alleged debt. This letter is false and misleading. On XX/XX/2021 I received a phone call at approximately XXXX XXXX  they also called me 4 days later on XX/XX/2021 at approximately XXXX XXXX  these phone calls and things in the mail have received from Revenue Group has been very stressful and has caused me and my family unwanted XXXX  and other health problems. Im currently on XXXX XXXX medicine. The amount is {$320.00} I never gave Revenue Group to contact me and they have called me repeatedly.",
+    "complaint_id": "4822257",
+    "cfpb_product": "Debt collection",
+    "cfpb_issue": "Communication tactics",
+    "cfpb_sub_issue": "Frequent or repeated calls",
+    "cfpb_company_response": "Closed with explanation",
+    "classified_type": "wrong_amount",
+    "classification_method": "ledger",
+    "classification_confidence": 0.5,
+    "draft_letter": "[Date]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-356736\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Amount on Account ACC-356736\n\nWe acknowledge receipt of your dispute regarding the amount on your account, ACC-356736. We take all disputes seriously and will investigate this matter in accordance with the Fair Debt Collection Practices Act (FDCPA) and Missouri state law.\n\nWe have reviewed our records and confirmed that the current balance on your account is $6,598.77. We also confirm that the original creditor on this account is Heartland Savings Bank.\n\nWe understand that you have expressed concerns about the frequency of our communications. We want to assure you that we will comply with all applicable laws and regulations regarding debt collection, including the FDCPA's requirements for communication frequency and content.\n\nWe will investigate your dispute regarding the amount on your account and will respond to you in a timely manner. If our investigation confirms that the amount is incorrect, we will take the necessary steps to correct it.\n\nPlease note that you have the right to dispute this debt and may continue to do so. You may also request validation of the debt, which we will provide if requested.\n\nWe appreciate your cooperation and look forward to resolving this matter. If you have any further questions or concerns, please do not hesitate to contact us.\n\nSincerely,\n\n[AGENCY NAME]\nRevenue Group\nCompliance Department",
+    "draft_tier": "ollama",
+    "review_findings": [],
+    "review_passed": true,
+    "review_warnings": 0,
+    "review_critical": 0,
+    "consumer_annotations": [
+      {
+        "id": "jargon_wall",
+        "matched_text": "in accordance with",
+        "position": 284,
+        "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
+        "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
+        "severity": "medium"
+      },
+      {
+        "id": "buried_rights",
+        "matched_text": "you have the right",
+        "position": 1077,
+        "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+        "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+        "severity": "medium"
+      }
+    ],
+    "engagement_risk_score": 4,
+    "engagement_risk_level": "medium",
+    "agency_intent": "We're reviewing the balance and will send you an itemized breakdown.",
+    "consumer_impact": [
+      "'I can't understand this' \u2014 consumer stops reading",
+      "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
+    ],
+    "consumer_view": {
+      "letter_text": "[Date]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-356736\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Amount on Account ACC-356736\n\nWe acknowledge receipt of your dispute regarding the amount on your account, ACC-356736. We take all disputes seriously and will investigate this matter in accordance with the Fair Debt Collection Practices Act (FDCPA) and Missouri state law.\n\nWe have reviewed our records and confirmed that the current balance on your account is $6,598.77. We also confirm that the original creditor on this account is Heartland Savings Bank.\n\nWe understand that you have expressed concerns about the frequency of our communications. We want to assure you that we will comply with all applicable laws and regulations regarding debt collection, including the FDCPA's requirements for communication frequency and content.\n\nWe will investigate your dispute regarding the amount on your account and will respond to you in a timely manner. If our investigation confirms that the amount is incorrect, we will take the necessary steps to correct it.\n\nPlease note that you have the right to dispute this debt and may continue to do so. You may also request validation of the debt, which we will provide if requested.\n\nWe appreciate your cooperation and look forward to resolving this matter. If you have any further questions or concerns, please do not hesitate to contact us.\n\nSincerely,\n\n[AGENCY NAME]\nRevenue Group\nCompliance Department",
+      "annotations": [
+        {
+          "id": "jargon_wall",
+          "matched_text": "in accordance with",
+          "position": 284,
+          "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
+          "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
+          "severity": "medium"
+        },
+        {
+          "id": "buried_rights",
+          "matched_text": "you have the right",
+          "position": 1077,
+          "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+          "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+          "severity": "medium"
+        }
+      ],
+      "risk_score": 4,
+      "risk_level": "medium",
+      "intent": "We're reviewing the balance and will send you an itemized breakdown.",
+      "impact": [
+        "'I can't understand this' \u2014 consumer stops reading",
+        "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
+      ],
+      "account_id": "ACC-356736",
+      "dispute_type": "wrong_amount"
+    }
+  },
+  {
+    "account_id": "ACC-105814",
+    "consumer_name": "Celeste Gibson",
+    "original_creditor": "Meridian Federal Credit Union",
+    "current_servicer": "Keystone Account Solutions",
+    "balance_original": 5627.26,
+    "balance_current": 4524.94,
+    "charge_off_date": "2023-11-26",
+    "last_payment_date": "2023-04-13",
+    "last_payment_amount": "283.13",
+    "state": "DE",
+    "dispute_type": "wrong_amount",
+    "validation_requested": "True",
+    "prior_contacts": "7",
+    "contact_log": "2024-11-14;2025-03-06;2025-03-23;2025-04-14;2025-04-23;2025-04-26;2025-05-03",
+    "has_contradiction": "False",
+    "narrative": "XX/XX/year> XXXX {$75.00}, XXXX XXXX {$470.00}, XXXX, {$700.00}, XXXX {$440.00}, XXXX {$0.00}, XXXX XXXX {$0.00}, XXXX XXXX {$0.00} XXXX XXXX, XXXX XXXX.",
+    "complaint_id": "20808661",
+    "cfpb_product": "Debt collection",
+    "cfpb_issue": "Attempts to collect debt not owed",
+    "cfpb_sub_issue": "Debt is not yours",
+    "cfpb_company_response": "Closed with explanation",
+    "classified_type": "wrong_amount",
+    "classification_method": "ledger",
+    "classification_confidence": 0.5
+  },
+  {
+    "account_id": "ACC-879779",
+    "consumer_name": "Oscar Hall",
+    "original_creditor": "Liberty Credit Corp",
+    "current_servicer": "Redstone Collections Group",
+    "balance_original": 21028.6,
+    "balance_current": 5831.47,
+    "charge_off_date": "2024-05-11",
+    "last_payment_date": "2025-10-03",
+    "last_payment_amount": "127.23",
+    "state": "NH",
+    "dispute_type": "identity_theft",
+    "validation_requested": "False",
+    "prior_contacts": "3",
+    "contact_log": "2025-03-15;2025-05-03;2025-05-19",
+    "has_contradiction": "False",
+    "narrative": "I LOOKED ON MY CREDIT REPORT AND I SAW THAT THERE IS AN ACCOUNT THAT I DID NOT AUTHORIZE OR BENEFIT FROM I HAVE ATTACHED AN FTC REPORT IN HOPES OF GETTING THIS ISSUE RESOLVED I NEED THIS FRAUDULENT ACCOUNT REMOVED",
+    "complaint_id": "4738875",
+    "cfpb_product": "Debt collection",
+    "cfpb_issue": "Written notification about debt",
+    "cfpb_sub_issue": "Didn't receive enough information to verify debt",
+    "cfpb_company_response": "Closed with explanation",
+    "classified_type": "identity_theft",
+    "classification_method": "keywords",
+    "classification_confidence": 1.0
+  },
+  {
+    "account_id": "ACC-666390",
+    "consumer_name": "Finn Ramirez",
+    "original_creditor": "Summit Trust Bank",
+    "current_servicer": "Redstone Collections Group",
+    "balance_original": 9699.28,
+    "balance_current": 1482.1,
+    "charge_off_date": "2021-03-14",
+    "last_payment_date": "2023-04-15",
+    "last_payment_amount": "172.13",
+    "state": "NJ",
+    "dispute_type": "wrong_amount",
+    "validation_requested": "True",
+    "prior_contacts": "6",
+    "contact_log": "2021-05-03;2022-05-07;2022-05-16;2022-11-23;2022-12-02;2023-03-26",
+    "has_contradiction": "False",
+    "narrative": "The account has been sold off to numerous account holders. This recent debt collector reported the account on my credit without any notification at all. The debt collection agency is Consumer Adjustment Co. I have never had any business with this company at all.",
+    "complaint_id": "11626231",
+    "cfpb_product": "Debt collection",
+    "cfpb_issue": "Written notification about debt",
+    "cfpb_sub_issue": "Didn't receive notice of right to dispute",
+    "cfpb_company_response": "Closed with explanation",
+    "classified_type": "wrong_amount",
+    "classification_method": "ledger",
+    "classification_confidence": 0.5
+  }
+]

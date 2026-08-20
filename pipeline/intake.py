@@ -14,10 +14,12 @@ SYNTH_DIR = DATA_DIR / "synth"
 
 def load_cfpb_narratives(max_records=3000):
     """Load filtered CFPB debt-collection complaints with narratives."""
-    path = RAW_DIR / "cfpb_debt_collection.csv"
+    # Prefer the pre-sampled file (fast) over the full file (slow)
+    sample_path = RAW_DIR / "cfpb_sample_3000.csv"
+    path = sample_path if sample_path.exists() else RAW_DIR / "cfpb_debt_collection.csv"
 
     if not path.exists():
-        print("  ⚠ CFPB data not found at data/raw/cfpb_debt_collection.csv")
+        print("  ⚠ CFPB data not found at data/raw/")
         print("  → Using synthetic narratives as fallback")
         return _generate_fallback_narratives(max_records)
 

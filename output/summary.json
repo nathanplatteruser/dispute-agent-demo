@@ -1,0 +1,23 @@
+{
+  "total_records": 5,
+  "drafted": 2,
+  "reviewed": 2,
+  "review_passed": 2,
+  "review_flagged": 0,
+  "high_risk_letters": 1,
+  "elapsed_seconds": 44.4,
+  "validation_stats": {
+    "input_count": 5,
+    "output_count": 5,
+    "duplicates_removed": 0,
+    "balances_fixed": 10,
+    "dates_fixed": 0,
+    "states_fixed": 0,
+    "nulls_flagged": 0
+  },
+  "settings": {
+    "llm_enabled": true,
+    "fix_balances": true,
+    "strict_review": true
+  }
+}

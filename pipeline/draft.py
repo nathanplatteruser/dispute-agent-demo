@@ -67,19 +67,19 @@ Write the response letter now. Remember: only assert facts from the record above
     return prompt
 
 
-def draft_letter(record):
+def draft_letter(record, use_llm=True):
     """Generate a draft letter for a single record."""
-    prompt = _build_prompt(record)
-    response, tier = generate(prompt, LETTER_SYSTEM)
+    if use_llm:
+        prompt = _build_prompt(record)
+        response, tier = generate(prompt, LETTER_SYSTEM)
+        if response:
+            record["draft_letter"] = response.strip()
+            record["draft_tier"] = tier
+            return record
 
-    if response:
-        record["draft_letter"] = response.strip()
-        record["draft_tier"] = tier
-    else:
-        # Fallback template if all tiers fail
-        record["draft_letter"] = _template_letter(record)
-        record["draft_tier"] = "template"
-
+    # Template fallback (or --no-llm mode)
+    record["draft_letter"] = _template_letter(record)
+    record["draft_tier"] = "template"
     return record
 
 
@@ -169,7 +169,7 @@ def _template_letter(record):
     return letter
 
 
-def run(records, max_drafts=None):
+def run(records, max_drafts=None, use_llm=True):
     """Execute the drafting stage."""
     print("\n✍️  STAGE 4: DRAFT")
     print("─" * 50)
@@ -178,7 +178,7 @@ def run(records, max_drafts=None):
     tier_counts = {}
 
     for i, rec in enumerate(to_draft):
-        draft_letter(rec)
+        draft_letter(rec, use_llm=use_llm)
         tier = rec.get("draft_tier", "unknown")
         tier_counts[tier] = tier_counts.get(tier, 0) + 1
 
