@@ -376,6 +376,16 @@ let currentFilter = 'all';
 let currentRecord = null;
 
 async function loadData() {
+  // Prefer inlined data (written by run.py into results.html)
+  if (window.__PIPELINE_RECORDS && window.__PIPELINE_RECORDS.length > 0) {
+    DATA = window.__PIPELINE_RECORDS;
+    SUMMARY = window.__PIPELINE_SUMMARY || {};
+    updateStats();
+    renderList();
+    if (DATA.length > 0) selectRecord(0);
+    return;
+  }
+  // Fallback: try fetch (works when served via HTTP, fails on file://)
   try {
     const [recordsResp, summaryResp] = await Promise.all([
       fetch('../output/records.json'),

@@ -15,7 +15,7 @@ of what the room does Monday.
 - [ ] Terminal open, font size 18+, dark background
 - [ ] `cd` to the repo root
 - [ ] Pre-run: `python3 run.py --records 50 --max-drafts 10` (output already saved)
-- [ ] Browser open to `ui/index.html` with results loaded
+- [ ] Browser open to `ui/results.html` (self-contained, works from file://)
 - [ ] Verify a high-risk letter is visible (click through sidebar, find a red dot)
 - [ ] USB sticks at the door
 
@@ -139,7 +139,7 @@ python3 break/break1_strings.py fix
 
 ### Show a real LLM letter + review gate (3 min)
 
-Open the browser to `ui/index.html`. Click a record that has an
+Open the browser to `ui/results.html`. Click a record that has an
 LLM-drafted letter with review findings.
 
 > "This letter was written by a local model running on this laptop.

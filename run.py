@@ -90,9 +90,10 @@ def main():
     print(f"{'=' * 60}")
 
     _save_results(records, fix_log, val_stats, output_dir, elapsed, args)
+    _build_ui(records, output_dir, elapsed, args, val_stats)
 
     print(f"\n  Results saved to {output_dir}/")
-    print(f"  Open ui/index.html to view results")
+    print(f"  Open ui/results.html to view results (works from file://)")
     print(f"  LLM tier: {tier_status_line()}")
 
 
@@ -146,6 +147,63 @@ def _save_results(records, fix_log, val_stats, output_dir, elapsed, args):
     print(f"  Review passed:     {summary['review_passed']}")
     print(f"  Review flagged:    {summary['review_flagged']}")
     print(f"  High-risk letters: {summary['high_risk_letters']}")
+
+
+def _build_ui(records, output_dir, elapsed, args, val_stats):
+    """Write a self-contained ui/results.html with data inlined."""
+    ui_template = ROOT / "ui" / "index.html"
+    ui_output = ROOT / "ui" / "results.html"
+
+    if not ui_template.exists():
+        print("  ⚠ ui/index.html not found, skipping UI build")
+        return
+
+    template = ui_template.read_text(encoding="utf-8")
+
+    # Build the records and summary JSON for inlining
+    output_records = []
+    for rec in records:
+        out = dict(rec)
+        if len(out.get("narrative", "")) > 2000:
+            out["narrative"] = out["narrative"][:2000] + "..."
+        output_records.append(out)
+
+    drafted = [r for r in records if r.get("draft_letter")]
+    reviewed = [r for r in records if r.get("review_findings") is not None]
+    flagged = [r for r in records if not r.get("review_passed", True)]
+
+    summary = {
+        "total_records": len(records),
+        "drafted": len(drafted),
+        "reviewed": len(reviewed),
+        "review_passed": len(reviewed) - len(flagged),
+        "review_flagged": len(flagged),
+        "high_risk_letters": len([r for r in records if r.get("engagement_risk_level") == "high"]),
+        "elapsed_seconds": round(elapsed, 1),
+        "validation_stats": val_stats,
+        "settings": {
+            "llm_enabled": not args.no_llm,
+            "fix_balances": not args.no_fix_balances,
+            "strict_review": not args.loose_review,
+        }
+    }
+
+    records_json = json.dumps(output_records)
+    summary_json = json.dumps(summary)
+
+    # Inject data before the closing </head> tag as inline script
+    data_script = (
+        f'<script>\n'
+        f'window.__PIPELINE_RECORDS = {records_json};\n'
+        f'window.__PIPELINE_SUMMARY = {summary_json};\n'
+        f'</script>\n'
+    )
+
+    # Insert right before </head>
+    result_html = template.replace('</head>', data_script + '</head>', 1)
+
+    ui_output.write_text(result_html, encoding="utf-8")
+    print(f"  UI written to ui/results.html ({len(result_html) // 1024}KB, self-contained)")
 
 
 if __name__ == "__main__":
