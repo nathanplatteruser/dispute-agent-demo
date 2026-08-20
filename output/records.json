@@ -24,44 +24,86 @@
     "classified_type": "identity_theft",
     "classification_method": "ledger",
     "classification_confidence": 0.5,
-    "draft_letter": "[Date]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-437902\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Account ACC-437902\n\nWe acknowledge receipt of your dispute regarding the account with our agency. You have disputed the identity of the debt and requested validation of the debt. We take all disputes seriously and will investigate this matter.\n\nWe confirm that the original creditor for this account is Metro Physicians Group. The account was charged off on 2024-06-18, and the current balance is 10221.03. We have no record of any payments being made on this account.\n\nWe will provide you with the information you have requested regarding the debt, as required by the Fair Debt Collection Practices Act (FDCPA) and the Texas Credit Services Organization Act. We will send you a written validation notice, which will include the amount of the debt, the name of the creditor, and a statement that unless you dispute the validity of the debt, we will assume it is valid.\n\nPlease note that you have the right to dispute the validity of this debt and request a written verification of the debt. We will provide you with this information as soon as possible.\n\nIf you have any further questions or concerns, please do not hesitate to contact us.\n\nSincerely,\n\n[AGENCY NAME]",
+    "draft_letter": "[Date]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-437902\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Identity Theft\n\nWe acknowledge receipt of your dispute regarding the account ACC-437902. You have disputed the debt as identity theft. We take all disputes seriously and will investigate this matter in accordance with the Fair Debt Collection Practices Act (FDCPA) and the laws of the State of Texas.\n\nWe have reviewed the account information and confirmed that the original creditor is Metro Physicians Group. The current balance on the account is $10,221.03. The account was charged off on June 18, 2024.\n\nWe understand that you have requested validation of the debt. We will provide you with the necessary documentation to support the debt, including the original creditor's information and any relevant account statements.\n\nPlease note that we will investigate your allegations of robocalling and written notice. However, we can only confirm that we have attempted to contact you through various means, including phone calls and mail. We do not have any record of an old notice being sent to you.\n\nWe will investigate your dispute and respond to your concerns in accordance with the FDCPA and state law. You have the right to dispute this debt and may continue to do so. If you have any further concerns or questions, please do not hesitate to contact us.\n\nSincerely,\n\n[AGENCY NAME]\n\nNote: The letter does not address the consumer's allegations of misrepresentation of the law or the company's practices, as these are not supported by the facts in the record. The letter only acknowledges the dispute, confirms the facts, and states the agency's intention to investigate and provide validation.",
     "draft_tier": "ollama",
-    "review_findings": [],
-    "review_passed": true,
+    "review_findings": [
+      {
+        "severity": "critical",
+        "claim_type": "date",
+        "claim_value": "June 18, 2024",
+        "reason": "Date June 18, 2024 not found in source record",
+        "position": 593
+      }
+    ],
+    "review_passed": false,
     "review_warnings": 0,
-    "review_critical": 0,
+    "review_critical": 1,
     "consumer_annotations": [
       {
+        "id": "jargon_wall",
+        "matched_text": "in accordance with",
+        "position": 300,
+        "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
+        "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
+        "severity": "medium"
+      },
+      {
+        "id": "jargon_wall",
+        "matched_text": "in accordance with",
+        "position": 1165,
+        "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
+        "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
+        "severity": "medium"
+      },
+      {
         "id": "buried_rights",
-        "matched_text": "you have the right",
-        "position": 988,
+        "matched_text": "You have the right",
+        "position": 1209,
         "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
         "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
         "severity": "medium"
       }
     ],
-    "engagement_risk_score": 2,
-    "engagement_risk_level": "low",
+    "engagement_risk_score": 6,
+    "engagement_risk_level": "high",
     "agency_intent": "We're investigating your identity theft claim and pausing collection.",
     "consumer_impact": [
+      "'I can't understand this' \u2014 consumer stops reading",
       "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
     ],
     "consumer_view": {
-      "letter_text": "[Date]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-437902\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Account ACC-437902\n\nWe acknowledge receipt of your dispute regarding the account with our agency. You have disputed the identity of the debt and requested validation of the debt. We take all disputes seriously and will investigate this matter.\n\nWe confirm that the original creditor for this account is Metro Physicians Group. The account was charged off on 2024-06-18, and the current balance is 10221.03. We have no record of any payments being made on this account.\n\nWe will provide you with the information you have requested regarding the debt, as required by the Fair Debt Collection Practices Act (FDCPA) and the Texas Credit Services Organization Act. We will send you a written validation notice, which will include the amount of the debt, the name of the creditor, and a statement that unless you dispute the validity of the debt, we will assume it is valid.\n\nPlease note that you have the right to dispute the validity of this debt and request a written verification of the debt. We will provide you with this information as soon as possible.\n\nIf you have any further questions or concerns, please do not hesitate to contact us.\n\nSincerely,\n\n[AGENCY NAME]",
+      "letter_text": "[Date]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-437902\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Identity Theft\n\nWe acknowledge receipt of your dispute regarding the account ACC-437902. You have disputed the debt as identity theft. We take all disputes seriously and will investigate this matter in accordance with the Fair Debt Collection Practices Act (FDCPA) and the laws of the State of Texas.\n\nWe have reviewed the account information and confirmed that the original creditor is Metro Physicians Group. The current balance on the account is $10,221.03. The account was charged off on June 18, 2024.\n\nWe understand that you have requested validation of the debt. We will provide you with the necessary documentation to support the debt, including the original creditor's information and any relevant account statements.\n\nPlease note that we will investigate your allegations of robocalling and written notice. However, we can only confirm that we have attempted to contact you through various means, including phone calls and mail. We do not have any record of an old notice being sent to you.\n\nWe will investigate your dispute and respond to your concerns in accordance with the FDCPA and state law. You have the right to dispute this debt and may continue to do so. If you have any further concerns or questions, please do not hesitate to contact us.\n\nSincerely,\n\n[AGENCY NAME]\n\nNote: The letter does not address the consumer's allegations of misrepresentation of the law or the company's practices, as these are not supported by the facts in the record. The letter only acknowledges the dispute, confirms the facts, and states the agency's intention to investigate and provide validation.",
       "annotations": [
         {
+          "id": "jargon_wall",
+          "matched_text": "in accordance with",
+          "position": 300,
+          "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
+          "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
+          "severity": "medium"
+        },
+        {
+          "id": "jargon_wall",
+          "matched_text": "in accordance with",
+          "position": 1165,
+          "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
+          "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
+          "severity": "medium"
+        },
+        {
           "id": "buried_rights",
-          "matched_text": "you have the right",
-          "position": 988,
+          "matched_text": "You have the right",
+          "position": 1209,
           "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
           "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
           "severity": "medium"
         }
       ],
-      "risk_score": 2,
-      "risk_level": "low",
+      "risk_score": 6,
+      "risk_level": "high",
       "intent": "We're investigating your identity theft claim and pausing collection.",
       "impact": [
+        "'I can't understand this' \u2014 consumer stops reading",
         "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
       ],
       "account_id": "ACC-437902",
@@ -93,66 +135,42 @@
     "classified_type": "validation_request",
     "classification_method": "keywords",
     "classification_confidence": 0.75,
-    "draft_letter": "[DATE]\n[CONSUMER ADDRESS]\nRE: Account reference: ACC-356736\n\nDear [CONSUMER NAME],\n\nRe: Account reference: ACC-356736\n\nWe acknowledge receipt of your dispute letter requesting validation of the collection account referenced above. We understand that you are requesting documentation to verify the debt's validity, as per your rights under the Fair Debt Collection Practices Act (FDCPA).\n\nWe have reviewed the account information on file and can confirm the following: the original creditor is Heartland Savings Bank, the current balance is $6,598.77, and the charge-off date was February 2, 2021. However, we do not have a record of any payments made on this account.\n\nWe will investigate your request and provide the necessary documentation to support the debt's validity. This will include the name of the original creditor, the total amount owed, and proof of the charge-off date. Please note that we do not have a payment history to provide, as there have been no payments made on this account.\n\nWe will send you the requested documentation within the next 30 days, as required by the FDCPA. If you have any further questions or concerns, please do not hesitate to contact us.\n\nPlease be aware that you have the right to dispute this debt further if you believe the documentation provided does not accurately reflect your account.\n\nSincerely,\n\n[AGENCY NAME]",
+    "draft_letter": "[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-356736\n\nDear [CONSUMER],\n\nWe acknowledge receipt of your dispute letter regarding the account referenced above. We understand that you have requested validation of this account under the Fair Debt Collection Practices Act (FDCPA).\n\nWe confirm that the account is currently listed as a charge-off account with a balance of 6598.77. The original creditor for this account is Heartland Savings Bank. Unfortunately, our records do not indicate any payments made on this account.\n\nWe will investigate your request and provide a response within the timeframe required by state law and the FDCPA. We will review the account information and provide any documentation that may be relevant to your request.\n\nPlease note that your dispute has been acknowledged, and we will take the necessary steps to investigate and respond to your request. You have the right to further dispute this account if you believe the information provided is inaccurate or incomplete.\n\nSincerely,\n\n[AGENCY NAME]\n\nNote: The letter does not include a response to the consumer's request for a \"complete payment history\" as this is not a fact that can be confirmed from the record. The letter also does not include a statement about \"proof that I am legally responsible for the account\" as this is not a requirement for validation under the FDCPA.",
     "draft_tier": "ollama",
-    "review_findings": [
-      {
-        "severity": "critical",
-        "claim_type": "date",
-        "claim_value": "February 2, 2021",
-        "reason": "Date February 2, 2021 not found in source record",
-        "position": 579
-      }
-    ],
-    "review_passed": false,
+    "review_findings": [],
+    "review_passed": true,
     "review_warnings": 0,
-    "review_critical": 1,
+    "review_critical": 0,
     "consumer_annotations": [
       {
         "id": "buried_rights",
-        "matched_text": "your rights under",
-        "position": 321,
-        "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
-        "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
-        "severity": "medium"
-      },
-      {
-        "id": "buried_rights",
-        "matched_text": "you have the right",
-        "position": 1203,
+        "matched_text": "You have the right",
+        "position": 887,
         "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
         "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
         "severity": "medium"
       }
     ],
-    "engagement_risk_score": 4,
-    "engagement_risk_level": "medium",
+    "engagement_risk_score": 2,
+    "engagement_risk_level": "low",
     "agency_intent": "We're getting the original documentation to prove the debt is valid.",
     "consumer_impact": [
       "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
     ],
     "consumer_view": {
-      "letter_text": "[DATE]\n[CONSUMER ADDRESS]\nRE: Account reference: ACC-356736\n\nDear [CONSUMER NAME],\n\nRe: Account reference: ACC-356736\n\nWe acknowledge receipt of your dispute letter requesting validation of the collection account referenced above. We understand that you are requesting documentation to verify the debt's validity, as per your rights under the Fair Debt Collection Practices Act (FDCPA).\n\nWe have reviewed the account information on file and can confirm the following: the original creditor is Heartland Savings Bank, the current balance is $6,598.77, and the charge-off date was February 2, 2021. However, we do not have a record of any payments made on this account.\n\nWe will investigate your request and provide the necessary documentation to support the debt's validity. This will include the name of the original creditor, the total amount owed, and proof of the charge-off date. Please note that we do not have a payment history to provide, as there have been no payments made on this account.\n\nWe will send you the requested documentation within the next 30 days, as required by the FDCPA. If you have any further questions or concerns, please do not hesitate to contact us.\n\nPlease be aware that you have the right to dispute this debt further if you believe the documentation provided does not accurately reflect your account.\n\nSincerely,\n\n[AGENCY NAME]",
+      "letter_text": "[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-356736\n\nDear [CONSUMER],\n\nWe acknowledge receipt of your dispute letter regarding the account referenced above. We understand that you have requested validation of this account under the Fair Debt Collection Practices Act (FDCPA).\n\nWe confirm that the account is currently listed as a charge-off account with a balance of 6598.77. The original creditor for this account is Heartland Savings Bank. Unfortunately, our records do not indicate any payments made on this account.\n\nWe will investigate your request and provide a response within the timeframe required by state law and the FDCPA. We will review the account information and provide any documentation that may be relevant to your request.\n\nPlease note that your dispute has been acknowledged, and we will take the necessary steps to investigate and respond to your request. You have the right to further dispute this account if you believe the information provided is inaccurate or incomplete.\n\nSincerely,\n\n[AGENCY NAME]\n\nNote: The letter does not include a response to the consumer's request for a \"complete payment history\" as this is not a fact that can be confirmed from the record. The letter also does not include a statement about \"proof that I am legally responsible for the account\" as this is not a requirement for validation under the FDCPA.",
       "annotations": [
         {
           "id": "buried_rights",
-          "matched_text": "your rights under",
-          "position": 321,
-          "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
-          "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
-          "severity": "medium"
-        },
-        {
-          "id": "buried_rights",
-          "matched_text": "you have the right",
-          "position": 1203,
+          "matched_text": "You have the right",
+          "position": 887,
           "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
           "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
           "severity": "medium"
         }
       ],
-      "risk_score": 4,
-      "risk_level": "medium",
+      "risk_score": 2,
+      "risk_level": "low",
       "intent": "We're getting the original documentation to prove the debt is valid.",
       "impact": [
         "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
@@ -186,7 +204,7 @@
     "classified_type": "wrong_amount",
     "classification_method": "ledger",
     "classification_confidence": 0.5,
-    "draft_letter": "[Date]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-105814\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Account ACC-105814\n\nWe acknowledge receipt of your dispute regarding the amount owed on account ACC-105814. We understand that you have requested validation of the debt, which we will provide as per the Fair Debt Collection Practices Act (FDCPA) and Delaware state law.\n\nWe have reviewed the information on file, and the current balance on account ACC-105814 is $4524.94. The original creditor for this account is Meridian Federal Credit Union. The account was charged off on November 26, 2023, and the last payment was received on April 13, 2023.\n\nWe will conduct an investigation into the dispute and verify the accuracy of the amount owed. As part of this process, we will provide you with a validation of the debt, which will include the original creditor's name, the amount owed, and any other relevant information.\n\nPlease note that we will continue to communicate with you regarding this account, and we will provide any additional information as necessary. If you have any further questions or concerns, please do not hesitate to contact us.\n\nYou have the right to dispute this account further if you believe the amount owed is incorrect. Please contact us in writing if you wish to continue disputing the account.\n\nSincerely,\n\n[AGENCY NAME]\n\ncc: Credit Reporting Agencies (as required by law)\n\nNote: This letter is a response to the consumer's dispute and acknowledges their request for validation. It also states the agency's intention to investigate the dispute and provide a validation of the debt. The letter is written in a professional and respectful tone, as required.",
+    "draft_letter": "[Date]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-105814\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Account ACC-105814\n\nWe acknowledge receipt of your dispute letter regarding the account referenced above. We understand that you have requested that we review the attached documents for accuracy. We take all disputes seriously and will investigate the matter accordingly.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA), we are required to provide you with validation of the debt. As the account is in a charged-off status, we will provide you with a copy of the original creditor's account information, including the charge-off date of November 26, 2023. The current balance on the account is $4524.94.\n\nWe will investigate the discrepancies you have raised regarding the account. However, we must inform you that we do not have any information indicating that the amount owed is incorrect. The last payment made on the account was on April 13, 2023.\n\nPlease note that you have the right to dispute this account further if you believe that the amount owed is incorrect. You may also request a copy of the validation we provide.\n\nWe will review the attached documents and respond to your concerns in a timely manner. If you have any further questions or concerns, please do not hesitate to contact us.\n\nSincerely,\n\n[AGENCY NAME]\n[AGENCY ADDRESS]\n[AGENCY CONTACT INFORMATION]",
     "draft_tier": "ollama",
     "review_findings": [
       {
@@ -194,14 +212,14 @@
         "claim_type": "date",
         "claim_value": "November 26, 2023",
         "reason": "Date November 26, 2023 not found in source record",
-        "position": 577
+        "position": 650
       },
       {
         "severity": "critical",
         "claim_type": "date",
         "claim_value": "April 13, 2023",
         "reason": "Date April 13, 2023 not found in source record",
-        "position": 633
+        "position": 949
       }
     ],
     "review_passed": false,
@@ -209,36 +227,54 @@
     "review_critical": 2,
     "consumer_annotations": [
       {
+        "id": "jargon_wall",
+        "matched_text": "Pursuant to",
+        "position": 374,
+        "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
+        "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
+        "severity": "medium"
+      },
+      {
         "id": "buried_rights",
-        "matched_text": "You have the right",
-        "position": 1152,
+        "matched_text": "you have the right",
+        "position": 983,
         "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
         "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
         "severity": "medium"
       }
     ],
-    "engagement_risk_score": 2,
-    "engagement_risk_level": "low",
+    "engagement_risk_score": 4,
+    "engagement_risk_level": "medium",
     "agency_intent": "We're reviewing the balance and will send you an itemized breakdown.",
     "consumer_impact": [
+      "'I can't understand this' \u2014 consumer stops reading",
       "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
     ],
     "consumer_view": {
-      "letter_text": "[Date]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-105814\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Account ACC-105814\n\nWe acknowledge receipt of your dispute regarding the amount owed on account ACC-105814. We understand that you have requested validation of the debt, which we will provide as per the Fair Debt Collection Practices Act (FDCPA) and Delaware state law.\n\nWe have reviewed the information on file, and the current balance on account ACC-105814 is $4524.94. The original creditor for this account is Meridian Federal Credit Union. The account was charged off on November 26, 2023, and the last payment was received on April 13, 2023.\n\nWe will conduct an investigation into the dispute and verify the accuracy of the amount owed. As part of this process, we will provide you with a validation of the debt, which will include the original creditor's name, the amount owed, and any other relevant information.\n\nPlease note that we will continue to communicate with you regarding this account, and we will provide any additional information as necessary. If you have any further questions or concerns, please do not hesitate to contact us.\n\nYou have the right to dispute this account further if you believe the amount owed is incorrect. Please contact us in writing if you wish to continue disputing the account.\n\nSincerely,\n\n[AGENCY NAME]\n\ncc: Credit Reporting Agencies (as required by law)\n\nNote: This letter is a response to the consumer's dispute and acknowledges their request for validation. It also states the agency's intention to investigate the dispute and provide a validation of the debt. The letter is written in a professional and respectful tone, as required.",
+      "letter_text": "[Date]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-105814\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Account ACC-105814\n\nWe acknowledge receipt of your dispute letter regarding the account referenced above. We understand that you have requested that we review the attached documents for accuracy. We take all disputes seriously and will investigate the matter accordingly.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA), we are required to provide you with validation of the debt. As the account is in a charged-off status, we will provide you with a copy of the original creditor's account information, including the charge-off date of November 26, 2023. The current balance on the account is $4524.94.\n\nWe will investigate the discrepancies you have raised regarding the account. However, we must inform you that we do not have any information indicating that the amount owed is incorrect. The last payment made on the account was on April 13, 2023.\n\nPlease note that you have the right to dispute this account further if you believe that the amount owed is incorrect. You may also request a copy of the validation we provide.\n\nWe will review the attached documents and respond to your concerns in a timely manner. If you have any further questions or concerns, please do not hesitate to contact us.\n\nSincerely,\n\n[AGENCY NAME]\n[AGENCY ADDRESS]\n[AGENCY CONTACT INFORMATION]",
       "annotations": [
         {
+          "id": "jargon_wall",
+          "matched_text": "Pursuant to",
+          "position": 374,
+          "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
+          "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
+          "severity": "medium"
+        },
+        {
           "id": "buried_rights",
-          "matched_text": "You have the right",
-          "position": 1152,
+          "matched_text": "you have the right",
+          "position": 983,
           "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
           "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
           "severity": "medium"
         }
       ],
-      "risk_score": 2,
-      "risk_level": "low",
+      "risk_score": 4,
+      "risk_level": "medium",
       "intent": "We're reviewing the balance and will send you an itemized breakdown.",
       "impact": [
+        "'I can't understand this' \u2014 consumer stops reading",
         "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
       ],
       "account_id": "ACC-105814",
@@ -270,7 +306,7 @@
     "classified_type": "identity_theft",
     "classification_method": "ledger",
     "classification_confidence": 0.5,
-    "draft_letter": "[DATE]\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-879779\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Identity Theft\n\nWe acknowledge receipt of your dispute regarding the account ACC-879779, which you claim is the result of identity theft. We understand that you are disputing the account due to alleged discrepancies in the account information.\n\nWe have reviewed the account information and confirmed that the account is currently listed with a balance of $5831.47. The original creditor for this account is Liberty Credit Corp. Pursuant to the Fair Debt Collection Practices Act (FDCPA), 15 U.S.C. \u00a7 1692g, we are required to provide you with a written validation of the debt within five days of your initial communication.\n\nWe have investigated the account and found that the charge-off date for this account is May 11, 2024, and the last payment date was October 3, 2025. We have also confirmed that the account was not previously disputed as being the result of identity theft.\n\nWe will investigate this matter further and provide you with a written validation of the debt, as required by law. If our investigation confirms that the account is indeed the result of identity theft, we will take the necessary steps to correct our records and cease collection activities.\n\nYou have the right to dispute this account further, and we encourage you to provide any additional information or documentation that you believe may be relevant to this matter. Please note that you may also contact the New Hampshire Attorney General's Office or the Consumer Financial Protection Bureau for further assistance.\n\nSincerely,\n\n[AGENCY NAME]\nCompliance Department",
+    "draft_letter": "[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-879779\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Identity Theft\n\nWe acknowledge receipt of your dispute regarding the debt collection of Account ID: ACC-879779. We understand that you are disputing the identity of the account holder. We take all disputes seriously and will investigate this matter in accordance with the Fair Debt Collection Practices Act (FDCPA) and New Hampshire state law.\n\nWe have reviewed the account information and confirm that the original creditor is Liberty Credit Corp. The current balance on the account is $5,831.47. We also note that the charge-off date was May 11, 2024, and the last payment date was October 3, 2025.\n\nWe will investigate your dispute and verify the accuracy of the account information. If we determine that the account information is incorrect, we will take the necessary steps to correct it. If we confirm that the account information is accurate, we will provide you with a validation of the debt as required by the FDCPA.\n\nPlease be advised that you have the right to dispute this debt further if you believe that the investigation did not adequately address your concerns. You may also request a copy of the validation of the debt if we confirm that the account information is accurate.\n\nWe appreciate your prompt attention to this matter and will keep you informed of any developments.\n\nSincerely,\n\n[AGENCY NAME]\n\nNote: The letter does not address the consumer's claims of identity theft, as it is not supported by the facts in the record. The letter only acknowledges the dispute and states that the agency will investigate the accuracy of the account information.",
     "draft_tier": "ollama",
     "review_findings": [
       {
@@ -278,14 +314,14 @@
         "claim_type": "date",
         "claim_value": "May 11, 2024",
         "reason": "Date May 11, 2024 not found in source record",
-        "position": 813
+        "position": 641
       },
       {
         "severity": "critical",
         "claim_type": "date",
         "claim_value": "October 3, 2025",
         "reason": "Date October 3, 2025 not found in source record",
-        "position": 857
+        "position": 685
       }
     ],
     "review_passed": false,
@@ -294,53 +330,71 @@
     "consumer_annotations": [
       {
         "id": "jargon_wall",
-        "matched_text": "Pursuant to",
-        "position": 528,
+        "matched_text": "in accordance with",
+        "position": 350,
         "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
         "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
         "severity": "medium"
       },
       {
+        "id": "urgency_without_clarity",
+        "matched_text": "prompt attention",
+        "position": 1313,
+        "flag": "Urgency language without clear action steps \u2014 triggers panic or avoidance, not compliance",
+        "cfpb_grounding": "CFPB pattern: 'They said it was urgent but didn't tell me what to actually do'",
+        "severity": "high"
+      },
+      {
         "id": "buried_rights",
-        "matched_text": "You have the right",
-        "position": 1274,
+        "matched_text": "you have the right",
+        "position": 1051,
         "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
         "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
         "severity": "medium"
       }
     ],
-    "engagement_risk_score": 4,
-    "engagement_risk_level": "medium",
+    "engagement_risk_score": 7,
+    "engagement_risk_level": "high",
     "agency_intent": "We're investigating your identity theft claim and pausing collection.",
     "consumer_impact": [
       "'I can't understand this' \u2014 consumer stops reading",
+      "'Something bad is about to happen but I don't know what to do' \u2014 paralysis",
       "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
     ],
     "consumer_view": {
-      "letter_text": "[DATE]\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-879779\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Identity Theft\n\nWe acknowledge receipt of your dispute regarding the account ACC-879779, which you claim is the result of identity theft. We understand that you are disputing the account due to alleged discrepancies in the account information.\n\nWe have reviewed the account information and confirmed that the account is currently listed with a balance of $5831.47. The original creditor for this account is Liberty Credit Corp. Pursuant to the Fair Debt Collection Practices Act (FDCPA), 15 U.S.C. \u00a7 1692g, we are required to provide you with a written validation of the debt within five days of your initial communication.\n\nWe have investigated the account and found that the charge-off date for this account is May 11, 2024, and the last payment date was October 3, 2025. We have also confirmed that the account was not previously disputed as being the result of identity theft.\n\nWe will investigate this matter further and provide you with a written validation of the debt, as required by law. If our investigation confirms that the account is indeed the result of identity theft, we will take the necessary steps to correct our records and cease collection activities.\n\nYou have the right to dispute this account further, and we encourage you to provide any additional information or documentation that you believe may be relevant to this matter. Please note that you may also contact the New Hampshire Attorney General's Office or the Consumer Financial Protection Bureau for further assistance.\n\nSincerely,\n\n[AGENCY NAME]\nCompliance Department",
+      "letter_text": "[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-879779\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Identity Theft\n\nWe acknowledge receipt of your dispute regarding the debt collection of Account ID: ACC-879779. We understand that you are disputing the identity of the account holder. We take all disputes seriously and will investigate this matter in accordance with the Fair Debt Collection Practices Act (FDCPA) and New Hampshire state law.\n\nWe have reviewed the account information and confirm that the original creditor is Liberty Credit Corp. The current balance on the account is $5,831.47. We also note that the charge-off date was May 11, 2024, and the last payment date was October 3, 2025.\n\nWe will investigate your dispute and verify the accuracy of the account information. If we determine that the account information is incorrect, we will take the necessary steps to correct it. If we confirm that the account information is accurate, we will provide you with a validation of the debt as required by the FDCPA.\n\nPlease be advised that you have the right to dispute this debt further if you believe that the investigation did not adequately address your concerns. You may also request a copy of the validation of the debt if we confirm that the account information is accurate.\n\nWe appreciate your prompt attention to this matter and will keep you informed of any developments.\n\nSincerely,\n\n[AGENCY NAME]\n\nNote: The letter does not address the consumer's claims of identity theft, as it is not supported by the facts in the record. The letter only acknowledges the dispute and states that the agency will investigate the accuracy of the account information.",
       "annotations": [
         {
           "id": "jargon_wall",
-          "matched_text": "Pursuant to",
-          "position": 528,
+          "matched_text": "in accordance with",
+          "position": 350,
           "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
           "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
           "severity": "medium"
         },
         {
+          "id": "urgency_without_clarity",
+          "matched_text": "prompt attention",
+          "position": 1313,
+          "flag": "Urgency language without clear action steps \u2014 triggers panic or avoidance, not compliance",
+          "cfpb_grounding": "CFPB pattern: 'They said it was urgent but didn't tell me what to actually do'",
+          "severity": "high"
+        },
+        {
           "id": "buried_rights",
-          "matched_text": "You have the right",
-          "position": 1274,
+          "matched_text": "you have the right",
+          "position": 1051,
           "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
           "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
           "severity": "medium"
         }
       ],
-      "risk_score": 4,
-      "risk_level": "medium",
+      "risk_score": 7,
+      "risk_level": "high",
       "intent": "We're investigating your identity theft claim and pausing collection.",
       "impact": [
         "'I can't understand this' \u2014 consumer stops reading",
+        "'Something bad is about to happen but I don't know what to do' \u2014 paralysis",
         "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
       ],
       "account_id": "ACC-879779",
@@ -372,7 +426,7 @@
     "classified_type": "wrong_amount",
     "classification_method": "ledger",
     "classification_confidence": 0.5,
-    "draft_letter": "[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-666390\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Account ACC-666390\n\nWe acknowledge receipt of your dispute letter regarding the account referenced above. You have disputed the amount of $1482.1 as being incorrect. We will investigate this matter in accordance with the Fair Debt Collection Practices Act (FDCPA) and New Jersey state law.\n\nWe have reviewed the account information and confirm that the original creditor is Summit Trust Bank. The account was charged off on 2021-03-14 and the last payment was made on 2023-04-15.\n\nWe will provide you with a validation of the debt, as requested, which will include the original creditor, the amount owed, and the charge-off date. This validation will be sent to you separately.\n\nPlease note that we will not be removing the account from your credit report at this time, as the account is legitimate and the amount owed is accurate. However, we will continue to investigate your dispute and will respond to you with any additional information or actions we take as a result of our investigation.\n\nYou have the right to dispute this debt further if you believe it is inaccurate or incomplete. Please contact us at [AGENCY PHONE NUMBER] if you have any additional information or concerns.\n\nSincerely,\n\n[AGENCY NAME]\n\nNote: The letter does not address the consumer's claim of not authorizing the transactions, as this is not a fact supported by the record. The letter only addresses the dispute of the amount and provides the required validation.",
+    "draft_letter": "[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-666390\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Account ACC-666390\n\nWe acknowledge receipt of your dispute regarding the account ACC-666390. We understand that you have disputed the amount on this account. According to our records, the current balance on this account is 1482.1.\n\nWe will investigate your dispute and verify the accuracy of the amount on this account. As per the Fair Debt Collection Practices Act (FDCPA), we are required to provide you with a validation notice within five days of your dispute. We will send you a validation notice with the original creditor's name, the amount you owe, and the name of the creditor to whom you owe the debt. The original creditor for this account is Summit Trust Bank.\n\nWe will also review our records to ensure that we have the necessary documentation to support the amount on this account. We will investigate the charge-off date of 2021-03-14 and the last payment date of 2023-04-15.\n\nPlease note that under New Jersey state law, we are required to provide you with a written notice of the amount you owe and the name of the creditor to whom you owe the debt. We will provide you with this notice as part of our validation process.\n\nYou have the right to dispute this account further if you believe that the amount is still incorrect. We will continue to work with you to resolve this matter.\n\nSincerely,\n\n[AGENCY NAME]",
     "draft_tier": "ollama",
     "review_findings": [],
     "review_passed": true,
@@ -380,54 +434,36 @@
     "review_critical": 0,
     "consumer_annotations": [
       {
-        "id": "jargon_wall",
-        "matched_text": "in accordance with",
-        "position": 299,
-        "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
-        "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
-        "severity": "medium"
-      },
-      {
         "id": "buried_rights",
         "matched_text": "You have the right",
-        "position": 1097,
+        "position": 1241,
         "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
         "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
         "severity": "medium"
       }
     ],
-    "engagement_risk_score": 4,
-    "engagement_risk_level": "medium",
+    "engagement_risk_score": 2,
+    "engagement_risk_level": "low",
     "agency_intent": "We're reviewing the balance and will send you an itemized breakdown.",
     "consumer_impact": [
-      "'I can't understand this' \u2014 consumer stops reading",
       "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
     ],
     "consumer_view": {
-      "letter_text": "[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-666390\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Account ACC-666390\n\nWe acknowledge receipt of your dispute letter regarding the account referenced above. You have disputed the amount of $1482.1 as being incorrect. We will investigate this matter in accordance with the Fair Debt Collection Practices Act (FDCPA) and New Jersey state law.\n\nWe have reviewed the account information and confirm that the original creditor is Summit Trust Bank. The account was charged off on 2021-03-14 and the last payment was made on 2023-04-15.\n\nWe will provide you with a validation of the debt, as requested, which will include the original creditor, the amount owed, and the charge-off date. This validation will be sent to you separately.\n\nPlease note that we will not be removing the account from your credit report at this time, as the account is legitimate and the amount owed is accurate. However, we will continue to investigate your dispute and will respond to you with any additional information or actions we take as a result of our investigation.\n\nYou have the right to dispute this debt further if you believe it is inaccurate or incomplete. Please contact us at [AGENCY PHONE NUMBER] if you have any additional information or concerns.\n\nSincerely,\n\n[AGENCY NAME]\n\nNote: The letter does not address the consumer's claim of not authorizing the transactions, as this is not a fact supported by the record. The letter only addresses the dispute of the amount and provides the required validation.",
+      "letter_text": "[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-666390\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Account ACC-666390\n\nWe acknowledge receipt of your dispute regarding the account ACC-666390. We understand that you have disputed the amount on this account. According to our records, the current balance on this account is 1482.1.\n\nWe will investigate your dispute and verify the accuracy of the amount on this account. As per the Fair Debt Collection Practices Act (FDCPA), we are required to provide you with a validation notice within five days of your dispute. We will send you a validation notice with the original creditor's name, the amount you owe, and the name of the creditor to whom you owe the debt. The original creditor for this account is Summit Trust Bank.\n\nWe will also review our records to ensure that we have the necessary documentation to support the amount on this account. We will investigate the charge-off date of 2021-03-14 and the last payment date of 2023-04-15.\n\nPlease note that under New Jersey state law, we are required to provide you with a written notice of the amount you owe and the name of the creditor to whom you owe the debt. We will provide you with this notice as part of our validation process.\n\nYou have the right to dispute this account further if you believe that the amount is still incorrect. We will continue to work with you to resolve this matter.\n\nSincerely,\n\n[AGENCY NAME]",
       "annotations": [
-        {
-          "id": "jargon_wall",
-          "matched_text": "in accordance with",
-          "position": 299,
-          "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
-          "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
-          "severity": "medium"
-        },
         {
           "id": "buried_rights",
           "matched_text": "You have the right",
-          "position": 1097,
+          "position": 1241,
           "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
           "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
           "severity": "medium"
         }
       ],
-      "risk_score": 4,
-      "risk_level": "medium",
+      "risk_score": 2,
+      "risk_level": "low",
       "intent": "We're reviewing the balance and will send you an itemized breakdown.",
       "impact": [
-        "'I can't understand this' \u2014 consumer stops reading",
         "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
       ],
       "account_id": "ACC-666390",
@@ -459,25 +495,32 @@
     "classified_type": "wrong_amount",
     "classification_method": "ledger",
     "classification_confidence": 0.5,
-    "draft_letter": "[AGENCY NAME]\n[AGENCY ADDRESS]\n[DATE]\n\n[CONSUMER NAME]\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-600149\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Account ACC-600149\n\nWe acknowledge receipt of your dispute letter regarding the accuracy of the account information associated with Account ID ACC-600149. We understand that you have raised concerns about the amount owed on this account.\n\nPursuant to the Fair Credit Reporting Act (FCRA), 15 USC 1681e(b), we are required to investigate the disputed information. We will conduct a thorough review of the account details, including the current balance of $20,370.53, to verify the accuracy of the information.\n\nWe will also review the account's history, including the charge-off date of 2022-05-08 and the last payment date of 2023-03-28. Our investigation will be conducted in accordance with the FCRA and Louisiana state law.\n\nPlease be advised that we will respond to your dispute in writing, as required by the FCRA, and provide you with the results of our investigation. If our investigation confirms that the information is inaccurate, we will take the necessary steps to correct the account information.\n\nYou have the right to further dispute the account information if you disagree with the results of our investigation. Please note that we will provide you with a written validation of the debt if our investigation confirms that the account is valid.\n\nSincerely,\n\n[AGENCY NAME]\n[AGENCY CONTACT INFORMATION]",
+    "draft_letter": "[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-600149\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Account ACC-600149\n\nWe acknowledge receipt of your dispute letter regarding the accuracy of the account information associated with Account ID ACC-600149. We understand that you have disputed the amount of the debt.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA) and the laws of the State of Louisiana, we are required to investigate your dispute and verify the accuracy of the debt. We will conduct a thorough review of the account to ensure that the information is accurate and up-to-date.\n\nOur records indicate that the current balance of the account is $20,370.53. We will investigate this amount and provide you with the results of our review. If our investigation confirms that the amount is accurate, we will provide you with a validation of the debt. If, however, our investigation reveals that the amount is incorrect, we will take the necessary steps to correct the error.\n\nPlease note that the original creditor for this account is Horizon Card Co. The charge-off date for this account was May 8, 2022, and the last payment date was March 28, 2023.\n\nYou have the right to dispute this account further if you believe that our investigation did not resolve the issue. We will provide you with a written response to our investigation within 30 days of receiving your dispute.\n\nIf you have any questions or concerns regarding this matter, please do not hesitate to contact us.\n\nSincerely,\n\n[AGENCY NAME]",
     "draft_tier": "ollama",
-    "review_findings": [],
-    "review_passed": true,
+    "review_findings": [
+      {
+        "severity": "critical",
+        "claim_type": "date",
+        "claim_value": "May 8, 2022",
+        "reason": "Date May 8, 2022 not found in source record",
+        "position": 1115
+      },
+      {
+        "severity": "critical",
+        "claim_type": "date",
+        "claim_value": "March 28, 2023",
+        "reason": "Date March 28, 2023 not found in source record",
+        "position": 1158
+      }
+    ],
+    "review_passed": false,
     "review_warnings": 0,
-    "review_critical": 0,
+    "review_critical": 2,
     "consumer_annotations": [
       {
         "id": "jargon_wall",
         "matched_text": "Pursuant to",
-        "position": 387,
-        "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
-        "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
-        "severity": "medium"
-      },
-      {
-        "id": "jargon_wall",
-        "matched_text": "in accordance with",
-        "position": 822,
+        "position": 318,
         "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
         "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
         "severity": "medium"
@@ -485,34 +528,26 @@
       {
         "id": "buried_rights",
         "matched_text": "You have the right",
-        "position": 1159,
+        "position": 1175,
         "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
         "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
         "severity": "medium"
       }
     ],
-    "engagement_risk_score": 6,
-    "engagement_risk_level": "high",
+    "engagement_risk_score": 4,
+    "engagement_risk_level": "medium",
     "agency_intent": "We're reviewing the balance and will send you an itemized breakdown.",
     "consumer_impact": [
       "'I can't understand this' \u2014 consumer stops reading",
       "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
     ],
     "consumer_view": {
-      "letter_text": "[AGENCY NAME]\n[AGENCY ADDRESS]\n[DATE]\n\n[CONSUMER NAME]\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-600149\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Account ACC-600149\n\nWe acknowledge receipt of your dispute letter regarding the accuracy of the account information associated with Account ID ACC-600149. We understand that you have raised concerns about the amount owed on this account.\n\nPursuant to the Fair Credit Reporting Act (FCRA), 15 USC 1681e(b), we are required to investigate the disputed information. We will conduct a thorough review of the account details, including the current balance of $20,370.53, to verify the accuracy of the information.\n\nWe will also review the account's history, including the charge-off date of 2022-05-08 and the last payment date of 2023-03-28. Our investigation will be conducted in accordance with the FCRA and Louisiana state law.\n\nPlease be advised that we will respond to your dispute in writing, as required by the FCRA, and provide you with the results of our investigation. If our investigation confirms that the information is inaccurate, we will take the necessary steps to correct the account information.\n\nYou have the right to further dispute the account information if you disagree with the results of our investigation. Please note that we will provide you with a written validation of the debt if our investigation confirms that the account is valid.\n\nSincerely,\n\n[AGENCY NAME]\n[AGENCY CONTACT INFORMATION]",
+      "letter_text": "[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-600149\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Account ACC-600149\n\nWe acknowledge receipt of your dispute letter regarding the accuracy of the account information associated with Account ID ACC-600149. We understand that you have disputed the amount of the debt.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA) and the laws of the State of Louisiana, we are required to investigate your dispute and verify the accuracy of the debt. We will conduct a thorough review of the account to ensure that the information is accurate and up-to-date.\n\nOur records indicate that the current balance of the account is $20,370.53. We will investigate this amount and provide you with the results of our review. If our investigation confirms that the amount is accurate, we will provide you with a validation of the debt. If, however, our investigation reveals that the amount is incorrect, we will take the necessary steps to correct the error.\n\nPlease note that the original creditor for this account is Horizon Card Co. The charge-off date for this account was May 8, 2022, and the last payment date was March 28, 2023.\n\nYou have the right to dispute this account further if you believe that our investigation did not resolve the issue. We will provide you with a written response to our investigation within 30 days of receiving your dispute.\n\nIf you have any questions or concerns regarding this matter, please do not hesitate to contact us.\n\nSincerely,\n\n[AGENCY NAME]",
       "annotations": [
         {
           "id": "jargon_wall",
           "matched_text": "Pursuant to",
-          "position": 387,
-          "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
-          "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
-          "severity": "medium"
-        },
-        {
-          "id": "jargon_wall",
-          "matched_text": "in accordance with",
-          "position": 822,
+          "position": 318,
           "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
           "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
           "severity": "medium"
@@ -520,14 +555,14 @@
         {
           "id": "buried_rights",
           "matched_text": "You have the right",
-          "position": 1159,
+          "position": 1175,
           "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
           "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
           "severity": "medium"
         }
       ],
-      "risk_score": 6,
-      "risk_level": "high",
+      "risk_score": 4,
+      "risk_level": "medium",
       "intent": "We're reviewing the balance and will send you an itemized breakdown.",
       "impact": [
         "'I can't understand this' \u2014 consumer stops reading",
@@ -562,15 +597,15 @@
     "classified_type": "already_paid",
     "classification_method": "ledger",
     "classification_confidence": 0.5,
-    "draft_letter": "[Date]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-981334\n\nDear [CONSUMER NAME],\n\nRe: Account reference: ACC-981334\n\nWe acknowledge receipt of your dispute regarding the account with Account ID: ACC-981334. You have disputed that the debt has already been paid. We will investigate this claim in accordance with the Fair Debt Collection Practices Act (FDCPA) and Florida state law.\n\nWe have reviewed the account information and confirmed that the original creditor is Lakeshore Utilities. Our records show that the account was charged off on 2023-03-01. Unfortunately, we do not have any record of a last payment date on file.\n\nWe understand your concerns regarding the frequency of our calls. We want to assure you that we are committed to communicating with you in a respectful and professional manner. However, we must inform you that we are required by law to attempt to collect a debt until it is paid in full or a payment arrangement is made.\n\nWe will provide you with a written validation of the debt, as required by the FDCPA, which will include the original creditor's name, the amount of the debt, and a statement that unless you dispute the validity of this debt, we will assume it is valid. However, we do not have any indication that you have previously disputed the debt.\n\nPlease note that you have the right to dispute the validity of this debt and may request verification of the debt at any time. If you believe that you have paid the debt in full, please provide us with documentation to support your claim.\n\nWe will investigate your dispute and respond to you in writing within 30 days. If you have any further questions or concerns, please do not hesitate to contact us.\n\nSincerely,\n\n[AGENCY NAME]\n\nPlease note that this letter is a response to the consumer's dispute and is based solely on the facts provided in the record.",
+    "draft_letter": "[DATE]\n[CONSUMER ADDRESS]\n[City, State, ZIP]\n[City, State, ZIP]\n\nRE: Account reference: ACC-981334\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Account ACC-981334\n\nWe acknowledge receipt of your dispute regarding the account referenced above. You have disputed the debt, stating that it has already been paid. We are investigating this matter to verify the accuracy of the information.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA), 15 U.S.C. \u00a7 1692g, we are required to provide you with a written validation of the debt within five days of our initial communication with you. However, in this case, we did not request validation from our client, Lakeshore Utilities, as it is not required by the FDCPA.\n\nWe have reviewed the account information and found that the current balance is $342.31. The original creditor is Lakeshore Utilities, and the charge-off date is March 1, 2023. Unfortunately, we do not have any record of a last payment date on file.\n\nWe will investigate this matter further to determine the status of the account. In the meantime, we will cease all collection activities on this account, as per your request. However, please note that this does not mean that the debt has been paid or forgiven.\n\nYou have the right to dispute this debt further, and we will provide you with any additional information or documentation that we obtain during our investigation. If you believe that you have paid this debt in full, you may want to contact Lakeshore Utilities directly to verify their records.\n\nPlease note that we will not contact you at your cell phone or home number unless you provide us with written consent to do so. We will only communicate with you in writing.\n\nSincerely,\n\n[AGENCY NAME]",
     "draft_tier": "ollama",
     "review_findings": [
       {
         "severity": "critical",
-        "claim_type": "payment_assertion",
-        "claim_value": "paid in full",
-        "reason": "Letter asserts payment but no payment history in source record",
-        "position": 906
+        "claim_type": "date",
+        "claim_value": "March 1, 2023",
+        "reason": "Date March 1, 2023 not found in source record",
+        "position": 874
       }
     ],
     "review_passed": false,
@@ -579,16 +614,16 @@
     "consumer_annotations": [
       {
         "id": "jargon_wall",
-        "matched_text": "in accordance with",
-        "position": 297,
+        "matched_text": "Pursuant to",
+        "position": 381,
         "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
         "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
         "severity": "medium"
       },
       {
         "id": "buried_rights",
-        "matched_text": "you have the right",
-        "position": 1308,
+        "matched_text": "You have the right",
+        "position": 1225,
         "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
         "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
         "severity": "medium"
@@ -602,20 +637,20 @@
       "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
     ],
     "consumer_view": {
-      "letter_text": "[Date]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-981334\n\nDear [CONSUMER NAME],\n\nRe: Account reference: ACC-981334\n\nWe acknowledge receipt of your dispute regarding the account with Account ID: ACC-981334. You have disputed that the debt has already been paid. We will investigate this claim in accordance with the Fair Debt Collection Practices Act (FDCPA) and Florida state law.\n\nWe have reviewed the account information and confirmed that the original creditor is Lakeshore Utilities. Our records show that the account was charged off on 2023-03-01. Unfortunately, we do not have any record of a last payment date on file.\n\nWe understand your concerns regarding the frequency of our calls. We want to assure you that we are committed to communicating with you in a respectful and professional manner. However, we must inform you that we are required by law to attempt to collect a debt until it is paid in full or a payment arrangement is made.\n\nWe will provide you with a written validation of the debt, as required by the FDCPA, which will include the original creditor's name, the amount of the debt, and a statement that unless you dispute the validity of this debt, we will assume it is valid. However, we do not have any indication that you have previously disputed the debt.\n\nPlease note that you have the right to dispute the validity of this debt and may request verification of the debt at any time. If you believe that you have paid the debt in full, please provide us with documentation to support your claim.\n\nWe will investigate your dispute and respond to you in writing within 30 days. If you have any further questions or concerns, please do not hesitate to contact us.\n\nSincerely,\n\n[AGENCY NAME]\n\nPlease note that this letter is a response to the consumer's dispute and is based solely on the facts provided in the record.",
+      "letter_text": "[DATE]\n[CONSUMER ADDRESS]\n[City, State, ZIP]\n[City, State, ZIP]\n\nRE: Account reference: ACC-981334\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Account ACC-981334\n\nWe acknowledge receipt of your dispute regarding the account referenced above. You have disputed the debt, stating that it has already been paid. We are investigating this matter to verify the accuracy of the information.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA), 15 U.S.C. \u00a7 1692g, we are required to provide you with a written validation of the debt within five days of our initial communication with you. However, in this case, we did not request validation from our client, Lakeshore Utilities, as it is not required by the FDCPA.\n\nWe have reviewed the account information and found that the current balance is $342.31. The original creditor is Lakeshore Utilities, and the charge-off date is March 1, 2023. Unfortunately, we do not have any record of a last payment date on file.\n\nWe will investigate this matter further to determine the status of the account. In the meantime, we will cease all collection activities on this account, as per your request. However, please note that this does not mean that the debt has been paid or forgiven.\n\nYou have the right to dispute this debt further, and we will provide you with any additional information or documentation that we obtain during our investigation. If you believe that you have paid this debt in full, you may want to contact Lakeshore Utilities directly to verify their records.\n\nPlease note that we will not contact you at your cell phone or home number unless you provide us with written consent to do so. We will only communicate with you in writing.\n\nSincerely,\n\n[AGENCY NAME]",
       "annotations": [
         {
           "id": "jargon_wall",
-          "matched_text": "in accordance with",
-          "position": 297,
+          "matched_text": "Pursuant to",
+          "position": 381,
           "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
           "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
           "severity": "medium"
         },
         {
           "id": "buried_rights",
-          "matched_text": "you have the right",
-          "position": 1308,
+          "matched_text": "You have the right",
+          "position": 1225,
           "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
           "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
           "severity": "medium"
@@ -657,7 +692,7 @@
     "classified_type": "wrong_amount",
     "classification_method": "ledger",
     "classification_confidence": 0.5,
-    "draft_letter": "[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-372793\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Account ACC-372793\n\nWe acknowledge receipt of your dispute regarding the amount owed on account ACC-372793. We understand that you have requested validation of this account, as per the Fair Debt Collection Practices Act (FDCPA) and the Colorado Fair Debt Collection Practices Act (C.R.S. \u00a7 5-3-401 et seq.).\n\nWe have reviewed the account information and confirmed that the current balance is $6322.61. The original creditor for this account is Frontier State Bank. The account was charged off on February 15, 2022. Your last payment was received on May 13, 2024.\n\nWe will investigate your dispute regarding the amount owed. Please note that our investigation may take some time, and we will provide you with a response as soon as possible. We will also provide you with a written validation of the debt, as required by the FDCPA, if our investigation confirms the debt.\n\nYou have the right to dispute this debt further if you believe that the amount owed is incorrect. Please note that we will not continue to attempt to collect on this debt until our investigation is complete and we have provided you with a written validation of the debt.\n\nSincerely,\n\n[AGENCY NAME]\nCompliance Department",
+    "draft_letter": "[Date]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-372793\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Account ACC-372793\n\nWe acknowledge receipt of your dispute regarding the amount owed on account ACC-372793. We appreciate your diligence in bringing this matter to our attention.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA) and the Colorado Fair Debt Collection Practices Act (CFCPCA), we are required to investigate your dispute. We will review the information provided and verify the accuracy of the amount owed.\n\nWe confirm that the current balance on account ACC-372793 is $6322.61. This amount is based on our records and is consistent with the original creditor's records from Frontier State Bank. The charge-off date for this account is February 15, 2022, and the last payment date was May 13, 2024.\n\nWe will conduct a thorough investigation of this matter and respond to you in writing with the results. If our investigation confirms that the amount owed is incorrect, we will take the necessary steps to correct the balance.\n\nYou have the right to dispute this amount further if you believe it is still inaccurate. Please note that you have the right to request validation of this debt under the FDCPA, and we will provide you with the necessary documentation upon request.\n\nPlease allow us 30 days to complete our investigation. If you have any questions or concerns, please do not hesitate to contact us.\n\nSincerely,\n\n[AGENCY NAME]",
     "draft_tier": "ollama",
     "review_findings": [
       {
@@ -665,14 +700,14 @@
         "claim_type": "date",
         "claim_value": "February 15, 2022",
         "reason": "Date February 15, 2022 not found in source record",
-        "position": 597
+        "position": 760
       },
       {
         "severity": "critical",
         "claim_type": "date",
         "claim_value": "May 13, 2024",
         "reason": "Date May 13, 2024 not found in source record",
-        "position": 650
+        "position": 809
       }
     ],
     "review_passed": false,
@@ -680,36 +715,70 @@
     "review_critical": 2,
     "consumer_annotations": [
       {
+        "id": "jargon_wall",
+        "matched_text": "Pursuant to",
+        "position": 281,
+        "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
+        "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
+        "severity": "medium"
+      },
+      {
         "id": "buried_rights",
         "matched_text": "You have the right",
-        "position": 972,
+        "position": 1051,
+        "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+        "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+        "severity": "medium"
+      },
+      {
+        "id": "buried_rights",
+        "matched_text": "you have the right",
+        "position": 1157,
         "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
         "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
         "severity": "medium"
       }
     ],
-    "engagement_risk_score": 2,
-    "engagement_risk_level": "low",
+    "engagement_risk_score": 6,
+    "engagement_risk_level": "high",
     "agency_intent": "We're reviewing the balance and will send you an itemized breakdown.",
     "consumer_impact": [
+      "'I can't understand this' \u2014 consumer stops reading",
       "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
     ],
     "consumer_view": {
-      "letter_text": "[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-372793\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Account ACC-372793\n\nWe acknowledge receipt of your dispute regarding the amount owed on account ACC-372793. We understand that you have requested validation of this account, as per the Fair Debt Collection Practices Act (FDCPA) and the Colorado Fair Debt Collection Practices Act (C.R.S. \u00a7 5-3-401 et seq.).\n\nWe have reviewed the account information and confirmed that the current balance is $6322.61. The original creditor for this account is Frontier State Bank. The account was charged off on February 15, 2022. Your last payment was received on May 13, 2024.\n\nWe will investigate your dispute regarding the amount owed. Please note that our investigation may take some time, and we will provide you with a response as soon as possible. We will also provide you with a written validation of the debt, as required by the FDCPA, if our investigation confirms the debt.\n\nYou have the right to dispute this debt further if you believe that the amount owed is incorrect. Please note that we will not continue to attempt to collect on this debt until our investigation is complete and we have provided you with a written validation of the debt.\n\nSincerely,\n\n[AGENCY NAME]\nCompliance Department",
+      "letter_text": "[Date]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-372793\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Account ACC-372793\n\nWe acknowledge receipt of your dispute regarding the amount owed on account ACC-372793. We appreciate your diligence in bringing this matter to our attention.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA) and the Colorado Fair Debt Collection Practices Act (CFCPCA), we are required to investigate your dispute. We will review the information provided and verify the accuracy of the amount owed.\n\nWe confirm that the current balance on account ACC-372793 is $6322.61. This amount is based on our records and is consistent with the original creditor's records from Frontier State Bank. The charge-off date for this account is February 15, 2022, and the last payment date was May 13, 2024.\n\nWe will conduct a thorough investigation of this matter and respond to you in writing with the results. If our investigation confirms that the amount owed is incorrect, we will take the necessary steps to correct the balance.\n\nYou have the right to dispute this amount further if you believe it is still inaccurate. Please note that you have the right to request validation of this debt under the FDCPA, and we will provide you with the necessary documentation upon request.\n\nPlease allow us 30 days to complete our investigation. If you have any questions or concerns, please do not hesitate to contact us.\n\nSincerely,\n\n[AGENCY NAME]",
       "annotations": [
+        {
+          "id": "jargon_wall",
+          "matched_text": "Pursuant to",
+          "position": 281,
+          "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
+          "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
+          "severity": "medium"
+        },
         {
           "id": "buried_rights",
           "matched_text": "You have the right",
-          "position": 972,
+          "position": 1051,
+          "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+          "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+          "severity": "medium"
+        },
+        {
+          "id": "buried_rights",
+          "matched_text": "you have the right",
+          "position": 1157,
           "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
           "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
           "severity": "medium"
         }
       ],
-      "risk_score": 2,
-      "risk_level": "low",
+      "risk_score": 6,
+      "risk_level": "high",
       "intent": "We're reviewing the balance and will send you an itemized breakdown.",
       "impact": [
+        "'I can't understand this' \u2014 consumer stops reading",
         "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
       ],
       "account_id": "ACC-372793",
@@ -741,7 +810,7 @@
     "classified_type": "hardship",
     "classification_method": "ledger",
     "classification_confidence": 0.5,
-    "draft_letter": "[AGENCY NAME]\n[AGENCY ADDRESS]\n[DATE]\n\n[CONSUMER NAME]\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-359295\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Account ACC-359295\n\nWe acknowledge receipt of your dispute letter regarding the account with our agency. We understand that you have disputed the debt as inaccurate and requested its removal from your credit report. We take all disputes seriously and will investigate this matter in accordance with the Fair Debt Collection Practices Act (FDCPA) and Kentucky state law.\n\nWe have reviewed the account information and confirmed that the account is indeed ACC-359295, with a current balance of $2,896.26. The original creditor for this account is Lakeshore Utilities, and the charge-off date was August 22, 2020. Our records also indicate that the last payment date was March 22, 2021.\n\nWe will investigate your dispute and verify the accuracy of the debt. If our investigation confirms that the debt is valid, we will provide you with a validation notice, as required by the FDCPA. If our investigation determines that the debt is inaccurate or unverifiable, we will take steps to correct our records and notify the relevant credit reporting agencies.\n\nPlease note that you have the right to dispute this debt further, and we will provide you with any additional information or documentation as required. We will also follow all applicable laws and regulations, including the FCRA, in our handling of this matter.\n\nSincerely,\n\n[AGENCY NAME]",
+    "draft_letter": "[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-359295\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Account ACC-359295\n\nWe acknowledge receipt of your dispute letter regarding the account ACC-359295. We understand that you have disputed the debt as being inaccurate and not belonging to you. We take all disputes seriously and will investigate this matter further.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA), we are required to investigate your dispute and verify the debt. We will review the account history and contact the original creditor, Lakeshore Utilities, to confirm the debt.\n\nWe have reviewed our records and found that the account was charged off on August 22, 2020, and the last payment was made on March 22, 2021. The current balance is $2,896.26. We will investigate your claim that the debt does not belong to you and will verify the debt through the original creditor.\n\nWe will provide you with a written validation of the debt if our investigation confirms the debt's accuracy. If our investigation confirms that the debt is indeed yours, we will work with you to resolve the matter.\n\nYou have the right to dispute this debt further if you believe our investigation does not accurately reflect the facts. You may also request that we provide you with a written validation of the debt at any time.\n\nPlease allow us 30 days to complete our investigation. If you have any further questions or concerns, please do not hesitate to contact us.\n\nSincerely,\n\n[AGENCY NAME]",
     "draft_tier": "ollama",
     "review_findings": [
       {
@@ -749,14 +818,14 @@
         "claim_type": "date",
         "claim_value": "August 22, 2020",
         "reason": "Date August 22, 2020 not found in source record",
-        "position": 741
+        "position": 680
       },
       {
         "severity": "critical",
         "claim_type": "date",
         "claim_value": "March 22, 2021",
         "reason": "Date March 22, 2021 not found in source record",
-        "position": 815
+        "position": 730
       }
     ],
     "review_passed": false,
@@ -765,16 +834,16 @@
     "consumer_annotations": [
       {
         "id": "jargon_wall",
-        "matched_text": "in accordance with",
-        "position": 428,
+        "matched_text": "Pursuant to",
+        "position": 367,
         "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
         "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
         "severity": "medium"
       },
       {
         "id": "buried_rights",
-        "matched_text": "you have the right",
-        "position": 1216,
+        "matched_text": "You have the right",
+        "position": 1121,
         "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
         "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
         "severity": "medium"
@@ -788,20 +857,20 @@
       "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
     ],
     "consumer_view": {
-      "letter_text": "[AGENCY NAME]\n[AGENCY ADDRESS]\n[DATE]\n\n[CONSUMER NAME]\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-359295\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Account ACC-359295\n\nWe acknowledge receipt of your dispute letter regarding the account with our agency. We understand that you have disputed the debt as inaccurate and requested its removal from your credit report. We take all disputes seriously and will investigate this matter in accordance with the Fair Debt Collection Practices Act (FDCPA) and Kentucky state law.\n\nWe have reviewed the account information and confirmed that the account is indeed ACC-359295, with a current balance of $2,896.26. The original creditor for this account is Lakeshore Utilities, and the charge-off date was August 22, 2020. Our records also indicate that the last payment date was March 22, 2021.\n\nWe will investigate your dispute and verify the accuracy of the debt. If our investigation confirms that the debt is valid, we will provide you with a validation notice, as required by the FDCPA. If our investigation determines that the debt is inaccurate or unverifiable, we will take steps to correct our records and notify the relevant credit reporting agencies.\n\nPlease note that you have the right to dispute this debt further, and we will provide you with any additional information or documentation as required. We will also follow all applicable laws and regulations, including the FCRA, in our handling of this matter.\n\nSincerely,\n\n[AGENCY NAME]",
+      "letter_text": "[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-359295\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Account ACC-359295\n\nWe acknowledge receipt of your dispute letter regarding the account ACC-359295. We understand that you have disputed the debt as being inaccurate and not belonging to you. We take all disputes seriously and will investigate this matter further.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA), we are required to investigate your dispute and verify the debt. We will review the account history and contact the original creditor, Lakeshore Utilities, to confirm the debt.\n\nWe have reviewed our records and found that the account was charged off on August 22, 2020, and the last payment was made on March 22, 2021. The current balance is $2,896.26. We will investigate your claim that the debt does not belong to you and will verify the debt through the original creditor.\n\nWe will provide you with a written validation of the debt if our investigation confirms the debt's accuracy. If our investigation confirms that the debt is indeed yours, we will work with you to resolve the matter.\n\nYou have the right to dispute this debt further if you believe our investigation does not accurately reflect the facts. You may also request that we provide you with a written validation of the debt at any time.\n\nPlease allow us 30 days to complete our investigation. If you have any further questions or concerns, please do not hesitate to contact us.\n\nSincerely,\n\n[AGENCY NAME]",
       "annotations": [
         {
           "id": "jargon_wall",
-          "matched_text": "in accordance with",
-          "position": 428,
+          "matched_text": "Pursuant to",
+          "position": 367,
           "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
           "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
           "severity": "medium"
         },
         {
           "id": "buried_rights",
-          "matched_text": "you have the right",
-          "position": 1216,
+          "matched_text": "You have the right",
+          "position": 1121,
           "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
           "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
           "severity": "medium"
@@ -843,59 +912,78 @@
     "classified_type": "already_paid",
     "classification_method": "ledger",
     "classification_confidence": 0.5,
-    "draft_letter": "[Date]\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-427110\n\nDear [CONSUMER],\n\nRe: Dispute of Account ACC-427110\n\nWe acknowledge receipt of your dispute regarding the account ACC-427110. You have disputed the debt as already paid. We understand that you are claiming the debt was paid in full approximately 10-11 years ago.\n\nWe have reviewed the account information, and the current balance on the account is $4,670.36. The original creditor for this account is Sunrise Health Partners. According to our records, the charge-off date for this account was April 27, 2023. The last payment date on the account was May 12, 2024.\n\nWe are required to investigate your dispute under the Fair Debt Collection Practices Act (FDCPA) and Wyoming state law. We will conduct a thorough review of the account to determine the validity of your dispute. If our investigation confirms that the debt has been paid in full, we will take the necessary steps to update the account and remove any negative reporting associated with this account.\n\nPlease note that you have the right to dispute this account further if you believe our investigation does not accurately reflect the status of your account. You may also request validation of the debt, although our records indicate that this has not been requested.\n\nWe appreciate your cooperation in this matter and will keep you informed of any developments.\n\nSincerely,\n\n[AGENCY NAME]\n[Agency Address]\n[Agency Contact Information]",
+    "draft_letter": "[DATE]\n\n[CONSUMER NAME]\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-427110\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Account ACC-427110\n\nWe acknowledge receipt of your dispute regarding the account with us. You have disputed the debt as already paid. We understand that you have concerns about the account and will investigate this matter.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA), 15 U.S.C. \u00a7 1692g, we are required to provide you with a validation notice. However, based on the information provided, we do not have any indication that you have requested validation of the debt. Nevertheless, we will review the account to determine the accuracy of the information.\n\nWe will investigate the dispute and review the account history to determine the current balance of 4670.36. We will also verify the original creditor, Sunrise Health Partners, and the charge-off date of 2023-04-27.\n\nPlease note that you have the right to dispute the debt and request validation. You may also request that we cease collection efforts if you believe the debt is not valid. We will respond to your dispute in accordance with the FDCPA and Wyoming state law.\n\nIf you wish to continue disputing the debt, please provide any additional information or documentation that you believe supports your claim. We will review this information and update our records accordingly.\n\nSincerely,\n\n[AGENCY NAME]\n[AGENCY NAME] Compliance Department",
     "draft_tier": "ollama",
-    "review_findings": [
+    "review_findings": [],
+    "review_passed": true,
+    "review_warnings": 0,
+    "review_critical": 0,
+    "consumer_annotations": [
       {
-        "severity": "critical",
-        "claim_type": "date",
-        "claim_value": "April 27, 2023",
-        "reason": "Date April 27, 2023 not found in source record",
-        "position": 555
+        "id": "jargon_wall",
+        "matched_text": "Pursuant to",
+        "position": 341,
+        "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
+        "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
+        "severity": "medium"
       },
       {
-        "severity": "critical",
-        "claim_type": "date",
-        "claim_value": "May 12, 2024",
-        "reason": "Date May 12, 2024 not found in source record",
-        "position": 612
-      }
-    ],
-    "review_passed": false,
-    "review_warnings": 0,
-    "review_critical": 2,
-    "consumer_annotations": [
+        "id": "jargon_wall",
+        "matched_text": "in accordance with",
+        "position": 1107,
+        "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
+        "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
+        "severity": "medium"
+      },
       {
         "id": "buried_rights",
         "matched_text": "you have the right",
-        "position": 1043,
+        "position": 920,
         "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
         "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
         "severity": "medium"
       }
     ],
-    "engagement_risk_score": 2,
-    "engagement_risk_level": "low",
+    "engagement_risk_score": 6,
+    "engagement_risk_level": "high",
     "agency_intent": "We're checking our records to confirm your payment.",
     "consumer_impact": [
+      "'I can't understand this' \u2014 consumer stops reading",
       "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
     ],
     "consumer_view": {
-      "letter_text": "[Date]\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-427110\n\nDear [CONSUMER],\n\nRe: Dispute of Account ACC-427110\n\nWe acknowledge receipt of your dispute regarding the account ACC-427110. You have disputed the debt as already paid. We understand that you are claiming the debt was paid in full approximately 10-11 years ago.\n\nWe have reviewed the account information, and the current balance on the account is $4,670.36. The original creditor for this account is Sunrise Health Partners. According to our records, the charge-off date for this account was April 27, 2023. The last payment date on the account was May 12, 2024.\n\nWe are required to investigate your dispute under the Fair Debt Collection Practices Act (FDCPA) and Wyoming state law. We will conduct a thorough review of the account to determine the validity of your dispute. If our investigation confirms that the debt has been paid in full, we will take the necessary steps to update the account and remove any negative reporting associated with this account.\n\nPlease note that you have the right to dispute this account further if you believe our investigation does not accurately reflect the status of your account. You may also request validation of the debt, although our records indicate that this has not been requested.\n\nWe appreciate your cooperation in this matter and will keep you informed of any developments.\n\nSincerely,\n\n[AGENCY NAME]\n[Agency Address]\n[Agency Contact Information]",
+      "letter_text": "[DATE]\n\n[CONSUMER NAME]\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-427110\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Account ACC-427110\n\nWe acknowledge receipt of your dispute regarding the account with us. You have disputed the debt as already paid. We understand that you have concerns about the account and will investigate this matter.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA), 15 U.S.C. \u00a7 1692g, we are required to provide you with a validation notice. However, based on the information provided, we do not have any indication that you have requested validation of the debt. Nevertheless, we will review the account to determine the accuracy of the information.\n\nWe will investigate the dispute and review the account history to determine the current balance of 4670.36. We will also verify the original creditor, Sunrise Health Partners, and the charge-off date of 2023-04-27.\n\nPlease note that you have the right to dispute the debt and request validation. You may also request that we cease collection efforts if you believe the debt is not valid. We will respond to your dispute in accordance with the FDCPA and Wyoming state law.\n\nIf you wish to continue disputing the debt, please provide any additional information or documentation that you believe supports your claim. We will review this information and update our records accordingly.\n\nSincerely,\n\n[AGENCY NAME]\n[AGENCY NAME] Compliance Department",
       "annotations": [
+        {
+          "id": "jargon_wall",
+          "matched_text": "Pursuant to",
+          "position": 341,
+          "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
+          "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
+          "severity": "medium"
+        },
+        {
+          "id": "jargon_wall",
+          "matched_text": "in accordance with",
+          "position": 1107,
+          "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
+          "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
+          "severity": "medium"
+        },
         {
           "id": "buried_rights",
           "matched_text": "you have the right",
-          "position": 1043,
+          "position": 920,
           "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
           "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
           "severity": "medium"
         }
       ],
-      "risk_score": 2,
-      "risk_level": "low",
+      "risk_score": 6,
+      "risk_level": "high",
       "intent": "We're checking our records to confirm your payment.",
       "impact": [
+        "'I can't understand this' \u2014 consumer stops reading",
         "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
       ],
       "account_id": "ACC-427110",
@@ -927,44 +1015,77 @@
     "classified_type": "not_mine",
     "classification_method": "ledger",
     "classification_confidence": 0.5,
-    "draft_letter": "[Date]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-630538\n\nDear [Consumer],\n\nWe acknowledge receipt of your dispute regarding the account ending [XXXX XXXX XXXX XXXX XXXXXXXX] with an alleged balance of $2173.45. We understand that you dispute the accuracy, completeness, and legal enforceability of this account.\n\nWe have reviewed the account information and confirmed that the original creditor is First National Bank. Our records indicate that the account was charged off on 2022-01-11 and the last payment was received on 2024-07-30.\n\nRegarding your request for validation, we have reviewed our procedures and confirmed that we have provided the required validation to you in the past. However, we understand that you may be requesting additional information. We will investigate this matter further and provide any necessary documentation to support the debt.\n\nAs required by the Fair Debt Collection Practices Act (FDCPA), we will investigate your dispute and respond to you within 30 days. We will also provide any necessary documentation to support the debt, as required by the FDCPA.\n\nPlease note that you have the right to dispute this account further if you believe that our investigation does not resolve your concerns. You may also contact the Nevada State Attorney General's Office or the Federal Trade Commission for further assistance.\n\nWe appreciate your cooperation in this matter and will continue to work with you to resolve this dispute.\n\nSincerely,\n\n[AGENCY NAME]\n[AGENCY ADDRESS]\n[AGENCY CONTACT INFORMATION]",
+    "draft_letter": "[Date]\n[CONSUMER ADDRESS]\n\nRE: Account reference ACC-630538\n\nDear [CONSUMER NAME],\n\nWe acknowledge receipt of your dispute regarding the account ending ACC-630538. We understand that you have disputed the account as \"not mine.\" We take all disputes seriously and will investigate this matter in accordance with the Fair Debt Collection Practices Act (FDCPA) and Nevada state law.\n\nWe have reviewed the account information and confirm that the original creditor was First National Bank. The account was charged off on January 11, 2022. Our records also show that the last payment made on this account was on July 30, 2024.\n\nWe will investigate your dispute and verify the account information. If our investigation confirms that the account is indeed not yours, we will take the necessary steps to remove the account from our records and notify the credit reporting agencies accordingly.\n\nPlease note that you have the right to dispute the accuracy of the account information and to request validation of the debt. However, our records indicate that no validation request has been made in this case.\n\nWe will provide you with a written validation of the debt if you request it. Please let us know if you would like to proceed with this request.\n\nIf you have any further questions or concerns, please do not hesitate to contact us.\n\nSincerely,\n\n[AGENCY NAME]",
     "draft_tier": "ollama",
-    "review_findings": [],
-    "review_passed": true,
+    "review_findings": [
+      {
+        "severity": "critical",
+        "claim_type": "date",
+        "claim_value": "January 11, 2022",
+        "reason": "Date January 11, 2022 not found in source record",
+        "position": 517
+      },
+      {
+        "severity": "critical",
+        "claim_type": "date",
+        "claim_value": "July 30, 2024",
+        "reason": "Date July 30, 2024 not found in source record",
+        "position": 607
+      }
+    ],
+    "review_passed": false,
     "review_warnings": 0,
-    "review_critical": 0,
+    "review_critical": 2,
     "consumer_annotations": [
+      {
+        "id": "jargon_wall",
+        "matched_text": "in accordance with",
+        "position": 292,
+        "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
+        "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
+        "severity": "medium"
+      },
       {
         "id": "buried_rights",
         "matched_text": "you have the right",
-        "position": 1115,
+        "position": 904,
         "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
         "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
         "severity": "medium"
       }
     ],
-    "engagement_risk_score": 2,
-    "engagement_risk_level": "low",
+    "engagement_risk_score": 4,
+    "engagement_risk_level": "medium",
     "agency_intent": "We're looking into whether this debt belongs to you and stopping contact meanwhile.",
     "consumer_impact": [
+      "'I can't understand this' \u2014 consumer stops reading",
       "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
     ],
     "consumer_view": {
-      "letter_text": "[Date]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-630538\n\nDear [Consumer],\n\nWe acknowledge receipt of your dispute regarding the account ending [XXXX XXXX XXXX XXXX XXXXXXXX] with an alleged balance of $2173.45. We understand that you dispute the accuracy, completeness, and legal enforceability of this account.\n\nWe have reviewed the account information and confirmed that the original creditor is First National Bank. Our records indicate that the account was charged off on 2022-01-11 and the last payment was received on 2024-07-30.\n\nRegarding your request for validation, we have reviewed our procedures and confirmed that we have provided the required validation to you in the past. However, we understand that you may be requesting additional information. We will investigate this matter further and provide any necessary documentation to support the debt.\n\nAs required by the Fair Debt Collection Practices Act (FDCPA), we will investigate your dispute and respond to you within 30 days. We will also provide any necessary documentation to support the debt, as required by the FDCPA.\n\nPlease note that you have the right to dispute this account further if you believe that our investigation does not resolve your concerns. You may also contact the Nevada State Attorney General's Office or the Federal Trade Commission for further assistance.\n\nWe appreciate your cooperation in this matter and will continue to work with you to resolve this dispute.\n\nSincerely,\n\n[AGENCY NAME]\n[AGENCY ADDRESS]\n[AGENCY CONTACT INFORMATION]",
+      "letter_text": "[Date]\n[CONSUMER ADDRESS]\n\nRE: Account reference ACC-630538\n\nDear [CONSUMER NAME],\n\nWe acknowledge receipt of your dispute regarding the account ending ACC-630538. We understand that you have disputed the account as \"not mine.\" We take all disputes seriously and will investigate this matter in accordance with the Fair Debt Collection Practices Act (FDCPA) and Nevada state law.\n\nWe have reviewed the account information and confirm that the original creditor was First National Bank. The account was charged off on January 11, 2022. Our records also show that the last payment made on this account was on July 30, 2024.\n\nWe will investigate your dispute and verify the account information. If our investigation confirms that the account is indeed not yours, we will take the necessary steps to remove the account from our records and notify the credit reporting agencies accordingly.\n\nPlease note that you have the right to dispute the accuracy of the account information and to request validation of the debt. However, our records indicate that no validation request has been made in this case.\n\nWe will provide you with a written validation of the debt if you request it. Please let us know if you would like to proceed with this request.\n\nIf you have any further questions or concerns, please do not hesitate to contact us.\n\nSincerely,\n\n[AGENCY NAME]",
       "annotations": [
+        {
+          "id": "jargon_wall",
+          "matched_text": "in accordance with",
+          "position": 292,
+          "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
+          "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
+          "severity": "medium"
+        },
         {
           "id": "buried_rights",
           "matched_text": "you have the right",
-          "position": 1115,
+          "position": 904,
           "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
           "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
           "severity": "medium"
         }
       ],
-      "risk_score": 2,
-      "risk_level": "low",
+      "risk_score": 4,
+      "risk_level": "medium",
       "intent": "We're looking into whether this debt belongs to you and stopping contact meanwhile.",
       "impact": [
+        "'I can't understand this' \u2014 consumer stops reading",
         "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
       ],
       "account_id": "ACC-630538",
@@ -996,33 +1117,40 @@
     "classified_type": "not_mine",
     "classification_method": "ledger",
     "classification_confidence": 0.5,
-    "draft_letter": "[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference ACC-993085\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Account ACC-993085\n\nWe acknowledge receipt of your dispute regarding the account referenced above. You have disputed the debt, stating that it is not yours. We understand that you have requested validation of the debt, specifically proof of your signature, a copy of the contract, and verification of the debt.\n\nWe have reviewed the account information and confirm that the account is currently listed with a balance of $2903.41. The original creditor for this account is Liberty Credit Corp. We also note that the account was charged off on 06/03/2023.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA) and Massachusetts state law, we are required to investigate your dispute. We will conduct a thorough review of the account and verify the debt. If we are unable to verify the debt, we will take the necessary steps to remove the account from our records.\n\nYou have the right to dispute this debt further, and we encourage you to contact us if you have any additional information or documentation that may be relevant to our investigation.\n\nSincerely,\n\n[AGENCY NAME]\nCompliance Department",
+    "draft_letter": "[Date]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-993085\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Account ACC-993085\n\nWe acknowledge receipt of your dispute regarding the account ACC-993085, which you claim is not yours. We take all disputes seriously and are committed to resolving this matter in accordance with the Fair Debt Collection Practices Act (FDCPA) and Massachusetts state law.\n\nWe have reviewed the account information on file, which indicates that the account was originally opened with Liberty Credit Corp and was charged off on June 3, 2023. The last payment received on this account was on November 19, 2024, and the current balance is $2903.41.\n\nWe understand that you requested validation of the debt, including proof of the alleged debt, but our records indicate that you were informed that the account was not subject to validation, as it was previously charged off. However, we will investigate this matter further to ensure that our procedures were followed correctly.\n\nWe will conduct an investigation into your dispute and will provide a response within the timeframes required by law. If our investigation confirms that the account is indeed not yours, we will take the necessary steps to remove the account from our records and notify the credit bureaus accordingly.\n\nPlease note that you have the right to dispute this account further if you believe that our investigation did not adequately address your concerns. You may also request that we provide you with a written acknowledgement of the dispute and a statement that the debt will be marked as disputed on your credit report.\n\nIf you have any additional information or documentation that you would like to provide in support of your dispute, please feel free to do so.\n\nSincerely,\n\n[AGENCY NAME]",
     "draft_tier": "ollama",
     "review_findings": [
       {
         "severity": "critical",
         "claim_type": "date",
-        "claim_value": "06/03/2023",
-        "reason": "Date 06/03/2023 not found in source record",
-        "position": 642
+        "claim_value": "June 3, 2023",
+        "reason": "Date June 3, 2023 not found in source record",
+        "position": 547
+      },
+      {
+        "severity": "critical",
+        "claim_type": "date",
+        "claim_value": "November 19, 2024",
+        "reason": "Date November 19, 2024 not found in source record",
+        "position": 610
       }
     ],
     "review_passed": false,
     "review_warnings": 0,
-    "review_critical": 1,
+    "review_critical": 2,
     "consumer_annotations": [
       {
         "id": "jargon_wall",
-        "matched_text": "Pursuant to",
-        "position": 655,
+        "matched_text": "in accordance with",
+        "position": 298,
         "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
         "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
         "severity": "medium"
       },
       {
         "id": "buried_rights",
-        "matched_text": "You have the right",
-        "position": 969,
+        "matched_text": "you have the right",
+        "position": 1315,
         "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
         "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
         "severity": "medium"
@@ -1036,20 +1164,20 @@
       "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
     ],
     "consumer_view": {
-      "letter_text": "[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference ACC-993085\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Account ACC-993085\n\nWe acknowledge receipt of your dispute regarding the account referenced above. You have disputed the debt, stating that it is not yours. We understand that you have requested validation of the debt, specifically proof of your signature, a copy of the contract, and verification of the debt.\n\nWe have reviewed the account information and confirm that the account is currently listed with a balance of $2903.41. The original creditor for this account is Liberty Credit Corp. We also note that the account was charged off on 06/03/2023.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA) and Massachusetts state law, we are required to investigate your dispute. We will conduct a thorough review of the account and verify the debt. If we are unable to verify the debt, we will take the necessary steps to remove the account from our records.\n\nYou have the right to dispute this debt further, and we encourage you to contact us if you have any additional information or documentation that may be relevant to our investigation.\n\nSincerely,\n\n[AGENCY NAME]\nCompliance Department",
+      "letter_text": "[Date]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-993085\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Account ACC-993085\n\nWe acknowledge receipt of your dispute regarding the account ACC-993085, which you claim is not yours. We take all disputes seriously and are committed to resolving this matter in accordance with the Fair Debt Collection Practices Act (FDCPA) and Massachusetts state law.\n\nWe have reviewed the account information on file, which indicates that the account was originally opened with Liberty Credit Corp and was charged off on June 3, 2023. The last payment received on this account was on November 19, 2024, and the current balance is $2903.41.\n\nWe understand that you requested validation of the debt, including proof of the alleged debt, but our records indicate that you were informed that the account was not subject to validation, as it was previously charged off. However, we will investigate this matter further to ensure that our procedures were followed correctly.\n\nWe will conduct an investigation into your dispute and will provide a response within the timeframes required by law. If our investigation confirms that the account is indeed not yours, we will take the necessary steps to remove the account from our records and notify the credit bureaus accordingly.\n\nPlease note that you have the right to dispute this account further if you believe that our investigation did not adequately address your concerns. You may also request that we provide you with a written acknowledgement of the dispute and a statement that the debt will be marked as disputed on your credit report.\n\nIf you have any additional information or documentation that you would like to provide in support of your dispute, please feel free to do so.\n\nSincerely,\n\n[AGENCY NAME]",
       "annotations": [
         {
           "id": "jargon_wall",
-          "matched_text": "Pursuant to",
-          "position": 655,
+          "matched_text": "in accordance with",
+          "position": 298,
           "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
           "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
           "severity": "medium"
         },
         {
           "id": "buried_rights",
-          "matched_text": "You have the right",
-          "position": 969,
+          "matched_text": "you have the right",
+          "position": 1315,
           "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
           "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
           "severity": "medium"
@@ -1091,7 +1219,7 @@
     "classified_type": "statute_of_limitations",
     "classification_method": "ledger",
     "classification_confidence": 0.5,
-    "draft_letter": "[Date]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-389688\n\nDear [Consumer],\n\nRe: Statute of Limitations Dispute\n\nWe acknowledge receipt of your dispute regarding the statute of limitations on account ACC-389688. We appreciate the time you have taken to provide us with the opportunity to review this matter.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA) and Tennessee state law, we are required to verify the accuracy of the information we have on file regarding this account. We have reviewed the account records and confirm that the original creditor, Citylink Communications, charged off the account on September 27, 2022. Additionally, we have verified that the last payment date on file is May 8, 2023.\n\nWe understand that you have raised concerns regarding the statute of limitations. We will investigate this matter further and provide a response based on the applicable laws and regulations in Tennessee. We will also provide you with a written validation of the debt, as required by the FDCPA, which will include the original creditor, the amount owed, and the date of the last payment.\n\nPlease be advised that you have the right to dispute this matter further if you believe the information we provide does not accurately reflect the status of your account. We will continue to review and update the information on file as necessary.\n\nIf you have any further questions or concerns, please do not hesitate to contact us.\n\nSincerely,\n\n[AGENCY NAME]",
+    "draft_letter": "[Date]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-389688\n\nDear [Consumer],\n\nWe acknowledge receipt of your dispute regarding the statute of limitations for the above-referenced account. We appreciate the opportunity to review the attached documents and investigate your concerns.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA) and Tennessee state law, we are required to verify the accuracy of the information we have on file. Our records indicate that the charge-off date for this account is September 27, 2022, and the last payment received was on May 8, 2023. We will review these dates to determine if the statute of limitations has been exceeded.\n\nWe will conduct an investigation into your dispute and will respond to you with our findings. If we determine that the statute of limitations has expired, we will take the necessary steps to close the account and remove it from our collection efforts.\n\nPlease note that you have the right to dispute this account further if you believe our findings are incorrect. You may also request validation of the debt, although our records indicate that this has not been requested in the past.\n\nWe appreciate your cooperation and look forward to resolving this matter.\n\nSincerely,\n\n[AGENCY NAME]",
     "draft_tier": "ollama",
     "review_findings": [
       {
@@ -1099,14 +1227,14 @@
         "claim_type": "date",
         "claim_value": "September 27, 2022",
         "reason": "Date September 27, 2022 not found in source record",
-        "position": 624
+        "position": 511
       },
       {
         "severity": "critical",
         "claim_type": "date",
         "claim_value": "May 8, 2023",
         "reason": "Date May 8, 2023 not found in source record",
-        "position": 713
+        "position": 568
       }
     ],
     "review_passed": false,
@@ -1116,7 +1244,7 @@
       {
         "id": "jargon_wall",
         "matched_text": "Pursuant to",
-        "position": 313,
+        "position": 286,
         "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
         "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
         "severity": "medium"
@@ -1124,7 +1252,7 @@
       {
         "id": "buried_rights",
         "matched_text": "you have the right",
-        "position": 1138,
+        "position": 941,
         "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
         "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
         "severity": "medium"
@@ -1138,12 +1266,12 @@
       "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
     ],
     "consumer_view": {
-      "letter_text": "[Date]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-389688\n\nDear [Consumer],\n\nRe: Statute of Limitations Dispute\n\nWe acknowledge receipt of your dispute regarding the statute of limitations on account ACC-389688. We appreciate the time you have taken to provide us with the opportunity to review this matter.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA) and Tennessee state law, we are required to verify the accuracy of the information we have on file regarding this account. We have reviewed the account records and confirm that the original creditor, Citylink Communications, charged off the account on September 27, 2022. Additionally, we have verified that the last payment date on file is May 8, 2023.\n\nWe understand that you have raised concerns regarding the statute of limitations. We will investigate this matter further and provide a response based on the applicable laws and regulations in Tennessee. We will also provide you with a written validation of the debt, as required by the FDCPA, which will include the original creditor, the amount owed, and the date of the last payment.\n\nPlease be advised that you have the right to dispute this matter further if you believe the information we provide does not accurately reflect the status of your account. We will continue to review and update the information on file as necessary.\n\nIf you have any further questions or concerns, please do not hesitate to contact us.\n\nSincerely,\n\n[AGENCY NAME]",
+      "letter_text": "[Date]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-389688\n\nDear [Consumer],\n\nWe acknowledge receipt of your dispute regarding the statute of limitations for the above-referenced account. We appreciate the opportunity to review the attached documents and investigate your concerns.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA) and Tennessee state law, we are required to verify the accuracy of the information we have on file. Our records indicate that the charge-off date for this account is September 27, 2022, and the last payment received was on May 8, 2023. We will review these dates to determine if the statute of limitations has been exceeded.\n\nWe will conduct an investigation into your dispute and will respond to you with our findings. If we determine that the statute of limitations has expired, we will take the necessary steps to close the account and remove it from our collection efforts.\n\nPlease note that you have the right to dispute this account further if you believe our findings are incorrect. You may also request validation of the debt, although our records indicate that this has not been requested in the past.\n\nWe appreciate your cooperation and look forward to resolving this matter.\n\nSincerely,\n\n[AGENCY NAME]",
       "annotations": [
         {
           "id": "jargon_wall",
           "matched_text": "Pursuant to",
-          "position": 313,
+          "position": 286,
           "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
           "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
           "severity": "medium"
@@ -1151,7 +1279,7 @@
         {
           "id": "buried_rights",
           "matched_text": "you have the right",
-          "position": 1138,
+          "position": 941,
           "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
           "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
           "severity": "medium"
@@ -1193,46 +1321,39 @@
     "classified_type": "already_paid",
     "classification_method": "ledger",
     "classification_confidence": 0.5,
-    "draft_letter": "[Date]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-680358\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Account ACC-680358\n\nWe acknowledge receipt of your dispute regarding the account with Valley Regional Hospital, which is currently in our possession for collection. You have disputed the debt as already paid. We take all disputes seriously and will investigate this matter in accordance with the Fair Debt Collection Practices Act (FDCPA) and the laws of the State of Illinois.\n\nWe have reviewed the account information and confirmed that the current balance is $5906.53. Our records indicate that the original creditor is Valley Regional Hospital, and the charge-off date was July 8, 2021. The last payment received on this account was on April 18, 2022.\n\nRegarding your dispute, we understand that you have concerns about the billing practices of Valley Regional Hospital. However, our role as a debt collection agency is to collect the debt owed to the original creditor, not to address billing disputes or medical billing practices. We will provide you with validation of the debt as requested, which will include information about the original creditor, the amount owed, and the account history.\n\nPlease note that we will continue to attempt to collect the debt unless you provide documentation or evidence that the debt has been paid in full. We will also provide you with information about your rights under the FDCPA, including your right to dispute the debt and your right to request validation of the debt.\n\nIf you have any further disputes or concerns, please do not hesitate to contact us. We will continue to work with you to resolve this matter.\n\nSincerely,\n\n[AGENCY NAME]\n\ncc: File\n\nNote: The No Surprise Act is a federal law that regulates surprise medical billing. However, it does not apply to debt collection agencies. We have not included any language referencing this law in the response letter.",
+    "draft_letter": "[Date]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-680358\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Account ACC-680358\n\nWe acknowledge receipt of your dispute regarding the account referenced above. You have disputed the account as already paid. We will investigate this dispute and verify the status of your account.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA), 15 U.S.C. \u00a7 1692g, we are required to provide you with validation of the debt. We confirm that the original creditor for this account is Valley Regional Hospital. We will provide you with a copy of the validation letter, which includes the original creditor's name and address, as well as the amount of the debt.\n\nRegarding your dispute, we have reviewed the account history and confirmed that the last payment date was on 2022-04-18. The current balance on the account is 5906.53. We have also confirmed that the charge-off date for this account was 2021-07-08.\n\nWe will investigate your dispute and provide a response within the timeframe required by the FDCPA. If our investigation confirms that the account has been paid in full, we will take the necessary steps to update the account status.\n\nYou have the right to further dispute this account if you believe that the information we have provided is incorrect. Please note that we are not making any claims or allegations regarding the medical bill or the No Surprise Act. Our investigation will focus solely on the status of the account.\n\nIf you have any further questions or concerns, please do not hesitate to contact us.\n\nSincerely,\n\n[AGENCY NAME]\nState Collection Service, Inc.\nCompliance Department",
     "draft_tier": "ollama",
-    "review_findings": [
-      {
-        "severity": "critical",
-        "claim_type": "date",
-        "claim_value": "July 8, 2021",
-        "reason": "Date July 8, 2021 not found in source record",
-        "position": 678
-      },
-      {
-        "severity": "critical",
-        "claim_type": "date",
-        "claim_value": "April 18, 2022",
-        "reason": "Date April 18, 2022 not found in source record",
-        "position": 741
-      }
-    ],
-    "review_passed": false,
+    "review_findings": [],
+    "review_passed": true,
     "review_warnings": 0,
-    "review_critical": 2,
+    "review_critical": 0,
     "consumer_annotations": [
       {
         "id": "jargon_wall",
-        "matched_text": "in accordance with",
-        "position": 374,
+        "matched_text": "Pursuant to",
+        "position": 320,
         "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
         "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
         "severity": "medium"
       },
       {
         "id": "buried_rights",
-        "matched_text": "your rights under",
-        "position": 1398,
+        "matched_text": "You have the right",
+        "position": 1178,
         "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
         "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
         "severity": "medium"
+      },
+      {
+        "id": "passive_voice_responsibility",
+        "matched_text": "the account has been",
+        "position": 1079,
+        "flag": "Passive voice obscures who did what \u2014 consumer doesn't know who to contact or what happened",
+        "cfpb_grounding": "CFPB pattern: 'Nobody would tell me who actually owns the debt or who made the decision'",
+        "severity": "low"
       }
     ],
-    "engagement_risk_score": 4,
+    "engagement_risk_score": 5,
     "engagement_risk_level": "medium",
     "agency_intent": "We're checking our records to confirm your payment.",
     "consumer_impact": [
@@ -1240,26 +1361,34 @@
       "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
     ],
     "consumer_view": {
-      "letter_text": "[Date]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-680358\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Account ACC-680358\n\nWe acknowledge receipt of your dispute regarding the account with Valley Regional Hospital, which is currently in our possession for collection. You have disputed the debt as already paid. We take all disputes seriously and will investigate this matter in accordance with the Fair Debt Collection Practices Act (FDCPA) and the laws of the State of Illinois.\n\nWe have reviewed the account information and confirmed that the current balance is $5906.53. Our records indicate that the original creditor is Valley Regional Hospital, and the charge-off date was July 8, 2021. The last payment received on this account was on April 18, 2022.\n\nRegarding your dispute, we understand that you have concerns about the billing practices of Valley Regional Hospital. However, our role as a debt collection agency is to collect the debt owed to the original creditor, not to address billing disputes or medical billing practices. We will provide you with validation of the debt as requested, which will include information about the original creditor, the amount owed, and the account history.\n\nPlease note that we will continue to attempt to collect the debt unless you provide documentation or evidence that the debt has been paid in full. We will also provide you with information about your rights under the FDCPA, including your right to dispute the debt and your right to request validation of the debt.\n\nIf you have any further disputes or concerns, please do not hesitate to contact us. We will continue to work with you to resolve this matter.\n\nSincerely,\n\n[AGENCY NAME]\n\ncc: File\n\nNote: The No Surprise Act is a federal law that regulates surprise medical billing. However, it does not apply to debt collection agencies. We have not included any language referencing this law in the response letter.",
+      "letter_text": "[Date]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-680358\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Account ACC-680358\n\nWe acknowledge receipt of your dispute regarding the account referenced above. You have disputed the account as already paid. We will investigate this dispute and verify the status of your account.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA), 15 U.S.C. \u00a7 1692g, we are required to provide you with validation of the debt. We confirm that the original creditor for this account is Valley Regional Hospital. We will provide you with a copy of the validation letter, which includes the original creditor's name and address, as well as the amount of the debt.\n\nRegarding your dispute, we have reviewed the account history and confirmed that the last payment date was on 2022-04-18. The current balance on the account is 5906.53. We have also confirmed that the charge-off date for this account was 2021-07-08.\n\nWe will investigate your dispute and provide a response within the timeframe required by the FDCPA. If our investigation confirms that the account has been paid in full, we will take the necessary steps to update the account status.\n\nYou have the right to further dispute this account if you believe that the information we have provided is incorrect. Please note that we are not making any claims or allegations regarding the medical bill or the No Surprise Act. Our investigation will focus solely on the status of the account.\n\nIf you have any further questions or concerns, please do not hesitate to contact us.\n\nSincerely,\n\n[AGENCY NAME]\nState Collection Service, Inc.\nCompliance Department",
       "annotations": [
         {
           "id": "jargon_wall",
-          "matched_text": "in accordance with",
-          "position": 374,
+          "matched_text": "Pursuant to",
+          "position": 320,
           "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
           "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
           "severity": "medium"
         },
         {
           "id": "buried_rights",
-          "matched_text": "your rights under",
-          "position": 1398,
+          "matched_text": "You have the right",
+          "position": 1178,
           "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
           "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
           "severity": "medium"
+        },
+        {
+          "id": "passive_voice_responsibility",
+          "matched_text": "the account has been",
+          "position": 1079,
+          "flag": "Passive voice obscures who did what \u2014 consumer doesn't know who to contact or what happened",
+          "cfpb_grounding": "CFPB pattern: 'Nobody would tell me who actually owns the debt or who made the decision'",
+          "severity": "low"
         }
       ],
-      "risk_score": 4,
+      "risk_score": 5,
       "risk_level": "medium",
       "intent": "We're checking our records to confirm your payment.",
       "impact": [
@@ -1295,7 +1424,7 @@
     "classified_type": "already_paid",
     "classification_method": "ledger",
     "classification_confidence": 0.5,
-    "draft_letter": "[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-897135\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Account ACC-897135\n\nWe acknowledge receipt of your dispute letter regarding the account referenced above. We understand that you have disputed the debt as \"already paid.\" We will investigate this dispute in accordance with the Fair Debt Collection Practices Act (FDCPA) and Florida state law.\n\nWe have reviewed the account records and confirm that the original creditor is Horizon Card Co. The current balance on the account is $6176.50. The account was charged off on January 9, 2022, and the last payment was received on January 29, 2022.\n\nWe take your dispute seriously and will verify the status of the account. As required by law, we will provide you with a written validation of the debt if it is deemed to be valid.\n\nWe also acknowledge your concerns regarding the address provided on your credit report. We will investigate this matter and take necessary steps to ensure that our address is accurate and up-to-date.\n\nPlease be advised that you have the right to dispute this debt further if you believe it is inaccurate or invalid. If you have any additional information or documentation to support your dispute, please provide it to us in writing.\n\nWe will review your dispute and respond to you in writing with the results of our investigation.\n\nSincerely,\n\n[AGENCY NAME]\n\nNote: The letter does not address the consumer's claim of a fraudulent address, as this is not a fact that can be verified from the provided record. The agency will need to investigate this matter separately.",
+    "draft_letter": "[DATE]\n\n[CONSUMER NAME]\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-897135\n\nDear [CONSUMER NAME],\n\nRe: Account reference: ACC-897135\n\nWe acknowledge receipt of your dispute regarding the account referenced above. You have claimed that the account is already paid. We understand that you have requested validation of the debt.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA), we are required to provide you with a written validation of the debt within 30 days of your dispute. We will investigate the status of the account and provide you with the necessary documentation to support the debt.\n\nWe have reviewed the account information and confirm that the original creditor is Horizon Card Co. The current balance on the account is $6176.50. The account was charged off on January 9, 2022, and the last payment was received on January 29, 2022.\n\nRegarding your claim that the address provided on your credit report is fraudulent, we understand that you have attempted to contact us by mail, but the letter was returned as undeliverable. We will review our records to ensure that our address is accurate and up-to-date.\n\nPlease note that you have the right to dispute the debt further if you believe that it is not valid. We will continue to investigate this matter and provide you with any additional information that you request.\n\nSincerely,\n\n[AGENCY NAME]\n[AGENCY NAME] Compliance Department",
     "draft_tier": "ollama",
     "review_findings": [
       {
@@ -1303,14 +1432,14 @@
         "claim_type": "date",
         "claim_value": "January 9, 2022",
         "reason": "Date January 9, 2022 not found in source record",
-        "position": 570
+        "position": 787
       },
       {
         "severity": "critical",
         "claim_type": "date",
         "claim_value": "January 29, 2022",
         "reason": "Date January 29, 2022 not found in source record",
-        "position": 624
+        "position": 841
       }
     ],
     "review_passed": false,
@@ -1319,8 +1448,8 @@
     "consumer_annotations": [
       {
         "id": "jargon_wall",
-        "matched_text": "in accordance with",
-        "position": 305,
+        "matched_text": "Pursuant to",
+        "position": 330,
         "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
         "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
         "severity": "medium"
@@ -1328,7 +1457,7 @@
       {
         "id": "buried_rights",
         "matched_text": "you have the right",
-        "position": 1049,
+        "position": 1151,
         "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
         "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
         "severity": "medium"
@@ -1342,12 +1471,12 @@
       "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
     ],
     "consumer_view": {
-      "letter_text": "[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-897135\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Account ACC-897135\n\nWe acknowledge receipt of your dispute letter regarding the account referenced above. We understand that you have disputed the debt as \"already paid.\" We will investigate this dispute in accordance with the Fair Debt Collection Practices Act (FDCPA) and Florida state law.\n\nWe have reviewed the account records and confirm that the original creditor is Horizon Card Co. The current balance on the account is $6176.50. The account was charged off on January 9, 2022, and the last payment was received on January 29, 2022.\n\nWe take your dispute seriously and will verify the status of the account. As required by law, we will provide you with a written validation of the debt if it is deemed to be valid.\n\nWe also acknowledge your concerns regarding the address provided on your credit report. We will investigate this matter and take necessary steps to ensure that our address is accurate and up-to-date.\n\nPlease be advised that you have the right to dispute this debt further if you believe it is inaccurate or invalid. If you have any additional information or documentation to support your dispute, please provide it to us in writing.\n\nWe will review your dispute and respond to you in writing with the results of our investigation.\n\nSincerely,\n\n[AGENCY NAME]\n\nNote: The letter does not address the consumer's claim of a fraudulent address, as this is not a fact that can be verified from the provided record. The agency will need to investigate this matter separately.",
+      "letter_text": "[DATE]\n\n[CONSUMER NAME]\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-897135\n\nDear [CONSUMER NAME],\n\nRe: Account reference: ACC-897135\n\nWe acknowledge receipt of your dispute regarding the account referenced above. You have claimed that the account is already paid. We understand that you have requested validation of the debt.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA), we are required to provide you with a written validation of the debt within 30 days of your dispute. We will investigate the status of the account and provide you with the necessary documentation to support the debt.\n\nWe have reviewed the account information and confirm that the original creditor is Horizon Card Co. The current balance on the account is $6176.50. The account was charged off on January 9, 2022, and the last payment was received on January 29, 2022.\n\nRegarding your claim that the address provided on your credit report is fraudulent, we understand that you have attempted to contact us by mail, but the letter was returned as undeliverable. We will review our records to ensure that our address is accurate and up-to-date.\n\nPlease note that you have the right to dispute the debt further if you believe that it is not valid. We will continue to investigate this matter and provide you with any additional information that you request.\n\nSincerely,\n\n[AGENCY NAME]\n[AGENCY NAME] Compliance Department",
       "annotations": [
         {
           "id": "jargon_wall",
-          "matched_text": "in accordance with",
-          "position": 305,
+          "matched_text": "Pursuant to",
+          "position": 330,
           "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
           "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
           "severity": "medium"
@@ -1355,7 +1484,7 @@
         {
           "id": "buried_rights",
           "matched_text": "you have the right",
-          "position": 1049,
+          "position": 1151,
           "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
           "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
           "severity": "medium"
@@ -1397,7 +1526,7 @@
     "classified_type": "validation_request",
     "classification_method": "keywords",
     "classification_confidence": 1.0,
-    "draft_letter": "[AGENCY NAME]\n[AGENCY ADDRESS]\n[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-406327\n\nDear [CONSUMER NAME],\n\nRe: Account reference: ACC-406327\n\nWe acknowledge receipt of your dispute letter dated [DATE] regarding the above-referenced account. We understand that you have requested validation of the debt and a cease and desist from collection activities.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA), 15 U.S.C. \u00a7 1692g, we are required to provide you with a written validation notice within five days of your dispute. We confirm that the original creditor for this account is Apex Auto Finance. We also confirm that the current balance on this account is $33.66.\n\nWe are investigating your request for validation and will provide you with a written validation notice as required by law. We will also provide you with any documentation related to the account, including the charge-off date of August 5, 2021, and the last payment date of June 22, 2023.\n\nPlease note that we will continue to communicate with you regarding this account, as required by law. You have the right to dispute this debt further, and we will respond to any additional information you provide.\n\nSincerely,\n\n[AGENCY NAME]\n\ncc: File\n\nNote: This response letter only addresses the facts provided in the record and complies with the FDCPA requirements for validation and dispute resolution.",
+    "draft_letter": "[AGENCY NAME]\n[AGENCY ADDRESS]\n[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-406327\n\nDear [CONSUMER NAME],\n\nRe: Account reference: ACC-406327\n\nWe acknowledge receipt of your dispute letter regarding the above-referenced account. We understand that you have requested validation and are requesting that we cease collection efforts.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA), 15 U.S.C. \u00a7 1692g, we are required to provide you with verification of the debt. We have reviewed our records and can confirm that the original creditor is Apex Auto Finance. We can also confirm that the current balance on the account is $33.66.\n\nWe will provide you with a copy of the charge-off notice, which was sent to the original creditor on August 5, 2021. We will also provide you with a copy of the last payment receipt, which was dated June 22, 2023.\n\nPlease note that we are not required to provide a contract or agreement signed with our company, as we are a debt collector and not the original creditor. However, we will provide you with any documentation that we have in our possession regarding the account.\n\nWe will continue to investigate your dispute and will provide you with any additional information that we can confirm.\n\nYou have the right to further dispute this debt if you believe that it is inaccurate or that we have not provided sufficient documentation. If you wish to continue disputing this debt, please contact us in writing.\n\nSincerely,\n\n[AGENCY NAME]\n\nNote: The letter only includes facts from the record and does not include any language that could be considered threatening or coercive.",
     "draft_tier": "ollama",
     "review_findings": [
       {
@@ -1405,14 +1534,14 @@
         "claim_type": "date",
         "claim_value": "August 5, 2021",
         "reason": "Date August 5, 2021 not found in source record",
-        "position": 915
+        "position": 749
       },
       {
         "severity": "critical",
         "claim_type": "date",
         "claim_value": "June 22, 2023",
         "reason": "Date June 22, 2023 not found in source record",
-        "position": 960
+        "position": 847
       }
     ],
     "review_passed": false,
@@ -1422,7 +1551,7 @@
       {
         "id": "jargon_wall",
         "matched_text": "Pursuant to",
-        "position": 364,
+        "position": 341,
         "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
         "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
         "severity": "medium"
@@ -1430,7 +1559,7 @@
       {
         "id": "buried_rights",
         "matched_text": "You have the right",
-        "position": 1078,
+        "position": 1245,
         "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
         "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
         "severity": "medium"
@@ -1444,12 +1573,12 @@
       "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
     ],
     "consumer_view": {
-      "letter_text": "[AGENCY NAME]\n[AGENCY ADDRESS]\n[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-406327\n\nDear [CONSUMER NAME],\n\nRe: Account reference: ACC-406327\n\nWe acknowledge receipt of your dispute letter dated [DATE] regarding the above-referenced account. We understand that you have requested validation of the debt and a cease and desist from collection activities.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA), 15 U.S.C. \u00a7 1692g, we are required to provide you with a written validation notice within five days of your dispute. We confirm that the original creditor for this account is Apex Auto Finance. We also confirm that the current balance on this account is $33.66.\n\nWe are investigating your request for validation and will provide you with a written validation notice as required by law. We will also provide you with any documentation related to the account, including the charge-off date of August 5, 2021, and the last payment date of June 22, 2023.\n\nPlease note that we will continue to communicate with you regarding this account, as required by law. You have the right to dispute this debt further, and we will respond to any additional information you provide.\n\nSincerely,\n\n[AGENCY NAME]\n\ncc: File\n\nNote: This response letter only addresses the facts provided in the record and complies with the FDCPA requirements for validation and dispute resolution.",
+      "letter_text": "[AGENCY NAME]\n[AGENCY ADDRESS]\n[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-406327\n\nDear [CONSUMER NAME],\n\nRe: Account reference: ACC-406327\n\nWe acknowledge receipt of your dispute letter regarding the above-referenced account. We understand that you have requested validation and are requesting that we cease collection efforts.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA), 15 U.S.C. \u00a7 1692g, we are required to provide you with verification of the debt. We have reviewed our records and can confirm that the original creditor is Apex Auto Finance. We can also confirm that the current balance on the account is $33.66.\n\nWe will provide you with a copy of the charge-off notice, which was sent to the original creditor on August 5, 2021. We will also provide you with a copy of the last payment receipt, which was dated June 22, 2023.\n\nPlease note that we are not required to provide a contract or agreement signed with our company, as we are a debt collector and not the original creditor. However, we will provide you with any documentation that we have in our possession regarding the account.\n\nWe will continue to investigate your dispute and will provide you with any additional information that we can confirm.\n\nYou have the right to further dispute this debt if you believe that it is inaccurate or that we have not provided sufficient documentation. If you wish to continue disputing this debt, please contact us in writing.\n\nSincerely,\n\n[AGENCY NAME]\n\nNote: The letter only includes facts from the record and does not include any language that could be considered threatening or coercive.",
       "annotations": [
         {
           "id": "jargon_wall",
           "matched_text": "Pursuant to",
-          "position": 364,
+          "position": 341,
           "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
           "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
           "severity": "medium"
@@ -1457,7 +1586,7 @@
         {
           "id": "buried_rights",
           "matched_text": "You have the right",
-          "position": 1078,
+          "position": 1245,
           "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
           "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
           "severity": "medium"
@@ -1499,44 +1628,77 @@
     "classified_type": "not_mine",
     "classification_method": "ledger",
     "classification_confidence": 0.5,
-    "draft_letter": "[Date]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-819796\n\nDear [CONSUMER],\n\nRe: Dispute of Account ACC-819796\n\nWe acknowledge receipt of your dispute letter regarding the account with our agency, ACC-819796. You have disputed this account as \"not mine,\" stating that you are unaware of its origin and have not opened it.\n\nWe understand your concern and are required to investigate this dispute under the Fair Credit Reporting Act (FCRA) and the South Carolina Fair Debt Collection Practices Act (SC Code Ann. \u00a7 37-5-101 et seq.). We will conduct a thorough review of the account information to verify the accuracy of the account details.\n\nWe have reviewed the account information, and the following facts are confirmed: the original creditor is Summit Trust Bank, the account was charged off on 2021-05-23, and the last payment date was 2023-05-03. The current balance on the account is $2022.05.\n\nWe will investigate this dispute further and provide a response within the required timeframe. Please note that our agency is not required to provide validation for this account, as the original creditor is Summit Trust Bank, and we are a debt collector acting on their behalf.\n\nYou have the right to dispute this account further if you believe the investigation did not resolve the issue to your satisfaction. If you have any additional documentation or information to support your dispute, please provide it to us.\n\nSincerely,\n\n[AGENCY NAME]\n\ncc: [Consumer's Dispute Letter with attached documents]\n\nNote: The letter is under 400 words and only states facts present in the record. It acknowledges the consumer's dispute, states the agency's actions, and includes the consumer's right to further dispute.",
+    "draft_letter": "[Date]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-819796\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Account ACC-819796\n\nWe acknowledge receipt of your dispute letter regarding the account ACC-819796, which you claim is not yours. We understand that you have attached documents to support your claim.\n\nPursuant to the Fair Credit Reporting Act (FCRA), 15 U.S.C. \u00a7 1681g, we will investigate your dispute. We will review the account information and verify the accuracy of the account details. We will also review the charge-off date of May 23, 2021, and the last payment date of May 3, 2023.\n\nAs per the FCRA, we will provide you with a written response to your dispute within 30 days. We will also investigate the original creditor, Summit Trust Bank, to determine the validity of the account.\n\nWe will not remove the account from your credit report at this time. However, we will investigate your claim and provide a written response to your dispute.\n\nYou have the right to further dispute this account if you believe our investigation does not resolve your concerns. Please note that we will provide you with a written response to your dispute within 30 days, as required by the FCRA.\n\nSincerely,\n\n[AGENCY NAME]\n\n[Agency Name]\n[Agency Address]\n[Agency Contact Information]",
     "draft_tier": "ollama",
-    "review_findings": [],
-    "review_passed": true,
+    "review_findings": [
+      {
+        "severity": "critical",
+        "claim_type": "date",
+        "claim_value": "May 23, 2021",
+        "reason": "Date May 23, 2021 not found in source record",
+        "position": 535
+      },
+      {
+        "severity": "critical",
+        "claim_type": "date",
+        "claim_value": "May 3, 2023",
+        "reason": "Date May 3, 2023 not found in source record",
+        "position": 578
+      }
+    ],
+    "review_passed": false,
     "review_warnings": 0,
-    "review_critical": 0,
+    "review_critical": 2,
     "consumer_annotations": [
+      {
+        "id": "jargon_wall",
+        "matched_text": "Pursuant to",
+        "position": 302,
+        "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
+        "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
+        "severity": "medium"
+      },
       {
         "id": "buried_rights",
         "matched_text": "You have the right",
-        "position": 1182,
+        "position": 953,
         "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
         "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
         "severity": "medium"
       }
     ],
-    "engagement_risk_score": 2,
-    "engagement_risk_level": "low",
+    "engagement_risk_score": 4,
+    "engagement_risk_level": "medium",
     "agency_intent": "We're looking into whether this debt belongs to you and stopping contact meanwhile.",
     "consumer_impact": [
+      "'I can't understand this' \u2014 consumer stops reading",
       "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
     ],
     "consumer_view": {
-      "letter_text": "[Date]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-819796\n\nDear [CONSUMER],\n\nRe: Dispute of Account ACC-819796\n\nWe acknowledge receipt of your dispute letter regarding the account with our agency, ACC-819796. You have disputed this account as \"not mine,\" stating that you are unaware of its origin and have not opened it.\n\nWe understand your concern and are required to investigate this dispute under the Fair Credit Reporting Act (FCRA) and the South Carolina Fair Debt Collection Practices Act (SC Code Ann. \u00a7 37-5-101 et seq.). We will conduct a thorough review of the account information to verify the accuracy of the account details.\n\nWe have reviewed the account information, and the following facts are confirmed: the original creditor is Summit Trust Bank, the account was charged off on 2021-05-23, and the last payment date was 2023-05-03. The current balance on the account is $2022.05.\n\nWe will investigate this dispute further and provide a response within the required timeframe. Please note that our agency is not required to provide validation for this account, as the original creditor is Summit Trust Bank, and we are a debt collector acting on their behalf.\n\nYou have the right to dispute this account further if you believe the investigation did not resolve the issue to your satisfaction. If you have any additional documentation or information to support your dispute, please provide it to us.\n\nSincerely,\n\n[AGENCY NAME]\n\ncc: [Consumer's Dispute Letter with attached documents]\n\nNote: The letter is under 400 words and only states facts present in the record. It acknowledges the consumer's dispute, states the agency's actions, and includes the consumer's right to further dispute.",
+      "letter_text": "[Date]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-819796\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Account ACC-819796\n\nWe acknowledge receipt of your dispute letter regarding the account ACC-819796, which you claim is not yours. We understand that you have attached documents to support your claim.\n\nPursuant to the Fair Credit Reporting Act (FCRA), 15 U.S.C. \u00a7 1681g, we will investigate your dispute. We will review the account information and verify the accuracy of the account details. We will also review the charge-off date of May 23, 2021, and the last payment date of May 3, 2023.\n\nAs per the FCRA, we will provide you with a written response to your dispute within 30 days. We will also investigate the original creditor, Summit Trust Bank, to determine the validity of the account.\n\nWe will not remove the account from your credit report at this time. However, we will investigate your claim and provide a written response to your dispute.\n\nYou have the right to further dispute this account if you believe our investigation does not resolve your concerns. Please note that we will provide you with a written response to your dispute within 30 days, as required by the FCRA.\n\nSincerely,\n\n[AGENCY NAME]\n\n[Agency Name]\n[Agency Address]\n[Agency Contact Information]",
       "annotations": [
+        {
+          "id": "jargon_wall",
+          "matched_text": "Pursuant to",
+          "position": 302,
+          "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
+          "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
+          "severity": "medium"
+        },
         {
           "id": "buried_rights",
           "matched_text": "You have the right",
-          "position": 1182,
+          "position": 953,
           "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
           "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
           "severity": "medium"
         }
       ],
-      "risk_score": 2,
-      "risk_level": "low",
+      "risk_score": 4,
+      "risk_level": "medium",
       "intent": "We're looking into whether this debt belongs to you and stopping contact meanwhile.",
       "impact": [
+        "'I can't understand this' \u2014 consumer stops reading",
         "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
       ],
       "account_id": "ACC-819796",
@@ -1568,95 +1730,44 @@
     "classified_type": "validation_request",
     "classification_method": "ledger",
     "classification_confidence": 0.5,
-    "draft_letter": "[Date]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-696251\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Account ACC-696251\n\nWe acknowledge receipt of your dispute regarding the account referenced above. You have requested validation of the debt and disputed the collection notice sent by our agency. We appreciate your prompt attention to this matter.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA), 15 U.S.C. \u00a7 1692g, we are required to provide you with a written validation notice within five days of your dispute. This notice will include the amount of the debt, the name of the original creditor, and a statement that unless you dispute the debt within 30 days, we will assume the debt to be valid.\n\nWe have reviewed your account and confirmed that the original creditor is Lakeshore Utilities. The current balance on the account is $4,924.62. The charge-off date was March 8, 2021, and the last payment date was June 16, 2021.\n\nWe will provide you with a written validation notice as required by law. Please note that you have the right to dispute this debt further if you believe it is inaccurate or not yours.\n\nSincerely,\n\n[AGENCY NAME]",
+    "draft_letter": "[Date]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-696251\n\nDear [CONSUMER NAME],\n\nRe: Account reference: ACC-696251\n\nWe acknowledge receipt of your dispute regarding the account referenced above. We understand that you have requested validation of the debt. We take all disputes seriously and will investigate this matter further.\n\nWe confirm that the original creditor for this account is Lakeshore Utilities. Our records indicate that the account was charged off on 2021-03-08. The last payment received on this account was on 2021-06-16. The current balance on this account is 4924.62.\n\nWe will provide you with the necessary documentation to validate this debt, as required by the Fair Debt Collection Practices Act (FDCPA) and Idaho state law. We will send you a copy of the original contract, account statements, and any other relevant documentation.\n\nPlease note that we will continue to send you collection notices until we receive a payment or a written instruction to cease collection efforts. However, we will also provide you with information on how to dispute the debt further, if you so choose.\n\nYou have the right to dispute this debt further and request a written acknowledgement of your dispute. If you wish to continue disputing this debt, please provide us with a written statement outlining the specific reasons for your dispute.\n\nSincerely,\n\n[AGENCY NAME]\nAd Astra Recovery\n[Agency Address]\n[Agency Contact Information]",
     "draft_tier": "ollama",
-    "review_findings": [
-      {
-        "severity": "critical",
-        "claim_type": "date",
-        "claim_value": "March 8, 2021",
-        "reason": "Date March 8, 2021 not found in source record",
-        "position": 882
-      },
-      {
-        "severity": "critical",
-        "claim_type": "date",
-        "claim_value": "June 16, 2021",
-        "reason": "Date June 16, 2021 not found in source record",
-        "position": 927
-      }
-    ],
-    "review_passed": false,
+    "review_findings": [],
+    "review_passed": true,
     "review_warnings": 0,
-    "review_critical": 2,
+    "review_critical": 0,
     "consumer_annotations": [
       {
-        "id": "jargon_wall",
-        "matched_text": "Pursuant to",
-        "position": 350,
-        "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
-        "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
-        "severity": "medium"
-      },
-      {
-        "id": "urgency_without_clarity",
-        "matched_text": "prompt attention",
-        "position": 316,
-        "flag": "Urgency language without clear action steps \u2014 triggers panic or avoidance, not compliance",
-        "cfpb_grounding": "CFPB pattern: 'They said it was urgent but didn't tell me what to actually do'",
-        "severity": "high"
-      },
-      {
         "id": "buried_rights",
-        "matched_text": "you have the right",
-        "position": 1033,
+        "matched_text": "You have the right",
+        "position": 1114,
         "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
         "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
         "severity": "medium"
       }
     ],
-    "engagement_risk_score": 7,
-    "engagement_risk_level": "high",
+    "engagement_risk_score": 2,
+    "engagement_risk_level": "low",
     "agency_intent": "We're getting the original documentation to prove the debt is valid.",
     "consumer_impact": [
-      "'I can't understand this' \u2014 consumer stops reading",
-      "'Something bad is about to happen but I don't know what to do' \u2014 paralysis",
       "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
     ],
     "consumer_view": {
-      "letter_text": "[Date]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-696251\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Account ACC-696251\n\nWe acknowledge receipt of your dispute regarding the account referenced above. You have requested validation of the debt and disputed the collection notice sent by our agency. We appreciate your prompt attention to this matter.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA), 15 U.S.C. \u00a7 1692g, we are required to provide you with a written validation notice within five days of your dispute. This notice will include the amount of the debt, the name of the original creditor, and a statement that unless you dispute the debt within 30 days, we will assume the debt to be valid.\n\nWe have reviewed your account and confirmed that the original creditor is Lakeshore Utilities. The current balance on the account is $4,924.62. The charge-off date was March 8, 2021, and the last payment date was June 16, 2021.\n\nWe will provide you with a written validation notice as required by law. Please note that you have the right to dispute this debt further if you believe it is inaccurate or not yours.\n\nSincerely,\n\n[AGENCY NAME]",
+      "letter_text": "[Date]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-696251\n\nDear [CONSUMER NAME],\n\nRe: Account reference: ACC-696251\n\nWe acknowledge receipt of your dispute regarding the account referenced above. We understand that you have requested validation of the debt. We take all disputes seriously and will investigate this matter further.\n\nWe confirm that the original creditor for this account is Lakeshore Utilities. Our records indicate that the account was charged off on 2021-03-08. The last payment received on this account was on 2021-06-16. The current balance on this account is 4924.62.\n\nWe will provide you with the necessary documentation to validate this debt, as required by the Fair Debt Collection Practices Act (FDCPA) and Idaho state law. We will send you a copy of the original contract, account statements, and any other relevant documentation.\n\nPlease note that we will continue to send you collection notices until we receive a payment or a written instruction to cease collection efforts. However, we will also provide you with information on how to dispute the debt further, if you so choose.\n\nYou have the right to dispute this debt further and request a written acknowledgement of your dispute. If you wish to continue disputing this debt, please provide us with a written statement outlining the specific reasons for your dispute.\n\nSincerely,\n\n[AGENCY NAME]\nAd Astra Recovery\n[Agency Address]\n[Agency Contact Information]",
       "annotations": [
         {
-          "id": "jargon_wall",
-          "matched_text": "Pursuant to",
-          "position": 350,
-          "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
-          "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
-          "severity": "medium"
-        },
-        {
-          "id": "urgency_without_clarity",
-          "matched_text": "prompt attention",
-          "position": 316,
-          "flag": "Urgency language without clear action steps \u2014 triggers panic or avoidance, not compliance",
-          "cfpb_grounding": "CFPB pattern: 'They said it was urgent but didn't tell me what to actually do'",
-          "severity": "high"
-        },
-        {
           "id": "buried_rights",
-          "matched_text": "you have the right",
-          "position": 1033,
+          "matched_text": "You have the right",
+          "position": 1114,
           "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
           "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
           "severity": "medium"
         }
       ],
-      "risk_score": 7,
-      "risk_level": "high",
+      "risk_score": 2,
+      "risk_level": "low",
       "intent": "We're getting the original documentation to prove the debt is valid.",
       "impact": [
-        "'I can't understand this' \u2014 consumer stops reading",
-        "'Something bad is about to happen but I don't know what to do' \u2014 paralysis",
         "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
       ],
       "account_id": "ACC-696251",
@@ -1688,25 +1799,40 @@
     "classified_type": "not_mine",
     "classification_method": "keywords",
     "classification_confidence": 1.0,
-    "draft_letter": "[Date]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-528361\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Account ACC-528361\n\nWe acknowledge receipt of your dispute letter regarding the account referenced above. You have disputed the debt as \"not mine.\" We understand that you are claiming this debt is not yours and that you do not owe it.\n\nWe will investigate this dispute in accordance with the Fair Debt Collection Practices Act (FDCPA) and Iowa state law. We will review the account information and verify the debt. As per FDCPA, we are required to provide you with a written validation of the debt if we intend to continue collection efforts.\n\nWe will also review the credit reporting information and take any necessary steps to ensure the accuracy of the credit reporting. However, we cannot make any conclusions or assumptions about the debt's validity based solely on your dispute.\n\nPlease note that you have the right to dispute this debt further if you have additional information or documentation that supports your claim. We will continue to investigate this matter and will provide you with an update on our findings.\n\nSincerely,\n\n[AGENCY NAME]\n\nNote: This letter is a response to the consumer's dispute and is not an admission of liability. The agency will investigate the dispute and provide a written validation of the debt if necessary.",
+    "draft_letter": "[Date]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-528361\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Account ACC-528361\n\nWe acknowledge receipt of your dispute letter regarding the account ACC-528361. You have disputed the debt as \"not mine.\" We understand that you believe the debt is not yours.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA), 15 U.S.C. \u00a7 1692g, we are required to provide you with a validation notice. However, we have no indication that you have requested validation in writing. Our records indicate that the original creditor, Lakeshore Utilities, charged off the account on December 18, 2023. The last payment date on the account was July 18, 2025. We will investigate your dispute and verify the debt.\n\nWe will review the account and verify the debt with the original creditor. If we determine that the debt is valid, we will provide you with a validation notice as required by the FDCPA. If we determine that the debt is not valid, we will take the necessary steps to remove the debt from your credit report.\n\nYou have the right to dispute this debt further. If you have any additional information or documentation that supports your dispute, please provide it to us in writing.\n\nSincerely,\n\n[AGENCY NAME]\nCompliance Department",
     "draft_tier": "ollama",
-    "review_findings": [],
-    "review_passed": true,
+    "review_findings": [
+      {
+        "severity": "critical",
+        "claim_type": "date",
+        "claim_value": "December 18, 2023",
+        "reason": "Date December 18, 2023 not found in source record",
+        "position": 609
+      },
+      {
+        "severity": "critical",
+        "claim_type": "date",
+        "claim_value": "July 18, 2025",
+        "reason": "Date July 18, 2025 not found in source record",
+        "position": 669
+      }
+    ],
+    "review_passed": false,
     "review_warnings": 0,
-    "review_critical": 0,
+    "review_critical": 2,
     "consumer_annotations": [
       {
         "id": "jargon_wall",
-        "matched_text": "in accordance with",
-        "position": 370,
+        "matched_text": "Pursuant to",
+        "position": 298,
         "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
         "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
         "severity": "medium"
       },
       {
         "id": "buried_rights",
-        "matched_text": "you have the right",
-        "position": 904,
+        "matched_text": "You have the right",
+        "position": 1047,
         "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
         "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
         "severity": "medium"
@@ -1720,20 +1846,20 @@
       "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
     ],
     "consumer_view": {
-      "letter_text": "[Date]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-528361\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Account ACC-528361\n\nWe acknowledge receipt of your dispute letter regarding the account referenced above. You have disputed the debt as \"not mine.\" We understand that you are claiming this debt is not yours and that you do not owe it.\n\nWe will investigate this dispute in accordance with the Fair Debt Collection Practices Act (FDCPA) and Iowa state law. We will review the account information and verify the debt. As per FDCPA, we are required to provide you with a written validation of the debt if we intend to continue collection efforts.\n\nWe will also review the credit reporting information and take any necessary steps to ensure the accuracy of the credit reporting. However, we cannot make any conclusions or assumptions about the debt's validity based solely on your dispute.\n\nPlease note that you have the right to dispute this debt further if you have additional information or documentation that supports your claim. We will continue to investigate this matter and will provide you with an update on our findings.\n\nSincerely,\n\n[AGENCY NAME]\n\nNote: This letter is a response to the consumer's dispute and is not an admission of liability. The agency will investigate the dispute and provide a written validation of the debt if necessary.",
+      "letter_text": "[Date]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-528361\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Account ACC-528361\n\nWe acknowledge receipt of your dispute letter regarding the account ACC-528361. You have disputed the debt as \"not mine.\" We understand that you believe the debt is not yours.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA), 15 U.S.C. \u00a7 1692g, we are required to provide you with a validation notice. However, we have no indication that you have requested validation in writing. Our records indicate that the original creditor, Lakeshore Utilities, charged off the account on December 18, 2023. The last payment date on the account was July 18, 2025. We will investigate your dispute and verify the debt.\n\nWe will review the account and verify the debt with the original creditor. If we determine that the debt is valid, we will provide you with a validation notice as required by the FDCPA. If we determine that the debt is not valid, we will take the necessary steps to remove the debt from your credit report.\n\nYou have the right to dispute this debt further. If you have any additional information or documentation that supports your dispute, please provide it to us in writing.\n\nSincerely,\n\n[AGENCY NAME]\nCompliance Department",
       "annotations": [
         {
           "id": "jargon_wall",
-          "matched_text": "in accordance with",
-          "position": 370,
+          "matched_text": "Pursuant to",
+          "position": 298,
           "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
           "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
           "severity": "medium"
         },
         {
           "id": "buried_rights",
-          "matched_text": "you have the right",
-          "position": 904,
+          "matched_text": "You have the right",
+          "position": 1047,
           "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
           "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
           "severity": "medium"
@@ -1775,32 +1901,17 @@
     "classified_type": "wrong_amount",
     "classification_method": "ledger",
     "classification_confidence": 0.5,
-    "draft_letter": "[AGENCY NAME]\n[AGENCY ADDRESS]\n[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-273982\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Account ACC-273982\n\nWe acknowledge receipt of your dispute regarding the amount owed on your account with Greenfield Energy, which is currently managed by our agency. We understand that you have disputed the amount due, citing that you made timely payments.\n\nWe take all disputes seriously and are required to investigate and validate the debt under the Fair Debt Collection Practices Act (FDCPA) and New York State law. We will review the account history to verify the accuracy of the balance and payments made.\n\nPursuant to your request, we will provide validation of the debt, which includes the original creditor's information, the amount owed, and the charge-off date. The current balance on your account is $5198.33, and the charge-off date was September 14, 2021. The last payment made on your account was on July 12, 2022.\n\nWe will investigate this matter further and will respond to your dispute in a timely manner. If our investigation confirms that the amount due is accurate, we will provide you with a detailed breakdown of the charges and payments made.\n\nYou have the right to dispute this debt further if you believe it is incorrect. Please note that we will continue to attempt to collect the debt unless you provide written confirmation that the debt is disputed and we are to cease collection efforts.\n\nSincerely,\n\n[AGENCY NAME]\n\ncc: [AGENCY FILE NUMBER]\n\nNote: The letter is under 400 words and only includes facts from the provided record. The agency acknowledges the consumer's dispute, states what action will be taken, and provides the consumer with their rights regarding further dispute.",
+    "draft_letter": "[Date]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-273982\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Account ACC-273982\n\nWe acknowledge receipt of your dispute regarding the amount owed on account ACC-273982. We understand that you have disputed the current balance of $5,198.33. We take all disputes seriously and will investigate this matter in accordance with the Fair Debt Collection Practices Act (FDCPA) and New York State law.\n\nWe have reviewed the account records and confirm that the current balance is $5,198.33. Our records also indicate that the account was charged off on 2021-09-14, and the last payment received was on 2022-07-12.\n\nWe will provide you with a validation of the debt, as requested, which will include the original creditor's name (Greenfield Energy), the amount owed, and the account details. This validation will be sent to you within the next 10 business days, as required by the FDCPA.\n\nPlease note that our records do not indicate any agreement or arrangement to reduce the payment amount. We will continue to investigate this matter to ensure that all collection activities are in compliance with applicable laws.\n\nYou have the right to dispute this amount further, and we encourage you to review the validation when it is received. If you have any additional information or documentation to support your dispute, please provide it to us in writing.\n\nSincerely,\n\n[AGENCY NAME]",
     "draft_tier": "ollama",
-    "review_findings": [
-      {
-        "severity": "critical",
-        "claim_type": "date",
-        "claim_value": "September 14, 2021",
-        "reason": "Date September 14, 2021 not found in source record",
-        "position": 883
-      },
-      {
-        "severity": "critical",
-        "claim_type": "date",
-        "claim_value": "July 12, 2022",
-        "reason": "Date July 12, 2022 not found in source record",
-        "position": 948
-      }
-    ],
-    "review_passed": false,
+    "review_findings": [],
+    "review_passed": true,
     "review_warnings": 0,
-    "review_critical": 2,
+    "review_critical": 0,
     "consumer_annotations": [
       {
         "id": "jargon_wall",
-        "matched_text": "Pursuant to",
-        "position": 646,
+        "matched_text": "in accordance with",
+        "position": 344,
         "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
         "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
         "severity": "medium"
@@ -1808,7 +1919,7 @@
       {
         "id": "buried_rights",
         "matched_text": "You have the right",
-        "position": 1201,
+        "position": 1150,
         "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
         "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
         "severity": "medium"
@@ -1822,12 +1933,12 @@
       "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
     ],
     "consumer_view": {
-      "letter_text": "[AGENCY NAME]\n[AGENCY ADDRESS]\n[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-273982\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Account ACC-273982\n\nWe acknowledge receipt of your dispute regarding the amount owed on your account with Greenfield Energy, which is currently managed by our agency. We understand that you have disputed the amount due, citing that you made timely payments.\n\nWe take all disputes seriously and are required to investigate and validate the debt under the Fair Debt Collection Practices Act (FDCPA) and New York State law. We will review the account history to verify the accuracy of the balance and payments made.\n\nPursuant to your request, we will provide validation of the debt, which includes the original creditor's information, the amount owed, and the charge-off date. The current balance on your account is $5198.33, and the charge-off date was September 14, 2021. The last payment made on your account was on July 12, 2022.\n\nWe will investigate this matter further and will respond to your dispute in a timely manner. If our investigation confirms that the amount due is accurate, we will provide you with a detailed breakdown of the charges and payments made.\n\nYou have the right to dispute this debt further if you believe it is incorrect. Please note that we will continue to attempt to collect the debt unless you provide written confirmation that the debt is disputed and we are to cease collection efforts.\n\nSincerely,\n\n[AGENCY NAME]\n\ncc: [AGENCY FILE NUMBER]\n\nNote: The letter is under 400 words and only includes facts from the provided record. The agency acknowledges the consumer's dispute, states what action will be taken, and provides the consumer with their rights regarding further dispute.",
+      "letter_text": "[Date]\n\n[CONSUMER ADDRESS]\n\nRE: Account reference: ACC-273982\n\nDear [CONSUMER NAME],\n\nRe: Dispute of Account ACC-273982\n\nWe acknowledge receipt of your dispute regarding the amount owed on account ACC-273982. We understand that you have disputed the current balance of $5,198.33. We take all disputes seriously and will investigate this matter in accordance with the Fair Debt Collection Practices Act (FDCPA) and New York State law.\n\nWe have reviewed the account records and confirm that the current balance is $5,198.33. Our records also indicate that the account was charged off on 2021-09-14, and the last payment received was on 2022-07-12.\n\nWe will provide you with a validation of the debt, as requested, which will include the original creditor's name (Greenfield Energy), the amount owed, and the account details. This validation will be sent to you within the next 10 business days, as required by the FDCPA.\n\nPlease note that our records do not indicate any agreement or arrangement to reduce the payment amount. We will continue to investigate this matter to ensure that all collection activities are in compliance with applicable laws.\n\nYou have the right to dispute this amount further, and we encourage you to review the validation when it is received. If you have any additional information or documentation to support your dispute, please provide it to us in writing.\n\nSincerely,\n\n[AGENCY NAME]",
       "annotations": [
         {
           "id": "jargon_wall",
-          "matched_text": "Pursuant to",
-          "position": 646,
+          "matched_text": "in accordance with",
+          "position": 344,
           "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
           "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
           "severity": "medium"
@@ -1835,7 +1946,7 @@
         {
           "id": "buried_rights",
           "matched_text": "You have the right",
-          "position": 1201,
+          "position": 1150,
           "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
           "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
           "severity": "medium"

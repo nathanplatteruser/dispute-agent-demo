@@ -93,7 +93,7 @@ def main():
     _build_ui(records, output_dir, elapsed, args, val_stats)
 
     print(f"\n  Results saved to {output_dir}/")
-    print(f"  Open ui/results.html to view results (works from file://)")
+    print(f"  Open ui/index.html to view results (works from file://)")
     print(f"  LLM tier: {tier_status_line()}")
 
 
@@ -150,12 +150,11 @@ def _save_results(records, fix_log, val_stats, output_dir, elapsed, args):
 
 
 def _build_ui(records, output_dir, elapsed, args, val_stats):
-    """Write a self-contained ui/results.html with data inlined."""
-    ui_template = ROOT / "ui" / "index.html"
-    ui_output = ROOT / "ui" / "results.html"
+    """Write self-contained ui/index.html with data inlined."""
+    ui_template = ROOT / "ui" / "_template.html"
 
     if not ui_template.exists():
-        print("  ⚠ ui/index.html not found, skipping UI build")
+        print("  ⚠ ui/_template.html not found, skipping UI build")
         return
 
     template = ui_template.read_text(encoding="utf-8")
@@ -202,8 +201,10 @@ def _build_ui(records, output_dir, elapsed, args, val_stats):
     # Insert right before </head>
     result_html = template.replace('</head>', data_script + '</head>', 1)
 
-    ui_output.write_text(result_html, encoding="utf-8")
-    print(f"  UI written to ui/results.html ({len(result_html) // 1024}KB, self-contained)")
+    # Write to ui/index.html — the one file anyone will open
+    index_path = ROOT / "ui" / "index.html"
+    index_path.write_text(result_html, encoding="utf-8")
+    print(f"  UI written to ui/index.html ({len(result_html) // 1024}KB, self-contained)")
 
 
 if __name__ == "__main__":

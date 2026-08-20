@@ -8,7 +8,7 @@
 
 - [ ] Ollama running: `ollama serve` (confirm with `ollama list`)
 - [ ] Terminal open, font size 18+, dark background
-- [ ] Browser open to `ui/results.html` (self-contained, works from file://)
+- [ ] Browser open to `ui/index.html` (self-contained, works from file://)
 - [ ] Wifi ON initially (for Tier 1 demo option), but pipeline will work without it
 - [ ] `cd ~/dispute-demo` (or wherever the repo lives)
 - [ ] Run `python3 run.py --records 5 --no-llm` once to warm up — confirm it prints clean output
@@ -162,7 +162,7 @@ for r in records:
 
 ### Stage 6: Consumer View (5 min)
 
-Open `ui/results.html` in browser. Click through records.
+Open `ui/index.html` in browser. Click through records.
 
 > "Now I'm going to read this letter the way the person who gets it
 > reads it."

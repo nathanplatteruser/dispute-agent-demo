@@ -4,7 +4,7 @@
 python3 run.py --records 50 --max-drafts 10
 ```
 
-Open `ui/results.html` in a browser to see results (works from file://, no server needed).
+Open `ui/index.html` in a browser to see results (works from file://, no server needed).
 
 ---
 
