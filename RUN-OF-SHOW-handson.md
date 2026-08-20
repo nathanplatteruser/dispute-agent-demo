@@ -22,30 +22,27 @@
 
 **What Nathan says:**
 
-> "Before I write a single line of code, I want to read you something."
+> "Before I write a single line of code, I want to tell you about one
+> consumer in the CFPB database.
+>
+> He gets a collection notice. Doesn't recognize the debt. So he does
+> what you'd want him to do — calls the agency, asks for validation.
+> They send him an Excel spreadsheet with a list of names and balances.
+> His name isn't on it. He calls back, says 'my name isn't on this.'
+> They send the same spreadsheet again.
+>
+> He sends a certified letter requesting formal validation. Eventually
+> they mail him a one-page letter that says he owes a balance and should
+> pay it. No contract. No account agreement. No proof the debt is his.
+>
+> That response was legal. It checked every box. And it communicated
+> nothing. The consumer still can't verify the debt. So he does nothing.
+> That account sits at zero recovery — not because the agency broke a
+> rule, but because compliance and communication are different things.
+>
+> Today we're going to build the tool that shows the difference."
 
-Pull up a CFPB narrative — one that's vivid, specific, emotional. Read it aloud, slowly.
-
-```bash
-python3 -c "
-import csv
-with open('data/raw/cfpb_sample_3000.csv') as f:
-    r = csv.DictReader(f)
-    for row in r:
-        n = row.get('Consumer complaint narrative', '')
-        if 'identity theft' in n.lower() and len(n) > 300:
-            print(n[:800])
-            break
-"
-```
-
-> "That's a real person. That complaint is in a federal database because
-> the letter they got back didn't address what they actually said. Today
-> we're going to build the thing that catches that."
-
-**Pre-built vs typed live:** The one-liner is typed live. The data file is pre-loaded.
-
-**Recovery if it fails:** Have 3 compelling narratives saved in `break/cold_open_backup.txt` as backup.
+**Recovery:** This is spoken, not read from screen. Nothing to fail.
 
 ---
 

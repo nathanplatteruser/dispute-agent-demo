@@ -21,24 +21,40 @@ of what the room does Monday.
 
 ---
 
-## 0:00–2:00 — Cold Open: One Person's Experience
+## 0:00–2:00 — Cold Open: The Spreadsheet
 
 **Screen:** Black terminal. Nothing.
 
-Read a CFPB narrative aloud. No slides, no intro, no "hi I'm Nathan."
-Just the voice of someone who got a letter that scared them into doing
-nothing.
+No slides, no intro, no "hi I'm Nathan." Just the story.
 
-> [Read the chosen narrative — see candidates below]
+> "A consumer gets a collection notice. He doesn't recognize the debt.
+> So he does what you'd want him to do — he calls the agency and asks
+> for validation.
+>
+> They send him a document. It's an Excel spreadsheet. It has a list
+> of names on it, and a list of balances. His name is not on the list.
+>
+> He calls back. He says, 'my name isn't on this.' They send him the
+> same spreadsheet again.
+>
+> He sends a certified letter requesting formal debt validation. They
+> call him a few more times. Eventually they send him a one-page letter
+> that says he owes a balance and should pay it. No contract. No
+> account agreement. No proof the debt is his.
+>
+> That response was legal. It checked every box. And it communicated
+> nothing. The consumer still doesn't know whether the debt is real.
+> He can't verify it. He can't pay it with confidence. He can't dispute
+> it with evidence. So he does nothing. And that account sits at zero
+> recovery — not because the agency broke a rule, but because compliance
+> and communication are different things."
 
-Pause. Then:
+Pause.
 
-> "That's a real complaint. It's in a federal database because the letter
-> this person received was technically compliant — and completely
-> ineffective. Today I'm going to show you the difference."
+> "That's a real complaint in the CFPB database. Today I'm going to
+> show you why your AI pipeline has the same problem."
 
-**Recovery:** Narrative is on screen via a simple `cat` or pre-printed.
-Nothing to fail.
+**Recovery:** This is spoken, not read from screen. Nothing to fail.
 
 ---
 
