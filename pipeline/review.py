@@ -67,7 +67,89 @@ def _extract_claims(letter):
         for match in re.finditer(pattern, letter, re.IGNORECASE):
             claims.append({"type": "outcome_promise", "value": match.group(), "position": match.start()})
 
+    # Statutory citations — match federal USC references only.
+    # Skip bare § preceded by state code abbreviations (e.g. "C.R.S. §")
+    cite_patterns = [
+        r"15\s+U\.?S\.?C\.?\s*§?\s*(\d+[a-z]?(?:\([a-z0-9]+\))*)",
+    ]
+    for pattern in cite_patterns:
+        for match in re.finditer(pattern, letter):
+            claims.append({
+                "type": "citation",
+                "value": match.group(),
+                "section": match.group(1),
+                "position": match.start(),
+            })
+
     return claims
+
+
+# Allowlist of real FDCPA/FCRA sections with their actual subject matter.
+# Any citation not on this list, or cited for the wrong purpose, gets flagged.
+VALID_CITATIONS = {
+    # FDCPA — 15 U.S.C. §§ 1692–1692p
+    "1692":    "FDCPA — Congressional findings and declaration of purpose",
+    "1692a":   "FDCPA — Definitions",
+    "1692b":   "FDCPA — Acquisition of location information",
+    "1692c":   "FDCPA — Communication in connection with debt collection",
+    "1692c(a)":"FDCPA — Communication with consumer (unusual times/places)",
+    "1692c(b)":"FDCPA — Communication with third parties",
+    "1692c(c)":"FDCPA — Ceasing communication upon consumer request",
+    "1692d":   "FDCPA — Harassment or abuse",
+    "1692e":   "FDCPA — False or misleading representations",
+    "1692f":   "FDCPA — Unfair practices",
+    "1692g":   "FDCPA — Validation of debts (30-day notice, right to dispute)",
+    "1692g(a)":"FDCPA — Notice of debt (initial communication requirements)",
+    "1692g(b)":"FDCPA — Disputed debts (cease until verification)",
+    "1692h":   "FDCPA — Multiple debts",
+    "1692i":   "FDCPA — Legal actions by debt collectors (venue)",
+    "1692j":   "FDCPA — Furnishing certain deceptive forms",
+    "1692k":   "FDCPA — Civil liability",
+    "1692l":   "FDCPA — Administrative enforcement",
+    "1692n":   "FDCPA — Relation to State laws",
+    "1692o":   "FDCPA — Exemption for State regulation",
+    "1692p":   "FDCPA — Exception for certain bad check enforcement programs",
+    # FCRA — 15 U.S.C. §§ 1681–1681x
+    "1681":    "FCRA — Congressional findings and statement of purpose",
+    "1681a":   "FCRA — Definitions",
+    "1681b":   "FCRA — Permissible purposes of consumer reports",
+    "1681c":   "FCRA — Requirements relating to information in consumer reports",
+    "1681c(a)":"FCRA — Obsolete information (7-year/10-year limits)",
+    "1681d":   "FCRA — Disclosure of investigative consumer reports",
+    "1681e":   "FCRA — Compliance procedures",
+    "1681e(b)":"FCRA — Accuracy of reports (reasonable procedures)",
+    "1681g":   "FCRA — Disclosures to consumers",
+    "1681i":   "FCRA — Procedure in case of disputed accuracy",
+    "1681j":   "FCRA — Charges for certain disclosures",
+    "1681k":   "FCRA — Public record information for employment purposes",
+    "1681m":   "FCRA — Adverse action notices",
+    "1681n":   "FCRA — Civil liability for willful noncompliance",
+    "1681o":   "FCRA — Civil liability for negligent noncompliance",
+    "1681s":   "FCRA — Administrative enforcement",
+    "1681s-2": "FCRA — Responsibilities of furnishers of information",
+}
+
+
+def _check_citation(claim, letter_text):
+    """
+    Validate a statutory citation against the allowlist.
+    Returns (is_valid, reason).
+    """
+    section = claim.get("section", "")
+
+    # Normalize: strip spaces, lowercase for matching
+    normalized = section.strip()
+
+    # Check against allowlist
+    if normalized in VALID_CITATIONS:
+        return True, f"Valid: {VALID_CITATIONS[normalized]}"
+
+    # Check if it's a subsection of something valid (e.g. "1692g(a)(3)")
+    base = re.match(r"(\d+[a-z]?)", normalized)
+    if base and base.group(1) in VALID_CITATIONS:
+        return True, f"Subsection of {VALID_CITATIONS[base.group(1)]}"
+
+    return False, f"Citation {claim['value']} is not a recognized FDCPA/FCRA section"
 
 
 MONTH_NAMES = {
@@ -193,6 +275,22 @@ def review_letter(record, strict=True):
             findings.append({
                 "severity": "warning" if claim["type"] == "amount" else "critical",
                 "claim_type": claim["type"],
+                "claim_value": claim["value"],
+                "reason": reason,
+                "position": claim["position"],
+            })
+
+    # Check statutory citations against allowlist
+    for claim in claims:
+        if claim["type"] != "citation":
+            continue
+        if not strict:
+            continue
+        is_valid, reason = _check_citation(claim, letter)
+        if not is_valid:
+            findings.append({
+                "severity": "critical",
+                "claim_type": "citation",
                 "claim_value": claim["value"],
                 "reason": reason,
                 "position": claim["position"],

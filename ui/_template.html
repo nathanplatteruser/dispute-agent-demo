@@ -309,6 +309,36 @@ body {
   box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
   padding: 40px;
 }
+
+/* Inline highlights in letter body */
+.annot-highlight {
+  border-radius: 2px;
+  padding: 1px 2px;
+  cursor: pointer;
+  transition: filter 0.15s;
+}
+.annot-highlight:hover { filter: brightness(0.85); }
+.annot-high { background: rgba(224, 85, 85, 0.25); border-bottom: 2px solid #e05555; }
+.annot-medium { background: rgba(232, 184, 74, 0.25); border-bottom: 2px solid #e8b84a; }
+.annot-low { background: rgba(76, 175, 134, 0.25); border-bottom: 2px solid #4caf86; }
+.review-highlight {
+  border-radius: 2px;
+  padding: 1px 2px;
+  cursor: pointer;
+  transition: filter 0.15s;
+}
+.review-highlight:hover { filter: brightness(0.85); }
+.review-critical { background: rgba(180, 40, 40, 0.2); border-bottom: 2px dashed #b42828; }
+.review-warning { background: rgba(200, 150, 30, 0.2); border-bottom: 2px dashed #c8961e; }
+
+/* Scroll-target flash */
+.finding-flash, .annotation-flash {
+  animation: flashHighlight 1.5s ease;
+}
+@keyframes flashHighlight {
+  0% { box-shadow: 0 0 0 3px var(--accent); }
+  100% { box-shadow: none; }
+}
 </style>
 </head>
 <body>
@@ -480,15 +510,47 @@ function selectRecord(idx) {
     <div class="narrative-text">${escapeHtml(rec.narrative || 'No narrative')}</div>
   `;
 
-  // Letter panel
+  // Letter panel — highlight consumer-impact annotations and review findings inline
   const lp = document.getElementById('letter-panel');
   const letter = rec.draft_letter || 'No letter drafted';
   const tier = rec.draft_tier || '?';
   const annotations = rec.consumer_annotations || [];
+  const reviewFindings = (rec.review_findings || []).filter(f => f.claim_value);
 
+  // Build highlight markers from both annotation and review sources
+  let markers = [];
+  annotations.forEach((a, i) => {
+    markers.push({
+      text: a.matched_text,
+      cls: 'annot-highlight annot-' + a.severity,
+      id: 'annot-' + i,
+      tooltip: a.flag,
+      source: 'consumer'
+    });
+  });
+  reviewFindings.forEach((f, i) => {
+    markers.push({
+      text: f.claim_value,
+      cls: 'review-highlight review-' + f.severity,
+      id: 'review-' + i,
+      tooltip: f.reason,
+      source: 'review'
+    });
+  });
+
+  // Apply highlights to escaped letter text
   let annotatedLetter = escapeHtml(letter);
-  // Highlight annotated phrases (reverse order to preserve positions)
-  const sortedAnnotations = [...annotations].sort((a, b) => b.position - a.position);
+  // Sort by length descending to avoid partial matches clobbering longer ones
+  markers.sort((a, b) => b.text.length - a.text.length);
+  markers.forEach(m => {
+    const escaped = escapeHtml(m.text);
+    if (escaped && annotatedLetter.includes(escaped)) {
+      annotatedLetter = annotatedLetter.replace(
+        escaped,
+        `<span class="${m.cls}" data-id="${m.id}" title="${escapeHtml(m.tooltip)}">${escaped}</span>`
+      );
+    }
+  });
 
   lp.innerHTML = `
     <div class="panel-title">Generated Letter <span style="float: right; font-size: 11px; color: var(--text-dim)">Tier: ${tier}</span></div>
@@ -496,6 +558,23 @@ function selectRecord(idx) {
       <div class="letter-text">${annotatedLetter}</div>
     </div>
   `;
+
+  // Click-to-scroll: clicking a highlight scrolls to its flag in the bottom panel
+  lp.querySelectorAll('[data-id]').forEach(el => {
+    el.style.cursor = 'pointer';
+    el.addEventListener('click', () => {
+      const id = el.dataset.id;
+      const tabName = id.startsWith('annot-') ? 'consumer' : 'review';
+      // Switch to the right tab
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+      document.querySelector(`[data-tab="${tabName}"]`).classList.add('active');
+      document.getElementById('tab-' + tabName).classList.add('active');
+      // Scroll to the finding
+      const target = document.getElementById(id);
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  });
 
   // Bottom panel
   document.getElementById('bottom-panel').style.display = 'block';
@@ -512,8 +591,8 @@ function renderReviewTab(rec) {
     tab.innerHTML = '<div style="padding: 12px; color: var(--green);">No findings — letter passed review gate.</div>';
     return;
   }
-  tab.innerHTML = findings.map(f => `
-    <div class="finding finding-${f.severity}">
+  tab.innerHTML = findings.map((f, i) => `
+    <div class="finding finding-${f.severity}" id="review-${i}">
       <div class="finding-type">${f.severity}: ${f.claim_type}</div>
       <div>${escapeHtml(f.claim_value || '')}</div>
       <div class="finding-reason">${escapeHtml(f.reason)}</div>
@@ -534,8 +613,8 @@ function renderConsumerTab(rec) {
     <div style="padding: 8px 0 12px; font-size: 13px;">
       Engagement Risk: <span class="severity-badge severity-${risk}">${risk.toUpperCase()} (${score})</span>
     </div>
-    ${annotations.map(a => `
-      <div class="annotation-item">
+    ${annotations.map((a, i) => `
+      <div class="annotation-item" id="annot-${i}">
         <span class="severity-badge severity-${a.severity}">${a.severity}</span>
         <strong style="margin-left: 8px;">${escapeHtml(a.matched_text)}</strong>
         <div style="margin-top: 4px;">${escapeHtml(a.flag)}</div>

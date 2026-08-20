@@ -24,7 +24,7 @@
     "classified_type": "identity_theft",
     "classification_method": "ledger",
     "classification_confidence": 0.5,
-    "draft_letter": "March 17, 2026\n\nNatasha Graham\n4422 Pine Bluff Way\nArlington, TX 76010\n\nRE: Account reference: ACC-437902\n\nDear Ms. Graham,\n\nRe: ACC-437902\n\nWe acknowledge receipt of your dispute regarding the account with Metro Physicians Group. We understand that you have raised concerns about the accuracy of the debt amount reported to the credit bureau and the communication practices of our agency.\n\nWe confirm that the current balance on the account is $10,221.03. We also confirm that the original creditor is Metro Physicians Group and that the charge-off date was June 18, 2024.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA), 15 U.S.C. \u00a7 1692g, we are required to provide you with a validation notice. We will send you a validation notice within five days of this letter, as required by law. The validation notice will include the amount of the debt, the name of the creditor, and a statement that unless you dispute the debt within 30 days, we will assume the debt to be valid.\n\nWe will investigate your dispute and take any necessary action to ensure compliance with applicable laws and regulations.\n\nYou have the right to dispute this debt and may request verification of the debt at any time. If you dispute the debt, we will verify the debt and provide you with the required documentation.\n\nSincerely,\n\nRedstone Collections Group",
+    "draft_letter": "March 17, 2026\n\nNatasha Graham\n4422 Pine Bluff Way\nArlington, TX 76010\n\nRE: Account ID: ACC-437902\n\nDear Ms. Graham,\n\nRe: Account ID: ACC-437902\n\nWe acknowledge receipt of your dispute regarding the identity of the account holder. We understand that you have concerns about the accuracy of the debt and the collection practices of the original creditor, Metro Physicians Group.\n\nWe confirm that the account balance is currently $10,221.03. We also confirm that the charge-off date for this account was June 18, 2024. As per your request, we are providing this information to validate the debt.\n\nWe are investigating your claims of misrepresentation and will review our collection practices to ensure compliance with the Fair Debt Collection Practices Act (FDCPA) and Texas state law. We will also verify the accuracy of the debt and the original creditor's actions.\n\nIn accordance with the FDCPA, we are providing this validation notice to confirm the debt. You have the right to dispute the debt and request a written acknowledgment of your dispute. If you wish to continue disputing the debt, please provide us with specific information regarding the alleged errors.\n\nSincerely,\n\nRedstone Collections Group",
     "draft_tier": "ollama",
     "review_findings": [],
     "review_passed": true,
@@ -33,71 +33,53 @@
     "consumer_annotations": [
       {
         "id": "jargon_wall",
-        "matched_text": "Pursuant to",
-        "position": 575,
+        "matched_text": "In accordance with",
+        "position": 867,
         "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
         "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
         "severity": "medium"
       },
       {
-        "id": "credit_bureau_threat",
-        "matched_text": "reported to the credit bureau",
-        "position": 313,
-        "flag": "Credit reporting threat \u2014 often causes consumers to disengage from legitimate dispute processes",
-        "cfpb_grounding": "Top CFPB complaint: 'They threatened my credit so I felt like I had no options'",
-        "severity": "high"
-      },
-      {
         "id": "buried_rights",
         "matched_text": "You have the right",
-        "position": 1112,
+        "position": 958,
         "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
         "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
         "severity": "medium"
       }
     ],
-    "engagement_risk_score": 7,
-    "engagement_risk_level": "high",
+    "engagement_risk_score": 4,
+    "engagement_risk_level": "medium",
     "agency_intent": "We're investigating your identity theft claim and pausing collection.",
     "consumer_impact": [
       "'I can't understand this' \u2014 consumer stops reading",
-      "'My credit is already ruined, why bother responding' \u2014 disengagement",
       "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
     ],
     "consumer_view": {
-      "letter_text": "March 17, 2026\n\nNatasha Graham\n4422 Pine Bluff Way\nArlington, TX 76010\n\nRE: Account reference: ACC-437902\n\nDear Ms. Graham,\n\nRe: ACC-437902\n\nWe acknowledge receipt of your dispute regarding the account with Metro Physicians Group. We understand that you have raised concerns about the accuracy of the debt amount reported to the credit bureau and the communication practices of our agency.\n\nWe confirm that the current balance on the account is $10,221.03. We also confirm that the original creditor is Metro Physicians Group and that the charge-off date was June 18, 2024.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA), 15 U.S.C. \u00a7 1692g, we are required to provide you with a validation notice. We will send you a validation notice within five days of this letter, as required by law. The validation notice will include the amount of the debt, the name of the creditor, and a statement that unless you dispute the debt within 30 days, we will assume the debt to be valid.\n\nWe will investigate your dispute and take any necessary action to ensure compliance with applicable laws and regulations.\n\nYou have the right to dispute this debt and may request verification of the debt at any time. If you dispute the debt, we will verify the debt and provide you with the required documentation.\n\nSincerely,\n\nRedstone Collections Group",
+      "letter_text": "March 17, 2026\n\nNatasha Graham\n4422 Pine Bluff Way\nArlington, TX 76010\n\nRE: Account ID: ACC-437902\n\nDear Ms. Graham,\n\nRe: Account ID: ACC-437902\n\nWe acknowledge receipt of your dispute regarding the identity of the account holder. We understand that you have concerns about the accuracy of the debt and the collection practices of the original creditor, Metro Physicians Group.\n\nWe confirm that the account balance is currently $10,221.03. We also confirm that the charge-off date for this account was June 18, 2024. As per your request, we are providing this information to validate the debt.\n\nWe are investigating your claims of misrepresentation and will review our collection practices to ensure compliance with the Fair Debt Collection Practices Act (FDCPA) and Texas state law. We will also verify the accuracy of the debt and the original creditor's actions.\n\nIn accordance with the FDCPA, we are providing this validation notice to confirm the debt. You have the right to dispute the debt and request a written acknowledgment of your dispute. If you wish to continue disputing the debt, please provide us with specific information regarding the alleged errors.\n\nSincerely,\n\nRedstone Collections Group",
       "annotations": [
         {
           "id": "jargon_wall",
-          "matched_text": "Pursuant to",
-          "position": 575,
+          "matched_text": "In accordance with",
+          "position": 867,
           "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
           "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
           "severity": "medium"
         },
         {
-          "id": "credit_bureau_threat",
-          "matched_text": "reported to the credit bureau",
-          "position": 313,
-          "flag": "Credit reporting threat \u2014 often causes consumers to disengage from legitimate dispute processes",
-          "cfpb_grounding": "Top CFPB complaint: 'They threatened my credit so I felt like I had no options'",
-          "severity": "high"
-        },
-        {
           "id": "buried_rights",
           "matched_text": "You have the right",
-          "position": 1112,
+          "position": 958,
           "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
           "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
           "severity": "medium"
         }
       ],
-      "risk_score": 7,
-      "risk_level": "high",
+      "risk_score": 4,
+      "risk_level": "medium",
       "intent": "We're investigating your identity theft claim and pausing collection.",
       "impact": [
         "'I can't understand this' \u2014 consumer stops reading",
-        "'My credit is already ruined, why bother responding' \u2014 disengagement",
         "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
       ],
       "account_id": "ACC-437902",
@@ -129,7 +111,7 @@
     "classified_type": "validation_request",
     "classification_method": "keywords",
     "classification_confidence": 0.75,
-    "draft_letter": "May 22, 2026\n\nOscar Fitzgerald\n1018 Elm Court\nSpringfield, MO 65801\n\nRE: Account reference: ACC-356736\n\nDear Mr. Fitzgerald,\n\nRe: Account reference: ACC-356736\n\nWe acknowledge receipt of your dispute letter requesting validation of the above-referenced account. We understand that you are requesting documentation to verify the debt's validity, as per your rights under the Fair Debt Collection Practices Act (FDCPA).\n\nWe confirm that the original creditor for this account is Heartland Savings Bank. The current balance on this account is $6,598.77. Unfortunately, we do not have a payment history for this account, as there have been no payments made since the account was charged off on February 2, 2021.\n\nWe will investigate your dispute and provide a response within the timeframe required by the FDCPA. We will also review our records to ensure that the information being reported is accurate.\n\nPlease note that, as per the FDCPA, you have the right to dispute the debt and request validation. We will provide you with the necessary documentation to support the debt. If, after reviewing the documentation, you still dispute the debt, you may request that we cease collection efforts.\n\nYou have the right to further dispute this debt if you believe it is inaccurate or incomplete. Please contact us in writing if you wish to continue disputing this account.\n\nSincerely,\n\nBridgeport Recovery Inc.",
+    "draft_letter": "May 22, 2026\n\nOscar Fitzgerald\n1018 Elm Court\nSpringfield, MO 65801\n\nRE: Account reference: ACC-356736\n\nDear Mr. Fitzgerald,\n\nRe: Account reference: ACC-356736\n\nWe acknowledge receipt of your dispute letter requesting validation of the debt referenced in our previous communication. We understand that you are exercising your right under the Fair Debt Collection Practices Act (FDCPA) to request verification of the debt.\n\nWe confirm that the original creditor for the account is Heartland Savings Bank. The current balance on the account is $6,598.77. We also confirm that the charge-off date for the account is February 2, 2021. Unfortunately, we do not have a record of any payments made on this account.\n\nWe will investigate your request and provide you with the information you have requested, as required by the FDCPA. We will provide you with a complete payment history and proof that you are legally responsible for the account, if applicable.\n\nPlease note that we have reviewed your account and found that you had previously acknowledged the debt in writing. However, we will still provide you with the requested information to confirm the accuracy of the debt.\n\nYou have the right to dispute this debt further if you believe the information provided is inaccurate or incomplete. Please contact us in writing if you wish to continue disputing this debt.\n\nSincerely,\n\nBridgeport Recovery Inc.",
     "draft_tier": "ollama",
     "review_findings": [],
     "review_passed": true,
@@ -138,16 +120,8 @@
     "consumer_annotations": [
       {
         "id": "buried_rights",
-        "matched_text": "your rights under",
-        "position": 352,
-        "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
-        "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
-        "severity": "medium"
-      },
-      {
-        "id": "buried_rights",
-        "matched_text": "you have the right",
-        "position": 937,
+        "matched_text": "your right under",
+        "position": 321,
         "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
         "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
         "severity": "medium"
@@ -155,33 +129,25 @@
       {
         "id": "buried_rights",
         "matched_text": "You have the right",
-        "position": 1192,
+        "position": 1172,
         "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
         "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
         "severity": "medium"
       }
     ],
-    "engagement_risk_score": 6,
-    "engagement_risk_level": "high",
+    "engagement_risk_score": 4,
+    "engagement_risk_level": "medium",
     "agency_intent": "We're getting the original documentation to prove the debt is valid.",
     "consumer_impact": [
       "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
     ],
     "consumer_view": {
-      "letter_text": "May 22, 2026\n\nOscar Fitzgerald\n1018 Elm Court\nSpringfield, MO 65801\n\nRE: Account reference: ACC-356736\n\nDear Mr. Fitzgerald,\n\nRe: Account reference: ACC-356736\n\nWe acknowledge receipt of your dispute letter requesting validation of the above-referenced account. We understand that you are requesting documentation to verify the debt's validity, as per your rights under the Fair Debt Collection Practices Act (FDCPA).\n\nWe confirm that the original creditor for this account is Heartland Savings Bank. The current balance on this account is $6,598.77. Unfortunately, we do not have a payment history for this account, as there have been no payments made since the account was charged off on February 2, 2021.\n\nWe will investigate your dispute and provide a response within the timeframe required by the FDCPA. We will also review our records to ensure that the information being reported is accurate.\n\nPlease note that, as per the FDCPA, you have the right to dispute the debt and request validation. We will provide you with the necessary documentation to support the debt. If, after reviewing the documentation, you still dispute the debt, you may request that we cease collection efforts.\n\nYou have the right to further dispute this debt if you believe it is inaccurate or incomplete. Please contact us in writing if you wish to continue disputing this account.\n\nSincerely,\n\nBridgeport Recovery Inc.",
+      "letter_text": "May 22, 2026\n\nOscar Fitzgerald\n1018 Elm Court\nSpringfield, MO 65801\n\nRE: Account reference: ACC-356736\n\nDear Mr. Fitzgerald,\n\nRe: Account reference: ACC-356736\n\nWe acknowledge receipt of your dispute letter requesting validation of the debt referenced in our previous communication. We understand that you are exercising your right under the Fair Debt Collection Practices Act (FDCPA) to request verification of the debt.\n\nWe confirm that the original creditor for the account is Heartland Savings Bank. The current balance on the account is $6,598.77. We also confirm that the charge-off date for the account is February 2, 2021. Unfortunately, we do not have a record of any payments made on this account.\n\nWe will investigate your request and provide you with the information you have requested, as required by the FDCPA. We will provide you with a complete payment history and proof that you are legally responsible for the account, if applicable.\n\nPlease note that we have reviewed your account and found that you had previously acknowledged the debt in writing. However, we will still provide you with the requested information to confirm the accuracy of the debt.\n\nYou have the right to dispute this debt further if you believe the information provided is inaccurate or incomplete. Please contact us in writing if you wish to continue disputing this debt.\n\nSincerely,\n\nBridgeport Recovery Inc.",
       "annotations": [
         {
           "id": "buried_rights",
-          "matched_text": "your rights under",
-          "position": 352,
-          "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
-          "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
-          "severity": "medium"
-        },
-        {
-          "id": "buried_rights",
-          "matched_text": "you have the right",
-          "position": 937,
+          "matched_text": "your right under",
+          "position": 321,
           "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
           "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
           "severity": "medium"
@@ -189,14 +155,14 @@
         {
           "id": "buried_rights",
           "matched_text": "You have the right",
-          "position": 1192,
+          "position": 1172,
           "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
           "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
           "severity": "medium"
         }
       ],
-      "risk_score": 6,
-      "risk_level": "high",
+      "risk_score": 4,
+      "risk_level": "medium",
       "intent": "We're getting the original documentation to prove the debt is valid.",
       "impact": [
         "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
@@ -230,7 +196,7 @@
     "classified_type": "wrong_amount",
     "classification_method": "ledger",
     "classification_confidence": 0.5,
-    "draft_letter": "March 1, 2026\n\nCeleste Gibson\n3891 Maple Avenue\nSpringfield, DE 62701\n\nRE: Account reference: ACC-105814\n\nDear Ms. Gibson,\n\nRe: Account reference: ACC-105814\n\nWe acknowledge receipt of your dispute regarding the account balance. We understand that you have requested validation of the account information. We take all disputes seriously and are committed to ensuring the accuracy of the information we provide.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA), we are required to investigate your dispute and provide you with a written response. We will review the account information and verify the accuracy of the balance. Our records indicate that the current balance on the account is $4,524.94.\n\nWe will also investigate the charge-off date of 2023-11-26 and the last payment date of 2023-04-13. We will provide you with a written response to your dispute, which will include the results of our investigation.\n\nPlease note that you have the right to dispute the accuracy of the account information and to request validation of the debt. We will provide you with a written validation of the debt, as requested, once our investigation is complete.\n\nWe appreciate your prompt attention to this matter and will keep you informed of any updates. If you have any further questions or concerns, please do not hesitate to contact us.\n\nSincerely,\n\nKeystone Account Solutions",
+    "draft_letter": "March 1, 2026\n\nCeleste Gibson\n3891 Maple Avenue\nSpringfield, DE 62701\n\nRE: Account reference: ACC-105814\n\nDear Ms. Gibson,\n\nWe acknowledge receipt of your dispute regarding the account ACC-105814. We understand that you have requested validation of this account and have expressed concerns about the accuracy of the amount listed on your credit report.\n\nWe confirm that the current balance associated with account ACC-105814 is $4,524.94. This balance is based on the records provided by the original creditor, Meridian Federal Credit Union. We will review the attached documents and investigate the discrepancies you have raised.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA), we are required to provide you with validation of this debt. We will send you a written validation notice within the next 5 days, as required by 15 U.S.C. \u00a7 1692g.\n\nWe will also investigate your concerns regarding the amount listed on your credit report. If we determine that the amount is incorrect, we will take steps to correct it.\n\nYou have the right to dispute this debt further if you believe it is inaccurate or incomplete. Please note that our investigation may take some time, and we will notify you of any changes to the account balance or status.\n\nSincerely,\n\nKeystone Account Solutions",
     "draft_tier": "ollama",
     "review_findings": [],
     "review_passed": true,
@@ -240,70 +206,52 @@
       {
         "id": "jargon_wall",
         "matched_text": "Pursuant to",
-        "position": 412,
+        "position": 632,
         "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
         "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
         "severity": "medium"
       },
       {
-        "id": "urgency_without_clarity",
-        "matched_text": "prompt attention",
-        "position": 1182,
-        "flag": "Urgency language without clear action steps \u2014 triggers panic or avoidance, not compliance",
-        "cfpb_grounding": "CFPB pattern: 'They said it was urgent but didn't tell me what to actually do'",
-        "severity": "high"
-      },
-      {
         "id": "buried_rights",
-        "matched_text": "you have the right",
-        "position": 944,
+        "matched_text": "You have the right",
+        "position": 1028,
         "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
         "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
         "severity": "medium"
       }
     ],
-    "engagement_risk_score": 7,
-    "engagement_risk_level": "high",
+    "engagement_risk_score": 4,
+    "engagement_risk_level": "medium",
     "agency_intent": "We're reviewing the balance and will send you an itemized breakdown.",
     "consumer_impact": [
       "'I can't understand this' \u2014 consumer stops reading",
-      "'Something bad is about to happen but I don't know what to do' \u2014 paralysis",
       "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
     ],
     "consumer_view": {
-      "letter_text": "March 1, 2026\n\nCeleste Gibson\n3891 Maple Avenue\nSpringfield, DE 62701\n\nRE: Account reference: ACC-105814\n\nDear Ms. Gibson,\n\nRe: Account reference: ACC-105814\n\nWe acknowledge receipt of your dispute regarding the account balance. We understand that you have requested validation of the account information. We take all disputes seriously and are committed to ensuring the accuracy of the information we provide.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA), we are required to investigate your dispute and provide you with a written response. We will review the account information and verify the accuracy of the balance. Our records indicate that the current balance on the account is $4,524.94.\n\nWe will also investigate the charge-off date of 2023-11-26 and the last payment date of 2023-04-13. We will provide you with a written response to your dispute, which will include the results of our investigation.\n\nPlease note that you have the right to dispute the accuracy of the account information and to request validation of the debt. We will provide you with a written validation of the debt, as requested, once our investigation is complete.\n\nWe appreciate your prompt attention to this matter and will keep you informed of any updates. If you have any further questions or concerns, please do not hesitate to contact us.\n\nSincerely,\n\nKeystone Account Solutions",
+      "letter_text": "March 1, 2026\n\nCeleste Gibson\n3891 Maple Avenue\nSpringfield, DE 62701\n\nRE: Account reference: ACC-105814\n\nDear Ms. Gibson,\n\nWe acknowledge receipt of your dispute regarding the account ACC-105814. We understand that you have requested validation of this account and have expressed concerns about the accuracy of the amount listed on your credit report.\n\nWe confirm that the current balance associated with account ACC-105814 is $4,524.94. This balance is based on the records provided by the original creditor, Meridian Federal Credit Union. We will review the attached documents and investigate the discrepancies you have raised.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA), we are required to provide you with validation of this debt. We will send you a written validation notice within the next 5 days, as required by 15 U.S.C. \u00a7 1692g.\n\nWe will also investigate your concerns regarding the amount listed on your credit report. If we determine that the amount is incorrect, we will take steps to correct it.\n\nYou have the right to dispute this debt further if you believe it is inaccurate or incomplete. Please note that our investigation may take some time, and we will notify you of any changes to the account balance or status.\n\nSincerely,\n\nKeystone Account Solutions",
       "annotations": [
         {
           "id": "jargon_wall",
           "matched_text": "Pursuant to",
-          "position": 412,
+          "position": 632,
           "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
           "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
           "severity": "medium"
         },
         {
-          "id": "urgency_without_clarity",
-          "matched_text": "prompt attention",
-          "position": 1182,
-          "flag": "Urgency language without clear action steps \u2014 triggers panic or avoidance, not compliance",
-          "cfpb_grounding": "CFPB pattern: 'They said it was urgent but didn't tell me what to actually do'",
-          "severity": "high"
-        },
-        {
           "id": "buried_rights",
-          "matched_text": "you have the right",
-          "position": 944,
+          "matched_text": "You have the right",
+          "position": 1028,
           "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
           "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
           "severity": "medium"
         }
       ],
-      "risk_score": 7,
-      "risk_level": "high",
+      "risk_score": 4,
+      "risk_level": "medium",
       "intent": "We're reviewing the balance and will send you an itemized breakdown.",
       "impact": [
         "'I can't understand this' \u2014 consumer stops reading",
-        "'Something bad is about to happen but I don't know what to do' \u2014 paralysis",
         "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
       ],
       "account_id": "ACC-105814",
@@ -335,7 +283,7 @@
     "classified_type": "identity_theft",
     "classification_method": "ledger",
     "classification_confidence": 0.5,
-    "draft_letter": "January 13, 2026\n\nOscar Hall\n1987 Aspen Trail\nSpringfield, NH 62701\n\nRE: Account reference: ACC-879779\n\nDear Mr. Hall,\n\nRe: Account reference: ACC-879779\n\nWe acknowledge receipt of your dispute regarding the debt being collected by Redstone Collections Group, which was previously assigned to IC Systems. You have disputed the identity of the account holder, stating that you have never owned the services associated with the account in question.\n\nWe take all disputes seriously and are investigating your claim. As per the Fair Debt Collection Practices Act (FDCPA), we are required to verify the identity of the account holder and ensure that the debt is valid. We will conduct a thorough review of the account history and verify the information provided.\n\nRegarding the account balance, the current amount due is $5,831.47. The original creditor for this account is Liberty Credit Corp. The charge-off date for this account was May 11, 2024, and the last payment date was October 3, 2025.\n\nWe will provide a validation of the account, including the account balance and any relevant account history, as required by the FDCPA. We will also investigate your claim that the account was filed incorrectly and may have been associated with an incorrect address.\n\nPlease note that you have the right to dispute this debt further if you believe that the investigation does not resolve your concerns. If you wish to continue disputing the debt, please provide us with any additional information or documentation that you believe is relevant to the dispute.\n\nSincerely,\n\nRedstone Collections Group",
+    "draft_letter": "January 13, 2026\n\nOscar Hall\n1987 Aspen Trail\nSpringfield, NH 62701\n\nRE: Account reference: ACC-879779\n\nDear Mr. Hall,\n\nRe: Account reference: ACC-879779\n\nWe acknowledge receipt of your dispute regarding the account referenced above. We understand that you have raised concerns regarding the identity of the account holder. We take all disputes seriously and will investigate this matter in accordance with the Fair Debt Collection Practices Act (FDCPA) and New Hampshire state law.\n\nWe have reviewed the account information and confirmed that the original creditor is Liberty Credit Corp. The current balance on the account is $5,831.47. We have also verified that the charge-off date is May 11, 2024, and the last payment date was October 3, 2025.\n\nWe will investigate your claims of identity theft and review the account information to determine the accuracy of the account details. If we find that the account information is incorrect, we will take the necessary steps to correct it.\n\nPlease be advised that you have the right to dispute this account further if you believe that our investigation does not resolve the issue to your satisfaction. You may also request validation of the debt, although you have indicated that this is not requested.\n\nWe will keep you informed of our progress and will contact you if we need any additional information from you.\n\nSincerely,\n\nRedstone Collections Group",
     "draft_tier": "ollama",
     "review_findings": [],
     "review_passed": true,
@@ -343,36 +291,54 @@
     "review_critical": 0,
     "consumer_annotations": [
       {
+        "id": "jargon_wall",
+        "matched_text": "in accordance with",
+        "position": 388,
+        "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
+        "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
+        "severity": "medium"
+      },
+      {
         "id": "buried_rights",
         "matched_text": "you have the right",
-        "position": 1277,
+        "position": 1012,
         "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
         "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
         "severity": "medium"
       }
     ],
-    "engagement_risk_score": 2,
-    "engagement_risk_level": "low",
+    "engagement_risk_score": 4,
+    "engagement_risk_level": "medium",
     "agency_intent": "We're investigating your identity theft claim and pausing collection.",
     "consumer_impact": [
+      "'I can't understand this' \u2014 consumer stops reading",
       "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
     ],
     "consumer_view": {
-      "letter_text": "January 13, 2026\n\nOscar Hall\n1987 Aspen Trail\nSpringfield, NH 62701\n\nRE: Account reference: ACC-879779\n\nDear Mr. Hall,\n\nRe: Account reference: ACC-879779\n\nWe acknowledge receipt of your dispute regarding the debt being collected by Redstone Collections Group, which was previously assigned to IC Systems. You have disputed the identity of the account holder, stating that you have never owned the services associated with the account in question.\n\nWe take all disputes seriously and are investigating your claim. As per the Fair Debt Collection Practices Act (FDCPA), we are required to verify the identity of the account holder and ensure that the debt is valid. We will conduct a thorough review of the account history and verify the information provided.\n\nRegarding the account balance, the current amount due is $5,831.47. The original creditor for this account is Liberty Credit Corp. The charge-off date for this account was May 11, 2024, and the last payment date was October 3, 2025.\n\nWe will provide a validation of the account, including the account balance and any relevant account history, as required by the FDCPA. We will also investigate your claim that the account was filed incorrectly and may have been associated with an incorrect address.\n\nPlease note that you have the right to dispute this debt further if you believe that the investigation does not resolve your concerns. If you wish to continue disputing the debt, please provide us with any additional information or documentation that you believe is relevant to the dispute.\n\nSincerely,\n\nRedstone Collections Group",
+      "letter_text": "January 13, 2026\n\nOscar Hall\n1987 Aspen Trail\nSpringfield, NH 62701\n\nRE: Account reference: ACC-879779\n\nDear Mr. Hall,\n\nRe: Account reference: ACC-879779\n\nWe acknowledge receipt of your dispute regarding the account referenced above. We understand that you have raised concerns regarding the identity of the account holder. We take all disputes seriously and will investigate this matter in accordance with the Fair Debt Collection Practices Act (FDCPA) and New Hampshire state law.\n\nWe have reviewed the account information and confirmed that the original creditor is Liberty Credit Corp. The current balance on the account is $5,831.47. We have also verified that the charge-off date is May 11, 2024, and the last payment date was October 3, 2025.\n\nWe will investigate your claims of identity theft and review the account information to determine the accuracy of the account details. If we find that the account information is incorrect, we will take the necessary steps to correct it.\n\nPlease be advised that you have the right to dispute this account further if you believe that our investigation does not resolve the issue to your satisfaction. You may also request validation of the debt, although you have indicated that this is not requested.\n\nWe will keep you informed of our progress and will contact you if we need any additional information from you.\n\nSincerely,\n\nRedstone Collections Group",
       "annotations": [
+        {
+          "id": "jargon_wall",
+          "matched_text": "in accordance with",
+          "position": 388,
+          "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
+          "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
+          "severity": "medium"
+        },
         {
           "id": "buried_rights",
           "matched_text": "you have the right",
-          "position": 1277,
+          "position": 1012,
           "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
           "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
           "severity": "medium"
         }
       ],
-      "risk_score": 2,
-      "risk_level": "low",
+      "risk_score": 4,
+      "risk_level": "medium",
       "intent": "We're investigating your identity theft claim and pausing collection.",
       "impact": [
+        "'I can't understand this' \u2014 consumer stops reading",
         "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
       ],
       "account_id": "ACC-879779",
@@ -404,7 +370,7 @@
     "classified_type": "wrong_amount",
     "classification_method": "ledger",
     "classification_confidence": 0.5,
-    "draft_letter": "March 17, 2026\n\nFinn Ramirez\n3891 Maple Avenue\nEdison, NJ 08817\n\nRE: Account reference: ACC-666390\n\nDear Mr. Ramirez,\n\nReceiving your dispute regarding the account ACC-666390, we acknowledge your concerns and are investigating the matter. You have disputed the amount associated with this account, stating that you did not authorize the inclusion of these transactions in your consumer report.\n\nWe confirm that the current balance on this account is $1,482.10. Our records indicate that the original creditor for this account is Summit Trust Bank. As per New Jersey state law (N.J.S.A. 17:9A-1 et seq.), we are required to provide validation for this account. We will be sending you a validation letter with the required information.\n\nWe will investigate your dispute and verify the accuracy of the information associated with this account. If we find that the amount is incorrect, we will take the necessary steps to correct it. Please note that the charge-off date for this account was March 14, 2021, and the last payment date was April 15, 2023.\n\nYou have the right to dispute this account further, and we encourage you to contact us if you have any additional concerns. Please be aware that you may also contact the New Jersey Division of Consumer Affairs if you feel that your rights under the Fair Debt Collection Practices Act (FDCPA) or New Jersey state law have been violated.\n\nSincerely,\n\nRedstone Collections Group",
+    "draft_letter": "March 17, 2026\n\nFinn Ramirez\n3891 Maple Avenue\nEdison, NJ 08817\n\nRE: Account reference: ACC-666390\n\nDear Mr. Ramirez,\n\nReceiving your dispute letter regarding the account ACC-666390, we acknowledge your assertion that the amount of $1,482.10 is incorrect. We understand that you are disputing the amount due on this account.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA), we are required to investigate your dispute and provide you with a written validation of the debt if it is deemed to be valid. We will investigate the amount you dispute and will provide you with a written validation of the debt if it is deemed to be valid.\n\nWe will also review the account to ensure that all transactions are accurate and compliant with applicable laws and regulations. If we determine that any transactions were not authorized, we will take the necessary steps to correct the account.\n\nPlease be advised that you have the right to dispute this debt further if you believe that the amount or any other aspect of the account is incorrect. You may also request that we cease collection activities on this account if you believe that the debt is invalid.\n\nWe will respond to your dispute in accordance with the FDCPA and New Jersey state law. If you have any further questions or concerns, please do not hesitate to contact us.\n\nSincerely,\n\nRedstone Collections Group",
     "draft_tier": "ollama",
     "review_findings": [],
     "review_passed": true,
@@ -412,52 +378,70 @@
     "review_critical": 0,
     "consumer_annotations": [
       {
-        "id": "buried_rights",
-        "matched_text": "You have the right",
-        "position": 1051,
-        "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
-        "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+        "id": "jargon_wall",
+        "matched_text": "Pursuant to",
+        "position": 326,
+        "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
+        "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
+        "severity": "medium"
+      },
+      {
+        "id": "jargon_wall",
+        "matched_text": "in accordance with",
+        "position": 1189,
+        "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
+        "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
         "severity": "medium"
       },
       {
         "id": "buried_rights",
-        "matched_text": "your rights under",
-        "position": 1278,
+        "matched_text": "you have the right",
+        "position": 914,
         "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
         "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
         "severity": "medium"
       }
     ],
-    "engagement_risk_score": 4,
-    "engagement_risk_level": "medium",
+    "engagement_risk_score": 6,
+    "engagement_risk_level": "high",
     "agency_intent": "We're reviewing the balance and will send you an itemized breakdown.",
     "consumer_impact": [
+      "'I can't understand this' \u2014 consumer stops reading",
       "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
     ],
     "consumer_view": {
-      "letter_text": "March 17, 2026\n\nFinn Ramirez\n3891 Maple Avenue\nEdison, NJ 08817\n\nRE: Account reference: ACC-666390\n\nDear Mr. Ramirez,\n\nReceiving your dispute regarding the account ACC-666390, we acknowledge your concerns and are investigating the matter. You have disputed the amount associated with this account, stating that you did not authorize the inclusion of these transactions in your consumer report.\n\nWe confirm that the current balance on this account is $1,482.10. Our records indicate that the original creditor for this account is Summit Trust Bank. As per New Jersey state law (N.J.S.A. 17:9A-1 et seq.), we are required to provide validation for this account. We will be sending you a validation letter with the required information.\n\nWe will investigate your dispute and verify the accuracy of the information associated with this account. If we find that the amount is incorrect, we will take the necessary steps to correct it. Please note that the charge-off date for this account was March 14, 2021, and the last payment date was April 15, 2023.\n\nYou have the right to dispute this account further, and we encourage you to contact us if you have any additional concerns. Please be aware that you may also contact the New Jersey Division of Consumer Affairs if you feel that your rights under the Fair Debt Collection Practices Act (FDCPA) or New Jersey state law have been violated.\n\nSincerely,\n\nRedstone Collections Group",
+      "letter_text": "March 17, 2026\n\nFinn Ramirez\n3891 Maple Avenue\nEdison, NJ 08817\n\nRE: Account reference: ACC-666390\n\nDear Mr. Ramirez,\n\nReceiving your dispute letter regarding the account ACC-666390, we acknowledge your assertion that the amount of $1,482.10 is incorrect. We understand that you are disputing the amount due on this account.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA), we are required to investigate your dispute and provide you with a written validation of the debt if it is deemed to be valid. We will investigate the amount you dispute and will provide you with a written validation of the debt if it is deemed to be valid.\n\nWe will also review the account to ensure that all transactions are accurate and compliant with applicable laws and regulations. If we determine that any transactions were not authorized, we will take the necessary steps to correct the account.\n\nPlease be advised that you have the right to dispute this debt further if you believe that the amount or any other aspect of the account is incorrect. You may also request that we cease collection activities on this account if you believe that the debt is invalid.\n\nWe will respond to your dispute in accordance with the FDCPA and New Jersey state law. If you have any further questions or concerns, please do not hesitate to contact us.\n\nSincerely,\n\nRedstone Collections Group",
       "annotations": [
         {
-          "id": "buried_rights",
-          "matched_text": "You have the right",
-          "position": 1051,
-          "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
-          "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+          "id": "jargon_wall",
+          "matched_text": "Pursuant to",
+          "position": 326,
+          "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
+          "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
+          "severity": "medium"
+        },
+        {
+          "id": "jargon_wall",
+          "matched_text": "in accordance with",
+          "position": 1189,
+          "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
+          "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
           "severity": "medium"
         },
         {
           "id": "buried_rights",
-          "matched_text": "your rights under",
-          "position": 1278,
+          "matched_text": "you have the right",
+          "position": 914,
           "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
           "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
           "severity": "medium"
         }
       ],
-      "risk_score": 4,
-      "risk_level": "medium",
+      "risk_score": 6,
+      "risk_level": "high",
       "intent": "We're reviewing the balance and will send you an itemized breakdown.",
       "impact": [
+        "'I can't understand this' \u2014 consumer stops reading",
         "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
       ],
       "account_id": "ACC-666390",
@@ -489,7 +473,7 @@
     "classified_type": "wrong_amount",
     "classification_method": "ledger",
     "classification_confidence": 0.5,
-    "draft_letter": "April 8, 2026\n\nAiden Upton\n1987 Aspen Trail\nSpringfield, LA 62701\n\nRE: Account reference: ACC-600149\n\nDear Mr. Upton,\n\nRe: Account reference: ACC-600149\n\nWe acknowledge receipt of your dispute regarding the accuracy of the amount owed on your account. We understand that you have requested an investigation into the account, citing your rights under the Fair Credit Reporting Act (FCRA), specifically 15 USC 1681e(b) and 15 USC 1681i.\n\nWe have reviewed the information on file, and we confirm that the current balance on your account is $20,370.53. We also confirm that the account was charged off on May 8, 2022, and your last payment was received on March 28, 2023.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA), we are required to investigate your dispute and provide you with a written validation of the debt if our investigation confirms the debt. We will conduct a thorough review of the account to verify the accuracy of the amount owed.\n\nPlease note that, as per the FDCPA, we are not required to remove the account from your credit report if our investigation confirms the debt. However, we will provide you with a written validation of the debt, which will include the amount owed, the original creditor, and any other relevant information.\n\nYou have the right to further dispute the debt if you believe our investigation does not accurately reflect the amount owed. If you wish to continue disputing the debt, please respond to this letter within 30 days.\n\nSincerely,\n\nKeystone Account Solutions",
+    "draft_letter": "April 8, 2026\n\nAiden Upton\n1987 Aspen Trail\nSpringfield, LA 62701\n\nRE: Account ID: ACC-600149\n\nDear Mr. Upton,\n\nRe: Your Dispute of Account ACC-600149\n\nWe acknowledge receipt of your dispute letter regarding the accuracy of the account information on your credit report. We understand that you have requested an investigation into the account, citing your rights under 15 USC 1681e(b) and 15 USC 1681i.\n\nWe confirm that the account in question, ACC-600149, is a collection account in our possession. According to our records, the original creditor for this account is Horizon Card Co. The current balance on this account is $20,370.53. We have verified that the charge-off date for this account is May 8, 2022, and the last payment date was March 28, 2023.\n\nWe will conduct a thorough investigation into the accuracy of the account information as requested. We will review our records and verify the information with the original creditor, Horizon Card Co. If our investigation confirms that the information is accurate, we will provide you with a validation of the account. If, however, our investigation reveals that the information is incorrect, we will take the necessary steps to correct the account and ensure the accuracy of the credit report.\n\nPlease note that under the Fair Debt Collection Practices Act (FDCPA), we are required to investigate your dispute and provide a response within 30 days. We will keep you informed of our progress and will provide you with an update on the status of our investigation.\n\nYou have the right to continue to dispute this account and to request that it be removed from your credit report if it cannot be verified. Please let us know if you have any further questions or concerns.\n\nSincerely,\n\nKeystone Account Solutions",
     "draft_tier": "ollama",
     "review_findings": [],
     "review_passed": true,
@@ -497,17 +481,9 @@
     "review_critical": 0,
     "consumer_annotations": [
       {
-        "id": "jargon_wall",
-        "matched_text": "Pursuant to",
-        "position": 669,
-        "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
-        "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
-        "severity": "medium"
-      },
-      {
         "id": "buried_rights",
         "matched_text": "your rights under",
-        "position": 332,
+        "position": 351,
         "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
         "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
         "severity": "medium"
@@ -515,34 +491,25 @@
       {
         "id": "buried_rights",
         "matched_text": "You have the right",
-        "position": 1266,
+        "position": 1521,
         "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
         "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
         "severity": "medium"
       }
     ],
-    "engagement_risk_score": 6,
-    "engagement_risk_level": "high",
+    "engagement_risk_score": 4,
+    "engagement_risk_level": "medium",
     "agency_intent": "We're reviewing the balance and will send you an itemized breakdown.",
     "consumer_impact": [
-      "'I can't understand this' \u2014 consumer stops reading",
       "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
     ],
     "consumer_view": {
-      "letter_text": "April 8, 2026\n\nAiden Upton\n1987 Aspen Trail\nSpringfield, LA 62701\n\nRE: Account reference: ACC-600149\n\nDear Mr. Upton,\n\nRe: Account reference: ACC-600149\n\nWe acknowledge receipt of your dispute regarding the accuracy of the amount owed on your account. We understand that you have requested an investigation into the account, citing your rights under the Fair Credit Reporting Act (FCRA), specifically 15 USC 1681e(b) and 15 USC 1681i.\n\nWe have reviewed the information on file, and we confirm that the current balance on your account is $20,370.53. We also confirm that the account was charged off on May 8, 2022, and your last payment was received on March 28, 2023.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA), we are required to investigate your dispute and provide you with a written validation of the debt if our investigation confirms the debt. We will conduct a thorough review of the account to verify the accuracy of the amount owed.\n\nPlease note that, as per the FDCPA, we are not required to remove the account from your credit report if our investigation confirms the debt. However, we will provide you with a written validation of the debt, which will include the amount owed, the original creditor, and any other relevant information.\n\nYou have the right to further dispute the debt if you believe our investigation does not accurately reflect the amount owed. If you wish to continue disputing the debt, please respond to this letter within 30 days.\n\nSincerely,\n\nKeystone Account Solutions",
+      "letter_text": "April 8, 2026\n\nAiden Upton\n1987 Aspen Trail\nSpringfield, LA 62701\n\nRE: Account ID: ACC-600149\n\nDear Mr. Upton,\n\nRe: Your Dispute of Account ACC-600149\n\nWe acknowledge receipt of your dispute letter regarding the accuracy of the account information on your credit report. We understand that you have requested an investigation into the account, citing your rights under 15 USC 1681e(b) and 15 USC 1681i.\n\nWe confirm that the account in question, ACC-600149, is a collection account in our possession. According to our records, the original creditor for this account is Horizon Card Co. The current balance on this account is $20,370.53. We have verified that the charge-off date for this account is May 8, 2022, and the last payment date was March 28, 2023.\n\nWe will conduct a thorough investigation into the accuracy of the account information as requested. We will review our records and verify the information with the original creditor, Horizon Card Co. If our investigation confirms that the information is accurate, we will provide you with a validation of the account. If, however, our investigation reveals that the information is incorrect, we will take the necessary steps to correct the account and ensure the accuracy of the credit report.\n\nPlease note that under the Fair Debt Collection Practices Act (FDCPA), we are required to investigate your dispute and provide a response within 30 days. We will keep you informed of our progress and will provide you with an update on the status of our investigation.\n\nYou have the right to continue to dispute this account and to request that it be removed from your credit report if it cannot be verified. Please let us know if you have any further questions or concerns.\n\nSincerely,\n\nKeystone Account Solutions",
       "annotations": [
-        {
-          "id": "jargon_wall",
-          "matched_text": "Pursuant to",
-          "position": 669,
-          "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
-          "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
-          "severity": "medium"
-        },
         {
           "id": "buried_rights",
           "matched_text": "your rights under",
-          "position": 332,
+          "position": 351,
           "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
           "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
           "severity": "medium"
@@ -550,17 +517,16 @@
         {
           "id": "buried_rights",
           "matched_text": "You have the right",
-          "position": 1266,
+          "position": 1521,
           "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
           "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
           "severity": "medium"
         }
       ],
-      "risk_score": 6,
-      "risk_level": "high",
+      "risk_score": 4,
+      "risk_level": "medium",
       "intent": "We're reviewing the balance and will send you an itemized breakdown.",
       "impact": [
-        "'I can't understand this' \u2014 consumer stops reading",
         "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
       ],
       "account_id": "ACC-600149",
@@ -592,7 +558,7 @@
     "classified_type": "already_paid",
     "classification_method": "ledger",
     "classification_confidence": 0.5,
-    "draft_letter": "December 24, 2026\n\nNatasha Quinn\n142 Oakwood Drive\nLakeland, FL 33801\n\nRE: Account reference: ACC-981334\n\nDear Ms. Quinn,\n\nRe: Account reference: ACC-981334\n\nWe acknowledge receipt of your dispute regarding the account referenced above. We understand that you have expressed concerns about the frequency of calls from our agency regarding this account.\n\nWe have reviewed the account information and confirm that the current balance is $342.31. The original creditor for this account is Lakeshore Utilities. According to our records, the account was charged off on 2023-03-01. We do not have any record of a last payment date on file.\n\nWe take all disputes seriously and will investigate this matter further. However, we must inform you that our records indicate that you have not made any payments on this account. We will provide you with a validation of the debt, as required by the Fair Debt Collection Practices Act (FDCPA), 15 U.S.C. \u00a7 1692g.\n\nPlease note that our agency is required to follow the FDCPA and Florida state law, which prohibits harassment and abuse of debtors. We will refrain from contacting you at your cell phone and home number until this matter is resolved.\n\nYou have the right to dispute this debt and may request that we verify the debt. If you wish to dispute the debt further, please contact us in writing within 30 days from the date of this letter.\n\nSincerely,\n\nContinental Receivables Corp.",
+    "draft_letter": "December 24, 2026\n\nNatasha Quinn\n142 Oakwood Drive\nLakeland, FL 33801\n\nRE: Account ID: ACC-981334\n\nDear Ms. Quinn,\n\nReceiving your dispute regarding the account ACC-981334, we acknowledge your claim that you have already paid the debt. We take all disputes seriously and will investigate this matter in accordance with the Fair Debt Collection Practices Act (FDCPA) and Florida state law.\n\nOur records indicate that the original creditor for this account is Lakeshore Utilities. As per our records, the current balance due on this account is $342.31. We have no record of any payments being made on this account.\n\nWe understand that you have been receiving collection calls regarding this account. We will immediately cease all collection activities on this account, as per your request, until this dispute is resolved. We will also investigate the frequency and manner of our communication with you to ensure that we are in compliance with the FDCPA.\n\nPlease note that our investigation may take some time, and we will provide you with an update on the status of this account once it is complete. If our investigation confirms that you have indeed paid the debt, we will take necessary steps to update our records and close the account.\n\nYou have the right to further dispute this account if you believe that our investigation does not accurately reflect the status of the account. If you wish to continue disputing this account, please respond to this letter within 30 days.\n\nSincerely,\n\nContinental Receivables Corp.",
     "draft_tier": "ollama",
     "review_findings": [],
     "review_passed": true,
@@ -600,36 +566,54 @@
     "review_critical": 0,
     "consumer_annotations": [
       {
+        "id": "jargon_wall",
+        "matched_text": "in accordance with",
+        "position": 300,
+        "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
+        "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
+        "severity": "medium"
+      },
+      {
         "id": "buried_rights",
         "matched_text": "You have the right",
-        "position": 1184,
+        "position": 1239,
         "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
         "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
         "severity": "medium"
       }
     ],
-    "engagement_risk_score": 2,
-    "engagement_risk_level": "low",
+    "engagement_risk_score": 4,
+    "engagement_risk_level": "medium",
     "agency_intent": "We're checking our records to confirm your payment.",
     "consumer_impact": [
+      "'I can't understand this' \u2014 consumer stops reading",
       "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
     ],
     "consumer_view": {
-      "letter_text": "December 24, 2026\n\nNatasha Quinn\n142 Oakwood Drive\nLakeland, FL 33801\n\nRE: Account reference: ACC-981334\n\nDear Ms. Quinn,\n\nRe: Account reference: ACC-981334\n\nWe acknowledge receipt of your dispute regarding the account referenced above. We understand that you have expressed concerns about the frequency of calls from our agency regarding this account.\n\nWe have reviewed the account information and confirm that the current balance is $342.31. The original creditor for this account is Lakeshore Utilities. According to our records, the account was charged off on 2023-03-01. We do not have any record of a last payment date on file.\n\nWe take all disputes seriously and will investigate this matter further. However, we must inform you that our records indicate that you have not made any payments on this account. We will provide you with a validation of the debt, as required by the Fair Debt Collection Practices Act (FDCPA), 15 U.S.C. \u00a7 1692g.\n\nPlease note that our agency is required to follow the FDCPA and Florida state law, which prohibits harassment and abuse of debtors. We will refrain from contacting you at your cell phone and home number until this matter is resolved.\n\nYou have the right to dispute this debt and may request that we verify the debt. If you wish to dispute the debt further, please contact us in writing within 30 days from the date of this letter.\n\nSincerely,\n\nContinental Receivables Corp.",
+      "letter_text": "December 24, 2026\n\nNatasha Quinn\n142 Oakwood Drive\nLakeland, FL 33801\n\nRE: Account ID: ACC-981334\n\nDear Ms. Quinn,\n\nReceiving your dispute regarding the account ACC-981334, we acknowledge your claim that you have already paid the debt. We take all disputes seriously and will investigate this matter in accordance with the Fair Debt Collection Practices Act (FDCPA) and Florida state law.\n\nOur records indicate that the original creditor for this account is Lakeshore Utilities. As per our records, the current balance due on this account is $342.31. We have no record of any payments being made on this account.\n\nWe understand that you have been receiving collection calls regarding this account. We will immediately cease all collection activities on this account, as per your request, until this dispute is resolved. We will also investigate the frequency and manner of our communication with you to ensure that we are in compliance with the FDCPA.\n\nPlease note that our investigation may take some time, and we will provide you with an update on the status of this account once it is complete. If our investigation confirms that you have indeed paid the debt, we will take necessary steps to update our records and close the account.\n\nYou have the right to further dispute this account if you believe that our investigation does not accurately reflect the status of the account. If you wish to continue disputing this account, please respond to this letter within 30 days.\n\nSincerely,\n\nContinental Receivables Corp.",
       "annotations": [
+        {
+          "id": "jargon_wall",
+          "matched_text": "in accordance with",
+          "position": 300,
+          "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
+          "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
+          "severity": "medium"
+        },
         {
           "id": "buried_rights",
           "matched_text": "You have the right",
-          "position": 1184,
+          "position": 1239,
           "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
           "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
           "severity": "medium"
         }
       ],
-      "risk_score": 2,
-      "risk_level": "low",
+      "risk_score": 4,
+      "risk_level": "medium",
       "intent": "We're checking our records to confirm your payment.",
       "impact": [
+        "'I can't understand this' \u2014 consumer stops reading",
         "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
       ],
       "account_id": "ACC-981334",
@@ -661,7 +645,7 @@
     "classified_type": "wrong_amount",
     "classification_method": "ledger",
     "classification_confidence": 0.5,
-    "draft_letter": "September 16, 2026\n\nCarlos Phillips\n3891 Maple Avenue\nAurora, CO 80012\n\nRE: Account reference: ACC-372793\n\nDear Mr. Phillips,\n\nRe: Account reference: ACC-372793\n\nWe acknowledge receipt of your dispute regarding the amount owed on your account, ACC-372793, with Frontier State Bank. We understand your concern and are committed to ensuring the accuracy of the information we report.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA) and the Colorado Fair Debt Collection Practices Act, we are required to investigate your dispute. We will review the information provided and verify the balance on your account.\n\nOur records indicate that the current balance on your account is $6,322.61. We will investigate the accuracy of this amount and provide you with a validation of the debt, as requested, if our investigation confirms the balance.\n\nWe will also review the charge-off date of 2022-02-15 and the last payment date of 2024-05-13 to ensure that our reporting is accurate.\n\nPlease be advised that you have the right to dispute this debt further if you believe the amount or any other information is incorrect. You may also request a copy of the validation of the debt, which we will provide to you upon completion of our investigation.\n\nWe appreciate your cooperation in this matter and will respond to your dispute in a timely manner.\n\nSincerely,\n\nBridgeport Recovery Inc.\n\ncc: Credit Reporting Agencies (as required by law)",
+    "draft_letter": "September 16, 2026\n\nCarlos Phillips\n3891 Maple Avenue\nAurora, CO 80012\n\nRE: Account reference: ACC-372793\n\nDear Mr. Phillips,\n\nRe: Account reference: ACC-372793\n\nWe acknowledge receipt of your dispute regarding the amount owed on your account with Frontier State Bank, which is currently listed as $6,322.61. We take all disputes seriously and will investigate the matter as required by the Fair Debt Collection Practices Act (FDCPA) and the Colorado Fair Debt Collection Practices Act.\n\nWe have reviewed our records and confirm that the account was charged off on February 15, 2022, and the last payment received was on May 13, 2024. We will provide you with a validation of the debt as requested.\n\nAs part of our investigation, we will verify the accuracy of the amount owed. If our investigation confirms that the amount is incorrect, we will take the necessary steps to correct the amount. We will also provide you with a revised validation of the debt.\n\nPlease be advised that you have the right to dispute this debt further if you believe that our investigation did not resolve the issue to your satisfaction. You may also contact the credit reporting agencies to dispute the amount listed on your credit report.\n\nWe appreciate your cooperation in this matter and will keep you informed of our progress.\n\nSincerely,\n\nBridgeport Recovery Inc.",
     "draft_tier": "ollama",
     "review_findings": [],
     "review_passed": true,
@@ -669,54 +653,36 @@
     "review_critical": 0,
     "consumer_annotations": [
       {
-        "id": "jargon_wall",
-        "matched_text": "Pursuant to",
-        "position": 383,
-        "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
-        "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
-        "severity": "medium"
-      },
-      {
         "id": "buried_rights",
         "matched_text": "you have the right",
-        "position": 1010,
+        "position": 982,
         "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
         "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
         "severity": "medium"
       }
     ],
-    "engagement_risk_score": 4,
-    "engagement_risk_level": "medium",
+    "engagement_risk_score": 2,
+    "engagement_risk_level": "low",
     "agency_intent": "We're reviewing the balance and will send you an itemized breakdown.",
     "consumer_impact": [
-      "'I can't understand this' \u2014 consumer stops reading",
       "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
     ],
     "consumer_view": {
-      "letter_text": "September 16, 2026\n\nCarlos Phillips\n3891 Maple Avenue\nAurora, CO 80012\n\nRE: Account reference: ACC-372793\n\nDear Mr. Phillips,\n\nRe: Account reference: ACC-372793\n\nWe acknowledge receipt of your dispute regarding the amount owed on your account, ACC-372793, with Frontier State Bank. We understand your concern and are committed to ensuring the accuracy of the information we report.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA) and the Colorado Fair Debt Collection Practices Act, we are required to investigate your dispute. We will review the information provided and verify the balance on your account.\n\nOur records indicate that the current balance on your account is $6,322.61. We will investigate the accuracy of this amount and provide you with a validation of the debt, as requested, if our investigation confirms the balance.\n\nWe will also review the charge-off date of 2022-02-15 and the last payment date of 2024-05-13 to ensure that our reporting is accurate.\n\nPlease be advised that you have the right to dispute this debt further if you believe the amount or any other information is incorrect. You may also request a copy of the validation of the debt, which we will provide to you upon completion of our investigation.\n\nWe appreciate your cooperation in this matter and will respond to your dispute in a timely manner.\n\nSincerely,\n\nBridgeport Recovery Inc.\n\ncc: Credit Reporting Agencies (as required by law)",
+      "letter_text": "September 16, 2026\n\nCarlos Phillips\n3891 Maple Avenue\nAurora, CO 80012\n\nRE: Account reference: ACC-372793\n\nDear Mr. Phillips,\n\nRe: Account reference: ACC-372793\n\nWe acknowledge receipt of your dispute regarding the amount owed on your account with Frontier State Bank, which is currently listed as $6,322.61. We take all disputes seriously and will investigate the matter as required by the Fair Debt Collection Practices Act (FDCPA) and the Colorado Fair Debt Collection Practices Act.\n\nWe have reviewed our records and confirm that the account was charged off on February 15, 2022, and the last payment received was on May 13, 2024. We will provide you with a validation of the debt as requested.\n\nAs part of our investigation, we will verify the accuracy of the amount owed. If our investigation confirms that the amount is incorrect, we will take the necessary steps to correct the amount. We will also provide you with a revised validation of the debt.\n\nPlease be advised that you have the right to dispute this debt further if you believe that our investigation did not resolve the issue to your satisfaction. You may also contact the credit reporting agencies to dispute the amount listed on your credit report.\n\nWe appreciate your cooperation in this matter and will keep you informed of our progress.\n\nSincerely,\n\nBridgeport Recovery Inc.",
       "annotations": [
-        {
-          "id": "jargon_wall",
-          "matched_text": "Pursuant to",
-          "position": 383,
-          "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
-          "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
-          "severity": "medium"
-        },
         {
           "id": "buried_rights",
           "matched_text": "you have the right",
-          "position": 1010,
+          "position": 982,
           "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
           "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
           "severity": "medium"
         }
       ],
-      "risk_score": 4,
-      "risk_level": "medium",
+      "risk_score": 2,
+      "risk_level": "low",
       "intent": "We're reviewing the balance and will send you an itemized breakdown.",
       "impact": [
-        "'I can't understand this' \u2014 consumer stops reading",
         "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
       ],
       "account_id": "ACC-372793",
@@ -748,7 +714,7 @@
     "classified_type": "hardship",
     "classification_method": "ledger",
     "classification_confidence": 0.5,
-    "draft_letter": "April 5, 2026\n\nNina Chen\n1018 Elm Court\nSpringfield, KY 62701\n\nRE: Account ID: ACC-359295\n\nDear Ms. Chen,\n\nRe: Account ID: ACC-359295\n\nWe acknowledge receipt of your dispute letter regarding the account listed above. We understand that you have disputed the debt as inaccurate and requested its removal from your credit report.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA), we are required to investigate your dispute. We will review the account information to determine the accuracy of the debt. As per our records, the original creditor for this account is Lakeshore Utilities, and the current balance is $2,896.26. The account was charged off on August 22, 2020, and the last payment received was on March 22, 2021.\n\nWe will conduct a thorough investigation into this matter and will provide a response to your dispute within the timeframes required by law. If our investigation confirms that the debt is indeed yours, we will work with you to resolve the matter. However, if our investigation confirms that the debt is not yours, we will take steps to remove the account from your credit report.\n\nYou have the right to dispute this debt further, and we encourage you to provide any additional information that may be relevant to our investigation. Please note that under Kentucky state law, we are required to provide you with a written validation notice if you dispute the debt.\n\nWe appreciate your prompt attention to this matter, and we will keep you informed of any developments.\n\nSincerely,\n\nPinnacle Asset Management",
+    "draft_letter": "April 5, 2026\n\nNina Chen\n1018 Elm Court\nSpringfield, KY 62701\n\nRE: Account reference: ACC-359295\n\nDear Ms. Chen,\n\nRe: Account reference: ACC-359295\n\nWe acknowledge receipt of your dispute letter regarding the account referenced above. We understand that you have disputed the debt as inaccurate and requested its removal from your credit report. We take all disputes seriously and will investigate this matter in accordance with the Fair Debt Collection Practices Act (FDCPA) and Kentucky state law.\n\nWe have reviewed the account information and confirmed that the original creditor is Lakeshore Utilities. The current balance on this account is $2,896.26. We also note that the charge-off date for this account was August 22, 2020, and the last payment was received on March 22, 2021.\n\nWe will investigate your dispute and verify the accuracy of the debt. If our investigation confirms that the debt is valid, we will provide you with a validation notice as required by the FDCPA. If our investigation confirms that the debt is inaccurate, we will take steps to correct the error and remove the debt from your credit report.\n\nPlease be advised that under the FDCPA, you have the right to dispute the debt and request that we verify its accuracy. You also have the right to request that we provide you with a written validation notice, which we will do if our investigation confirms that the debt is valid.\n\nWe will investigate this matter further and respond to your dispute in accordance with applicable laws and regulations. If you have any further questions or concerns, please do not hesitate to contact us.\n\nSincerely,\n\nPinnacle Asset Management",
     "draft_tier": "ollama",
     "review_findings": [],
     "review_passed": true,
@@ -757,71 +723,69 @@
     "consumer_annotations": [
       {
         "id": "jargon_wall",
-        "matched_text": "Pursuant to",
-        "position": 329,
+        "matched_text": "in accordance with",
+        "position": 410,
         "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
         "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
         "severity": "medium"
       },
       {
-        "id": "urgency_without_clarity",
-        "matched_text": "prompt attention",
-        "position": 1419,
-        "flag": "Urgency language without clear action steps \u2014 triggers panic or avoidance, not compliance",
-        "cfpb_grounding": "CFPB pattern: 'They said it was urgent but didn't tell me what to actually do'",
-        "severity": "high"
+        "id": "jargon_wall",
+        "matched_text": "in accordance with",
+        "position": 1476,
+        "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
+        "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
+        "severity": "medium"
       },
       {
         "id": "buried_rights",
-        "matched_text": "You have the right",
-        "position": 1116,
+        "matched_text": "you have the right",
+        "position": 1167,
         "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
         "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
         "severity": "medium"
       }
     ],
-    "engagement_risk_score": 7,
+    "engagement_risk_score": 6,
     "engagement_risk_level": "high",
     "agency_intent": "We want to work with you on a payment arrangement you can manage.",
     "consumer_impact": [
       "'I can't understand this' \u2014 consumer stops reading",
-      "'Something bad is about to happen but I don't know what to do' \u2014 paralysis",
       "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
     ],
     "consumer_view": {
-      "letter_text": "April 5, 2026\n\nNina Chen\n1018 Elm Court\nSpringfield, KY 62701\n\nRE: Account ID: ACC-359295\n\nDear Ms. Chen,\n\nRe: Account ID: ACC-359295\n\nWe acknowledge receipt of your dispute letter regarding the account listed above. We understand that you have disputed the debt as inaccurate and requested its removal from your credit report.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA), we are required to investigate your dispute. We will review the account information to determine the accuracy of the debt. As per our records, the original creditor for this account is Lakeshore Utilities, and the current balance is $2,896.26. The account was charged off on August 22, 2020, and the last payment received was on March 22, 2021.\n\nWe will conduct a thorough investigation into this matter and will provide a response to your dispute within the timeframes required by law. If our investigation confirms that the debt is indeed yours, we will work with you to resolve the matter. However, if our investigation confirms that the debt is not yours, we will take steps to remove the account from your credit report.\n\nYou have the right to dispute this debt further, and we encourage you to provide any additional information that may be relevant to our investigation. Please note that under Kentucky state law, we are required to provide you with a written validation notice if you dispute the debt.\n\nWe appreciate your prompt attention to this matter, and we will keep you informed of any developments.\n\nSincerely,\n\nPinnacle Asset Management",
+      "letter_text": "April 5, 2026\n\nNina Chen\n1018 Elm Court\nSpringfield, KY 62701\n\nRE: Account reference: ACC-359295\n\nDear Ms. Chen,\n\nRe: Account reference: ACC-359295\n\nWe acknowledge receipt of your dispute letter regarding the account referenced above. We understand that you have disputed the debt as inaccurate and requested its removal from your credit report. We take all disputes seriously and will investigate this matter in accordance with the Fair Debt Collection Practices Act (FDCPA) and Kentucky state law.\n\nWe have reviewed the account information and confirmed that the original creditor is Lakeshore Utilities. The current balance on this account is $2,896.26. We also note that the charge-off date for this account was August 22, 2020, and the last payment was received on March 22, 2021.\n\nWe will investigate your dispute and verify the accuracy of the debt. If our investigation confirms that the debt is valid, we will provide you with a validation notice as required by the FDCPA. If our investigation confirms that the debt is inaccurate, we will take steps to correct the error and remove the debt from your credit report.\n\nPlease be advised that under the FDCPA, you have the right to dispute the debt and request that we verify its accuracy. You also have the right to request that we provide you with a written validation notice, which we will do if our investigation confirms that the debt is valid.\n\nWe will investigate this matter further and respond to your dispute in accordance with applicable laws and regulations. If you have any further questions or concerns, please do not hesitate to contact us.\n\nSincerely,\n\nPinnacle Asset Management",
       "annotations": [
         {
           "id": "jargon_wall",
-          "matched_text": "Pursuant to",
-          "position": 329,
+          "matched_text": "in accordance with",
+          "position": 410,
           "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
           "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
           "severity": "medium"
         },
         {
-          "id": "urgency_without_clarity",
-          "matched_text": "prompt attention",
-          "position": 1419,
-          "flag": "Urgency language without clear action steps \u2014 triggers panic or avoidance, not compliance",
-          "cfpb_grounding": "CFPB pattern: 'They said it was urgent but didn't tell me what to actually do'",
-          "severity": "high"
+          "id": "jargon_wall",
+          "matched_text": "in accordance with",
+          "position": 1476,
+          "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
+          "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
+          "severity": "medium"
         },
         {
           "id": "buried_rights",
-          "matched_text": "You have the right",
-          "position": 1116,
+          "matched_text": "you have the right",
+          "position": 1167,
           "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
           "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
           "severity": "medium"
         }
       ],
-      "risk_score": 7,
+      "risk_score": 6,
       "risk_level": "high",
       "intent": "We want to work with you on a payment arrangement you can manage.",
       "impact": [
         "'I can't understand this' \u2014 consumer stops reading",
-        "'Something bad is about to happen but I don't know what to do' \u2014 paralysis",
         "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
       ],
       "account_id": "ACC-359295",
@@ -853,7 +817,7 @@
     "classified_type": "already_paid",
     "classification_method": "ledger",
     "classification_confidence": 0.5,
-    "draft_letter": "December 21, 2026\n\nDina Pace\n765 Willow Road\nSpringfield, WY 62701\n\nRE: Account ID: ACC-427110\n\nDear Ms. Pace,\n\nRe: Account ID: ACC-427110\n\nWe acknowledge receipt of your dispute regarding the account with Sunrise Health Partners. We understand that you have disputed the debt as already paid.\n\nAfter reviewing the account information, we confirm that the original creditor is Sunrise Health Partners and the current balance due is $4,670.36. We also note that the charge-off date for this account is April 27, 2023, and the last payment was received on May 12, 2024.\n\nWe are required to investigate your dispute under the Fair Debt Collection Practices Act (FDCPA) and Wyoming state law. We will verify the accuracy of the account information and confirm the status of the debt.\n\nWe will provide a response to your dispute within 30 days, as required by the FDCPA. If our investigation confirms that the debt is valid, we will continue to attempt to collect the balance due.\n\nPlease note that you have the right to dispute this debt further if you believe it is inaccurate or invalid. You may also request validation of the debt, which we will provide if necessary.\n\nSincerely,\n\nKeystone Account Solutions",
+    "draft_letter": "December 21, 2026\n\nDina Pace\n765 Willow Road\nSpringfield, WY 62701\n\nRE: Account reference: ACC-427110\n\nDear Ms. Pace,\n\nRe: Account reference: ACC-427110\n\nWe acknowledge receipt of your dispute regarding the account with our agency, Keystone Account Solutions. We understand that you are disputing the debt as allegedly already paid. We will investigate this matter in accordance with the Fair Debt Collection Practices Act (FDCPA) and Wyoming state law.\n\nOur records indicate that the original creditor for this account is Sunrise Health Partners, and the current balance is $4,670.36. We also note that the charge-off date for this account is April 27, 2023, and the last payment date was May 12, 2024.\n\nWe will investigate your claim that the debt was paid. If our investigation confirms that the debt was indeed paid, we will take the necessary steps to update our records and ensure that any further collection activities cease. However, if our investigation does not confirm that the debt was paid, we will continue to pursue collection of the debt.\n\nPlease note that you have the right to dispute this debt further if you believe that our investigation was incomplete or inaccurate. You may also request validation of the debt, which we will provide if requested.\n\nWe appreciate your cooperation in this matter and will keep you informed of any developments.\n\nSincerely,\n\nKeystone Account Solutions",
     "draft_tier": "ollama",
     "review_findings": [],
     "review_passed": true,
@@ -861,36 +825,54 @@
     "review_critical": 0,
     "consumer_annotations": [
       {
+        "id": "jargon_wall",
+        "matched_text": "in accordance with",
+        "position": 365,
+        "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
+        "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
+        "severity": "medium"
+      },
+      {
         "id": "buried_rights",
         "matched_text": "you have the right",
-        "position": 994,
+        "position": 1073,
         "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
         "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
         "severity": "medium"
       }
     ],
-    "engagement_risk_score": 2,
-    "engagement_risk_level": "low",
+    "engagement_risk_score": 4,
+    "engagement_risk_level": "medium",
     "agency_intent": "We're checking our records to confirm your payment.",
     "consumer_impact": [
+      "'I can't understand this' \u2014 consumer stops reading",
       "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
     ],
     "consumer_view": {
-      "letter_text": "December 21, 2026\n\nDina Pace\n765 Willow Road\nSpringfield, WY 62701\n\nRE: Account ID: ACC-427110\n\nDear Ms. Pace,\n\nRe: Account ID: ACC-427110\n\nWe acknowledge receipt of your dispute regarding the account with Sunrise Health Partners. We understand that you have disputed the debt as already paid.\n\nAfter reviewing the account information, we confirm that the original creditor is Sunrise Health Partners and the current balance due is $4,670.36. We also note that the charge-off date for this account is April 27, 2023, and the last payment was received on May 12, 2024.\n\nWe are required to investigate your dispute under the Fair Debt Collection Practices Act (FDCPA) and Wyoming state law. We will verify the accuracy of the account information and confirm the status of the debt.\n\nWe will provide a response to your dispute within 30 days, as required by the FDCPA. If our investigation confirms that the debt is valid, we will continue to attempt to collect the balance due.\n\nPlease note that you have the right to dispute this debt further if you believe it is inaccurate or invalid. You may also request validation of the debt, which we will provide if necessary.\n\nSincerely,\n\nKeystone Account Solutions",
+      "letter_text": "December 21, 2026\n\nDina Pace\n765 Willow Road\nSpringfield, WY 62701\n\nRE: Account reference: ACC-427110\n\nDear Ms. Pace,\n\nRe: Account reference: ACC-427110\n\nWe acknowledge receipt of your dispute regarding the account with our agency, Keystone Account Solutions. We understand that you are disputing the debt as allegedly already paid. We will investigate this matter in accordance with the Fair Debt Collection Practices Act (FDCPA) and Wyoming state law.\n\nOur records indicate that the original creditor for this account is Sunrise Health Partners, and the current balance is $4,670.36. We also note that the charge-off date for this account is April 27, 2023, and the last payment date was May 12, 2024.\n\nWe will investigate your claim that the debt was paid. If our investigation confirms that the debt was indeed paid, we will take the necessary steps to update our records and ensure that any further collection activities cease. However, if our investigation does not confirm that the debt was paid, we will continue to pursue collection of the debt.\n\nPlease note that you have the right to dispute this debt further if you believe that our investigation was incomplete or inaccurate. You may also request validation of the debt, which we will provide if requested.\n\nWe appreciate your cooperation in this matter and will keep you informed of any developments.\n\nSincerely,\n\nKeystone Account Solutions",
       "annotations": [
+        {
+          "id": "jargon_wall",
+          "matched_text": "in accordance with",
+          "position": 365,
+          "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
+          "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
+          "severity": "medium"
+        },
         {
           "id": "buried_rights",
           "matched_text": "you have the right",
-          "position": 994,
+          "position": 1073,
           "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
           "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
           "severity": "medium"
         }
       ],
-      "risk_score": 2,
-      "risk_level": "low",
+      "risk_score": 4,
+      "risk_level": "medium",
       "intent": "We're checking our records to confirm your payment.",
       "impact": [
+        "'I can't understand this' \u2014 consumer stops reading",
         "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
       ],
       "account_id": "ACC-427110",
@@ -922,7 +904,7 @@
     "classified_type": "not_mine",
     "classification_method": "ledger",
     "classification_confidence": 0.5,
-    "draft_letter": "August 6, 2026\n\nMarta Sanchez\n4422 Pine Bluff Way\nSpringfield, NV 62701\n\nRE: Account ID: ACC-630538\n\nDear Marta Sanchez,\n\nRe: Account ID: ACC-630538\n\nWe acknowledge receipt of your dispute letter regarding the above-referenced account. We understand that you dispute the accuracy of the account, specifically stating that the account is not yours.\n\nWe are investigating your dispute and will review the account information to determine the validity of your claim. As required by the Fair Debt Collection Practices Act (FDCPA), we will verify the accuracy of the account information and ensure that it is accurate and complete.\n\nWe have reviewed the account information and found that the original creditor is First National Bank. The current balance on the account is $2,173.45. The account was charged off on January 11, 2022, and the last payment was received on July 30, 2024.\n\nWe will investigate your dispute and provide a response within the timeframe required by law. If we determine that the account is not yours, we will take the necessary steps to remove the account from your credit report and cease collection efforts.\n\nYou have the right to dispute this account further if you believe that additional information is necessary to resolve the dispute. Please note that you have the right to request validation of the debt under the FDCPA, and we will provide you with the necessary information to validate the debt if we determine that it is accurate and valid.\n\nPlease allow us 30 days to investigate and respond to your dispute. If you have any questions or concerns, please do not hesitate to contact us.\n\nSincerely,\n\nKeystone Account Solutions",
+    "draft_letter": "August 6, 2026\n\nMarta Sanchez\n4422 Pine Bluff Way\nSpringfield, NV 62701\n\nRE: Account ID: ACC-630538\n\nDear Marta Sanchez,\n\nReceiving your dispute letter regarding the above-referenced account, we acknowledge your claim that the account is not yours. We understand that you are disputing the accuracy of the account.\n\nWe have reviewed the account information, and we confirm that the original creditor is listed as First National Bank. The current balance on the account is $2,173.45. The account was charged off on January 11, 2022. Your last payment on the account was received on July 30, 2024.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA), we are required to investigate your dispute. We will conduct a thorough review of the account to determine the validity of your claim. We will also verify the account information with the original creditor, First National Bank.\n\nWe will provide you with a written validation of the debt if it is determined that the account is valid. If the account is found to be inaccurate or uncollectible, we will take the necessary steps to update the account status.\n\nYou have the right to dispute this account further if you believe that additional information is necessary to resolve the matter. Please contact us at your earliest convenience to discuss this matter further.\n\nSincerely,\n\nKeystone Account Solutions",
     "draft_tier": "ollama",
     "review_findings": [],
     "review_passed": true,
@@ -930,17 +912,17 @@
     "review_critical": 0,
     "consumer_annotations": [
       {
-        "id": "buried_rights",
-        "matched_text": "You have the right",
-        "position": 1132,
-        "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
-        "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+        "id": "jargon_wall",
+        "matched_text": "Pursuant to",
+        "position": 597,
+        "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
+        "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
         "severity": "medium"
       },
       {
         "id": "buried_rights",
-        "matched_text": "you have the right",
-        "position": 1280,
+        "matched_text": "You have the right",
+        "position": 1114,
         "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
         "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
         "severity": "medium"
@@ -950,23 +932,24 @@
     "engagement_risk_level": "medium",
     "agency_intent": "We're looking into whether this debt belongs to you and stopping contact meanwhile.",
     "consumer_impact": [
+      "'I can't understand this' \u2014 consumer stops reading",
       "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
     ],
     "consumer_view": {
-      "letter_text": "August 6, 2026\n\nMarta Sanchez\n4422 Pine Bluff Way\nSpringfield, NV 62701\n\nRE: Account ID: ACC-630538\n\nDear Marta Sanchez,\n\nRe: Account ID: ACC-630538\n\nWe acknowledge receipt of your dispute letter regarding the above-referenced account. We understand that you dispute the accuracy of the account, specifically stating that the account is not yours.\n\nWe are investigating your dispute and will review the account information to determine the validity of your claim. As required by the Fair Debt Collection Practices Act (FDCPA), we will verify the accuracy of the account information and ensure that it is accurate and complete.\n\nWe have reviewed the account information and found that the original creditor is First National Bank. The current balance on the account is $2,173.45. The account was charged off on January 11, 2022, and the last payment was received on July 30, 2024.\n\nWe will investigate your dispute and provide a response within the timeframe required by law. If we determine that the account is not yours, we will take the necessary steps to remove the account from your credit report and cease collection efforts.\n\nYou have the right to dispute this account further if you believe that additional information is necessary to resolve the dispute. Please note that you have the right to request validation of the debt under the FDCPA, and we will provide you with the necessary information to validate the debt if we determine that it is accurate and valid.\n\nPlease allow us 30 days to investigate and respond to your dispute. If you have any questions or concerns, please do not hesitate to contact us.\n\nSincerely,\n\nKeystone Account Solutions",
+      "letter_text": "August 6, 2026\n\nMarta Sanchez\n4422 Pine Bluff Way\nSpringfield, NV 62701\n\nRE: Account ID: ACC-630538\n\nDear Marta Sanchez,\n\nReceiving your dispute letter regarding the above-referenced account, we acknowledge your claim that the account is not yours. We understand that you are disputing the accuracy of the account.\n\nWe have reviewed the account information, and we confirm that the original creditor is listed as First National Bank. The current balance on the account is $2,173.45. The account was charged off on January 11, 2022. Your last payment on the account was received on July 30, 2024.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA), we are required to investigate your dispute. We will conduct a thorough review of the account to determine the validity of your claim. We will also verify the account information with the original creditor, First National Bank.\n\nWe will provide you with a written validation of the debt if it is determined that the account is valid. If the account is found to be inaccurate or uncollectible, we will take the necessary steps to update the account status.\n\nYou have the right to dispute this account further if you believe that additional information is necessary to resolve the matter. Please contact us at your earliest convenience to discuss this matter further.\n\nSincerely,\n\nKeystone Account Solutions",
       "annotations": [
         {
-          "id": "buried_rights",
-          "matched_text": "You have the right",
-          "position": 1132,
-          "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
-          "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+          "id": "jargon_wall",
+          "matched_text": "Pursuant to",
+          "position": 597,
+          "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
+          "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
           "severity": "medium"
         },
         {
           "id": "buried_rights",
-          "matched_text": "you have the right",
-          "position": 1280,
+          "matched_text": "You have the right",
+          "position": 1114,
           "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
           "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
           "severity": "medium"
@@ -976,6 +959,7 @@
       "risk_level": "medium",
       "intent": "We're looking into whether this debt belongs to you and stopping contact meanwhile.",
       "impact": [
+        "'I can't understand this' \u2014 consumer stops reading",
         "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
       ],
       "account_id": "ACC-630538",
@@ -1007,7 +991,7 @@
     "classified_type": "not_mine",
     "classification_method": "ledger",
     "classification_confidence": 0.5,
-    "draft_letter": "January 12, 2026\n\nRosa Lopez\n3891 Maple Avenue\nSpringfield, MA 62701\n\nRE: Account ACC-993085\n\nDear Ms. Lopez,\n\nRe: Account ACC-993085\n\nWe acknowledge receipt of your dispute letter regarding the account in question. You have disputed the debt as \"not mine.\" We take all disputes seriously and will investigate this matter further.\n\nAccording to our records, the original creditor of this account is Liberty Credit Corp. The current balance due on this account is $2,903.41. We have reviewed our procedures and found that we did not request validation of the debt as required by the Fair Debt Collection Practices Act (FDCPA) and Massachusetts state law.\n\nWe will conduct an investigation into this matter and will provide you with any additional information we obtain. If we determine that the debt is indeed yours, we will provide you with a validation notice as required by law.\n\nPlease be aware that you have the right to dispute this debt further if you believe the investigation does not resolve the issue. You may also request that we cease collection efforts if you dispute the debt.\n\nSincerely,\n\nBridgeport Recovery Inc.\n\nNote: I did not include the consumer's account number in the letter as per the request.",
+    "draft_letter": "January 12, 2026\n\nRosa Lopez\n3891 Maple Avenue\nSpringfield, MA 62701\n\nRE: Account ID: ACC-993085\n\nDear Ms. Lopez,\n\nRe: Account ID: ACC-993085\n\nWe acknowledge receipt of your dispute letter regarding the account referenced above. We understand that you have disputed the debt as \"not mine.\" We take all disputes seriously and will investigate this matter accordingly.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA), we are required to provide you with a validation of the debt. However, based on the information provided in your dispute letter, it appears that you have already requested validation from CKS Financial, the original creditor, and they failed to provide the necessary documentation in a timely manner. We will investigate this matter further and will provide you with a response as soon as possible.\n\nWe will also review the account history and verify the information provided to us. The current balance on this account is $2,903.41. The original creditor is Liberty Credit Corp, and the charge-off date is June 3, 2023. Your last payment was received on November 19, 2024.\n\nPlease be advised that under Massachusetts state law, you have the right to dispute this debt and request validation. We will provide you with a response as soon as possible. If we determine that the debt is valid, we will continue to attempt to collect the debt in accordance with applicable laws and regulations.\n\nIf you have any further questions or concerns, please do not hesitate to contact us. You may also continue to dispute this debt if you believe it is not valid.\n\nSincerely,\n\nBridgeport Recovery Inc.\n\ncc: File\n\nNote: I have not included the account number in the letter as it was not provided in the record.",
     "draft_tier": "ollama",
     "review_findings": [],
     "review_passed": true,
@@ -1015,36 +999,70 @@
     "review_critical": 0,
     "consumer_annotations": [
       {
+        "id": "jargon_wall",
+        "matched_text": "Pursuant to",
+        "position": 368,
+        "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
+        "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
+        "severity": "medium"
+      },
+      {
+        "id": "jargon_wall",
+        "matched_text": "in accordance with",
+        "position": 1365,
+        "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
+        "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
+        "severity": "medium"
+      },
+      {
         "id": "buried_rights",
         "matched_text": "you have the right",
-        "position": 903,
+        "position": 1156,
         "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
         "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
         "severity": "medium"
       }
     ],
-    "engagement_risk_score": 2,
-    "engagement_risk_level": "low",
+    "engagement_risk_score": 6,
+    "engagement_risk_level": "high",
     "agency_intent": "We're looking into whether this debt belongs to you and stopping contact meanwhile.",
     "consumer_impact": [
+      "'I can't understand this' \u2014 consumer stops reading",
       "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
     ],
     "consumer_view": {
-      "letter_text": "January 12, 2026\n\nRosa Lopez\n3891 Maple Avenue\nSpringfield, MA 62701\n\nRE: Account ACC-993085\n\nDear Ms. Lopez,\n\nRe: Account ACC-993085\n\nWe acknowledge receipt of your dispute letter regarding the account in question. You have disputed the debt as \"not mine.\" We take all disputes seriously and will investigate this matter further.\n\nAccording to our records, the original creditor of this account is Liberty Credit Corp. The current balance due on this account is $2,903.41. We have reviewed our procedures and found that we did not request validation of the debt as required by the Fair Debt Collection Practices Act (FDCPA) and Massachusetts state law.\n\nWe will conduct an investigation into this matter and will provide you with any additional information we obtain. If we determine that the debt is indeed yours, we will provide you with a validation notice as required by law.\n\nPlease be aware that you have the right to dispute this debt further if you believe the investigation does not resolve the issue. You may also request that we cease collection efforts if you dispute the debt.\n\nSincerely,\n\nBridgeport Recovery Inc.\n\nNote: I did not include the consumer's account number in the letter as per the request.",
+      "letter_text": "January 12, 2026\n\nRosa Lopez\n3891 Maple Avenue\nSpringfield, MA 62701\n\nRE: Account ID: ACC-993085\n\nDear Ms. Lopez,\n\nRe: Account ID: ACC-993085\n\nWe acknowledge receipt of your dispute letter regarding the account referenced above. We understand that you have disputed the debt as \"not mine.\" We take all disputes seriously and will investigate this matter accordingly.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA), we are required to provide you with a validation of the debt. However, based on the information provided in your dispute letter, it appears that you have already requested validation from CKS Financial, the original creditor, and they failed to provide the necessary documentation in a timely manner. We will investigate this matter further and will provide you with a response as soon as possible.\n\nWe will also review the account history and verify the information provided to us. The current balance on this account is $2,903.41. The original creditor is Liberty Credit Corp, and the charge-off date is June 3, 2023. Your last payment was received on November 19, 2024.\n\nPlease be advised that under Massachusetts state law, you have the right to dispute this debt and request validation. We will provide you with a response as soon as possible. If we determine that the debt is valid, we will continue to attempt to collect the debt in accordance with applicable laws and regulations.\n\nIf you have any further questions or concerns, please do not hesitate to contact us. You may also continue to dispute this debt if you believe it is not valid.\n\nSincerely,\n\nBridgeport Recovery Inc.\n\ncc: File\n\nNote: I have not included the account number in the letter as it was not provided in the record.",
       "annotations": [
+        {
+          "id": "jargon_wall",
+          "matched_text": "Pursuant to",
+          "position": 368,
+          "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
+          "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
+          "severity": "medium"
+        },
+        {
+          "id": "jargon_wall",
+          "matched_text": "in accordance with",
+          "position": 1365,
+          "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
+          "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
+          "severity": "medium"
+        },
         {
           "id": "buried_rights",
           "matched_text": "you have the right",
-          "position": 903,
+          "position": 1156,
           "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
           "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
           "severity": "medium"
         }
       ],
-      "risk_score": 2,
-      "risk_level": "low",
+      "risk_score": 6,
+      "risk_level": "high",
       "intent": "We're looking into whether this debt belongs to you and stopping contact meanwhile.",
       "impact": [
+        "'I can't understand this' \u2014 consumer stops reading",
         "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
       ],
       "account_id": "ACC-993085",
@@ -1076,7 +1094,7 @@
     "classified_type": "statute_of_limitations",
     "classification_method": "ledger",
     "classification_confidence": 0.5,
-    "draft_letter": "December 3, 2026\n\nBrenda Banks\n4422 Pine Bluff Way\nSpringfield, TN 62701\n\nRE: Account reference: ACC-389688\n\nDear Ms. Banks,\n\nRe: Account reference: ACC-389688\n\nWe acknowledge receipt of your dispute regarding the statute of limitations for the above-referenced account. We take all disputes seriously and are committed to ensuring that our collection practices comply with applicable laws, including the Fair Debt Collection Practices Act (FDCPA) and Tennessee state law.\n\nWe have reviewed the account information and confirm that the original creditor is Citylink Communications. The current balance for the account is $1,672.88. Our records indicate that the charge-off date for the account was September 27, 2022. We also note that the last payment date was May 8, 2023.\n\nWe understand that you have requested that we review and examine the attached documents. However, based on our review of the account information, we have not received any validation request from you. As such, we will not be providing any validation at this time.\n\nWe will investigate your dispute regarding the statute of limitations and will respond to you in a timely manner. If we determine that the account is indeed past the applicable statute of limitations, we will take the necessary steps to ensure compliance with applicable laws.\n\nPlease note that you have the right to further dispute this matter if you believe that the account is still valid. You may also request that we cease collection efforts if you believe that the account is past the statute of limitations.\n\nThank you for bringing this matter to our attention.\n\nSincerely,\n\nRedstone Collections Group",
+    "draft_letter": "December 3, 2026\n\nBrenda Banks\n4422 Pine Bluff Way\nSpringfield, TN 62701\n\nRE: Account reference: ACC-389688\n\nDear Ms. Banks,\n\nWe acknowledge receipt of your dispute regarding the statute of limitations for the account referenced above. We understand that you have raised concerns about the accuracy and completeness of certain documents related to this account.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA), 15 U.S.C. \u00a7 1692g, we are required to provide you with a written validation notice within five days of initial communication. However, we have no record of any prior validation request from you. We will investigate your dispute and verify the accuracy of the information on file.\n\nWe have reviewed the account history and confirm that the original creditor, Citylink Communications, charged off the account on September 27, 2022. The last payment received was on May 8, 2023. The current balance is $1,672.88.\n\nWe will conduct a thorough review of the account to determine the validity of your dispute. If we find that the statute of limitations has expired, we will take the necessary steps to update our records and cease collection efforts.\n\nPlease note that you have the right to dispute this matter further if you believe the results of our investigation are inaccurate or incomplete. You may submit any additional documentation or evidence to support your claim.\n\nSincerely,\n\nRedstone Collections Group",
     "draft_tier": "ollama",
     "review_findings": [],
     "review_passed": true,
@@ -1084,36 +1102,54 @@
     "review_critical": 0,
     "consumer_annotations": [
       {
+        "id": "jargon_wall",
+        "matched_text": "Pursuant to",
+        "position": 363,
+        "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
+        "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
+        "severity": "medium"
+      },
+      {
         "id": "buried_rights",
         "matched_text": "you have the right",
-        "position": 1335,
+        "position": 1185,
         "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
         "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
         "severity": "medium"
       }
     ],
-    "engagement_risk_score": 2,
-    "engagement_risk_level": "low",
+    "engagement_risk_score": 4,
+    "engagement_risk_level": "medium",
     "agency_intent": "We're checking the legal timeline on this debt.",
     "consumer_impact": [
+      "'I can't understand this' \u2014 consumer stops reading",
       "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
     ],
     "consumer_view": {
-      "letter_text": "December 3, 2026\n\nBrenda Banks\n4422 Pine Bluff Way\nSpringfield, TN 62701\n\nRE: Account reference: ACC-389688\n\nDear Ms. Banks,\n\nRe: Account reference: ACC-389688\n\nWe acknowledge receipt of your dispute regarding the statute of limitations for the above-referenced account. We take all disputes seriously and are committed to ensuring that our collection practices comply with applicable laws, including the Fair Debt Collection Practices Act (FDCPA) and Tennessee state law.\n\nWe have reviewed the account information and confirm that the original creditor is Citylink Communications. The current balance for the account is $1,672.88. Our records indicate that the charge-off date for the account was September 27, 2022. We also note that the last payment date was May 8, 2023.\n\nWe understand that you have requested that we review and examine the attached documents. However, based on our review of the account information, we have not received any validation request from you. As such, we will not be providing any validation at this time.\n\nWe will investigate your dispute regarding the statute of limitations and will respond to you in a timely manner. If we determine that the account is indeed past the applicable statute of limitations, we will take the necessary steps to ensure compliance with applicable laws.\n\nPlease note that you have the right to further dispute this matter if you believe that the account is still valid. You may also request that we cease collection efforts if you believe that the account is past the statute of limitations.\n\nThank you for bringing this matter to our attention.\n\nSincerely,\n\nRedstone Collections Group",
+      "letter_text": "December 3, 2026\n\nBrenda Banks\n4422 Pine Bluff Way\nSpringfield, TN 62701\n\nRE: Account reference: ACC-389688\n\nDear Ms. Banks,\n\nWe acknowledge receipt of your dispute regarding the statute of limitations for the account referenced above. We understand that you have raised concerns about the accuracy and completeness of certain documents related to this account.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA), 15 U.S.C. \u00a7 1692g, we are required to provide you with a written validation notice within five days of initial communication. However, we have no record of any prior validation request from you. We will investigate your dispute and verify the accuracy of the information on file.\n\nWe have reviewed the account history and confirm that the original creditor, Citylink Communications, charged off the account on September 27, 2022. The last payment received was on May 8, 2023. The current balance is $1,672.88.\n\nWe will conduct a thorough review of the account to determine the validity of your dispute. If we find that the statute of limitations has expired, we will take the necessary steps to update our records and cease collection efforts.\n\nPlease note that you have the right to dispute this matter further if you believe the results of our investigation are inaccurate or incomplete. You may submit any additional documentation or evidence to support your claim.\n\nSincerely,\n\nRedstone Collections Group",
       "annotations": [
+        {
+          "id": "jargon_wall",
+          "matched_text": "Pursuant to",
+          "position": 363,
+          "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
+          "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
+          "severity": "medium"
+        },
         {
           "id": "buried_rights",
           "matched_text": "you have the right",
-          "position": 1335,
+          "position": 1185,
           "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
           "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
           "severity": "medium"
         }
       ],
-      "risk_score": 2,
-      "risk_level": "low",
+      "risk_score": 4,
+      "risk_level": "medium",
       "intent": "We're checking the legal timeline on this debt.",
       "impact": [
+        "'I can't understand this' \u2014 consumer stops reading",
         "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
       ],
       "account_id": "ACC-389688",
@@ -1145,7 +1181,7 @@
     "classified_type": "already_paid",
     "classification_method": "ledger",
     "classification_confidence": 0.5,
-    "draft_letter": "September 16, 2026\n\nWilla Thomas\n1018 Elm Court\nNaperville, IL 60540\n\nRE: Account reference: ACC-680358\n\nDear Ms. Thomas,\n\nReceiving your dispute letter regarding the above-referenced account, we acknowledge your assertion that the account has already been paid. We take all disputes seriously and are committed to resolving this matter in accordance with the Fair Debt Collection Practices Act (FDCPA) and the laws of the State of Illinois.\n\nWe have reviewed the account information and confirm that the current balance is $5,906.53. Our records indicate that the original creditor is Valley Regional Hospital. We also note that the account was charged off on 2021-07-08.\n\nRegarding your request for validation, we confirm that we are a debt collector attempting to collect a debt owed by you. We are required to provide you with validation of the debt, which includes the name of the creditor, an itemization of the debt, and a statement that unless you dispute the validity of this debt within 30 days after receiving this notice, we will assume the debt to be valid. Please note that you have already requested validation, and we will provide this information to you in a separate mailing.\n\nWe will investigate your dispute and take the necessary steps to verify the accuracy of the account information. If our investigation confirms that the account has been paid, we will take the necessary actions to update our records accordingly.\n\nYou have the right to dispute this debt further if you believe that the account has not been paid in full. Please note that you may request a written acknowledgement of the dispute from us.\n\nSincerely,\n\nContinental Receivables Corp.",
+    "draft_letter": "September 16, 2026\n\nWilla Thomas\n1018 Elm Court\nNaperville, IL 60540\n\nRE: Account reference: ACC-680358\n\nDear Willa Thomas,\n\nReceiving your dispute letter regarding the account referenced above, we acknowledge your assertion that the account has already been paid. We take all disputes seriously and will investigate this matter further.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA), we are required to validate the debt upon your request. We confirm that you have requested validation of the account, and we will provide you with the necessary documentation to support the debt.\n\nWe have reviewed the account information, and the current balance is $5,906.53. The original creditor for this account is Valley Regional Hospital. The charge-off date was July 8, 2021, and the last payment was received on April 18, 2022.\n\nWe will investigate the claim that the account has already been paid and will provide you with an update on our findings. If our investigation confirms that the account has been paid in full, we will take the necessary steps to remove the account from our records and update our reporting to the credit bureaus.\n\nPlease note that you have the right to further dispute this account if you believe the debt is not valid. If you wish to continue disputing the account, please provide us with additional information or documentation to support your claim.\n\nSincerely,\n\nContinental Receivables Corp.",
     "draft_tier": "ollama",
     "review_findings": [],
     "review_passed": true,
@@ -1154,16 +1190,24 @@
     "consumer_annotations": [
       {
         "id": "jargon_wall",
-        "matched_text": "in accordance with",
-        "position": 337,
+        "matched_text": "Pursuant to",
+        "position": 339,
         "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
         "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
         "severity": "medium"
       },
       {
+        "id": "credit_bureau_threat",
+        "matched_text": "reporting to the credit bureau",
+        "position": 1115,
+        "flag": "Credit reporting threat \u2014 often causes consumers to disengage from legitimate dispute processes",
+        "cfpb_grounding": "Top CFPB complaint: 'They threatened my credit so I felt like I had no options'",
+        "severity": "high"
+      },
+      {
         "id": "buried_rights",
-        "matched_text": "You have the right",
-        "position": 1441,
+        "matched_text": "you have the right",
+        "position": 1166,
         "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
         "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
         "severity": "medium"
@@ -1171,34 +1215,43 @@
       {
         "id": "passive_voice_responsibility",
         "matched_text": "the account has been",
-        "position": 1343,
+        "position": 993,
         "flag": "Passive voice obscures who did what \u2014 consumer doesn't know who to contact or what happened",
         "cfpb_grounding": "CFPB pattern: 'Nobody would tell me who actually owns the debt or who made the decision'",
         "severity": "low"
       }
     ],
-    "engagement_risk_score": 5,
-    "engagement_risk_level": "medium",
+    "engagement_risk_score": 8,
+    "engagement_risk_level": "high",
     "agency_intent": "We're checking our records to confirm your payment.",
     "consumer_impact": [
       "'I can't understand this' \u2014 consumer stops reading",
+      "'My credit is already ruined, why bother responding' \u2014 disengagement",
       "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
     ],
     "consumer_view": {
-      "letter_text": "September 16, 2026\n\nWilla Thomas\n1018 Elm Court\nNaperville, IL 60540\n\nRE: Account reference: ACC-680358\n\nDear Ms. Thomas,\n\nReceiving your dispute letter regarding the above-referenced account, we acknowledge your assertion that the account has already been paid. We take all disputes seriously and are committed to resolving this matter in accordance with the Fair Debt Collection Practices Act (FDCPA) and the laws of the State of Illinois.\n\nWe have reviewed the account information and confirm that the current balance is $5,906.53. Our records indicate that the original creditor is Valley Regional Hospital. We also note that the account was charged off on 2021-07-08.\n\nRegarding your request for validation, we confirm that we are a debt collector attempting to collect a debt owed by you. We are required to provide you with validation of the debt, which includes the name of the creditor, an itemization of the debt, and a statement that unless you dispute the validity of this debt within 30 days after receiving this notice, we will assume the debt to be valid. Please note that you have already requested validation, and we will provide this information to you in a separate mailing.\n\nWe will investigate your dispute and take the necessary steps to verify the accuracy of the account information. If our investigation confirms that the account has been paid, we will take the necessary actions to update our records accordingly.\n\nYou have the right to dispute this debt further if you believe that the account has not been paid in full. Please note that you may request a written acknowledgement of the dispute from us.\n\nSincerely,\n\nContinental Receivables Corp.",
+      "letter_text": "September 16, 2026\n\nWilla Thomas\n1018 Elm Court\nNaperville, IL 60540\n\nRE: Account reference: ACC-680358\n\nDear Willa Thomas,\n\nReceiving your dispute letter regarding the account referenced above, we acknowledge your assertion that the account has already been paid. We take all disputes seriously and will investigate this matter further.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA), we are required to validate the debt upon your request. We confirm that you have requested validation of the account, and we will provide you with the necessary documentation to support the debt.\n\nWe have reviewed the account information, and the current balance is $5,906.53. The original creditor for this account is Valley Regional Hospital. The charge-off date was July 8, 2021, and the last payment was received on April 18, 2022.\n\nWe will investigate the claim that the account has already been paid and will provide you with an update on our findings. If our investigation confirms that the account has been paid in full, we will take the necessary steps to remove the account from our records and update our reporting to the credit bureaus.\n\nPlease note that you have the right to further dispute this account if you believe the debt is not valid. If you wish to continue disputing the account, please provide us with additional information or documentation to support your claim.\n\nSincerely,\n\nContinental Receivables Corp.",
       "annotations": [
         {
           "id": "jargon_wall",
-          "matched_text": "in accordance with",
-          "position": 337,
+          "matched_text": "Pursuant to",
+          "position": 339,
           "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
           "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
           "severity": "medium"
         },
         {
+          "id": "credit_bureau_threat",
+          "matched_text": "reporting to the credit bureau",
+          "position": 1115,
+          "flag": "Credit reporting threat \u2014 often causes consumers to disengage from legitimate dispute processes",
+          "cfpb_grounding": "Top CFPB complaint: 'They threatened my credit so I felt like I had no options'",
+          "severity": "high"
+        },
+        {
           "id": "buried_rights",
-          "matched_text": "You have the right",
-          "position": 1441,
+          "matched_text": "you have the right",
+          "position": 1166,
           "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
           "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
           "severity": "medium"
@@ -1206,17 +1259,18 @@
         {
           "id": "passive_voice_responsibility",
           "matched_text": "the account has been",
-          "position": 1343,
+          "position": 993,
           "flag": "Passive voice obscures who did what \u2014 consumer doesn't know who to contact or what happened",
           "cfpb_grounding": "CFPB pattern: 'Nobody would tell me who actually owns the debt or who made the decision'",
           "severity": "low"
         }
       ],
-      "risk_score": 5,
-      "risk_level": "medium",
+      "risk_score": 8,
+      "risk_level": "high",
       "intent": "We're checking our records to confirm your payment.",
       "impact": [
         "'I can't understand this' \u2014 consumer stops reading",
+        "'My credit is already ruined, why bother responding' \u2014 disengagement",
         "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
       ],
       "account_id": "ACC-680358",
@@ -1248,7 +1302,7 @@
     "classified_type": "already_paid",
     "classification_method": "ledger",
     "classification_confidence": 0.5,
-    "draft_letter": "October 15, 2026\n\nWilla Cole\n3891 Maple Avenue\nLakeland, FL 33801\n\nRE: Account reference: ACC-897135\n\nDear Willa Cole,\n\nRe: Dispute of Account ACC-897135\n\nWe acknowledge receipt of your dispute letter regarding the account referenced above. You have disputed the debt as already paid. We understand that you have requested validation of the debt.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA), 15 U.S.C. \u00a7 1692g, we are required to provide you with a written validation notice within five days of receiving your dispute letter. This notice will include the amount of the debt, the name of the original creditor, and a statement that unless you dispute the validity of the debt within 30 days, we will assume the debt is valid.\n\nWe have reviewed the account information and confirm that the current balance is $6,176.50. The original creditor for this account was Horizon Card Co. We have also confirmed that the charge-off date was January 9, 2022, and the last payment date was January 29, 2022.\n\nWe will provide you with a written validation notice as required by law. Please note that you have the right to dispute the debt further if you believe it is not valid. If you wish to dispute the debt, please provide us with a written statement within 30 days of receiving this letter.\n\nSincerely,\n\nNational Credit Solutions",
+    "draft_letter": "October 15, 2026\n\nWilla Cole\n3891 Maple Avenue\nLakeland, FL 33801\n\nRE: Account reference: ACC-897135\n\nDear Ms. Cole,\n\nRe: Dispute of Account ACC-897135\n\nWe acknowledge receipt of your dispute letter regarding the account referenced above. You have disputed that the debt has already been paid. We understand that you have requested validation of the debt.\n\nWe have reviewed the account information and confirm that the current balance on the account is $6,176.50. The original creditor for this account is Horizon Card Co. As per the Florida Fair Debt Collection Practices Act, we are required to provide you with validation of the debt within 30 days of your request. We will provide you with the requested validation.\n\nRegarding your concern about the address on your credit report, we understand that you have experienced issues with mail delivery. However, we must inform you that we do not have any record of a previous attempt to contact us by mail on the date you specified. We will make sure to update our records with your correct contact information.\n\nWe will investigate your dispute and provide you with a response within the next 30 days. If we determine that the debt has been paid, we will take the necessary steps to remove the account from our collection efforts.\n\nPlease note that you have the right to dispute this debt further if you believe it is inaccurate or not owed. You may also request a copy of the validation we provide.\n\nSincerely,\n\nNational Credit Solutions",
     "draft_tier": "ollama",
     "review_findings": [],
     "review_passed": true,
@@ -1256,54 +1310,36 @@
     "review_critical": 0,
     "consumer_annotations": [
       {
-        "id": "jargon_wall",
-        "matched_text": "Pursuant to",
-        "position": 348,
-        "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
-        "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
-        "severity": "medium"
-      },
-      {
         "id": "buried_rights",
         "matched_text": "you have the right",
-        "position": 1102,
+        "position": 1299,
         "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
         "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
         "severity": "medium"
       }
     ],
-    "engagement_risk_score": 4,
-    "engagement_risk_level": "medium",
+    "engagement_risk_score": 2,
+    "engagement_risk_level": "low",
     "agency_intent": "We're checking our records to confirm your payment.",
     "consumer_impact": [
-      "'I can't understand this' \u2014 consumer stops reading",
       "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
     ],
     "consumer_view": {
-      "letter_text": "October 15, 2026\n\nWilla Cole\n3891 Maple Avenue\nLakeland, FL 33801\n\nRE: Account reference: ACC-897135\n\nDear Willa Cole,\n\nRe: Dispute of Account ACC-897135\n\nWe acknowledge receipt of your dispute letter regarding the account referenced above. You have disputed the debt as already paid. We understand that you have requested validation of the debt.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA), 15 U.S.C. \u00a7 1692g, we are required to provide you with a written validation notice within five days of receiving your dispute letter. This notice will include the amount of the debt, the name of the original creditor, and a statement that unless you dispute the validity of the debt within 30 days, we will assume the debt is valid.\n\nWe have reviewed the account information and confirm that the current balance is $6,176.50. The original creditor for this account was Horizon Card Co. We have also confirmed that the charge-off date was January 9, 2022, and the last payment date was January 29, 2022.\n\nWe will provide you with a written validation notice as required by law. Please note that you have the right to dispute the debt further if you believe it is not valid. If you wish to dispute the debt, please provide us with a written statement within 30 days of receiving this letter.\n\nSincerely,\n\nNational Credit Solutions",
+      "letter_text": "October 15, 2026\n\nWilla Cole\n3891 Maple Avenue\nLakeland, FL 33801\n\nRE: Account reference: ACC-897135\n\nDear Ms. Cole,\n\nRe: Dispute of Account ACC-897135\n\nWe acknowledge receipt of your dispute letter regarding the account referenced above. You have disputed that the debt has already been paid. We understand that you have requested validation of the debt.\n\nWe have reviewed the account information and confirm that the current balance on the account is $6,176.50. The original creditor for this account is Horizon Card Co. As per the Florida Fair Debt Collection Practices Act, we are required to provide you with validation of the debt within 30 days of your request. We will provide you with the requested validation.\n\nRegarding your concern about the address on your credit report, we understand that you have experienced issues with mail delivery. However, we must inform you that we do not have any record of a previous attempt to contact us by mail on the date you specified. We will make sure to update our records with your correct contact information.\n\nWe will investigate your dispute and provide you with a response within the next 30 days. If we determine that the debt has been paid, we will take the necessary steps to remove the account from our collection efforts.\n\nPlease note that you have the right to dispute this debt further if you believe it is inaccurate or not owed. You may also request a copy of the validation we provide.\n\nSincerely,\n\nNational Credit Solutions",
       "annotations": [
-        {
-          "id": "jargon_wall",
-          "matched_text": "Pursuant to",
-          "position": 348,
-          "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
-          "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
-          "severity": "medium"
-        },
         {
           "id": "buried_rights",
           "matched_text": "you have the right",
-          "position": 1102,
+          "position": 1299,
           "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
           "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
           "severity": "medium"
         }
       ],
-      "risk_score": 4,
-      "risk_level": "medium",
+      "risk_score": 2,
+      "risk_level": "low",
       "intent": "We're checking our records to confirm your payment.",
       "impact": [
-        "'I can't understand this' \u2014 consumer stops reading",
         "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
       ],
       "account_id": "ACC-897135",
@@ -1335,15 +1371,15 @@
     "classified_type": "validation_request",
     "classification_method": "keywords",
     "classification_confidence": 1.0,
-    "draft_letter": "October 16, 2026\n\nVernon Quinn\n507 Cedar Lane\nSpringfield, AR 62701\n\nRE: Account reference: ACC-406327\n\nDear Mr. Quinn,\n\nRe: Account reference: ACC-406327\n\nWe acknowledge receipt of your dispute letter dated [no date provided] regarding the account referenced above. We understand that you have requested validation of the debt and have asked us to cease collection efforts.\n\nWe confirm that the account, ACC-406327, is indeed a debt that was originally incurred with Apex Auto Finance. The current balance on this account is $33,666.00. We have reviewed our records and found that the charge-off date for this account was August 5, 2021. Your last payment on this account was received on June 22, 2023.\n\nWe are required by the Fair Debt Collection Practices Act (FDCPA) to provide you with verification of the debt upon your request. We will investigate your dispute and provide you with the necessary documentation to support the debt. Please note that we are not required to provide a copy of any contract or agreement signed with our company, as you have requested.\n\nWe will investigate your dispute and provide you with the necessary documentation to support the debt. You have the right to dispute this debt further if you believe it is inaccurate or invalid. Please note that we will continue to attempt to collect this debt unless you provide us with written instructions to cease collection efforts.\n\nSincerely,\n\nBridgeport Recovery Inc.\n\ncc: File\n\nNote: I have not included any information that was not present in the provided record, and have only stated facts and regulatory requirements as applicable.",
+    "draft_letter": "October 16, 2026\n\nVernon Quinn\n507 Cedar Lane\nSpringfield, AR 62701\n\nRE: Account reference: ACC-406327\n\nDear Mr. Quinn,\n\nWe acknowledge receipt of your dispute letter dated [no specific date mentioned in the record]. We understand that you have requested validation of the debt and have asked us to cease collection efforts.\n\nWe confirm that Bridgeport Recovery Inc. is attempting to collect a debt on behalf of Apex Auto Finance, the original creditor. The current balance on the account is $33,660.66. The charge-off date for this account was August 5, 2021.\n\nWe are investigating your request for validation and will provide you with any necessary documentation upon completion of our review. As required by the Fair Debt Collection Practices Act (FDCPA), we will provide you with a written validation notice within five days of our initial communication.\n\nPlease note that our records indicate that you made a payment on this account on June 22, 2023. We will continue to investigate your dispute and will take any necessary action to resolve the matter.\n\nYou have the right to dispute this debt and may request a written verification of the debt at any time. If you have any further questions or concerns, please do not hesitate to contact us.\n\nSincerely,\n\nBridgeport Recovery Inc.",
     "draft_tier": "ollama",
     "review_findings": [
       {
         "severity": "warning",
         "claim_type": "amount",
-        "claim_value": "$33,666.00",
-        "reason": "Amount $33,666.00 not found in source record",
-        "position": 526
+        "claim_value": "$33,660.66",
+        "reason": "Amount $33,660.66 not found in source record",
+        "position": 492
       }
     ],
     "review_passed": true,
@@ -1353,7 +1389,7 @@
       {
         "id": "buried_rights",
         "matched_text": "You have the right",
-        "position": 1174,
+        "position": 1060,
         "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
         "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
         "severity": "medium"
@@ -1366,12 +1402,12 @@
       "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
     ],
     "consumer_view": {
-      "letter_text": "October 16, 2026\n\nVernon Quinn\n507 Cedar Lane\nSpringfield, AR 62701\n\nRE: Account reference: ACC-406327\n\nDear Mr. Quinn,\n\nRe: Account reference: ACC-406327\n\nWe acknowledge receipt of your dispute letter dated [no date provided] regarding the account referenced above. We understand that you have requested validation of the debt and have asked us to cease collection efforts.\n\nWe confirm that the account, ACC-406327, is indeed a debt that was originally incurred with Apex Auto Finance. The current balance on this account is $33,666.00. We have reviewed our records and found that the charge-off date for this account was August 5, 2021. Your last payment on this account was received on June 22, 2023.\n\nWe are required by the Fair Debt Collection Practices Act (FDCPA) to provide you with verification of the debt upon your request. We will investigate your dispute and provide you with the necessary documentation to support the debt. Please note that we are not required to provide a copy of any contract or agreement signed with our company, as you have requested.\n\nWe will investigate your dispute and provide you with the necessary documentation to support the debt. You have the right to dispute this debt further if you believe it is inaccurate or invalid. Please note that we will continue to attempt to collect this debt unless you provide us with written instructions to cease collection efforts.\n\nSincerely,\n\nBridgeport Recovery Inc.\n\ncc: File\n\nNote: I have not included any information that was not present in the provided record, and have only stated facts and regulatory requirements as applicable.",
+      "letter_text": "October 16, 2026\n\nVernon Quinn\n507 Cedar Lane\nSpringfield, AR 62701\n\nRE: Account reference: ACC-406327\n\nDear Mr. Quinn,\n\nWe acknowledge receipt of your dispute letter dated [no specific date mentioned in the record]. We understand that you have requested validation of the debt and have asked us to cease collection efforts.\n\nWe confirm that Bridgeport Recovery Inc. is attempting to collect a debt on behalf of Apex Auto Finance, the original creditor. The current balance on the account is $33,660.66. The charge-off date for this account was August 5, 2021.\n\nWe are investigating your request for validation and will provide you with any necessary documentation upon completion of our review. As required by the Fair Debt Collection Practices Act (FDCPA), we will provide you with a written validation notice within five days of our initial communication.\n\nPlease note that our records indicate that you made a payment on this account on June 22, 2023. We will continue to investigate your dispute and will take any necessary action to resolve the matter.\n\nYou have the right to dispute this debt and may request a written verification of the debt at any time. If you have any further questions or concerns, please do not hesitate to contact us.\n\nSincerely,\n\nBridgeport Recovery Inc.",
       "annotations": [
         {
           "id": "buried_rights",
           "matched_text": "You have the right",
-          "position": 1174,
+          "position": 1060,
           "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
           "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
           "severity": "medium"
@@ -1412,7 +1448,7 @@
     "classified_type": "not_mine",
     "classification_method": "ledger",
     "classification_confidence": 0.5,
-    "draft_letter": "April 4, 2026\n\nDaniel Torres\n330 Spruce Circle\nSpringfield, SC 62701\n\nRE: Account ID: ACC-819796\n\nDear Mr. Torres,\n\nRe: Account ID: ACC-819796\n\nWe acknowledge receipt of your dispute letter regarding the account with our agency, Trident Portfolio Services. We understand that you have disputed the account as \"not mine\" and have requested its removal from your credit report.\n\nWe have reviewed the account information, and the current balance is $2,022.05. The original creditor for this account is Summit Trust Bank. According to our records, the charge-off date for this account was May 23, 2021, and the last payment date was May 3, 2023.\n\nWe will investigate your dispute and verify the accuracy of the information. As required by the Fair Credit Reporting Act (FCRA), 15 U.S.C. \u00a7 1681c, we will also review the documentation you have provided to determine if it supports your claim.\n\nPlease be advised that our investigation may take some time to complete. We will notify you of our findings and take any necessary actions to update your credit report accordingly.\n\nYou have the right to dispute this account further if you believe our investigation does not resolve the issue to your satisfaction. Please note that our agency is required to comply with the Fair Debt Collection Practices Act (FDCPA), 15 U.S.C. \u00a7 1692 et seq., and the laws of the State of South Carolina.\n\nSincerely,\n\nTrident Portfolio Services",
+    "draft_letter": "April 4, 2026\n\nDaniel Torres\n330 Spruce Circle\nSpringfield, SC 62701\n\nRE: Account ID: ACC-819796\n\nDear Mr. Torres,\n\nRe: Account ID: ACC-819796\n\nWe acknowledge receipt of your dispute regarding the account with our agency. You have disputed the account as \"not mine,\" stating that you have no knowledge of the account's origin. We understand your concern and will investigate this matter in accordance with the Fair Debt Collection Practices Act (FDCPA) and South Carolina state law.\n\nOur records indicate that the original creditor for this account is Summit Trust Bank, and the current balance is $2,022.05. We have also noted that the account was charged off on 2021-05-23 and that your last payment was made on 2023-05-03.\n\nWe will investigate your dispute and review the documentation you have provided. However, we must inform you that your request for removal of the account from your credit report within 15 days, as per USC 1681g, is not applicable in this case. The FDCPA and South Carolina state law do not require us to remove the account from your credit report based solely on your dispute of the account as \"not mine.\"\n\nWe will conduct a thorough investigation and will provide you with a response as soon as possible. You have the right to further dispute this account if you believe it is inaccurate or was not properly assigned to our agency.\n\nPlease note that our investigation may take some time, and we will keep you informed of our progress. If our investigation confirms that the account is indeed yours, we will provide you with a validation notice as required by the FDCPA.\n\nThank you for bringing this matter to our attention. We appreciate your cooperation and look forward to resolving this dispute.\n\nSincerely,\n\nTrident Portfolio Services",
     "draft_tier": "ollama",
     "review_findings": [],
     "review_passed": true,
@@ -1420,36 +1456,54 @@
     "review_critical": 0,
     "consumer_annotations": [
       {
+        "id": "jargon_wall",
+        "matched_text": "in accordance with",
+        "position": 387,
+        "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
+        "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
+        "severity": "medium"
+      },
+      {
         "id": "buried_rights",
         "matched_text": "You have the right",
-        "position": 1071,
+        "position": 1233,
         "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
         "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
         "severity": "medium"
       }
     ],
-    "engagement_risk_score": 2,
-    "engagement_risk_level": "low",
+    "engagement_risk_score": 4,
+    "engagement_risk_level": "medium",
     "agency_intent": "We're looking into whether this debt belongs to you and stopping contact meanwhile.",
     "consumer_impact": [
+      "'I can't understand this' \u2014 consumer stops reading",
       "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
     ],
     "consumer_view": {
-      "letter_text": "April 4, 2026\n\nDaniel Torres\n330 Spruce Circle\nSpringfield, SC 62701\n\nRE: Account ID: ACC-819796\n\nDear Mr. Torres,\n\nRe: Account ID: ACC-819796\n\nWe acknowledge receipt of your dispute letter regarding the account with our agency, Trident Portfolio Services. We understand that you have disputed the account as \"not mine\" and have requested its removal from your credit report.\n\nWe have reviewed the account information, and the current balance is $2,022.05. The original creditor for this account is Summit Trust Bank. According to our records, the charge-off date for this account was May 23, 2021, and the last payment date was May 3, 2023.\n\nWe will investigate your dispute and verify the accuracy of the information. As required by the Fair Credit Reporting Act (FCRA), 15 U.S.C. \u00a7 1681c, we will also review the documentation you have provided to determine if it supports your claim.\n\nPlease be advised that our investigation may take some time to complete. We will notify you of our findings and take any necessary actions to update your credit report accordingly.\n\nYou have the right to dispute this account further if you believe our investigation does not resolve the issue to your satisfaction. Please note that our agency is required to comply with the Fair Debt Collection Practices Act (FDCPA), 15 U.S.C. \u00a7 1692 et seq., and the laws of the State of South Carolina.\n\nSincerely,\n\nTrident Portfolio Services",
+      "letter_text": "April 4, 2026\n\nDaniel Torres\n330 Spruce Circle\nSpringfield, SC 62701\n\nRE: Account ID: ACC-819796\n\nDear Mr. Torres,\n\nRe: Account ID: ACC-819796\n\nWe acknowledge receipt of your dispute regarding the account with our agency. You have disputed the account as \"not mine,\" stating that you have no knowledge of the account's origin. We understand your concern and will investigate this matter in accordance with the Fair Debt Collection Practices Act (FDCPA) and South Carolina state law.\n\nOur records indicate that the original creditor for this account is Summit Trust Bank, and the current balance is $2,022.05. We have also noted that the account was charged off on 2021-05-23 and that your last payment was made on 2023-05-03.\n\nWe will investigate your dispute and review the documentation you have provided. However, we must inform you that your request for removal of the account from your credit report within 15 days, as per USC 1681g, is not applicable in this case. The FDCPA and South Carolina state law do not require us to remove the account from your credit report based solely on your dispute of the account as \"not mine.\"\n\nWe will conduct a thorough investigation and will provide you with a response as soon as possible. You have the right to further dispute this account if you believe it is inaccurate or was not properly assigned to our agency.\n\nPlease note that our investigation may take some time, and we will keep you informed of our progress. If our investigation confirms that the account is indeed yours, we will provide you with a validation notice as required by the FDCPA.\n\nThank you for bringing this matter to our attention. We appreciate your cooperation and look forward to resolving this dispute.\n\nSincerely,\n\nTrident Portfolio Services",
       "annotations": [
+        {
+          "id": "jargon_wall",
+          "matched_text": "in accordance with",
+          "position": 387,
+          "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
+          "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
+          "severity": "medium"
+        },
         {
           "id": "buried_rights",
           "matched_text": "You have the right",
-          "position": 1071,
+          "position": 1233,
           "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
           "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
           "severity": "medium"
         }
       ],
-      "risk_score": 2,
-      "risk_level": "low",
+      "risk_score": 4,
+      "risk_level": "medium",
       "intent": "We're looking into whether this debt belongs to you and stopping contact meanwhile.",
       "impact": [
+        "'I can't understand this' \u2014 consumer stops reading",
         "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
       ],
       "account_id": "ACC-819796",
@@ -1481,7 +1535,7 @@
     "classified_type": "validation_request",
     "classification_method": "ledger",
     "classification_confidence": 0.5,
-    "draft_letter": "December 7, 2026\n\nJerome Harris\n3891 Maple Avenue\nSpringfield, ID 62701\n\nRE: Account reference: ACC-696251\n\nDear Mr. Harris,\n\nReceiving your dispute letter regarding the account referenced above, we acknowledge your request for validation of the debt. We understand that you have questioned the accuracy of the debt and the identity of our agency.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA), 15 U.S.C. \u00a7 1692g, we are required to provide you with validation of the debt. We confirm that the original creditor for this account is Lakeshore Utilities. The current balance for this account is $4,924.62.\n\nWe will investigate your dispute and provide you with a written validation of the debt, including the amount owed, the original creditor, and the charge-off date of 2021-03-08. We will also provide you with information regarding the last payment date of 2021-06-16.\n\nPlease be advised that we will continue to attempt to collect the debt unless you dispute the debt in writing within 30 days of receiving this letter. You have the right to dispute the debt and request a written validation of the debt at any time.\n\nIf you have any further questions or concerns, please do not hesitate to contact us.\n\nSincerely,\n\nNational Credit Solutions",
+    "draft_letter": "December 7, 2026\n\nJerome Harris\n3891 Maple Avenue\nSpringfield, ID 62701\n\nRE: Account reference: ACC-696251\n\nDear Mr. Harris,\n\nRe: Account reference: ACC-696251\n\nWe acknowledge receipt of your dispute regarding the account referenced above. We understand that you have requested validation of the debt and have questioned the legitimacy of our agency's involvement in the collection of this debt.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA), 15 U.S.C. \u00a7 1692g, we are required to provide you with a written validation notice within five days of your dispute. This notice will include the amount of the debt, the name of the original creditor, and a statement indicating that unless you dispute the debt within 30 days, we will assume the debt to be valid.\n\nWe confirm that the original creditor for this account was Lakeshore Utilities. The current balance of the account is $4,924.62. The charge-off date for this account was March 8, 2021, and the last payment date was June 16, 2021.\n\nWe will provide you with a written validation notice as required by law. We will also investigate your dispute regarding our agency's involvement in the collection of this debt.\n\nPlease note that you have the right to dispute this debt further if you believe that the information provided is inaccurate or incomplete. If you wish to dispute the debt, please respond to this letter within 30 days.\n\nSincerely,\n\nNational Credit Solutions",
     "draft_tier": "ollama",
     "review_findings": [],
     "review_passed": true,
@@ -1491,15 +1545,15 @@
       {
         "id": "jargon_wall",
         "matched_text": "Pursuant to",
-        "position": 349,
+        "position": 397,
         "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
         "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
         "severity": "medium"
       },
       {
         "id": "buried_rights",
-        "matched_text": "You have the right",
-        "position": 1037,
+        "matched_text": "you have the right",
+        "position": 1199,
         "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
         "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
         "severity": "medium"
@@ -1513,20 +1567,20 @@
       "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
     ],
     "consumer_view": {
-      "letter_text": "December 7, 2026\n\nJerome Harris\n3891 Maple Avenue\nSpringfield, ID 62701\n\nRE: Account reference: ACC-696251\n\nDear Mr. Harris,\n\nReceiving your dispute letter regarding the account referenced above, we acknowledge your request for validation of the debt. We understand that you have questioned the accuracy of the debt and the identity of our agency.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA), 15 U.S.C. \u00a7 1692g, we are required to provide you with validation of the debt. We confirm that the original creditor for this account is Lakeshore Utilities. The current balance for this account is $4,924.62.\n\nWe will investigate your dispute and provide you with a written validation of the debt, including the amount owed, the original creditor, and the charge-off date of 2021-03-08. We will also provide you with information regarding the last payment date of 2021-06-16.\n\nPlease be advised that we will continue to attempt to collect the debt unless you dispute the debt in writing within 30 days of receiving this letter. You have the right to dispute the debt and request a written validation of the debt at any time.\n\nIf you have any further questions or concerns, please do not hesitate to contact us.\n\nSincerely,\n\nNational Credit Solutions",
+      "letter_text": "December 7, 2026\n\nJerome Harris\n3891 Maple Avenue\nSpringfield, ID 62701\n\nRE: Account reference: ACC-696251\n\nDear Mr. Harris,\n\nRe: Account reference: ACC-696251\n\nWe acknowledge receipt of your dispute regarding the account referenced above. We understand that you have requested validation of the debt and have questioned the legitimacy of our agency's involvement in the collection of this debt.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA), 15 U.S.C. \u00a7 1692g, we are required to provide you with a written validation notice within five days of your dispute. This notice will include the amount of the debt, the name of the original creditor, and a statement indicating that unless you dispute the debt within 30 days, we will assume the debt to be valid.\n\nWe confirm that the original creditor for this account was Lakeshore Utilities. The current balance of the account is $4,924.62. The charge-off date for this account was March 8, 2021, and the last payment date was June 16, 2021.\n\nWe will provide you with a written validation notice as required by law. We will also investigate your dispute regarding our agency's involvement in the collection of this debt.\n\nPlease note that you have the right to dispute this debt further if you believe that the information provided is inaccurate or incomplete. If you wish to dispute the debt, please respond to this letter within 30 days.\n\nSincerely,\n\nNational Credit Solutions",
       "annotations": [
         {
           "id": "jargon_wall",
           "matched_text": "Pursuant to",
-          "position": 349,
+          "position": 397,
           "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
           "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
           "severity": "medium"
         },
         {
           "id": "buried_rights",
-          "matched_text": "You have the right",
-          "position": 1037,
+          "matched_text": "you have the right",
+          "position": 1199,
           "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
           "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
           "severity": "medium"
@@ -1568,7 +1622,7 @@
     "classified_type": "not_mine",
     "classification_method": "keywords",
     "classification_confidence": 1.0,
-    "draft_letter": "June 19, 2026\n\nLena Stone\n1018 Elm Court\nSpringfield, IA 62701\n\nRE: Account reference: ACC-528361\n\nDear Ms. Stone,\n\nRe: Account reference: ACC-528361\n\nWe acknowledge receipt of your dispute regarding the account referenced above. You have disputed the debt as \"not mine.\" We understand that you believe the debt is not yours, and we will investigate this matter further.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA), 15 U.S.C. \u00a7 1692g, we are required to provide you with a written validation notice within five days of the initial communication. However, you have not requested a validation notice, and we will not provide one at this time.\n\nWe will investigate your dispute and verify the ownership of the debt. We will also review the account history to ensure that the debt was properly charged off on December 18, 2023, and that the last payment was made on July 18, 2025. The current balance on the account is $1,718.30.\n\nPlease note that our investigation may take some time to complete. We will notify you of our findings and any further action we may take. If our investigation confirms that the debt is indeed yours, we will continue to attempt to collect the debt. However, if our investigation confirms that the debt is not yours, we will take steps to remove the debt from your credit report and cease collection efforts.\n\nYou have the right to further dispute this debt if you believe our investigation was not thorough or if you have additional information to provide. Please contact us at your earliest convenience if you have any further questions or concerns.\n\nSincerely,\n\nBridgeport Recovery Inc.",
+    "draft_letter": "June 19, 2026\n\nLena Stone\n1018 Elm Court\nSpringfield, IA 62701\n\nRE: Account reference: ACC-528361\n\nDear Ms. Stone,\n\nRe: Account reference: ACC-528361\n\nWe acknowledge receipt of your dispute regarding the debt associated with our account, ACC-528361. You have disputed the debt, stating that it is not yours. We understand that you have expressed concerns regarding the potential impact on your credit report and score.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA), we are required to investigate your dispute. We will review the account information and verify the debt. We will also review the original creditor's records to confirm the debt's validity.\n\nAs per the Iowa Code, Chapter 537, we are required to provide you with information about the debt, including the original creditor, Lakeshore Utilities, and the charge-off date of December 18, 2023. The current balance on the account is $1,718.30.\n\nWe will investigate your dispute and verify the debt. If our investigation confirms that the debt is valid, we will provide you with a validation notice, as required by the FDCPA. If our investigation confirms that the debt is not valid, we will take the necessary steps to correct the error and remove the debt from your credit report.\n\nYou have the right to further dispute this debt if you believe that our investigation is incomplete or inaccurate. Please note that you may request verification of the debt at any time during our investigation.\n\nSincerely,\n\nBridgeport Recovery Inc.\n\ncc: File\n\nNote: The letter is under 400 words and only states facts present in the record. It acknowledges the consumer's dispute, references regulatory requirements, and outlines the agency's next steps.",
     "draft_tier": "ollama",
     "review_findings": [],
     "review_passed": true,
@@ -1578,7 +1632,7 @@
       {
         "id": "jargon_wall",
         "matched_text": "Pursuant to",
-        "position": 372,
+        "position": 420,
         "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
         "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
         "severity": "medium"
@@ -1586,7 +1640,7 @@
       {
         "id": "buried_rights",
         "matched_text": "You have the right",
-        "position": 1351,
+        "position": 1257,
         "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
         "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
         "severity": "medium"
@@ -1600,12 +1654,12 @@
       "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
     ],
     "consumer_view": {
-      "letter_text": "June 19, 2026\n\nLena Stone\n1018 Elm Court\nSpringfield, IA 62701\n\nRE: Account reference: ACC-528361\n\nDear Ms. Stone,\n\nRe: Account reference: ACC-528361\n\nWe acknowledge receipt of your dispute regarding the account referenced above. You have disputed the debt as \"not mine.\" We understand that you believe the debt is not yours, and we will investigate this matter further.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA), 15 U.S.C. \u00a7 1692g, we are required to provide you with a written validation notice within five days of the initial communication. However, you have not requested a validation notice, and we will not provide one at this time.\n\nWe will investigate your dispute and verify the ownership of the debt. We will also review the account history to ensure that the debt was properly charged off on December 18, 2023, and that the last payment was made on July 18, 2025. The current balance on the account is $1,718.30.\n\nPlease note that our investigation may take some time to complete. We will notify you of our findings and any further action we may take. If our investigation confirms that the debt is indeed yours, we will continue to attempt to collect the debt. However, if our investigation confirms that the debt is not yours, we will take steps to remove the debt from your credit report and cease collection efforts.\n\nYou have the right to further dispute this debt if you believe our investigation was not thorough or if you have additional information to provide. Please contact us at your earliest convenience if you have any further questions or concerns.\n\nSincerely,\n\nBridgeport Recovery Inc.",
+      "letter_text": "June 19, 2026\n\nLena Stone\n1018 Elm Court\nSpringfield, IA 62701\n\nRE: Account reference: ACC-528361\n\nDear Ms. Stone,\n\nRe: Account reference: ACC-528361\n\nWe acknowledge receipt of your dispute regarding the debt associated with our account, ACC-528361. You have disputed the debt, stating that it is not yours. We understand that you have expressed concerns regarding the potential impact on your credit report and score.\n\nPursuant to the Fair Debt Collection Practices Act (FDCPA), we are required to investigate your dispute. We will review the account information and verify the debt. We will also review the original creditor's records to confirm the debt's validity.\n\nAs per the Iowa Code, Chapter 537, we are required to provide you with information about the debt, including the original creditor, Lakeshore Utilities, and the charge-off date of December 18, 2023. The current balance on the account is $1,718.30.\n\nWe will investigate your dispute and verify the debt. If our investigation confirms that the debt is valid, we will provide you with a validation notice, as required by the FDCPA. If our investigation confirms that the debt is not valid, we will take the necessary steps to correct the error and remove the debt from your credit report.\n\nYou have the right to further dispute this debt if you believe that our investigation is incomplete or inaccurate. Please note that you may request verification of the debt at any time during our investigation.\n\nSincerely,\n\nBridgeport Recovery Inc.\n\ncc: File\n\nNote: The letter is under 400 words and only states facts present in the record. It acknowledges the consumer's dispute, references regulatory requirements, and outlines the agency's next steps.",
       "annotations": [
         {
           "id": "jargon_wall",
           "matched_text": "Pursuant to",
-          "position": 372,
+          "position": 420,
           "flag": "Legal jargon \u2014 most recipients do not understand this language and skip paragraphs containing it",
           "cfpb_grounding": "Consumers report: 'I couldn't understand half the letter so I didn't know what to do'",
           "severity": "medium"
@@ -1613,7 +1667,7 @@
         {
           "id": "buried_rights",
           "matched_text": "You have the right",
-          "position": 1351,
+          "position": 1257,
           "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
           "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
           "severity": "medium"
@@ -1655,7 +1709,7 @@
     "classified_type": "wrong_amount",
     "classification_method": "ledger",
     "classification_confidence": 0.5,
-    "draft_letter": "June 26, 2026\n\nValerie Cole\n765 Willow Road\nRochester, NY 14604\n\nRE: Account reference: ACC-273982\n\nDear Ms. Cole,\n\nRe: Account reference: ACC-273982\n\nWe acknowledge receipt of your dispute regarding the amount owed on your account with Greenfield Energy. We understand that you have requested validation of the debt. As per the Fair Debt Collection Practices Act (FDCPA), we are required to provide you with a written validation of the debt within 30 days of your request.\n\nWe have reviewed your account and confirmed that the current balance is $5,198.33. The last payment made on your account was on July 12, 2022. The account was charged off on September 14, 2021.\n\nWe will investigate your claim that you made timely payments and will review the account history to determine the accuracy of your statement. If our investigation confirms that you made timely payments, we will take the necessary steps to correct the account and ensure that your credit report is updated accordingly.\n\nPlease note that you have the right to dispute the debt further if you believe that the amount owed is incorrect. You may also request a copy of the original contract or agreement with Greenfield Energy.\n\nWe will provide you with a written validation of the debt as required by law. Please allow 30 days for our investigation to be completed.\n\nSincerely,\n\nVanguard Debt Services",
+    "draft_letter": "June 26, 2026\n\nValerie Cole\n765 Willow Road\nRochester, NY 14604\n\nRE: Account reference: ACC-273982\n\nDear Ms. Cole,\n\nRe: Account reference: ACC-273982\n\nWe acknowledge receipt of your dispute regarding the amount owed on your account with Greenfield Energy, which is currently serviced by Vanguard Debt Services. We understand that you have disputed the amount of $5,198.33 as being incorrect.\n\nWe take all disputes seriously and are required by the Fair Debt Collection Practices Act (FDCPA) to investigate your claim. As per your request, we will provide validation of the debt, which includes documentation of the original creditor, Greenfield Energy, and the amount owed.\n\nWe have reviewed the account history and confirm that the last payment date was July 12, 2022. The account was charged off on September 14, 2021. We will investigate your claim and verify the accuracy of the amount owed.\n\nPlease note that you have the right to dispute this debt further, and we will respond to any additional information you provide. If you believe that the amount owed is incorrect, please provide documentation to support your claim.\n\nSincerely,\n\nVanguard Debt Services",
     "draft_tier": "ollama",
     "review_findings": [],
     "review_passed": true,
@@ -1665,7 +1719,7 @@
       {
         "id": "buried_rights",
         "matched_text": "you have the right",
-        "position": 1006,
+        "position": 914,
         "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
         "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
         "severity": "medium"
@@ -1678,12 +1732,12 @@
       "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
     ],
     "consumer_view": {
-      "letter_text": "June 26, 2026\n\nValerie Cole\n765 Willow Road\nRochester, NY 14604\n\nRE: Account reference: ACC-273982\n\nDear Ms. Cole,\n\nRe: Account reference: ACC-273982\n\nWe acknowledge receipt of your dispute regarding the amount owed on your account with Greenfield Energy. We understand that you have requested validation of the debt. As per the Fair Debt Collection Practices Act (FDCPA), we are required to provide you with a written validation of the debt within 30 days of your request.\n\nWe have reviewed your account and confirmed that the current balance is $5,198.33. The last payment made on your account was on July 12, 2022. The account was charged off on September 14, 2021.\n\nWe will investigate your claim that you made timely payments and will review the account history to determine the accuracy of your statement. If our investigation confirms that you made timely payments, we will take the necessary steps to correct the account and ensure that your credit report is updated accordingly.\n\nPlease note that you have the right to dispute the debt further if you believe that the amount owed is incorrect. You may also request a copy of the original contract or agreement with Greenfield Energy.\n\nWe will provide you with a written validation of the debt as required by law. Please allow 30 days for our investigation to be completed.\n\nSincerely,\n\nVanguard Debt Services",
+      "letter_text": "June 26, 2026\n\nValerie Cole\n765 Willow Road\nRochester, NY 14604\n\nRE: Account reference: ACC-273982\n\nDear Ms. Cole,\n\nRe: Account reference: ACC-273982\n\nWe acknowledge receipt of your dispute regarding the amount owed on your account with Greenfield Energy, which is currently serviced by Vanguard Debt Services. We understand that you have disputed the amount of $5,198.33 as being incorrect.\n\nWe take all disputes seriously and are required by the Fair Debt Collection Practices Act (FDCPA) to investigate your claim. As per your request, we will provide validation of the debt, which includes documentation of the original creditor, Greenfield Energy, and the amount owed.\n\nWe have reviewed the account history and confirm that the last payment date was July 12, 2022. The account was charged off on September 14, 2021. We will investigate your claim and verify the accuracy of the amount owed.\n\nPlease note that you have the right to dispute this debt further, and we will respond to any additional information you provide. If you believe that the amount owed is incorrect, please provide documentation to support your claim.\n\nSincerely,\n\nVanguard Debt Services",
       "annotations": [
         {
           "id": "buried_rights",
           "matched_text": "you have the right",
-          "position": 1006,
+          "position": 914,
           "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
           "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
           "severity": "medium"

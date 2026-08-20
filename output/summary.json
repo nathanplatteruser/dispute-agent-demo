@@ -4,8 +4,8 @@
   "reviewed": 20,
   "review_passed": 20,
   "review_flagged": 0,
-  "high_risk_letters": 5,
-  "elapsed_seconds": 277.8,
+  "high_risk_letters": 4,
+  "elapsed_seconds": 270.8,
   "validation_stats": {
     "input_count": 50,
     "output_count": 50,

@@ -110,6 +110,39 @@ python3 run.py
 
 ---
 
+## Break 4: The Invented Law
+
+**What it proves:** An 8B model will eventually hallucinate a statutory
+citation. When you're presenting to attorneys and compliance officers,
+a wrong section number is not sloppiness — it's a liability.
+
+**Trigger:**
+```bash
+python3 break/break4_citation.py
+```
+
+**What appears on screen:** A letter citing four statutes. Three are
+real FDCPA/FCRA sections. One — 15 U.S.C. § 1692z — does not exist.
+The FDCPA ends at § 1692p. The citation validator catches it.
+
+**What Nathan says:** "The model just cited a law that doesn't exist.
+Section 1692z. The FDCPA ends at 1692p — there is no z. This letter
+was about to go out to someone who might Google that section number
+and find nothing. Or worse, to an attorney who would know immediately.
+The validator has 40 real FDCPA and FCRA sections on its allowlist.
+Anything not on the list gets flagged before the letter leaves."
+
+**Fix:**
+```bash
+python3 break/break4_citation.py fix
+```
+The citation validator is on by default — this break shows what it
+catches, not what happens without it.
+
+**Recovery time:** ~5 seconds (no model needed, uses a canned letter).
+
+---
+
 ## Failover Test: Tier 1 → Tier 2
 
 **What it proves:** When the cloud API fails (connection refused, bad key,
