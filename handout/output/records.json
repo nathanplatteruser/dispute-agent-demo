@@ -1,0 +1,1617 @@
+[
+  {
+    "account_id": "ACC-437902",
+    "consumer_name": "Natasha Graham",
+    "original_creditor": "Metro Physicians Group",
+    "current_servicer": "Redstone Collections Group",
+    "balance_original": 12877.12,
+    "balance_current": 10221.03,
+    "charge_off_date": "2024-06-18",
+    "last_payment_date": "",
+    "last_payment_amount": "",
+    "state": "TX",
+    "dispute_type": "identity_theft",
+    "validation_requested": "True",
+    "prior_contacts": "10",
+    "contact_log": "2024-08-12;2024-09-03;2024-10-21;2024-12-15;2025-02-06;2025-03-05;2025-04-11;2025-05-21;2025-05-30;2025-06-26",
+    "has_contradiction": "False",
+    "narrative": "I am going through a financial hardship due to a medical emergency. I contacted Community Health Partners to discuss a payment plan but the collector was rude and refused to work with me. They said I had to pay the full $11,349 immediately or they would garnish my wages.",
+    "complaint_id": "SYNTH-000010",
+    "cfpb_product": "Debt collection",
+    "cfpb_issue": "Attempts to collect debt not owed",
+    "cfpb_sub_issue": "",
+    "cfpb_company_response": "Closed with explanation",
+    "classified_type": "hardship",
+    "classification_method": "keywords",
+    "classification_confidence": 1.0,
+    "draft_letter": "[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account ACC-437902\n\nDear Consumer,\n\nThank you for contacting us regarding your account. We have received and\nlogged your dispute.\n\nWe acknowledge the financial hardship you described regarding account ACC-437902. We would like to work with you to find a resolution. Please contact us to discuss available options, which may include a modified payment plan or settlement arrangement.\n\nYou have the right to dispute this debt again at any time. If you have\nquestions about your rights under the Fair Debt Collection Practices Act,\nyou may contact the Consumer Financial Protection Bureau at\nconsumerfinance.gov or (855) 411-2372.\n\nSincerely,\n\n[AGENCY NAME]\nCompliance Department\n",
+    "draft_tier": "template",
+    "review_findings": [],
+    "review_passed": true,
+    "review_warnings": 0,
+    "review_critical": 0,
+    "consumer_annotations": [
+      {
+        "id": "buried_rights",
+        "matched_text": "You have the right",
+        "position": 416,
+        "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+        "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+        "severity": "medium"
+      },
+      {
+        "id": "buried_rights",
+        "matched_text": "your rights under",
+        "position": 503,
+        "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+        "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+        "severity": "medium"
+      }
+    ],
+    "engagement_risk_score": 4,
+    "engagement_risk_level": "medium",
+    "agency_intent": "We want to work with you on a payment arrangement you can manage.",
+    "consumer_impact": [
+      "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
+    ],
+    "consumer_view": {
+      "letter_text": "[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account ACC-437902\n\nDear Consumer,\n\nThank you for contacting us regarding your account. We have received and\nlogged your dispute.\n\nWe acknowledge the financial hardship you described regarding account ACC-437902. We would like to work with you to find a resolution. Please contact us to discuss available options, which may include a modified payment plan or settlement arrangement.\n\nYou have the right to dispute this debt again at any time. If you have\nquestions about your rights under the Fair Debt Collection Practices Act,\nyou may contact the Consumer Financial Protection Bureau at\nconsumerfinance.gov or (855) 411-2372.\n\nSincerely,\n\n[AGENCY NAME]\nCompliance Department\n",
+      "annotations": [
+        {
+          "id": "buried_rights",
+          "matched_text": "You have the right",
+          "position": 416,
+          "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+          "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+          "severity": "medium"
+        },
+        {
+          "id": "buried_rights",
+          "matched_text": "your rights under",
+          "position": 503,
+          "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+          "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+          "severity": "medium"
+        }
+      ],
+      "risk_score": 4,
+      "risk_level": "medium",
+      "intent": "We want to work with you on a payment arrangement you can manage.",
+      "impact": [
+        "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
+      ],
+      "account_id": "ACC-437902",
+      "dispute_type": "hardship"
+    }
+  },
+  {
+    "account_id": "ACC-356736",
+    "consumer_name": "Oscar Fitzgerald",
+    "original_creditor": "Heartland Savings Bank",
+    "current_servicer": "Bridgeport Recovery Inc",
+    "balance_original": 10478.14,
+    "balance_current": 6598.77,
+    "charge_off_date": "2021-02-02",
+    "last_payment_date": "",
+    "last_payment_amount": "",
+    "state": "MO",
+    "dispute_type": "wrong_amount",
+    "validation_requested": "False",
+    "prior_contacts": "2",
+    "contact_log": "2023-01-04;2023-02-06",
+    "has_contradiction": "False",
+    "narrative": "I am disputing a debt of $14,085 from Valley Auto Lending. The amount is wrong \u2014 my original balance was $7,727 and I made payments totaling $4,492. The collector is claiming I owe more than the original debt, which does not seem right.",
+    "complaint_id": "SYNTH-000004",
+    "cfpb_product": "Debt collection",
+    "cfpb_issue": "Took or threatened to take negative or legal action",
+    "cfpb_sub_issue": "",
+    "cfpb_company_response": "Closed with explanation",
+    "classified_type": "wrong_amount",
+    "classification_method": "keywords",
+    "classification_confidence": 1.0,
+    "draft_letter": "[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account ACC-356736\n\nDear Consumer,\n\nThank you for contacting us regarding your account. We have received and\nlogged your dispute.\n\nWe acknowledge your dispute regarding the balance of 6598.77 on account ACC-356736. We are reviewing the account history with the original creditor, Heartland Savings Bank, to verify the correct amount owed. We will provide an itemized statement within 30 days.\n\nYou have the right to dispute this debt again at any time. If you have\nquestions about your rights under the Fair Debt Collection Practices Act,\nyou may contact the Consumer Financial Protection Bureau at\nconsumerfinance.gov or (855) 411-2372.\n\nSincerely,\n\n[AGENCY NAME]\nCompliance Department\n",
+    "draft_tier": "template",
+    "review_findings": [],
+    "review_passed": true,
+    "review_warnings": 0,
+    "review_critical": 0,
+    "consumer_annotations": [
+      {
+        "id": "buried_rights",
+        "matched_text": "You have the right",
+        "position": 426,
+        "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+        "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+        "severity": "medium"
+      },
+      {
+        "id": "buried_rights",
+        "matched_text": "your rights under",
+        "position": 513,
+        "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+        "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+        "severity": "medium"
+      }
+    ],
+    "engagement_risk_score": 4,
+    "engagement_risk_level": "medium",
+    "agency_intent": "We're reviewing the balance and will send you an itemized breakdown.",
+    "consumer_impact": [
+      "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
+    ],
+    "consumer_view": {
+      "letter_text": "[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account ACC-356736\n\nDear Consumer,\n\nThank you for contacting us regarding your account. We have received and\nlogged your dispute.\n\nWe acknowledge your dispute regarding the balance of 6598.77 on account ACC-356736. We are reviewing the account history with the original creditor, Heartland Savings Bank, to verify the correct amount owed. We will provide an itemized statement within 30 days.\n\nYou have the right to dispute this debt again at any time. If you have\nquestions about your rights under the Fair Debt Collection Practices Act,\nyou may contact the Consumer Financial Protection Bureau at\nconsumerfinance.gov or (855) 411-2372.\n\nSincerely,\n\n[AGENCY NAME]\nCompliance Department\n",
+      "annotations": [
+        {
+          "id": "buried_rights",
+          "matched_text": "You have the right",
+          "position": 426,
+          "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+          "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+          "severity": "medium"
+        },
+        {
+          "id": "buried_rights",
+          "matched_text": "your rights under",
+          "position": 513,
+          "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+          "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+          "severity": "medium"
+        }
+      ],
+      "risk_score": 4,
+      "risk_level": "medium",
+      "intent": "We're reviewing the balance and will send you an itemized breakdown.",
+      "impact": [
+        "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
+      ],
+      "account_id": "ACC-356736",
+      "dispute_type": "wrong_amount"
+    }
+  },
+  {
+    "account_id": "ACC-105814",
+    "consumer_name": "Celeste Gibson",
+    "original_creditor": "Meridian Federal Credit Union",
+    "current_servicer": "Keystone Account Solutions",
+    "balance_original": 5627.26,
+    "balance_current": 4524.94,
+    "charge_off_date": "2023-11-26",
+    "last_payment_date": "2023-04-13",
+    "last_payment_amount": "283.13",
+    "state": "DE",
+    "dispute_type": "wrong_amount",
+    "validation_requested": "True",
+    "prior_contacts": "7",
+    "contact_log": "2024-11-14;2025-03-06;2025-03-23;2025-04-14;2025-04-23;2025-04-26;2025-05-03",
+    "has_contradiction": "False",
+    "narrative": "I am going through a financial hardship due to a medical emergency. I contacted Valley Auto Lending to discuss a payment plan but the collector was rude and refused to work with me. They said I had to pay the full $4,571 immediately or they would garnish my wages.",
+    "complaint_id": "SYNTH-000011",
+    "cfpb_product": "Debt collection",
+    "cfpb_issue": "Written notification about debt",
+    "cfpb_sub_issue": "",
+    "cfpb_company_response": "Closed with explanation",
+    "classified_type": "hardship",
+    "classification_method": "keywords",
+    "classification_confidence": 1.0,
+    "draft_letter": "[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account ACC-105814\n\nDear Consumer,\n\nThank you for contacting us regarding your account. We have received and\nlogged your dispute.\n\nWe acknowledge the financial hardship you described regarding account ACC-105814. We would like to work with you to find a resolution. Please contact us to discuss available options, which may include a modified payment plan or settlement arrangement.\n\nYou have the right to dispute this debt again at any time. If you have\nquestions about your rights under the Fair Debt Collection Practices Act,\nyou may contact the Consumer Financial Protection Bureau at\nconsumerfinance.gov or (855) 411-2372.\n\nSincerely,\n\n[AGENCY NAME]\nCompliance Department\n",
+    "draft_tier": "template",
+    "review_findings": [],
+    "review_passed": true,
+    "review_warnings": 0,
+    "review_critical": 0,
+    "consumer_annotations": [
+      {
+        "id": "buried_rights",
+        "matched_text": "You have the right",
+        "position": 416,
+        "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+        "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+        "severity": "medium"
+      },
+      {
+        "id": "buried_rights",
+        "matched_text": "your rights under",
+        "position": 503,
+        "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+        "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+        "severity": "medium"
+      }
+    ],
+    "engagement_risk_score": 4,
+    "engagement_risk_level": "medium",
+    "agency_intent": "We want to work with you on a payment arrangement you can manage.",
+    "consumer_impact": [
+      "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
+    ],
+    "consumer_view": {
+      "letter_text": "[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account ACC-105814\n\nDear Consumer,\n\nThank you for contacting us regarding your account. We have received and\nlogged your dispute.\n\nWe acknowledge the financial hardship you described regarding account ACC-105814. We would like to work with you to find a resolution. Please contact us to discuss available options, which may include a modified payment plan or settlement arrangement.\n\nYou have the right to dispute this debt again at any time. If you have\nquestions about your rights under the Fair Debt Collection Practices Act,\nyou may contact the Consumer Financial Protection Bureau at\nconsumerfinance.gov or (855) 411-2372.\n\nSincerely,\n\n[AGENCY NAME]\nCompliance Department\n",
+      "annotations": [
+        {
+          "id": "buried_rights",
+          "matched_text": "You have the right",
+          "position": 416,
+          "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+          "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+          "severity": "medium"
+        },
+        {
+          "id": "buried_rights",
+          "matched_text": "your rights under",
+          "position": 503,
+          "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+          "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+          "severity": "medium"
+        }
+      ],
+      "risk_score": 4,
+      "risk_level": "medium",
+      "intent": "We want to work with you on a payment arrangement you can manage.",
+      "impact": [
+        "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
+      ],
+      "account_id": "ACC-105814",
+      "dispute_type": "hardship"
+    }
+  },
+  {
+    "account_id": "ACC-879779",
+    "consumer_name": "Oscar Hall",
+    "original_creditor": "Liberty Credit Corp",
+    "current_servicer": "Redstone Collections Group",
+    "balance_original": 21028.6,
+    "balance_current": 5831.47,
+    "charge_off_date": "2024-05-11",
+    "last_payment_date": "2025-10-03",
+    "last_payment_amount": "127.23",
+    "state": "NH",
+    "dispute_type": "identity_theft",
+    "validation_requested": "False",
+    "prior_contacts": "3",
+    "contact_log": "2025-03-15;2025-05-03;2025-05-19",
+    "has_contradiction": "False",
+    "narrative": "A debt collector contacted me about a medical bill from Valley Auto Lending. I already paid this bill in full on 08/15/2025. I have the receipt. They continue to call me multiple times a day and have threatened to report this to the credit bureaus even though I provided proof of payment.",
+    "complaint_id": "SYNTH-000037",
+    "cfpb_product": "Debt collection",
+    "cfpb_issue": "Took or threatened to take negative or legal action",
+    "cfpb_sub_issue": "",
+    "cfpb_company_response": "Closed with explanation",
+    "classified_type": "already_paid",
+    "classification_method": "keywords",
+    "classification_confidence": 0.75,
+    "draft_letter": "[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account ACC-879779\n\nDear Consumer,\n\nThank you for contacting us regarding your account. We have received and\nlogged your dispute.\n\nWe acknowledge your claim that the balance on account ACC-879779 has been paid. We are reviewing our records and contacting the original creditor, Liberty Credit Corp, to verify payment status. If you have proof of payment, please forward it to expedite our review.\n\nYou have the right to dispute this debt again at any time. If you have\nquestions about your rights under the Fair Debt Collection Practices Act,\nyou may contact the Consumer Financial Protection Bureau at\nconsumerfinance.gov or (855) 411-2372.\n\nSincerely,\n\n[AGENCY NAME]\nCompliance Department\n",
+    "draft_tier": "template",
+    "review_findings": [],
+    "review_passed": true,
+    "review_warnings": 0,
+    "review_critical": 0,
+    "consumer_annotations": [
+      {
+        "id": "buried_rights",
+        "matched_text": "You have the right",
+        "position": 430,
+        "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+        "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+        "severity": "medium"
+      },
+      {
+        "id": "buried_rights",
+        "matched_text": "your rights under",
+        "position": 517,
+        "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+        "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+        "severity": "medium"
+      }
+    ],
+    "engagement_risk_score": 4,
+    "engagement_risk_level": "medium",
+    "agency_intent": "We're checking our records to confirm your payment.",
+    "consumer_impact": [
+      "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
+    ],
+    "consumer_view": {
+      "letter_text": "[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account ACC-879779\n\nDear Consumer,\n\nThank you for contacting us regarding your account. We have received and\nlogged your dispute.\n\nWe acknowledge your claim that the balance on account ACC-879779 has been paid. We are reviewing our records and contacting the original creditor, Liberty Credit Corp, to verify payment status. If you have proof of payment, please forward it to expedite our review.\n\nYou have the right to dispute this debt again at any time. If you have\nquestions about your rights under the Fair Debt Collection Practices Act,\nyou may contact the Consumer Financial Protection Bureau at\nconsumerfinance.gov or (855) 411-2372.\n\nSincerely,\n\n[AGENCY NAME]\nCompliance Department\n",
+      "annotations": [
+        {
+          "id": "buried_rights",
+          "matched_text": "You have the right",
+          "position": 430,
+          "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+          "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+          "severity": "medium"
+        },
+        {
+          "id": "buried_rights",
+          "matched_text": "your rights under",
+          "position": 517,
+          "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+          "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+          "severity": "medium"
+        }
+      ],
+      "risk_score": 4,
+      "risk_level": "medium",
+      "intent": "We're checking our records to confirm your payment.",
+      "impact": [
+        "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
+      ],
+      "account_id": "ACC-879779",
+      "dispute_type": "already_paid"
+    }
+  },
+  {
+    "account_id": "ACC-666390",
+    "consumer_name": "Finn Ramirez",
+    "original_creditor": "Summit Trust Bank",
+    "current_servicer": "Redstone Collections Group",
+    "balance_original": 9699.28,
+    "balance_current": 1482.1,
+    "charge_off_date": "2021-03-14",
+    "last_payment_date": "2023-04-15",
+    "last_payment_amount": "172.13",
+    "state": "NJ",
+    "dispute_type": "wrong_amount",
+    "validation_requested": "True",
+    "prior_contacts": "6",
+    "contact_log": "2021-05-03;2022-05-07;2022-05-16;2022-11-23;2022-12-02;2023-03-26",
+    "has_contradiction": "False",
+    "narrative": "I am disputing a debt of $11,068 from Pacific Credit Union. The amount is wrong \u2014 my original balance was $1,953 and I made payments totaling $4,632. The collector is claiming I owe more than the original debt, which does not seem right.",
+    "complaint_id": "SYNTH-000026",
+    "cfpb_product": "Debt collection",
+    "cfpb_issue": "Took or threatened to take negative or legal action",
+    "cfpb_sub_issue": "",
+    "cfpb_company_response": "Closed with explanation",
+    "classified_type": "wrong_amount",
+    "classification_method": "keywords",
+    "classification_confidence": 1.0,
+    "draft_letter": "[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account ACC-666390\n\nDear Consumer,\n\nThank you for contacting us regarding your account. We have received and\nlogged your dispute.\n\nWe acknowledge your dispute regarding the balance of 1482.1 on account ACC-666390. We are reviewing the account history with the original creditor, Summit Trust Bank, to verify the correct amount owed. We will provide an itemized statement within 30 days.\n\nYou have the right to dispute this debt again at any time. If you have\nquestions about your rights under the Fair Debt Collection Practices Act,\nyou may contact the Consumer Financial Protection Bureau at\nconsumerfinance.gov or (855) 411-2372.\n\nSincerely,\n\n[AGENCY NAME]\nCompliance Department\n",
+    "draft_tier": "template",
+    "review_findings": [],
+    "review_passed": true,
+    "review_warnings": 0,
+    "review_critical": 0,
+    "consumer_annotations": [
+      {
+        "id": "buried_rights",
+        "matched_text": "You have the right",
+        "position": 420,
+        "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+        "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+        "severity": "medium"
+      },
+      {
+        "id": "buried_rights",
+        "matched_text": "your rights under",
+        "position": 507,
+        "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+        "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+        "severity": "medium"
+      }
+    ],
+    "engagement_risk_score": 4,
+    "engagement_risk_level": "medium",
+    "agency_intent": "We're reviewing the balance and will send you an itemized breakdown.",
+    "consumer_impact": [
+      "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
+    ],
+    "consumer_view": {
+      "letter_text": "[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account ACC-666390\n\nDear Consumer,\n\nThank you for contacting us regarding your account. We have received and\nlogged your dispute.\n\nWe acknowledge your dispute regarding the balance of 1482.1 on account ACC-666390. We are reviewing the account history with the original creditor, Summit Trust Bank, to verify the correct amount owed. We will provide an itemized statement within 30 days.\n\nYou have the right to dispute this debt again at any time. If you have\nquestions about your rights under the Fair Debt Collection Practices Act,\nyou may contact the Consumer Financial Protection Bureau at\nconsumerfinance.gov or (855) 411-2372.\n\nSincerely,\n\n[AGENCY NAME]\nCompliance Department\n",
+      "annotations": [
+        {
+          "id": "buried_rights",
+          "matched_text": "You have the right",
+          "position": 420,
+          "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+          "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+          "severity": "medium"
+        },
+        {
+          "id": "buried_rights",
+          "matched_text": "your rights under",
+          "position": 507,
+          "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+          "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+          "severity": "medium"
+        }
+      ],
+      "risk_score": 4,
+      "risk_level": "medium",
+      "intent": "We're reviewing the balance and will send you an itemized breakdown.",
+      "impact": [
+        "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
+      ],
+      "account_id": "ACC-666390",
+      "dispute_type": "wrong_amount"
+    }
+  },
+  {
+    "account_id": "ACC-600149",
+    "consumer_name": "Aiden Upton",
+    "original_creditor": "Horizon Card Co",
+    "current_servicer": "Keystone Account Solutions",
+    "balance_original": 21365.51,
+    "balance_current": 20370.53,
+    "charge_off_date": "2022-05-08",
+    "last_payment_date": "2023-03-28",
+    "last_payment_amount": "249.23",
+    "state": "LA",
+    "dispute_type": "wrong_amount",
+    "validation_requested": "False",
+    "prior_contacts": "6",
+    "contact_log": "2022-11-23;2023-05-17;2023-07-26;2024-04-21;2024-05-02;2024-06-17",
+    "has_contradiction": "False",
+    "narrative": "A debt collector contacted me about a medical bill from Sunrise Financial. I already paid this bill in full on 03/12/2022. I have the receipt. They continue to call me multiple times a day and have threatened to report this to the credit bureaus even though I provided proof of payment.",
+    "complaint_id": "SYNTH-000025",
+    "cfpb_product": "Debt collection",
+    "cfpb_issue": "Attempts to collect debt not owed",
+    "cfpb_sub_issue": "",
+    "cfpb_company_response": "Closed with explanation",
+    "classified_type": "already_paid",
+    "classification_method": "keywords",
+    "classification_confidence": 0.75,
+    "draft_letter": "[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account ACC-600149\n\nDear Consumer,\n\nThank you for contacting us regarding your account. We have received and\nlogged your dispute.\n\nWe acknowledge your claim that the balance on account ACC-600149 has been paid. We are reviewing our records and contacting the original creditor, Horizon Card Co, to verify payment status. If you have proof of payment, please forward it to expedite our review.\n\nYou have the right to dispute this debt again at any time. If you have\nquestions about your rights under the Fair Debt Collection Practices Act,\nyou may contact the Consumer Financial Protection Bureau at\nconsumerfinance.gov or (855) 411-2372.\n\nSincerely,\n\n[AGENCY NAME]\nCompliance Department\n",
+    "draft_tier": "template",
+    "review_findings": [],
+    "review_passed": true,
+    "review_warnings": 0,
+    "review_critical": 0,
+    "consumer_annotations": [
+      {
+        "id": "buried_rights",
+        "matched_text": "You have the right",
+        "position": 426,
+        "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+        "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+        "severity": "medium"
+      },
+      {
+        "id": "buried_rights",
+        "matched_text": "your rights under",
+        "position": 513,
+        "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+        "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+        "severity": "medium"
+      }
+    ],
+    "engagement_risk_score": 4,
+    "engagement_risk_level": "medium",
+    "agency_intent": "We're checking our records to confirm your payment.",
+    "consumer_impact": [
+      "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
+    ],
+    "consumer_view": {
+      "letter_text": "[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account ACC-600149\n\nDear Consumer,\n\nThank you for contacting us regarding your account. We have received and\nlogged your dispute.\n\nWe acknowledge your claim that the balance on account ACC-600149 has been paid. We are reviewing our records and contacting the original creditor, Horizon Card Co, to verify payment status. If you have proof of payment, please forward it to expedite our review.\n\nYou have the right to dispute this debt again at any time. If you have\nquestions about your rights under the Fair Debt Collection Practices Act,\nyou may contact the Consumer Financial Protection Bureau at\nconsumerfinance.gov or (855) 411-2372.\n\nSincerely,\n\n[AGENCY NAME]\nCompliance Department\n",
+      "annotations": [
+        {
+          "id": "buried_rights",
+          "matched_text": "You have the right",
+          "position": 426,
+          "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+          "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+          "severity": "medium"
+        },
+        {
+          "id": "buried_rights",
+          "matched_text": "your rights under",
+          "position": 513,
+          "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+          "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+          "severity": "medium"
+        }
+      ],
+      "risk_score": 4,
+      "risk_level": "medium",
+      "intent": "We're checking our records to confirm your payment.",
+      "impact": [
+        "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
+      ],
+      "account_id": "ACC-600149",
+      "dispute_type": "already_paid"
+    }
+  },
+  {
+    "account_id": "ACC-981334",
+    "consumer_name": "Natasha Quinn",
+    "original_creditor": "Lakeshore Utilities",
+    "current_servicer": "Continental Receivables Corp",
+    "balance_original": 868.77,
+    "balance_current": 342.31,
+    "charge_off_date": "2023-03-01",
+    "last_payment_date": "",
+    "last_payment_amount": "",
+    "state": "FL",
+    "dispute_type": "already_paid",
+    "validation_requested": "False",
+    "prior_contacts": "0",
+    "contact_log": "",
+    "has_contradiction": "True",
+    "narrative": "I am going through a financial hardship due to a medical emergency. I contacted Lakeside Hospital to discuss a payment plan but the collector was rude and refused to work with me. They said I had to pay the full $11,175 immediately or they would garnish my wages.",
+    "complaint_id": "SYNTH-000031",
+    "cfpb_product": "Debt collection",
+    "cfpb_issue": "Took or threatened to take negative or legal action",
+    "cfpb_sub_issue": "",
+    "cfpb_company_response": "Closed with explanation",
+    "classified_type": "hardship",
+    "classification_method": "keywords",
+    "classification_confidence": 1.0,
+    "draft_letter": "[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account ACC-981334\n\nDear Consumer,\n\nThank you for contacting us regarding your account. We have received and\nlogged your dispute.\n\nWe acknowledge the financial hardship you described regarding account ACC-981334. We would like to work with you to find a resolution. Please contact us to discuss available options, which may include a modified payment plan or settlement arrangement.\n\nYou have the right to dispute this debt again at any time. If you have\nquestions about your rights under the Fair Debt Collection Practices Act,\nyou may contact the Consumer Financial Protection Bureau at\nconsumerfinance.gov or (855) 411-2372.\n\nSincerely,\n\n[AGENCY NAME]\nCompliance Department\n",
+    "draft_tier": "template",
+    "review_findings": [],
+    "review_passed": true,
+    "review_warnings": 0,
+    "review_critical": 0,
+    "consumer_annotations": [
+      {
+        "id": "buried_rights",
+        "matched_text": "You have the right",
+        "position": 416,
+        "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+        "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+        "severity": "medium"
+      },
+      {
+        "id": "buried_rights",
+        "matched_text": "your rights under",
+        "position": 503,
+        "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+        "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+        "severity": "medium"
+      }
+    ],
+    "engagement_risk_score": 4,
+    "engagement_risk_level": "medium",
+    "agency_intent": "We want to work with you on a payment arrangement you can manage.",
+    "consumer_impact": [
+      "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
+    ],
+    "consumer_view": {
+      "letter_text": "[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account ACC-981334\n\nDear Consumer,\n\nThank you for contacting us regarding your account. We have received and\nlogged your dispute.\n\nWe acknowledge the financial hardship you described regarding account ACC-981334. We would like to work with you to find a resolution. Please contact us to discuss available options, which may include a modified payment plan or settlement arrangement.\n\nYou have the right to dispute this debt again at any time. If you have\nquestions about your rights under the Fair Debt Collection Practices Act,\nyou may contact the Consumer Financial Protection Bureau at\nconsumerfinance.gov or (855) 411-2372.\n\nSincerely,\n\n[AGENCY NAME]\nCompliance Department\n",
+      "annotations": [
+        {
+          "id": "buried_rights",
+          "matched_text": "You have the right",
+          "position": 416,
+          "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+          "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+          "severity": "medium"
+        },
+        {
+          "id": "buried_rights",
+          "matched_text": "your rights under",
+          "position": 503,
+          "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+          "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+          "severity": "medium"
+        }
+      ],
+      "risk_score": 4,
+      "risk_level": "medium",
+      "intent": "We want to work with you on a payment arrangement you can manage.",
+      "impact": [
+        "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
+      ],
+      "account_id": "ACC-981334",
+      "dispute_type": "hardship"
+    }
+  },
+  {
+    "account_id": "ACC-372793",
+    "consumer_name": "Carlos Phillips",
+    "original_creditor": "Frontier State Bank",
+    "current_servicer": "Bridgeport Recovery Inc",
+    "balance_original": 8305.78,
+    "balance_current": 6322.61,
+    "charge_off_date": "2022-02-15",
+    "last_payment_date": "2024-05-13",
+    "last_payment_amount": "133.61",
+    "state": "CO",
+    "dispute_type": "wrong_amount",
+    "validation_requested": "True",
+    "prior_contacts": "8",
+    "contact_log": "2022-04-17;2022-04-27;2022-05-09;2022-05-26;2022-11-01;2023-03-10;2024-01-11;2024-01-13",
+    "has_contradiction": "False",
+    "narrative": "I received a call from a collection agency about a debt of $14,462 that I do not recognize. I have never had an account with Sunrise Financial. I asked for validation and they could not provide it. This is causing me significant stress and affecting my credit score.",
+    "complaint_id": "SYNTH-000012",
+    "cfpb_product": "Debt collection",
+    "cfpb_issue": "Took or threatened to take negative or legal action",
+    "cfpb_sub_issue": "",
+    "cfpb_company_response": "Closed with explanation",
+    "classified_type": "not_mine",
+    "classification_method": "keywords",
+    "classification_confidence": 0.67,
+    "draft_letter": "[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account ACC-372793\n\nDear Consumer,\n\nThank you for contacting us regarding your account. We have received and\nlogged your dispute.\n\nWe acknowledge your dispute that the debt associated with account ACC-372793 does not belong to you. We are initiating an investigation and will provide validation documentation within 30 days. Collection activity on this account is suspended during our review.\n\nYou have the right to dispute this debt again at any time. If you have\nquestions about your rights under the Fair Debt Collection Practices Act,\nyou may contact the Consumer Financial Protection Bureau at\nconsumerfinance.gov or (855) 411-2372.\n\nSincerely,\n\n[AGENCY NAME]\nCompliance Department\n",
+    "draft_tier": "template",
+    "review_findings": [],
+    "review_passed": true,
+    "review_warnings": 0,
+    "review_critical": 0,
+    "consumer_annotations": [
+      {
+        "id": "buried_rights",
+        "matched_text": "You have the right",
+        "position": 426,
+        "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+        "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+        "severity": "medium"
+      },
+      {
+        "id": "buried_rights",
+        "matched_text": "your rights under",
+        "position": 513,
+        "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+        "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+        "severity": "medium"
+      }
+    ],
+    "engagement_risk_score": 4,
+    "engagement_risk_level": "medium",
+    "agency_intent": "We're looking into whether this debt belongs to you and stopping contact meanwhile.",
+    "consumer_impact": [
+      "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
+    ],
+    "consumer_view": {
+      "letter_text": "[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account ACC-372793\n\nDear Consumer,\n\nThank you for contacting us regarding your account. We have received and\nlogged your dispute.\n\nWe acknowledge your dispute that the debt associated with account ACC-372793 does not belong to you. We are initiating an investigation and will provide validation documentation within 30 days. Collection activity on this account is suspended during our review.\n\nYou have the right to dispute this debt again at any time. If you have\nquestions about your rights under the Fair Debt Collection Practices Act,\nyou may contact the Consumer Financial Protection Bureau at\nconsumerfinance.gov or (855) 411-2372.\n\nSincerely,\n\n[AGENCY NAME]\nCompliance Department\n",
+      "annotations": [
+        {
+          "id": "buried_rights",
+          "matched_text": "You have the right",
+          "position": 426,
+          "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+          "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+          "severity": "medium"
+        },
+        {
+          "id": "buried_rights",
+          "matched_text": "your rights under",
+          "position": 513,
+          "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+          "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+          "severity": "medium"
+        }
+      ],
+      "risk_score": 4,
+      "risk_level": "medium",
+      "intent": "We're looking into whether this debt belongs to you and stopping contact meanwhile.",
+      "impact": [
+        "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
+      ],
+      "account_id": "ACC-372793",
+      "dispute_type": "not_mine"
+    }
+  },
+  {
+    "account_id": "ACC-359295",
+    "consumer_name": "Nina Chen",
+    "original_creditor": "Lakeshore Utilities",
+    "current_servicer": "Pinnacle Asset Management",
+    "balance_original": 6115.91,
+    "balance_current": 2896.26,
+    "charge_off_date": "2020-08-22",
+    "last_payment_date": "2021-03-22",
+    "last_payment_amount": "237.87",
+    "state": "KY",
+    "dispute_type": "hardship",
+    "validation_requested": "False",
+    "prior_contacts": "9",
+    "contact_log": "2020-10-17;2021-01-09;2021-01-16;2021-03-07;2021-08-05;2022-05-06;2022-06-04;2022-09-26;2022-10-26",
+    "has_contradiction": "False",
+    "narrative": "A debt collector contacted me about a medical bill from Pacific Credit Union. I already paid this bill in full on 01/22/2023. I have the receipt. They continue to call me multiple times a day and have threatened to report this to the credit bureaus even though I provided proof of payment.",
+    "complaint_id": "SYNTH-000005",
+    "cfpb_product": "Debt collection",
+    "cfpb_issue": "False statements or representation",
+    "cfpb_sub_issue": "",
+    "cfpb_company_response": "Closed with explanation",
+    "classified_type": "already_paid",
+    "classification_method": "keywords",
+    "classification_confidence": 0.75,
+    "draft_letter": "[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account ACC-359295\n\nDear Consumer,\n\nThank you for contacting us regarding your account. We have received and\nlogged your dispute.\n\nWe acknowledge your claim that the balance on account ACC-359295 has been paid. We are reviewing our records and contacting the original creditor, Lakeshore Utilities, to verify payment status. If you have proof of payment, please forward it to expedite our review.\n\nYou have the right to dispute this debt again at any time. If you have\nquestions about your rights under the Fair Debt Collection Practices Act,\nyou may contact the Consumer Financial Protection Bureau at\nconsumerfinance.gov or (855) 411-2372.\n\nSincerely,\n\n[AGENCY NAME]\nCompliance Department\n",
+    "draft_tier": "template",
+    "review_findings": [],
+    "review_passed": true,
+    "review_warnings": 0,
+    "review_critical": 0,
+    "consumer_annotations": [
+      {
+        "id": "buried_rights",
+        "matched_text": "You have the right",
+        "position": 430,
+        "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+        "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+        "severity": "medium"
+      },
+      {
+        "id": "buried_rights",
+        "matched_text": "your rights under",
+        "position": 517,
+        "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+        "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+        "severity": "medium"
+      }
+    ],
+    "engagement_risk_score": 4,
+    "engagement_risk_level": "medium",
+    "agency_intent": "We're checking our records to confirm your payment.",
+    "consumer_impact": [
+      "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
+    ],
+    "consumer_view": {
+      "letter_text": "[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account ACC-359295\n\nDear Consumer,\n\nThank you for contacting us regarding your account. We have received and\nlogged your dispute.\n\nWe acknowledge your claim that the balance on account ACC-359295 has been paid. We are reviewing our records and contacting the original creditor, Lakeshore Utilities, to verify payment status. If you have proof of payment, please forward it to expedite our review.\n\nYou have the right to dispute this debt again at any time. If you have\nquestions about your rights under the Fair Debt Collection Practices Act,\nyou may contact the Consumer Financial Protection Bureau at\nconsumerfinance.gov or (855) 411-2372.\n\nSincerely,\n\n[AGENCY NAME]\nCompliance Department\n",
+      "annotations": [
+        {
+          "id": "buried_rights",
+          "matched_text": "You have the right",
+          "position": 430,
+          "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+          "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+          "severity": "medium"
+        },
+        {
+          "id": "buried_rights",
+          "matched_text": "your rights under",
+          "position": 517,
+          "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+          "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+          "severity": "medium"
+        }
+      ],
+      "risk_score": 4,
+      "risk_level": "medium",
+      "intent": "We're checking our records to confirm your payment.",
+      "impact": [
+        "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
+      ],
+      "account_id": "ACC-359295",
+      "dispute_type": "already_paid"
+    }
+  },
+  {
+    "account_id": "ACC-427110",
+    "consumer_name": "Dina Pace",
+    "original_creditor": "Sunrise Health Partners",
+    "current_servicer": "Keystone Account Solutions",
+    "balance_original": 23548.47,
+    "balance_current": 4670.36,
+    "charge_off_date": "2023-04-27",
+    "last_payment_date": "2024-05-12",
+    "last_payment_amount": "59.93",
+    "state": "WY",
+    "dispute_type": "already_paid",
+    "validation_requested": "False",
+    "prior_contacts": "9",
+    "contact_log": "2023-07-08;2023-08-05;2023-09-27;2024-05-16;2024-06-09;2024-08-07;2024-11-22;2024-12-26;2025-04-03",
+    "has_contradiction": "False",
+    "narrative": "I sent a written request for debt validation to the collection agency over 45 days ago. They have not responded with any documentation but continue to call me. Under the FDCPA they should have ceased collection activity until they validated the debt.",
+    "complaint_id": "SYNTH-000033",
+    "cfpb_product": "Debt collection",
+    "cfpb_issue": "Took or threatened to take negative or legal action",
+    "cfpb_sub_issue": "",
+    "cfpb_company_response": "Closed with explanation",
+    "classified_type": "validation_request",
+    "classification_method": "keywords",
+    "classification_confidence": 1.0,
+    "draft_letter": "[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account ACC-427110\n\nDear Consumer,\n\nThank you for contacting us regarding your account. We have received and\nlogged your dispute.\n\nWe are in receipt of your request for debt validation on account ACC-427110. As required under the Fair Debt Collection Practices Act, we are ceasing all collection activity until we provide you with verification of the debt, including documentation from the original creditor, Sunrise Health Partners.\n\nYou have the right to dispute this debt again at any time. If you have\nquestions about your rights under the Fair Debt Collection Practices Act,\nyou may contact the Consumer Financial Protection Bureau at\nconsumerfinance.gov or (855) 411-2372.\n\nSincerely,\n\n[AGENCY NAME]\nCompliance Department\n",
+    "draft_tier": "template",
+    "review_findings": [],
+    "review_passed": true,
+    "review_warnings": 0,
+    "review_critical": 0,
+    "consumer_annotations": [
+      {
+        "id": "buried_rights",
+        "matched_text": "You have the right",
+        "position": 467,
+        "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+        "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+        "severity": "medium"
+      },
+      {
+        "id": "buried_rights",
+        "matched_text": "your rights under",
+        "position": 554,
+        "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+        "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+        "severity": "medium"
+      }
+    ],
+    "engagement_risk_score": 4,
+    "engagement_risk_level": "medium",
+    "agency_intent": "We're getting the original documentation to prove the debt is valid.",
+    "consumer_impact": [
+      "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
+    ],
+    "consumer_view": {
+      "letter_text": "[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account ACC-427110\n\nDear Consumer,\n\nThank you for contacting us regarding your account. We have received and\nlogged your dispute.\n\nWe are in receipt of your request for debt validation on account ACC-427110. As required under the Fair Debt Collection Practices Act, we are ceasing all collection activity until we provide you with verification of the debt, including documentation from the original creditor, Sunrise Health Partners.\n\nYou have the right to dispute this debt again at any time. If you have\nquestions about your rights under the Fair Debt Collection Practices Act,\nyou may contact the Consumer Financial Protection Bureau at\nconsumerfinance.gov or (855) 411-2372.\n\nSincerely,\n\n[AGENCY NAME]\nCompliance Department\n",
+      "annotations": [
+        {
+          "id": "buried_rights",
+          "matched_text": "You have the right",
+          "position": 467,
+          "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+          "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+          "severity": "medium"
+        },
+        {
+          "id": "buried_rights",
+          "matched_text": "your rights under",
+          "position": 554,
+          "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+          "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+          "severity": "medium"
+        }
+      ],
+      "risk_score": 4,
+      "risk_level": "medium",
+      "intent": "We're getting the original documentation to prove the debt is valid.",
+      "impact": [
+        "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
+      ],
+      "account_id": "ACC-427110",
+      "dispute_type": "validation_request"
+    }
+  },
+  {
+    "account_id": "ACC-630538",
+    "consumer_name": "Marta Sanchez",
+    "original_creditor": "First National Bank",
+    "current_servicer": "Keystone Account Solutions",
+    "balance_original": 20593.81,
+    "balance_current": 2173.45,
+    "charge_off_date": "2022-01-11",
+    "last_payment_date": "2024-07-30",
+    "last_payment_amount": "356.58",
+    "state": "NV",
+    "dispute_type": "not_mine",
+    "validation_requested": "False",
+    "prior_contacts": "10",
+    "contact_log": "2022-11-11;2022-11-13;2023-01-06;2023-05-02;2023-06-01;2023-06-20;2023-08-15;2023-10-09;2023-11-02;2024-02-28",
+    "has_contradiction": "False",
+    "narrative": "I received a call from a collection agency about a debt of $9,771 that I do not recognize. I have never had an account with First National Lending. I asked for validation and they could not provide it. This is causing me significant stress and affecting my credit score.",
+    "complaint_id": "SYNTH-000022",
+    "cfpb_product": "Debt collection",
+    "cfpb_issue": "Written notification about debt",
+    "cfpb_sub_issue": "",
+    "cfpb_company_response": "Closed with explanation",
+    "classified_type": "not_mine",
+    "classification_method": "keywords",
+    "classification_confidence": 0.67,
+    "draft_letter": "[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account ACC-630538\n\nDear Consumer,\n\nThank you for contacting us regarding your account. We have received and\nlogged your dispute.\n\nWe acknowledge your dispute that the debt associated with account ACC-630538 does not belong to you. We are initiating an investigation and will provide validation documentation within 30 days. Collection activity on this account is suspended during our review.\n\nYou have the right to dispute this debt again at any time. If you have\nquestions about your rights under the Fair Debt Collection Practices Act,\nyou may contact the Consumer Financial Protection Bureau at\nconsumerfinance.gov or (855) 411-2372.\n\nSincerely,\n\n[AGENCY NAME]\nCompliance Department\n",
+    "draft_tier": "template",
+    "review_findings": [],
+    "review_passed": true,
+    "review_warnings": 0,
+    "review_critical": 0,
+    "consumer_annotations": [
+      {
+        "id": "buried_rights",
+        "matched_text": "You have the right",
+        "position": 426,
+        "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+        "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+        "severity": "medium"
+      },
+      {
+        "id": "buried_rights",
+        "matched_text": "your rights under",
+        "position": 513,
+        "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+        "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+        "severity": "medium"
+      }
+    ],
+    "engagement_risk_score": 4,
+    "engagement_risk_level": "medium",
+    "agency_intent": "We're looking into whether this debt belongs to you and stopping contact meanwhile.",
+    "consumer_impact": [
+      "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
+    ],
+    "consumer_view": {
+      "letter_text": "[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account ACC-630538\n\nDear Consumer,\n\nThank you for contacting us regarding your account. We have received and\nlogged your dispute.\n\nWe acknowledge your dispute that the debt associated with account ACC-630538 does not belong to you. We are initiating an investigation and will provide validation documentation within 30 days. Collection activity on this account is suspended during our review.\n\nYou have the right to dispute this debt again at any time. If you have\nquestions about your rights under the Fair Debt Collection Practices Act,\nyou may contact the Consumer Financial Protection Bureau at\nconsumerfinance.gov or (855) 411-2372.\n\nSincerely,\n\n[AGENCY NAME]\nCompliance Department\n",
+      "annotations": [
+        {
+          "id": "buried_rights",
+          "matched_text": "You have the right",
+          "position": 426,
+          "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+          "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+          "severity": "medium"
+        },
+        {
+          "id": "buried_rights",
+          "matched_text": "your rights under",
+          "position": 513,
+          "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+          "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+          "severity": "medium"
+        }
+      ],
+      "risk_score": 4,
+      "risk_level": "medium",
+      "intent": "We're looking into whether this debt belongs to you and stopping contact meanwhile.",
+      "impact": [
+        "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
+      ],
+      "account_id": "ACC-630538",
+      "dispute_type": "not_mine"
+    }
+  },
+  {
+    "account_id": "ACC-993085",
+    "consumer_name": "Rosa Lopez",
+    "original_creditor": "Liberty Credit Corp",
+    "current_servicer": "Bridgeport Recovery Inc",
+    "balance_original": 6247.81,
+    "balance_current": 2903.41,
+    "charge_off_date": "2023-06-03",
+    "last_payment_date": "2024-11-19",
+    "last_payment_amount": "24.06",
+    "state": "MA",
+    "dispute_type": "not_mine",
+    "validation_requested": "False",
+    "prior_contacts": "5",
+    "contact_log": "2024-03-23;2024-04-14;2024-06-15;2025-03-04;2025-06-20",
+    "has_contradiction": "False",
+    "narrative": "The statute of limitations on this debt from Metro Wireless has expired. It is over 4 years old. The collector is threatening to sue me even though they cannot legally do so. I feel harassed and intimidated by their tactics.",
+    "complaint_id": "SYNTH-000029",
+    "cfpb_product": "Debt collection",
+    "cfpb_issue": "Attempts to collect debt not owed",
+    "cfpb_sub_issue": "",
+    "cfpb_company_response": "Closed with explanation",
+    "classified_type": "statute_of_limitations",
+    "classification_method": "keywords",
+    "classification_confidence": 1.0,
+    "draft_letter": "[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account ACC-993085\n\nDear Consumer,\n\nThank you for contacting us regarding your account. We have received and\nlogged your dispute.\n\nWe acknowledge your dispute regarding account ACC-993085. We are reviewing the applicable statute of limitations for your state of residence. No legal action will be taken on this account while this review is pending.\n\nYou have the right to dispute this debt again at any time. If you have\nquestions about your rights under the Fair Debt Collection Practices Act,\nyou may contact the Consumer Financial Protection Bureau at\nconsumerfinance.gov or (855) 411-2372.\n\nSincerely,\n\n[AGENCY NAME]\nCompliance Department\n",
+    "draft_tier": "template",
+    "review_findings": [],
+    "review_passed": true,
+    "review_warnings": 0,
+    "review_critical": 0,
+    "consumer_annotations": [
+      {
+        "id": "buried_rights",
+        "matched_text": "You have the right",
+        "position": 382,
+        "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+        "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+        "severity": "medium"
+      },
+      {
+        "id": "buried_rights",
+        "matched_text": "your rights under",
+        "position": 469,
+        "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+        "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+        "severity": "medium"
+      }
+    ],
+    "engagement_risk_score": 4,
+    "engagement_risk_level": "medium",
+    "agency_intent": "We're checking the legal timeline on this debt.",
+    "consumer_impact": [
+      "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
+    ],
+    "consumer_view": {
+      "letter_text": "[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account ACC-993085\n\nDear Consumer,\n\nThank you for contacting us regarding your account. We have received and\nlogged your dispute.\n\nWe acknowledge your dispute regarding account ACC-993085. We are reviewing the applicable statute of limitations for your state of residence. No legal action will be taken on this account while this review is pending.\n\nYou have the right to dispute this debt again at any time. If you have\nquestions about your rights under the Fair Debt Collection Practices Act,\nyou may contact the Consumer Financial Protection Bureau at\nconsumerfinance.gov or (855) 411-2372.\n\nSincerely,\n\n[AGENCY NAME]\nCompliance Department\n",
+      "annotations": [
+        {
+          "id": "buried_rights",
+          "matched_text": "You have the right",
+          "position": 382,
+          "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+          "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+          "severity": "medium"
+        },
+        {
+          "id": "buried_rights",
+          "matched_text": "your rights under",
+          "position": 469,
+          "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+          "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+          "severity": "medium"
+        }
+      ],
+      "risk_score": 4,
+      "risk_level": "medium",
+      "intent": "We're checking the legal timeline on this debt.",
+      "impact": [
+        "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
+      ],
+      "account_id": "ACC-993085",
+      "dispute_type": "statute_of_limitations"
+    }
+  },
+  {
+    "account_id": "ACC-389688",
+    "consumer_name": "Brenda Banks",
+    "original_creditor": "Citylink Communications",
+    "current_servicer": "Redstone Collections Group",
+    "balance_original": 2323.2,
+    "balance_current": 1672.88,
+    "charge_off_date": "2022-09-27",
+    "last_payment_date": "2023-05-08",
+    "last_payment_amount": "348.4",
+    "state": "TN",
+    "dispute_type": "statute_of_limitations",
+    "validation_requested": "False",
+    "prior_contacts": "12",
+    "contact_log": "2022-11-13;2023-01-30;2023-06-10;2023-07-03;2023-08-24;2023-09-05;2023-11-08;2023-12-15;2024-02-23;2024-06-13;2024-09-05;2024-10-04",
+    "has_contradiction": "False",
+    "narrative": "I am disputing a debt of $6,684 from Metro Wireless. The amount is wrong \u2014 my original balance was $7,691 and I made payments totaling $2,690. The collector is claiming I owe more than the original debt, which does not seem right.",
+    "complaint_id": "SYNTH-000024",
+    "cfpb_product": "Debt collection",
+    "cfpb_issue": "Attempts to collect debt not owed",
+    "cfpb_sub_issue": "",
+    "cfpb_company_response": "Closed with explanation",
+    "classified_type": "wrong_amount",
+    "classification_method": "keywords",
+    "classification_confidence": 1.0,
+    "draft_letter": "[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account ACC-389688\n\nDear Consumer,\n\nThank you for contacting us regarding your account. We have received and\nlogged your dispute.\n\nWe acknowledge your dispute regarding the balance of 1672.88 on account ACC-389688. We are reviewing the account history with the original creditor, Citylink Communications, to verify the correct amount owed. We will provide an itemized statement within 30 days.\n\nYou have the right to dispute this debt again at any time. If you have\nquestions about your rights under the Fair Debt Collection Practices Act,\nyou may contact the Consumer Financial Protection Bureau at\nconsumerfinance.gov or (855) 411-2372.\n\nSincerely,\n\n[AGENCY NAME]\nCompliance Department\n",
+    "draft_tier": "template",
+    "review_findings": [],
+    "review_passed": true,
+    "review_warnings": 0,
+    "review_critical": 0,
+    "consumer_annotations": [
+      {
+        "id": "buried_rights",
+        "matched_text": "You have the right",
+        "position": 427,
+        "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+        "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+        "severity": "medium"
+      },
+      {
+        "id": "buried_rights",
+        "matched_text": "your rights under",
+        "position": 514,
+        "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+        "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+        "severity": "medium"
+      }
+    ],
+    "engagement_risk_score": 4,
+    "engagement_risk_level": "medium",
+    "agency_intent": "We're reviewing the balance and will send you an itemized breakdown.",
+    "consumer_impact": [
+      "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
+    ],
+    "consumer_view": {
+      "letter_text": "[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account ACC-389688\n\nDear Consumer,\n\nThank you for contacting us regarding your account. We have received and\nlogged your dispute.\n\nWe acknowledge your dispute regarding the balance of 1672.88 on account ACC-389688. We are reviewing the account history with the original creditor, Citylink Communications, to verify the correct amount owed. We will provide an itemized statement within 30 days.\n\nYou have the right to dispute this debt again at any time. If you have\nquestions about your rights under the Fair Debt Collection Practices Act,\nyou may contact the Consumer Financial Protection Bureau at\nconsumerfinance.gov or (855) 411-2372.\n\nSincerely,\n\n[AGENCY NAME]\nCompliance Department\n",
+      "annotations": [
+        {
+          "id": "buried_rights",
+          "matched_text": "You have the right",
+          "position": 427,
+          "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+          "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+          "severity": "medium"
+        },
+        {
+          "id": "buried_rights",
+          "matched_text": "your rights under",
+          "position": 514,
+          "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+          "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+          "severity": "medium"
+        }
+      ],
+      "risk_score": 4,
+      "risk_level": "medium",
+      "intent": "We're reviewing the balance and will send you an itemized breakdown.",
+      "impact": [
+        "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
+      ],
+      "account_id": "ACC-389688",
+      "dispute_type": "wrong_amount"
+    }
+  },
+  {
+    "account_id": "ACC-680358",
+    "consumer_name": "Willa Thomas",
+    "original_creditor": "Valley Regional Hospital",
+    "current_servicer": "Continental Receivables Corp",
+    "balance_original": 8403.62,
+    "balance_current": 5906.53,
+    "charge_off_date": "2021-07-08",
+    "last_payment_date": "2022-04-18",
+    "last_payment_amount": "69.12",
+    "state": "IL",
+    "dispute_type": "already_paid",
+    "validation_requested": "True",
+    "prior_contacts": "8",
+    "contact_log": "2022-02-12;2022-02-19;2022-03-16;2022-05-17;2022-12-15;2023-07-14;2023-08-18;2023-09-02",
+    "has_contradiction": "False",
+    "narrative": "I sent a written request for debt validation to the collection agency over 45 days ago. They have not responded with any documentation but continue to call me. Under the FDCPA they should have ceased collection activity until they validated the debt.",
+    "complaint_id": "SYNTH-000019",
+    "cfpb_product": "Debt collection",
+    "cfpb_issue": "Attempts to collect debt not owed",
+    "cfpb_sub_issue": "",
+    "cfpb_company_response": "Closed with explanation",
+    "classified_type": "validation_request",
+    "classification_method": "keywords",
+    "classification_confidence": 1.0,
+    "draft_letter": "[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account ACC-680358\n\nDear Consumer,\n\nThank you for contacting us regarding your account. We have received and\nlogged your dispute.\n\nWe are in receipt of your request for debt validation on account ACC-680358. As required under the Fair Debt Collection Practices Act, we are ceasing all collection activity until we provide you with verification of the debt, including documentation from the original creditor, Valley Regional Hospital.\n\nYou have the right to dispute this debt again at any time. If you have\nquestions about your rights under the Fair Debt Collection Practices Act,\nyou may contact the Consumer Financial Protection Bureau at\nconsumerfinance.gov or (855) 411-2372.\n\nSincerely,\n\n[AGENCY NAME]\nCompliance Department\n",
+    "draft_tier": "template",
+    "review_findings": [],
+    "review_passed": true,
+    "review_warnings": 0,
+    "review_critical": 0,
+    "consumer_annotations": [
+      {
+        "id": "buried_rights",
+        "matched_text": "You have the right",
+        "position": 468,
+        "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+        "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+        "severity": "medium"
+      },
+      {
+        "id": "buried_rights",
+        "matched_text": "your rights under",
+        "position": 555,
+        "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+        "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+        "severity": "medium"
+      }
+    ],
+    "engagement_risk_score": 4,
+    "engagement_risk_level": "medium",
+    "agency_intent": "We're getting the original documentation to prove the debt is valid.",
+    "consumer_impact": [
+      "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
+    ],
+    "consumer_view": {
+      "letter_text": "[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account ACC-680358\n\nDear Consumer,\n\nThank you for contacting us regarding your account. We have received and\nlogged your dispute.\n\nWe are in receipt of your request for debt validation on account ACC-680358. As required under the Fair Debt Collection Practices Act, we are ceasing all collection activity until we provide you with verification of the debt, including documentation from the original creditor, Valley Regional Hospital.\n\nYou have the right to dispute this debt again at any time. If you have\nquestions about your rights under the Fair Debt Collection Practices Act,\nyou may contact the Consumer Financial Protection Bureau at\nconsumerfinance.gov or (855) 411-2372.\n\nSincerely,\n\n[AGENCY NAME]\nCompliance Department\n",
+      "annotations": [
+        {
+          "id": "buried_rights",
+          "matched_text": "You have the right",
+          "position": 468,
+          "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+          "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+          "severity": "medium"
+        },
+        {
+          "id": "buried_rights",
+          "matched_text": "your rights under",
+          "position": 555,
+          "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+          "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+          "severity": "medium"
+        }
+      ],
+      "risk_score": 4,
+      "risk_level": "medium",
+      "intent": "We're getting the original documentation to prove the debt is valid.",
+      "impact": [
+        "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
+      ],
+      "account_id": "ACC-680358",
+      "dispute_type": "validation_request"
+    }
+  },
+  {
+    "account_id": "ACC-897135",
+    "consumer_name": "Willa Cole",
+    "original_creditor": "Horizon Card Co",
+    "current_servicer": "National Credit Solutions",
+    "balance_original": 20849.18,
+    "balance_current": 6176.5,
+    "charge_off_date": "2022-01-09",
+    "last_payment_date": "2022-01-29",
+    "last_payment_amount": "356.93",
+    "state": "FL",
+    "dispute_type": "already_paid",
+    "validation_requested": "True",
+    "prior_contacts": "5",
+    "contact_log": "",
+    "has_contradiction": "False",
+    "narrative": "I received a call from a collection agency about a debt of $2,032 that I do not recognize. I have never had an account with Valley Auto Lending. I asked for validation and they could not provide it. This is causing me significant stress and affecting my credit score.",
+    "complaint_id": "SYNTH-000013",
+    "cfpb_product": "Debt collection",
+    "cfpb_issue": "Attempts to collect debt not owed",
+    "cfpb_sub_issue": "",
+    "cfpb_company_response": "Closed with explanation",
+    "classified_type": "not_mine",
+    "classification_method": "keywords",
+    "classification_confidence": 0.67,
+    "draft_letter": "[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account ACC-897135\n\nDear Consumer,\n\nThank you for contacting us regarding your account. We have received and\nlogged your dispute.\n\nWe acknowledge your dispute that the debt associated with account ACC-897135 does not belong to you. We are initiating an investigation and will provide validation documentation within 30 days. Collection activity on this account is suspended during our review.\n\nYou have the right to dispute this debt again at any time. If you have\nquestions about your rights under the Fair Debt Collection Practices Act,\nyou may contact the Consumer Financial Protection Bureau at\nconsumerfinance.gov or (855) 411-2372.\n\nSincerely,\n\n[AGENCY NAME]\nCompliance Department\n",
+    "draft_tier": "template",
+    "review_findings": [],
+    "review_passed": true,
+    "review_warnings": 0,
+    "review_critical": 0,
+    "consumer_annotations": [
+      {
+        "id": "buried_rights",
+        "matched_text": "You have the right",
+        "position": 426,
+        "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+        "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+        "severity": "medium"
+      },
+      {
+        "id": "buried_rights",
+        "matched_text": "your rights under",
+        "position": 513,
+        "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+        "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+        "severity": "medium"
+      }
+    ],
+    "engagement_risk_score": 4,
+    "engagement_risk_level": "medium",
+    "agency_intent": "We're looking into whether this debt belongs to you and stopping contact meanwhile.",
+    "consumer_impact": [
+      "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
+    ],
+    "consumer_view": {
+      "letter_text": "[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account ACC-897135\n\nDear Consumer,\n\nThank you for contacting us regarding your account. We have received and\nlogged your dispute.\n\nWe acknowledge your dispute that the debt associated with account ACC-897135 does not belong to you. We are initiating an investigation and will provide validation documentation within 30 days. Collection activity on this account is suspended during our review.\n\nYou have the right to dispute this debt again at any time. If you have\nquestions about your rights under the Fair Debt Collection Practices Act,\nyou may contact the Consumer Financial Protection Bureau at\nconsumerfinance.gov or (855) 411-2372.\n\nSincerely,\n\n[AGENCY NAME]\nCompliance Department\n",
+      "annotations": [
+        {
+          "id": "buried_rights",
+          "matched_text": "You have the right",
+          "position": 426,
+          "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+          "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+          "severity": "medium"
+        },
+        {
+          "id": "buried_rights",
+          "matched_text": "your rights under",
+          "position": 513,
+          "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+          "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+          "severity": "medium"
+        }
+      ],
+      "risk_score": 4,
+      "risk_level": "medium",
+      "intent": "We're looking into whether this debt belongs to you and stopping contact meanwhile.",
+      "impact": [
+        "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
+      ],
+      "account_id": "ACC-897135",
+      "dispute_type": "not_mine"
+    }
+  },
+  {
+    "account_id": "ACC-406327",
+    "consumer_name": "Vernon Quinn",
+    "original_creditor": "Apex Auto Finance",
+    "current_servicer": "Bridgeport Recovery Inc",
+    "balance_original": 2744.17,
+    "balance_current": 33.66,
+    "charge_off_date": "2021-08-05",
+    "last_payment_date": "2023-06-22",
+    "last_payment_amount": "176.95",
+    "state": "AR",
+    "dispute_type": "already_paid",
+    "validation_requested": "False",
+    "prior_contacts": "7",
+    "contact_log": "2021-11-09;2021-11-18;2021-12-29;2022-10-19;2023-01-20;2023-04-17;2023-06-10",
+    "has_contradiction": "False",
+    "narrative": "I received a call from a collection agency about a debt of $11,082 that I do not recognize. I have never had an account with Valley Auto Lending. I asked for validation and they could not provide it. This is causing me significant stress and affecting my credit score.",
+    "complaint_id": "SYNTH-000035",
+    "cfpb_product": "Debt collection",
+    "cfpb_issue": "False statements or representation",
+    "cfpb_sub_issue": "",
+    "cfpb_company_response": "Closed with explanation",
+    "classified_type": "not_mine",
+    "classification_method": "keywords",
+    "classification_confidence": 0.67,
+    "draft_letter": "[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account ACC-406327\n\nDear Consumer,\n\nThank you for contacting us regarding your account. We have received and\nlogged your dispute.\n\nWe acknowledge your dispute that the debt associated with account ACC-406327 does not belong to you. We are initiating an investigation and will provide validation documentation within 30 days. Collection activity on this account is suspended during our review.\n\nYou have the right to dispute this debt again at any time. If you have\nquestions about your rights under the Fair Debt Collection Practices Act,\nyou may contact the Consumer Financial Protection Bureau at\nconsumerfinance.gov or (855) 411-2372.\n\nSincerely,\n\n[AGENCY NAME]\nCompliance Department\n",
+    "draft_tier": "template",
+    "review_findings": [],
+    "review_passed": true,
+    "review_warnings": 0,
+    "review_critical": 0,
+    "consumer_annotations": [
+      {
+        "id": "buried_rights",
+        "matched_text": "You have the right",
+        "position": 426,
+        "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+        "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+        "severity": "medium"
+      },
+      {
+        "id": "buried_rights",
+        "matched_text": "your rights under",
+        "position": 513,
+        "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+        "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+        "severity": "medium"
+      }
+    ],
+    "engagement_risk_score": 4,
+    "engagement_risk_level": "medium",
+    "agency_intent": "We're looking into whether this debt belongs to you and stopping contact meanwhile.",
+    "consumer_impact": [
+      "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
+    ],
+    "consumer_view": {
+      "letter_text": "[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account ACC-406327\n\nDear Consumer,\n\nThank you for contacting us regarding your account. We have received and\nlogged your dispute.\n\nWe acknowledge your dispute that the debt associated with account ACC-406327 does not belong to you. We are initiating an investigation and will provide validation documentation within 30 days. Collection activity on this account is suspended during our review.\n\nYou have the right to dispute this debt again at any time. If you have\nquestions about your rights under the Fair Debt Collection Practices Act,\nyou may contact the Consumer Financial Protection Bureau at\nconsumerfinance.gov or (855) 411-2372.\n\nSincerely,\n\n[AGENCY NAME]\nCompliance Department\n",
+      "annotations": [
+        {
+          "id": "buried_rights",
+          "matched_text": "You have the right",
+          "position": 426,
+          "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+          "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+          "severity": "medium"
+        },
+        {
+          "id": "buried_rights",
+          "matched_text": "your rights under",
+          "position": 513,
+          "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+          "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+          "severity": "medium"
+        }
+      ],
+      "risk_score": 4,
+      "risk_level": "medium",
+      "intent": "We're looking into whether this debt belongs to you and stopping contact meanwhile.",
+      "impact": [
+        "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
+      ],
+      "account_id": "ACC-406327",
+      "dispute_type": "not_mine"
+    }
+  },
+  {
+    "account_id": "ACC-819796",
+    "consumer_name": "Daniel Torres",
+    "original_creditor": "Summit Trust Bank",
+    "current_servicer": "Trident Portfolio Services",
+    "balance_original": 23738.32,
+    "balance_current": 2022.05,
+    "charge_off_date": "2021-05-23",
+    "last_payment_date": "2023-05-03",
+    "last_payment_amount": "307.1",
+    "state": "SC",
+    "dispute_type": "not_mine",
+    "validation_requested": "False",
+    "prior_contacts": "6",
+    "contact_log": "2022-04-22;2022-04-30;2022-09-04;2022-09-18;2022-09-26;2023-02-14",
+    "has_contradiction": "False",
+    "narrative": "The statute of limitations on this debt from Lakeside Hospital has expired. It is over 8 years old. The collector is threatening to sue me even though they cannot legally do so. I feel harassed and intimidated by their tactics.",
+    "complaint_id": "SYNTH-000036",
+    "cfpb_product": "Debt collection",
+    "cfpb_issue": "Took or threatened to take negative or legal action",
+    "cfpb_sub_issue": "",
+    "cfpb_company_response": "Closed with explanation",
+    "classified_type": "statute_of_limitations",
+    "classification_method": "keywords",
+    "classification_confidence": 1.0,
+    "draft_letter": "[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account ACC-819796\n\nDear Consumer,\n\nThank you for contacting us regarding your account. We have received and\nlogged your dispute.\n\nWe acknowledge your dispute regarding account ACC-819796. We are reviewing the applicable statute of limitations for your state of residence. No legal action will be taken on this account while this review is pending.\n\nYou have the right to dispute this debt again at any time. If you have\nquestions about your rights under the Fair Debt Collection Practices Act,\nyou may contact the Consumer Financial Protection Bureau at\nconsumerfinance.gov or (855) 411-2372.\n\nSincerely,\n\n[AGENCY NAME]\nCompliance Department\n",
+    "draft_tier": "template",
+    "review_findings": [],
+    "review_passed": true,
+    "review_warnings": 0,
+    "review_critical": 0,
+    "consumer_annotations": [
+      {
+        "id": "buried_rights",
+        "matched_text": "You have the right",
+        "position": 382,
+        "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+        "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+        "severity": "medium"
+      },
+      {
+        "id": "buried_rights",
+        "matched_text": "your rights under",
+        "position": 469,
+        "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+        "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+        "severity": "medium"
+      }
+    ],
+    "engagement_risk_score": 4,
+    "engagement_risk_level": "medium",
+    "agency_intent": "We're checking the legal timeline on this debt.",
+    "consumer_impact": [
+      "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
+    ],
+    "consumer_view": {
+      "letter_text": "[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account ACC-819796\n\nDear Consumer,\n\nThank you for contacting us regarding your account. We have received and\nlogged your dispute.\n\nWe acknowledge your dispute regarding account ACC-819796. We are reviewing the applicable statute of limitations for your state of residence. No legal action will be taken on this account while this review is pending.\n\nYou have the right to dispute this debt again at any time. If you have\nquestions about your rights under the Fair Debt Collection Practices Act,\nyou may contact the Consumer Financial Protection Bureau at\nconsumerfinance.gov or (855) 411-2372.\n\nSincerely,\n\n[AGENCY NAME]\nCompliance Department\n",
+      "annotations": [
+        {
+          "id": "buried_rights",
+          "matched_text": "You have the right",
+          "position": 382,
+          "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+          "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+          "severity": "medium"
+        },
+        {
+          "id": "buried_rights",
+          "matched_text": "your rights under",
+          "position": 469,
+          "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+          "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+          "severity": "medium"
+        }
+      ],
+      "risk_score": 4,
+      "risk_level": "medium",
+      "intent": "We're checking the legal timeline on this debt.",
+      "impact": [
+        "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
+      ],
+      "account_id": "ACC-819796",
+      "dispute_type": "statute_of_limitations"
+    }
+  },
+  {
+    "account_id": "ACC-696251",
+    "consumer_name": "Jerome Harris",
+    "original_creditor": "Lakeshore Utilities",
+    "current_servicer": "National Credit Solutions",
+    "balance_original": 23700.24,
+    "balance_current": 4924.62,
+    "charge_off_date": "2021-03-08",
+    "last_payment_date": "2021-06-16",
+    "last_payment_amount": "86.96",
+    "state": "ID",
+    "dispute_type": "validation_request",
+    "validation_requested": "True",
+    "prior_contacts": "0",
+    "contact_log": "",
+    "has_contradiction": "False",
+    "narrative": "I am a victim of identity theft. Someone opened an account with Sunrise Financial using my information. I have filed a police report and an FTC identity theft report. The collection agency refuses to remove this from my credit report despite the documentation I have provided.",
+    "complaint_id": "SYNTH-000027",
+    "cfpb_product": "Debt collection",
+    "cfpb_issue": "Took or threatened to take negative or legal action",
+    "cfpb_sub_issue": "",
+    "cfpb_company_response": "Closed with explanation",
+    "classified_type": "identity_theft",
+    "classification_method": "keywords",
+    "classification_confidence": 1.0,
+    "draft_letter": "[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account ACC-696251\n\nDear Consumer,\n\nThank you for contacting us regarding your account. We have received and\nlogged your dispute.\n\nWe take allegations of identity theft very seriously. Upon receipt of your dispute, we are placing a hold on all collection activity for account ACC-696251 pending our investigation. Please provide any supporting documentation such as a police report or FTC Identity Theft Report to assist in our review.\n\nYou have the right to dispute this debt again at any time. If you have\nquestions about your rights under the Fair Debt Collection Practices Act,\nyou may contact the Consumer Financial Protection Bureau at\nconsumerfinance.gov or (855) 411-2372.\n\nSincerely,\n\n[AGENCY NAME]\nCompliance Department\n",
+    "draft_tier": "template",
+    "review_findings": [],
+    "review_passed": true,
+    "review_warnings": 0,
+    "review_critical": 0,
+    "consumer_annotations": [
+      {
+        "id": "buried_rights",
+        "matched_text": "You have the right",
+        "position": 469,
+        "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+        "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+        "severity": "medium"
+      },
+      {
+        "id": "buried_rights",
+        "matched_text": "your rights under",
+        "position": 556,
+        "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+        "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+        "severity": "medium"
+      }
+    ],
+    "engagement_risk_score": 4,
+    "engagement_risk_level": "medium",
+    "agency_intent": "We're investigating your identity theft claim and pausing collection.",
+    "consumer_impact": [
+      "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
+    ],
+    "consumer_view": {
+      "letter_text": "[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account ACC-696251\n\nDear Consumer,\n\nThank you for contacting us regarding your account. We have received and\nlogged your dispute.\n\nWe take allegations of identity theft very seriously. Upon receipt of your dispute, we are placing a hold on all collection activity for account ACC-696251 pending our investigation. Please provide any supporting documentation such as a police report or FTC Identity Theft Report to assist in our review.\n\nYou have the right to dispute this debt again at any time. If you have\nquestions about your rights under the Fair Debt Collection Practices Act,\nyou may contact the Consumer Financial Protection Bureau at\nconsumerfinance.gov or (855) 411-2372.\n\nSincerely,\n\n[AGENCY NAME]\nCompliance Department\n",
+      "annotations": [
+        {
+          "id": "buried_rights",
+          "matched_text": "You have the right",
+          "position": 469,
+          "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+          "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+          "severity": "medium"
+        },
+        {
+          "id": "buried_rights",
+          "matched_text": "your rights under",
+          "position": 556,
+          "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+          "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+          "severity": "medium"
+        }
+      ],
+      "risk_score": 4,
+      "risk_level": "medium",
+      "intent": "We're investigating your identity theft claim and pausing collection.",
+      "impact": [
+        "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
+      ],
+      "account_id": "ACC-696251",
+      "dispute_type": "identity_theft"
+    }
+  },
+  {
+    "account_id": "ACC-528361",
+    "consumer_name": "Lena Stone",
+    "original_creditor": "Lakeshore Utilities",
+    "current_servicer": "Bridgeport Recovery Inc",
+    "balance_original": 7423.23,
+    "balance_current": 1718.3,
+    "charge_off_date": "2023-12-18",
+    "last_payment_date": "2025-07-18",
+    "last_payment_amount": "44.88",
+    "state": "IA",
+    "dispute_type": "already_paid",
+    "validation_requested": "False",
+    "prior_contacts": "10",
+    "contact_log": "2024-03-18;2024-03-30;2024-05-13;2024-06-10;2024-08-06;2024-10-15;2025-03-27;2025-04-06;2025-06-01;2025-06-10",
+    "has_contradiction": "False",
+    "narrative": "I am going through a financial hardship due to a medical emergency. I contacted Metro Wireless to discuss a payment plan but the collector was rude and refused to work with me. They said I had to pay the full $2,260 immediately or they would garnish my wages.",
+    "complaint_id": "SYNTH-000014",
+    "cfpb_product": "Debt collection",
+    "cfpb_issue": "Took or threatened to take negative or legal action",
+    "cfpb_sub_issue": "",
+    "cfpb_company_response": "Closed with explanation",
+    "classified_type": "hardship",
+    "classification_method": "keywords",
+    "classification_confidence": 1.0,
+    "draft_letter": "[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account ACC-528361\n\nDear Consumer,\n\nThank you for contacting us regarding your account. We have received and\nlogged your dispute.\n\nWe acknowledge the financial hardship you described regarding account ACC-528361. We would like to work with you to find a resolution. Please contact us to discuss available options, which may include a modified payment plan or settlement arrangement.\n\nYou have the right to dispute this debt again at any time. If you have\nquestions about your rights under the Fair Debt Collection Practices Act,\nyou may contact the Consumer Financial Protection Bureau at\nconsumerfinance.gov or (855) 411-2372.\n\nSincerely,\n\n[AGENCY NAME]\nCompliance Department\n",
+    "draft_tier": "template",
+    "review_findings": [],
+    "review_passed": true,
+    "review_warnings": 0,
+    "review_critical": 0,
+    "consumer_annotations": [
+      {
+        "id": "buried_rights",
+        "matched_text": "You have the right",
+        "position": 416,
+        "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+        "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+        "severity": "medium"
+      },
+      {
+        "id": "buried_rights",
+        "matched_text": "your rights under",
+        "position": 503,
+        "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+        "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+        "severity": "medium"
+      }
+    ],
+    "engagement_risk_score": 4,
+    "engagement_risk_level": "medium",
+    "agency_intent": "We want to work with you on a payment arrangement you can manage.",
+    "consumer_impact": [
+      "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
+    ],
+    "consumer_view": {
+      "letter_text": "[DATE]\n\n[CONSUMER ADDRESS]\n\nRE: Account ACC-528361\n\nDear Consumer,\n\nThank you for contacting us regarding your account. We have received and\nlogged your dispute.\n\nWe acknowledge the financial hardship you described regarding account ACC-528361. We would like to work with you to find a resolution. Please contact us to discuss available options, which may include a modified payment plan or settlement arrangement.\n\nYou have the right to dispute this debt again at any time. If you have\nquestions about your rights under the Fair Debt Collection Practices Act,\nyou may contact the Consumer Financial Protection Bureau at\nconsumerfinance.gov or (855) 411-2372.\n\nSincerely,\n\n[AGENCY NAME]\nCompliance Department\n",
+      "annotations": [
+        {
+          "id": "buried_rights",
+          "matched_text": "You have the right",
+          "position": 416,
+          "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+          "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+          "severity": "medium"
+        },
+        {
+          "id": "buried_rights",
+          "matched_text": "your rights under",
+          "position": 503,
+          "flag": "Consumer rights buried in dense paragraph \u2014 should be prominent, not embedded",
+          "cfpb_grounding": "Consumers report: 'I didn't know I could dispute it \u2014 I found out later I had rights'",
+          "severity": "medium"
+        }
+      ],
+      "risk_score": 4,
+      "risk_level": "medium",
+      "intent": "We want to work with you on a payment arrangement you can manage.",
+      "impact": [
+        "'I didn't know I could dispute this' \u2014 consumer doesn't exercise rights"
+      ],
+      "account_id": "ACC-528361",
+      "dispute_type": "hardship"
+    }
+  }
+]
