@@ -19,14 +19,26 @@ def _extract_claims(letter):
     """Extract factual claims from a letter (dates, amounts, names, actions)."""
     claims = []
 
-    # Dates mentioned in the letter
+    # Dates mentioned in the letter body (skip the header date line).
+    # The first date in a letter is typically the letter date, not a
+    # factual claim about the consumer's account.
     date_patterns = [
         r"\b\d{1,2}/\d{1,2}/\d{2,4}\b",
         r"\b\d{4}-\d{2}-\d{2}\b",
         r"\b(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},?\s*\d{4}\b",
     ]
+    # Find where the letter body starts (after "Dear" or "RE:")
+    body_start = 0
+    for marker in ["Dear ", "RE:", "Re:"]:
+        pos = letter.find(marker)
+        if pos > 0:
+            body_start = pos
+            break
+
     for pattern in date_patterns:
         for match in re.finditer(pattern, letter, re.IGNORECASE):
+            if match.start() < body_start:
+                continue  # Skip header dates (letter date, address block)
             claims.append({"type": "date", "value": match.group(), "position": match.start()})
 
     # Dollar amounts
@@ -58,6 +70,41 @@ def _extract_claims(letter):
     return claims
 
 
+MONTH_NAMES = {
+    "january": 1, "february": 2, "march": 3, "april": 4,
+    "may": 5, "june": 6, "july": 7, "august": 8,
+    "september": 9, "october": 10, "november": 11, "december": 12,
+}
+
+
+def _normalize_date_for_comparison(date_str):
+    """
+    Normalize a date string to (year, month, day) tuple for comparison.
+    Handles: "2024-06-18", "06/18/2024", "June 18, 2024", "June 18 2024".
+    Returns None if unparseable.
+    """
+    s = date_str.strip().rstrip(".")
+
+    # YYYY-MM-DD
+    m = re.match(r"^(\d{4})-(\d{1,2})-(\d{1,2})$", s)
+    if m:
+        return (int(m.group(1)), int(m.group(2)), int(m.group(3)))
+
+    # MM/DD/YYYY
+    m = re.match(r"^(\d{1,2})/(\d{1,2})/(\d{4})$", s)
+    if m:
+        return (int(m.group(3)), int(m.group(1)), int(m.group(2)))
+
+    # Month DD, YYYY or Month DD YYYY
+    m = re.match(r"^([A-Za-z]+)\s+(\d{1,2}),?\s*(\d{4})$", s)
+    if m:
+        month_name = m.group(1).lower()
+        if month_name in MONTH_NAMES:
+            return (int(m.group(3)), MONTH_NAMES[month_name], int(m.group(2)))
+
+    return None
+
+
 def _check_claim_against_record(claim, record):
     """
     Check if a claim in the letter is supported by the source record.
@@ -87,10 +134,19 @@ def _check_claim_against_record(claim, record):
         return False, f"Amount {claim_value} not found in source record"
 
     if claim_type == "date":
-        # Check if this date appears anywhere in the record
+        # Check if this date appears anywhere in the record.
+        # The model may write "June 18, 2024" while the record has "2024-06-18",
+        # so normalize both sides before comparing.
+        claim_normalized = _normalize_date_for_comparison(claim_value)
         for field in ["charge_off_date", "last_payment_date", "date_received"]:
-            rec_val = str(record.get(field, ""))
-            if rec_val and (claim_value in rec_val or rec_val in claim_value):
+            rec_val = str(record.get(field, "")).strip()
+            if not rec_val:
+                continue
+            rec_normalized = _normalize_date_for_comparison(rec_val)
+            if claim_normalized and rec_normalized and claim_normalized == rec_normalized:
+                return True, f"Matches {field}"
+            # Also try substring match for partial dates
+            if claim_value in rec_val or rec_val in claim_value:
                 return True, f"Matches {field}"
         return False, f"Date {claim_value} not found in source record"
 

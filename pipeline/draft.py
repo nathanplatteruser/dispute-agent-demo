@@ -27,11 +27,12 @@ RULES:
 9. Address the specific type of dispute raised.
 
 Format the letter with:
-- Date line
-- Consumer name and address placeholder [CONSUMER ADDRESS]
+- Date line (use the provided letter date)
+- Consumer name and address (use the provided values)
 - RE: Account reference
 - Body paragraphs
-- Closing with agency name placeholder [AGENCY NAME]
+- Closing with the provided agency/servicer name
+- Format all currency amounts as $X,XXX.XX (e.g. $1,234.56, not 1234.56)
 """
 
 
@@ -40,12 +41,16 @@ def _build_prompt(record):
     account_id = record.get("account_id", "UNKNOWN")
     dispute_type = record.get("classified_type", "general")
     narrative = record.get("narrative", "")[:600]
-    balance = record.get("balance_current", "unknown")
+    balance = _format_currency(record.get("balance_current", "unknown"))
     creditor = record.get("original_creditor", "unknown")
     state = record.get("state", "")
     validation_requested = record.get("validation_requested", "")
     last_payment = record.get("last_payment_date", "")
     charge_off = record.get("charge_off_date", "")
+    consumer_name = record.get("consumer_name", "Consumer")
+    servicer = record.get("current_servicer", "Account Services Department")
+    letter_date = _synthetic_letter_date(record)
+    address = _synthetic_address(consumer_name, state)
 
     prompt = f"""Draft a dispute response letter for this account.
 
@@ -59,12 +64,48 @@ RECORD FACTS (use ONLY these):
 - Last payment date: {last_payment or 'None on file'}
 - Validation requested: {validation_requested}
 
+LETTER HEADER (use these exactly):
+- Letter date: {letter_date}
+- Consumer name: {consumer_name}
+- Consumer address: {address}
+- Agency name: {servicer}
+
 CONSUMER'S DISPUTE:
 {narrative}
 
-Write the response letter now. Remember: only assert facts from the record above."""
+Write the response letter now. Format all dollar amounts as $X,XXX.XX.
+Remember: only assert facts from the record above."""
 
     return prompt
+
+
+def _fill_placeholders(letter, record):
+    """Replace any remaining bracket placeholders in LLM output."""
+    import re
+    consumer_name = record.get("consumer_name", "Consumer")
+    state = record.get("state", "TX")
+    servicer = record.get("current_servicer", "Account Services Department")
+    letter_date = _synthetic_letter_date(record)
+    address = _synthetic_address(consumer_name, state)
+
+    # Replace common placeholders the model might leave
+    replacements = {
+        "[DATE]": letter_date,
+        "[CONSUMER ADDRESS]": address,
+        "[CONSUMER NAME]": consumer_name,
+        "[AGENCY NAME]": servicer,
+        "[COMPANY NAME]": servicer,
+        "[CREDITOR NAME]": record.get("original_creditor", "the original creditor"),
+    }
+    for placeholder, value in replacements.items():
+        letter = letter.replace(placeholder, value)
+
+    # Also catch case-insensitive and slight variations
+    letter = re.sub(r"\[(?:Consumer|Your)\s*(?:Name|Address)\]", consumer_name, letter, flags=re.IGNORECASE)
+    letter = re.sub(r"\[(?:Agency|Company|Servicer)\s*(?:Name)?\]", servicer, letter, flags=re.IGNORECASE)
+    letter = re.sub(r"\[Date\]", letter_date, letter, flags=re.IGNORECASE)
+
+    return letter
 
 
 def draft_letter(record, use_llm=True):
@@ -73,7 +114,7 @@ def draft_letter(record, use_llm=True):
         prompt = _build_prompt(record)
         response, tier = generate(prompt, LETTER_SYSTEM)
         if response:
-            record["draft_letter"] = response.strip()
+            record["draft_letter"] = _fill_placeholders(response.strip(), record)
             record["draft_tier"] = tier
             return record
 
@@ -83,11 +124,20 @@ def draft_letter(record, use_llm=True):
     return record
 
 
+def _format_currency(val):
+    """Format a balance value as $X,XXX.XX."""
+    try:
+        num = float(str(val).replace("$", "").replace(",", ""))
+        return f"${num:,.2f}"
+    except (ValueError, TypeError):
+        return str(val)
+
+
 def _template_letter(record):
     """Fallback template letter when no LLM is available."""
     account_id = record.get("account_id", "UNKNOWN")
     dispute_type = record.get("classified_type", "general")
-    balance = record.get("balance_current", "unknown")
+    balance = _format_currency(record.get("balance_current", "unknown"))
     creditor = record.get("original_creditor", "unknown")
 
     type_responses = {
@@ -141,14 +191,20 @@ def _template_letter(record):
         creditor=creditor,
     )
 
-    letter = textwrap.dedent(f"""\
-    [DATE]
+    consumer_name = record.get("consumer_name", "Consumer")
+    state = record.get("state", "TX")
+    servicer = record.get("current_servicer", "Account Services Department")
+    letter_date = _synthetic_letter_date(record)
+    address = _synthetic_address(consumer_name, state)
 
-    [CONSUMER ADDRESS]
+    letter = textwrap.dedent(f"""\
+    {letter_date}
+
+    {address}
 
     RE: Account {account_id}
 
-    Dear Consumer,
+    Dear {consumer_name},
 
     Thank you for contacting us regarding your account. We have received and
     logged your dispute.
@@ -162,11 +218,50 @@ def _template_letter(record):
 
     Sincerely,
 
-    [AGENCY NAME]
+    {servicer}
     Compliance Department
     """)
 
     return letter
+
+
+def _synthetic_letter_date(record):
+    """Generate a plausible letter date from the record."""
+    import hashlib
+    # Deterministic but plausible: hash the account ID to pick a recent date
+    seed = int(hashlib.md5(record.get("account_id", "").encode()).hexdigest()[:8], 16)
+    day = (seed % 28) + 1
+    month = (seed // 28 % 12) + 1
+    months = ["January", "February", "March", "April", "May", "June",
+              "July", "August", "September", "October", "November", "December"]
+    return f"{months[month - 1]} {day}, 2026"
+
+
+# Synthetic street names and cities by state — just enough to look real on a projector
+_STREETS = [
+    "142 Oakwood Drive", "3891 Maple Avenue", "507 Cedar Lane",
+    "2240 Birch Street", "1018 Elm Court", "765 Willow Road",
+    "4422 Pine Bluff Way", "330 Spruce Circle", "1987 Aspen Trail",
+]
+_CITIES_BY_STATE = {
+    "TX": "Arlington, TX 76010", "CA": "Riverside, CA 92501",
+    "FL": "Lakeland, FL 33801", "NY": "Rochester, NY 14604",
+    "IL": "Naperville, IL 60540", "PA": "Allentown, PA 18101",
+    "OH": "Dayton, OH 45402", "GA": "Savannah, GA 31401",
+    "NC": "Durham, NC 27701", "MI": "Lansing, MI 48933",
+    "NJ": "Edison, NJ 08817", "VA": "Richmond, VA 23219",
+    "MO": "Springfield, MO 65801", "AZ": "Mesa, AZ 85201",
+    "CO": "Aurora, CO 80012", "WA": "Tacoma, WA 98402",
+}
+
+
+def _synthetic_address(consumer_name, state):
+    """Generate a plausible synthetic mailing address."""
+    import hashlib
+    seed = int(hashlib.md5(consumer_name.encode()).hexdigest()[:8], 16)
+    street = _STREETS[seed % len(_STREETS)]
+    city_line = _CITIES_BY_STATE.get(state, f"Springfield, {state} 62701")
+    return f"{consumer_name}\n{street}\n{city_line}"
 
 
 def run(records, max_drafts=None, use_llm=True):
