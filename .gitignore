@@ -1,0 +1,22 @@
+# Environments
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets, never commit these
+.env
+*.key
+*credentials*
+*secrets*
+
+# Local model cache (large files, don't check in)
+.ollama/
+
+# Editor
+.vscode/
+.idea/

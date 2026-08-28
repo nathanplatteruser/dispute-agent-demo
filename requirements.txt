@@ -1,0 +1,5 @@
+# Core dependencies, adjust to match your actual working environment from
+# ~/git repos/brainstorm-demo before pushing.
+pandas
+# Add: your CFPB data-loading libs, PDF/report generation libs, and the
+# client library you use for the cloud model tier (e.g. anthropic).

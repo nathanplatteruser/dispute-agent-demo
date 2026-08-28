@@ -1,0 +1,2 @@
+document_id,category,evidence_used,flag_status,draft_status,human_review_status
+DEMO-001,payment_balance_dispute,mock_account_ledger.csv row 14,factual_mismatch,drafted,pending_review
