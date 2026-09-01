@@ -106,7 +106,7 @@ body {
 
 .content {
   display: grid;
-  grid-template-rows: 1fr minmax(260px, 40vh);
+  grid-template-rows: 1fr auto;
   overflow: hidden;
 }
 .panels {
@@ -170,34 +170,9 @@ body {
 
 .bottom-panel {
   background: var(--surface);
-  border-top: 3px solid var(--border);
-  height: 100%;
+  border-top: 1px solid var(--border);
+  max-height: 300px;
   overflow-y: auto;
-  resize: vertical;
-  position: relative;
-}
-.bottom-panel::before {
-  content: "";
-  position: sticky;
-  top: 0;
-  display: block;
-  width: 60px;
-  height: 4px;
-  margin: 6px auto 2px auto;
-  border-radius: 2px;
-  background: var(--border);
-  opacity: 0.9;
-  cursor: ns-resize;
-}
-.bottom-panel::after {
-  content: "";
-  position: sticky;
-  bottom: 0;
-  display: block;
-  height: 24px;
-  margin-top: -24px;
-  background: linear-gradient(to bottom, transparent, var(--surface));
-  pointer-events: none;
 }
 
 .tab-bar {

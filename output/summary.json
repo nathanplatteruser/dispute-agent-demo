@@ -1,19 +1,19 @@
 {
-  "total_records": 100,
-  "drafted": 100,
-  "reviewed": 100,
-  "review_passed": 89,
-  "review_flagged": 11,
-  "high_risk_letters": 13,
-  "elapsed_seconds": 1818.3,
+  "total_records": 10,
+  "drafted": 3,
+  "reviewed": 3,
+  "review_passed": 3,
+  "review_flagged": 0,
+  "high_risk_letters": 1,
+  "elapsed_seconds": 47.8,
   "validation_stats": {
-    "input_count": 100,
-    "output_count": 100,
+    "input_count": 10,
+    "output_count": 10,
     "duplicates_removed": 0,
-    "balances_fixed": 200,
-    "dates_fixed": 4,
-    "states_fixed": 1,
-    "nulls_flagged": 3
+    "balances_fixed": 20,
+    "dates_fixed": 2,
+    "states_fixed": 0,
+    "nulls_flagged": 0
   },
   "settings": {
     "llm_enabled": true,
