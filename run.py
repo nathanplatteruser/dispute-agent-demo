@@ -27,6 +27,7 @@ sys.path.insert(0, str(ROOT))
 
 from pipeline import intake, validate, classify, draft, review, consumer_view
 from offline.llm import get_current_tier, tier_status_line
+from pipeline import remediate
 
 
 def main():
@@ -43,6 +44,8 @@ def main():
                         help="Output directory (default: output/)")
     parser.add_argument("--max-drafts", type=int, default=None,
                         help="Limit number of LLM-drafted letters")
+    parser.add_argument("--remediate", action="store_true", help="Re-draft flagged letters with their findings as constraints")
+    parser.add_argument("--remediation-passes", type=int, default=2, help="Max remediation attempts per letter")
     args = parser.parse_args()
 
     output_dir = ROOT / args.output
@@ -84,6 +87,9 @@ def main():
     records = consumer_view.run(records)
 
     # Save results
+    if args.remediate:
+        records, _ = remediate.run(records, max_passes=args.remediation_passes, use_llm=not args.no_llm, strict=not args.loose_review)
+
     elapsed = time.time() - start
     print(f"\n{'=' * 60}")
     print(f"  PIPELINE COMPLETE — {elapsed:.1f}s")

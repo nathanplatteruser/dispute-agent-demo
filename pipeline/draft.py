@@ -76,6 +76,10 @@ CONSUMER'S DISPUTE:
 Write the response letter now. Format all dollar amounts as $X,XXX.XX.
 Remember: only assert facts from the record above."""
 
+    notes = record.get("remediation_notes")
+    if notes:
+        prompt += notes
+
     return prompt
 
 
