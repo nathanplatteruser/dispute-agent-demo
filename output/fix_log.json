@@ -634,5 +634,617 @@
     "field": "balance_original",
     "issue": "string_balance: '391.7'",
     "action": "coerced to 391.7"
+  },
+  {
+    "account_id": "ACC-701253",
+    "field": "balance_current",
+    "issue": "string_balance: '2989.13'",
+    "action": "coerced to 2989.13"
+  },
+  {
+    "account_id": "ACC-701253",
+    "field": "balance_original",
+    "issue": "string_balance: '7379.98'",
+    "action": "coerced to 7379.98"
+  },
+  {
+    "account_id": "ACC-556839",
+    "field": "balance_current",
+    "issue": "string_balance: '3107.4'",
+    "action": "coerced to 3107.4"
+  },
+  {
+    "account_id": "ACC-556839",
+    "field": "balance_original",
+    "issue": "string_balance: '10015.01'",
+    "action": "coerced to 10015.01"
+  },
+  {
+    "account_id": "ACC-958729",
+    "field": "balance_current",
+    "issue": "string_balance: '755.91'",
+    "action": "coerced to 755.91"
+  },
+  {
+    "account_id": "ACC-958729",
+    "field": "balance_original",
+    "issue": "string_balance: '3831.82'",
+    "action": "coerced to 3831.82"
+  },
+  {
+    "account_id": "ACC-561124",
+    "field": "balance_current",
+    "issue": "string_balance: '11798.22'",
+    "action": "coerced to 11798.22"
+  },
+  {
+    "account_id": "ACC-561124",
+    "field": "balance_original",
+    "issue": "string_balance: '19948.98'",
+    "action": "coerced to 19948.98"
+  },
+  {
+    "account_id": "ACC-722937",
+    "field": "balance_current",
+    "issue": "string_balance: '11043.52'",
+    "action": "coerced to 11043.52"
+  },
+  {
+    "account_id": "ACC-722937",
+    "field": "balance_original",
+    "issue": "string_balance: '13947.05'",
+    "action": "coerced to 13947.05"
+  },
+  {
+    "account_id": "ACC-572407",
+    "field": "balance_current",
+    "issue": "string_balance: '635.04'",
+    "action": "coerced to 635.04"
+  },
+  {
+    "account_id": "ACC-572407",
+    "field": "balance_original",
+    "issue": "string_balance: '16223.95'",
+    "action": "coerced to 16223.95"
+  },
+  {
+    "account_id": "ACC-154909",
+    "field": "balance_current",
+    "issue": "string_balance: '4673.68'",
+    "action": "coerced to 4673.68"
+  },
+  {
+    "account_id": "ACC-154909",
+    "field": "balance_original",
+    "issue": "string_balance: '8376.33'",
+    "action": "coerced to 8376.33"
+  },
+  {
+    "account_id": "ACC-235215",
+    "field": "balance_current",
+    "issue": "string_balance: '9048.33'",
+    "action": "coerced to 9048.33"
+  },
+  {
+    "account_id": "ACC-235215",
+    "field": "balance_original",
+    "issue": "string_balance: '14061.27'",
+    "action": "coerced to 14061.27"
+  },
+  {
+    "account_id": "ACC-289019",
+    "field": "balance_current",
+    "issue": "string_balance: '800.39'",
+    "action": "coerced to 800.39"
+  },
+  {
+    "account_id": "ACC-289019",
+    "field": "balance_original",
+    "issue": "string_balance: '5818.27'",
+    "action": "coerced to 5818.27"
+  },
+  {
+    "account_id": "ACC-270128",
+    "field": "balance_current",
+    "issue": "string_balance: '790.19'",
+    "action": "coerced to 790.19"
+  },
+  {
+    "account_id": "ACC-270128",
+    "field": "balance_original",
+    "issue": "string_balance: '18085.34'",
+    "action": "coerced to 18085.34"
+  },
+  {
+    "account_id": "ACC-906814",
+    "field": "balance_current",
+    "issue": "string_balance: '12833.01'",
+    "action": "coerced to 12833.01"
+  },
+  {
+    "account_id": "ACC-906814",
+    "field": "balance_original",
+    "issue": "string_balance: '13281.0'",
+    "action": "coerced to 13281.0"
+  },
+  {
+    "account_id": "ACC-906814",
+    "field": "charge_off_date",
+    "issue": "date_format: '07/30/2024'",
+    "action": "normalized to 2024-07-30"
+  },
+  {
+    "account_id": "ACC-906814",
+    "field": "last_payment_date",
+    "issue": "date_format: '09/11/2025'",
+    "action": "normalized to 2025-09-11"
+  },
+  {
+    "account_id": "ACC-900185",
+    "field": "balance_current",
+    "issue": "string_balance: '1686.13'",
+    "action": "coerced to 1686.13"
+  },
+  {
+    "account_id": "ACC-900185",
+    "field": "balance_original",
+    "issue": "string_balance: '3854.25'",
+    "action": "coerced to 3854.25"
+  },
+  {
+    "account_id": "ACC-335445",
+    "field": "balance_current",
+    "issue": "string_balance: '2728.08'",
+    "action": "coerced to 2728.08"
+  },
+  {
+    "account_id": "ACC-335445",
+    "field": "balance_original",
+    "issue": "string_balance: '19826.24'",
+    "action": "coerced to 19826.24"
+  },
+  {
+    "account_id": "ACC-738457",
+    "field": "balance_current",
+    "issue": "string_balance: '742.48'",
+    "action": "coerced to 742.48"
+  },
+  {
+    "account_id": "ACC-738457",
+    "field": "balance_original",
+    "issue": "string_balance: '6093.48'",
+    "action": "coerced to 6093.48"
+  },
+  {
+    "account_id": "ACC-352249",
+    "field": "balance_current",
+    "issue": "string_balance: '4753.63'",
+    "action": "coerced to 4753.63"
+  },
+  {
+    "account_id": "ACC-352249",
+    "field": "balance_original",
+    "issue": "string_balance: '13182.42'",
+    "action": "coerced to 13182.42"
+  },
+  {
+    "account_id": "ACC-789023",
+    "field": "balance_current",
+    "issue": "string_balance: '1236.06'",
+    "action": "coerced to 1236.06"
+  },
+  {
+    "account_id": "ACC-789023",
+    "field": "balance_original",
+    "issue": "string_balance: '3508.56'",
+    "action": "coerced to 3508.56"
+  },
+  {
+    "account_id": "ACC-913894",
+    "field": "balance_current",
+    "issue": "string_balance: '256.6'",
+    "action": "coerced to 256.6"
+  },
+  {
+    "account_id": "ACC-913894",
+    "field": "balance_original",
+    "issue": "string_balance: '1286.4'",
+    "action": "coerced to 1286.4"
+  },
+  {
+    "account_id": "ACC-879414",
+    "field": "balance_current",
+    "issue": "string_balance: '6221.95'",
+    "action": "coerced to 6221.95"
+  },
+  {
+    "account_id": "ACC-879414",
+    "field": "balance_original",
+    "issue": "string_balance: '12505.84'",
+    "action": "coerced to 12505.84"
+  },
+  {
+    "account_id": "ACC-207581",
+    "field": "balance_current",
+    "issue": "string_balance: '8079.96'",
+    "action": "coerced to 8079.96"
+  },
+  {
+    "account_id": "ACC-207581",
+    "field": "balance_original",
+    "issue": "string_balance: '11258.71'",
+    "action": "coerced to 11258.71"
+  },
+  {
+    "account_id": "ACC-638009",
+    "field": "balance_current",
+    "issue": "string_balance: '2272.89'",
+    "action": "coerced to 2272.89"
+  },
+  {
+    "account_id": "ACC-638009",
+    "field": "balance_original",
+    "issue": "string_balance: '3740.93'",
+    "action": "coerced to 3740.93"
+  },
+  {
+    "account_id": "ACC-655178",
+    "field": "balance_current",
+    "issue": "string_balance: '724.98'",
+    "action": "coerced to 724.98"
+  },
+  {
+    "account_id": "ACC-655178",
+    "field": "balance_original",
+    "issue": "string_balance: '6390.37'",
+    "action": "coerced to 6390.37"
+  },
+  {
+    "account_id": "ACC-309902",
+    "field": "balance_current",
+    "issue": "string_balance: '3197.24'",
+    "action": "coerced to 3197.24"
+  },
+  {
+    "account_id": "ACC-309902",
+    "field": "balance_original",
+    "issue": "string_balance: '4481.88'",
+    "action": "coerced to 4481.88"
+  },
+  {
+    "account_id": "ACC-668507",
+    "field": "balance_current",
+    "issue": "string_balance: '10115.93'",
+    "action": "coerced to 10115.93"
+  },
+  {
+    "account_id": "ACC-668507",
+    "field": "balance_original",
+    "issue": "string_balance: '19883.67'",
+    "action": "coerced to 19883.67"
+  },
+  {
+    "account_id": "ACC-478427",
+    "field": "balance_current",
+    "issue": "string_balance: '11105.1'",
+    "action": "coerced to 11105.1"
+  },
+  {
+    "account_id": "ACC-478427",
+    "field": "balance_original",
+    "issue": "string_balance: '20130.81'",
+    "action": "coerced to 20130.81"
+  },
+  {
+    "account_id": "ACC-588461",
+    "field": "balance_current",
+    "issue": "string_balance: '17145.04'",
+    "action": "coerced to 17145.04"
+  },
+  {
+    "account_id": "ACC-588461",
+    "field": "balance_original",
+    "issue": "string_balance: '21973.41'",
+    "action": "coerced to 21973.41"
+  },
+  {
+    "account_id": "ACC-269834",
+    "field": "balance_current",
+    "issue": "string_balance: '12296.62'",
+    "action": "coerced to 12296.62"
+  },
+  {
+    "account_id": "ACC-269834",
+    "field": "balance_original",
+    "issue": "string_balance: '23697.58'",
+    "action": "coerced to 23697.58"
+  },
+  {
+    "account_id": "ACC-772124",
+    "field": "balance_current",
+    "issue": "string_balance: '2776.3'",
+    "action": "coerced to 2776.3"
+  },
+  {
+    "account_id": "ACC-772124",
+    "field": "balance_original",
+    "issue": "string_balance: '4445.78'",
+    "action": "coerced to 4445.78"
+  },
+  {
+    "account_id": "ACC-757629",
+    "field": "balance_current",
+    "issue": "string_balance: '9798.71'",
+    "action": "coerced to 9798.71"
+  },
+  {
+    "account_id": "ACC-757629",
+    "field": "balance_original",
+    "issue": "string_balance: '12177.03'",
+    "action": "coerced to 12177.03"
+  },
+  {
+    "account_id": "ACC-518084",
+    "field": "balance_current",
+    "issue": "string_balance: '4508.77'",
+    "action": "coerced to 4508.77"
+  },
+  {
+    "account_id": "ACC-518084",
+    "field": "balance_original",
+    "issue": "string_balance: '14128.95'",
+    "action": "coerced to 14128.95"
+  },
+  {
+    "account_id": "ACC-856157",
+    "field": "balance_current",
+    "issue": "string_balance: '$11,623.72'",
+    "action": "coerced to 11623.72"
+  },
+  {
+    "account_id": "ACC-856157",
+    "field": "balance_original",
+    "issue": "string_balance: '24900.04'",
+    "action": "coerced to 24900.04"
+  },
+  {
+    "account_id": "ACC-726543",
+    "field": "balance_current",
+    "issue": "string_balance: '11445.24'",
+    "action": "coerced to 11445.24"
+  },
+  {
+    "account_id": "ACC-726543",
+    "field": "balance_original",
+    "issue": "string_balance: '13509.93'",
+    "action": "coerced to 13509.93"
+  },
+  {
+    "account_id": "ACC-402620",
+    "field": "balance_current",
+    "issue": "string_balance: '5358.67'",
+    "action": "coerced to 5358.67"
+  },
+  {
+    "account_id": "ACC-402620",
+    "field": "balance_original",
+    "issue": "string_balance: '19157.22'",
+    "action": "coerced to 19157.22"
+  },
+  {
+    "account_id": "ACC-633853",
+    "field": "balance_current",
+    "issue": "string_balance: '831.38'",
+    "action": "coerced to 831.38"
+  },
+  {
+    "account_id": "ACC-633853",
+    "field": "balance_original",
+    "issue": "string_balance: '1165.07'",
+    "action": "coerced to 1165.07"
+  },
+  {
+    "account_id": "ACC-597960",
+    "field": "balance_current",
+    "issue": "string_balance: '14301.56'",
+    "action": "coerced to 14301.56"
+  },
+  {
+    "account_id": "ACC-597960",
+    "field": "balance_original",
+    "issue": "string_balance: '24501.47'",
+    "action": "coerced to 24501.47"
+  },
+  {
+    "account_id": "ACC-856215",
+    "field": "balance_current",
+    "issue": "string_balance: '4983.73'",
+    "action": "coerced to 4983.73"
+  },
+  {
+    "account_id": "ACC-856215",
+    "field": "balance_original",
+    "issue": "string_balance: '20577.2'",
+    "action": "coerced to 20577.2"
+  },
+  {
+    "account_id": "ACC-530311",
+    "field": "balance_current",
+    "issue": "string_balance: '16075.01'",
+    "action": "coerced to 16075.01"
+  },
+  {
+    "account_id": "ACC-530311",
+    "field": "balance_original",
+    "issue": "string_balance: '21845.88'",
+    "action": "coerced to 21845.88"
+  },
+  {
+    "account_id": "ACC-808699",
+    "field": "balance_current",
+    "issue": "string_balance: '$2,947.39'",
+    "action": "coerced to 2947.39"
+  },
+  {
+    "account_id": "ACC-808699",
+    "field": "balance_original",
+    "issue": "string_balance: '15329.9'",
+    "action": "coerced to 15329.9"
+  },
+  {
+    "account_id": "ACC-465746",
+    "field": "balance_current",
+    "issue": "string_balance: '2180.4'",
+    "action": "coerced to 2180.4"
+  },
+  {
+    "account_id": "ACC-465746",
+    "field": "balance_original",
+    "issue": "string_balance: '3222.48'",
+    "action": "coerced to 3222.48"
+  },
+  {
+    "account_id": "ACC-324381",
+    "field": "balance_current",
+    "issue": "string_balance: '2397.48'",
+    "action": "coerced to 2397.48"
+  },
+  {
+    "account_id": "ACC-324381",
+    "field": "balance_original",
+    "issue": "string_balance: '17465.05'",
+    "action": "coerced to 17465.05"
+  },
+  {
+    "account_id": "ACC-205428",
+    "field": "balance_current",
+    "issue": "string_balance: '23587.27'",
+    "action": "coerced to 23587.27"
+  },
+  {
+    "account_id": "ACC-205428",
+    "field": "balance_original",
+    "issue": "string_balance: '24120.07'",
+    "action": "coerced to 24120.07"
+  },
+  {
+    "account_id": "ACC-702022",
+    "field": "balance_current",
+    "issue": "string_balance: '8848.08'",
+    "action": "coerced to 8848.08"
+  },
+  {
+    "account_id": "ACC-702022",
+    "field": "balance_original",
+    "issue": "string_balance: '10563.55'",
+    "action": "coerced to 10563.55"
+  },
+  {
+    "account_id": "ACC-669691",
+    "field": "balance_current",
+    "issue": "string_balance: '2276.51'",
+    "action": "coerced to 2276.51"
+  },
+  {
+    "account_id": "ACC-669691",
+    "field": "balance_original",
+    "issue": "string_balance: '11806.92'",
+    "action": "coerced to 11806.92"
+  },
+  {
+    "account_id": "ACC-740632",
+    "field": "balance_current",
+    "issue": "string_balance: '3339.98'",
+    "action": "coerced to 3339.98"
+  },
+  {
+    "account_id": "ACC-740632",
+    "field": "balance_original",
+    "issue": "string_balance: '8332.58'",
+    "action": "coerced to 8332.58"
+  },
+  {
+    "account_id": "ACC-416613",
+    "field": "balance_current",
+    "issue": "string_balance: '2404.15'",
+    "action": "coerced to 2404.15"
+  },
+  {
+    "account_id": "ACC-416613",
+    "field": "balance_original",
+    "issue": "string_balance: '6686.52'",
+    "action": "coerced to 6686.52"
+  },
+  {
+    "account_id": "ACC-260626",
+    "field": "balance_current",
+    "issue": "string_balance: '5774.09'",
+    "action": "coerced to 5774.09"
+  },
+  {
+    "account_id": "ACC-260626",
+    "field": "balance_original",
+    "issue": "string_balance: '10512.97'",
+    "action": "coerced to 10512.97"
+  },
+  {
+    "account_id": "ACC-651033",
+    "field": "balance_current",
+    "issue": "string_balance: '2574.93'",
+    "action": "coerced to 2574.93"
+  },
+  {
+    "account_id": "ACC-651033",
+    "field": "balance_original",
+    "issue": "string_balance: '22947.67'",
+    "action": "coerced to 22947.67"
+  },
+  {
+    "account_id": "ACC-578987",
+    "field": "balance_current",
+    "issue": "string_balance: '5203.33'",
+    "action": "coerced to 5203.33"
+  },
+  {
+    "account_id": "ACC-578987",
+    "field": "balance_original",
+    "issue": "string_balance: '16884.64'",
+    "action": "coerced to 16884.64"
+  },
+  {
+    "account_id": "ACC-595002",
+    "field": "balance_current",
+    "issue": "string_balance: '14757.89'",
+    "action": "coerced to 14757.89"
+  },
+  {
+    "account_id": "ACC-595002",
+    "field": "balance_original",
+    "issue": "string_balance: '19270.51'",
+    "action": "coerced to 19270.51"
+  },
+  {
+    "account_id": "ACC-287143",
+    "field": "balance_current",
+    "issue": "string_balance: '4064.29'",
+    "action": "coerced to 4064.29"
+  },
+  {
+    "account_id": "ACC-287143",
+    "field": "balance_original",
+    "issue": "string_balance: '18250.88'",
+    "action": "coerced to 18250.88"
+  },
+  {
+    "account_id": "ACC-389039",
+    "field": "balance_current",
+    "issue": "string_balance: '8500.13'",
+    "action": "coerced to 8500.13"
+  },
+  {
+    "account_id": "ACC-389039",
+    "field": "balance_original",
+    "issue": "string_balance: '20275.06'",
+    "action": "coerced to 20275.06"
   }
 ]

@@ -14,7 +14,7 @@ of what the room does Monday.
 - [ ] Ollama running: `ollama serve`
 - [ ] Terminal open, font size 18+, dark background
 - [ ] `cd` to the repo root
-- [ ] Pre-run: `python3 run.py --records 50 --max-drafts 10` (output already saved)
+- [ ] Pre-run: `python run.py --records 50 --max-drafts 10` (output already saved)
 - [ ] Browser open to `ui/index.html` (self-contained, works from file://)
 - [ ] Verify a high-risk letter is visible (click through sidebar, find a red dot)
 - [ ] USB sticks at the door
@@ -108,7 +108,7 @@ Rattle off patterns from memory (these are real CFPB patterns):
 ### Show the pipeline (2 min)
 
 ```bash
-python3 run.py --records 10 --no-llm
+python run.py --records 10 --no-llm
 ```
 
 > "That just ran 10 records through the full pipeline in under a second.
@@ -120,7 +120,7 @@ consumer view. Each stage reported what it found.
 ### Break 1: The String Break (3 min)
 
 ```bash
-python3 break/break1_strings.py
+python break/break1_strings.py
 ```
 
 > "See that? '$462' plus '$121' equals '$462$121'. That's not math.
@@ -132,7 +132,7 @@ python3 break/break1_strings.py
 > pipeline."
 
 ```bash
-python3 break/break1_strings.py fix
+python break/break1_strings.py fix
 ```
 
 > "One line of type coercion. Fixed."
@@ -207,7 +207,7 @@ invents a payment date.
 |---------|----------|-----------|
 | Ollama slow/crashes | `--no-llm` for template letters, show pre-generated LLM output in browser | 0s |
 | Break script doesn't hit string balances | Pre-loaded output shows the effect; talk through it | 15s |
-| Browser won't open | Show `output/records.json` in terminal with `python3 -c "import json; ..."` | 10s |
+| Browser won't open | Show `output/records.json` in terminal with `python -c "import json; ..."` | 10s |
 | Running long | Cut Break 1, go straight to browser + consumer view | Saves 3 min |
 | Running short | Expand consumer view reading, show a second letter, take questions | Fills 3 min |
 | Projector fails | Everything is terminal. Can deliver the talk with voice + terminal alone | 0s |

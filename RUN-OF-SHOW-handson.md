@@ -10,8 +10,8 @@
 - [ ] Terminal open, font size 18+, dark background
 - [ ] Browser open to `ui/index.html` (self-contained, works from file://)
 - [ ] Wifi ON initially (for Tier 1 demo option), but pipeline will work without it
-- [ ] `cd ~/dispute-demo` (or wherever the repo lives)
-- [ ] Run `python3 run.py --records 5 --no-llm` once to warm up — confirm it prints clean output
+- [ ] `cd ~/"git repos/brainstorm-demo"` (or wherever the repo lives)
+- [ ] Run `python run.py --records 5 --no-llm` once to warm up — confirm it prints clean output
 - [ ] USB sticks with handout/ loaded and ready at the door
 
 ---
@@ -59,7 +59,7 @@
    ```
 3. Point out the string balances:
    ```bash
-   python3 -c "
+   python -c "
    import csv
    with open('data/synth/synthetic_ledger.csv') as f:
        for row in csv.DictReader(f):
@@ -86,7 +86,7 @@
 
 ### Stage 1: Intake (2 min)
 ```bash
-python3 -c "
+python -c "
 import sys; sys.path.insert(0,'.')
 from pipeline.intake import run
 records = run(max_records=20)
@@ -98,7 +98,7 @@ print(f'First record keys: {list(records[0].keys())}')
 
 ### Stage 2: Validate (3 min)
 ```bash
-python3 -c "
+python -c "
 import sys; sys.path.insert(0,'.')
 from pipeline.intake import run as intake
 from pipeline.validate import run as validate
@@ -113,7 +113,7 @@ print(f'Fixes: {stats}')
 
 ### Stage 3: Classify (3 min)
 ```bash
-python3 -c "
+python -c "
 import sys; sys.path.insert(0,'.')
 from pipeline.intake import run as intake
 from pipeline.validate import run as validate
@@ -130,7 +130,7 @@ for r in classified[:5]:
 
 ### Stage 4: Draft (5 min)
 ```bash
-python3 run.py --records 10 --max-drafts 3
+python run.py --records 10 --max-drafts 3
 ```
 > "Now the model writes. Watch the tier indicator — that tells you whether
 > it's using the cloud, the local model, or the cache."
@@ -143,7 +143,7 @@ Pause while Ollama generates. Use the ~20-second wait to talk about what's happe
 Open `output/records.json` or the UI to show review findings.
 
 ```bash
-python3 -c "
+python -c "
 import json
 with open('output/records.json') as f:
     records = json.load(f)
@@ -176,7 +176,7 @@ Click to the Consumer Impact tab. Show the intent-vs-impact comparison.
 
 **Pre-built vs typed live:** Pipeline code is pre-written. Nathan runs it live. UI is pre-built.
 
-**Recovery if a stage fails:** Run `python3 run.py --no-llm` for instant results with templates.
+**Recovery if a stage fails:** Run `python run.py --no-llm` for instant results with templates.
 
 ---
 
@@ -185,7 +185,7 @@ Click to the Consumer Impact tab. Show the intent-vs-impact comparison.
 ### Break 1: The String Break (4 min)
 
 ```bash
-python3 break/break1_strings.py
+python break/break1_strings.py
 ```
 
 > "See that? The balance is a string. When you add strings, you get
@@ -193,7 +193,7 @@ python3 break/break1_strings.py
 > just went out quoting a number that doesn't exist."
 
 ```bash
-python3 break/break1_strings.py fix
+python break/break1_strings.py fix
 ```
 
 > "One line of type coercion at intake. That's it. The model didn't fail —
@@ -202,7 +202,7 @@ python3 break/break1_strings.py fix
 ### Break 2: The Hallucination Break (4 min)
 
 ```bash
-python3 break/break2_hallucination.py
+python break/break2_hallucination.py
 ```
 
 > "I just turned off half the review gate. Watch what the model does."
@@ -210,7 +210,7 @@ python3 break/break2_hallucination.py
 Wait for output. Point to any hallucinated dates/payments.
 
 ```bash
-python3 break/break2_hallucination.py fix
+python break/break2_hallucination.py fix
 ```
 
 > "Same letter, same model. But now the gate catches it. The model
@@ -219,7 +219,7 @@ python3 break/break2_hallucination.py fix
 ### Break 3: The Wrong-Consumer Break (3 min)
 
 ```bash
-python3 break/break3_wrong_consumer.py
+python break/break3_wrong_consumer.py
 ```
 
 > "Consumer says 'this isn't my account.' The letter responds with a
@@ -228,7 +228,7 @@ python3 break/break3_wrong_consumer.py
 (Pause for hands.)
 
 ```bash
-python3 break/break3_wrong_consumer.py fix
+python break/break3_wrong_consumer.py fix
 ```
 
 > "Route the dispute, then respond to it. In that order."
@@ -276,7 +276,7 @@ The three Monday actions (from WHAT-TO-DO-MONDAY.md):
 
 | Problem | Recovery |
 |---------|----------|
-| Ollama crashes | `python3 run.py --no-llm` (template mode, instant) |
+| Ollama crashes | `python run.py --no-llm` (template mode, instant) |
 | Wifi dies during API demo | "And that's exactly what happens at a conference." Show Tier 2 picking up. |
 | Pipeline throws unexpected error | Show the error, diagnose it live. "This is real. Let me fix it." |
 | Running long | Cut Break 3, go straight to flip-the-chair |
