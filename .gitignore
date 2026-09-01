@@ -25,3 +25,10 @@ node_modules/
 
 # Model caches
 offline/cache/*.bin
+
+# Generated output
+offline/cache/
+ui/index.html
+output/
+logs/
+*.bak
