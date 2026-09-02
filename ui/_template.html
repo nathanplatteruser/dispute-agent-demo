@@ -477,7 +477,7 @@ function updateStats() {
 
 function getFilteredData() {
   switch (currentFilter) {
-    case 'flagged': return DATA.filter(r => !r.review_passed);
+    case 'flagged': return DATA.filter(r => r.draft_letter && !r.review_passed);
     case 'high': return DATA.filter(r => r.engagement_risk_level === 'high');
     case 'passed': return DATA.filter(r => r.review_passed);
     default: return DATA;
@@ -677,6 +677,13 @@ function renderValidationTab(rec) {
       <div style="margin-bottom: 8px;"><strong>Classification:</strong> ${rec.classified_type || '?'} (${rec.classification_method || '?'}, confidence: ${rec.classification_confidence || '?'})</div>
       <div style="margin-bottom: 8px;"><strong>Review passed:</strong> ${rec.review_passed ? '<span style="color: var(--green);">YES</span>' : '<span style="color: var(--red);">NO</span>'}</div>
       <div><strong>Draft tier:</strong> ${rec.draft_tier || '?'}</div>
+      ${rec.original_draft_letter ? `
+      <div style="margin-top:16px;padding-top:12px;border-top:1px solid var(--border);">
+        <div style="margin-bottom:8px;"><strong>REMEDIATION</strong></div>
+        <div style="margin-bottom:6px;">Original findings: ${(rec.original_review_findings||[]).map(f=>f.reason).join('; ') || 'none'}</div>
+        <div style="margin-bottom:6px;">Attempts: ${rec.remediation_passes || 0}</div>
+        <div>Result: ${rec.remediation_refused ? '<span style="color: var(--red);">REFUSED - not sent, partner review required</span>' : '<span style="color: var(--green);">RECOVERED - now passes the gate</span>'}</div>
+      </div>` : ''}
     </div>
   `;
 }
