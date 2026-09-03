@@ -7,8 +7,8 @@ Symptom: A letter quotes a concatenated nonsense balance ("$1,234.56$2,345.67")
          because string balances were added instead of summed.
 Fix:     Re-run with balance validation enabled (default).
 
-This is the "what is a string?" moment. Nathan uses it to test whether
-an AI consultant actually understands their own pipeline.
+This is the "what is a string?" moment. It tests whether anyone
+building on top of an LLM understands their own data layer.
 """
 
 import sys
