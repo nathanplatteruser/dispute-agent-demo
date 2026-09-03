@@ -6,7 +6,7 @@ A local, air-gapped-capable prototype that ingests fictional debt-collection dis
 
 - A hands-on prototype showing one narrow workflow: find factually unsupported claims in a drafted dispute response, and stage the letter for human sign-off.
 - Runs entirely on public CFPB narratives joined to a synthetic ledger. No PII, no client data.
-- Runs fully offline on a local model, with tiered failover (cloud API, then local Ollama, then a response cache).
+- Runs fully offline on a local model, with tiered failover. No accounts, no API keys, nothing leaves your machine.
 
 ## What this is NOT
 
@@ -31,7 +31,7 @@ Letters are drafted for review, never dispatched.
 
 No requirements.txt: everything is Python standard library plus Ollama on localhost:11434.
 
-Timing: about 18 seconds per letter on an M1 Mac. On Windows without Metal, expect 30 to 60 seconds per letter. That is normal.
+Timing: about 15.6 seconds per letter on an M1 Mac. On Windows without Metal, expect 30 to 60 seconds per letter. That is normal.
 
 ## Flags
 
@@ -48,8 +48,8 @@ dispute-agent-demo/
 ├── run.py                    # the pipeline, start here
 ├── CLAUDE.md
 ├── DECISIONS.md
-├── RUN-OF-SHOW-solo.md       # 25-min session
-├── RUN-OF-SHOW-handson.md    # 60-min session
+├── SESSION-RUN-OF-SHOW.md    # full session breakdown
+├── 00-START-HERE-Setup-Guide.docx
 ├── pipeline/                 # intake, validate, classify, draft, review, consumer
 ├── offline/                  # tiered LLM fallback and response cache
 ├── data/synth/               # synthetic ledger
