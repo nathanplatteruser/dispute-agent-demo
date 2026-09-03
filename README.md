@@ -40,6 +40,7 @@ Timing: about 15.6 seconds per letter on an M1 Mac. On Windows without Metal, ex
 - `--no-llm` instant template letters, for smoke tests
 - `--no-fix-balances` the string-concatenation break demo
 - `--loose-review` the hallucination break demo
+- `--remediate` re-draft flagged letters with their own findings attached as constraints, then re-check
 
 ## Repo layout
 
