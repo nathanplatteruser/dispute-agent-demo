@@ -5,725 +5,314 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Both Sides of the Letter — Dispute Response Pipeline</title>
 <style>
-:root {
-  --bg: #0f1117;
-  --surface: #1a1d27;
-  --surface2: #242836;
-  --border: #2e3345;
-  --text: #e4e6ef;
-  --text-dim: #8b8fa3;
-  --accent: #6c8cff;
-  --green: #4caf86;
-  --yellow: #e8b84a;
-  --red: #e05555;
-  --orange: #e0894a;
+:root{
+  --navy:#0B2545; --navy-deep:#06182F; --navy-line:#1B3A63;
+  --page:#EEF1F5; --panel:#FFFFFF; --sunk:#F6F8FA;
+  --ink:#14243A; --muted:#5A6B80; --faint:#8A99AC;
+  --rule:#D3DBE4; --rule-soft:#E6EBF1;
+  --blue:#066FEF; --blue-bg:#EAF2FE; --blue-deep:#0552B5;
+  --red:#B3151B; --red-bg:#FCEDEE;
+  --green:#1E7B45; --green-bg:#EBF5EF;
+  --amber:#8A6100; --amber-bg:#FBF3E2;
+  --sans:'Segoe UI',-apple-system,BlinkMacSystemFont,Roboto,Helvetica,Arial,sans-serif;
+  --serif:Georgia,'Times New Roman',serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
 }
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body {
-  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
-}
-.header {
-  background: var(--surface);
-  border-bottom: 1px solid var(--border);
-  padding: 16px 24px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.header h1 { font-size: 16px; font-weight: 600; }
-.header .tier-badge {
-  padding: 4px 12px;
-  border-radius: 4px;
-  font-size: 12px;
-  font-weight: 600;
-}
-.tier-api { background: #1a3a1a; color: var(--green); }
-.tier-ollama { background: #1a2a3a; color: var(--accent); }
-.tier-cache { background: #3a2a1a; color: var(--yellow); }
-.tier-template { background: #2a2a2a; color: var(--text-dim); }
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--page);color:var(--ink);font-family:var(--sans);line-height:1.6;font-size:15.5px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
 
-.stats-bar {
-  display: flex;
-  gap: 24px;
-  padding: 12px 24px;
-  background: var(--surface);
-  border-bottom: 1px solid var(--border);
-  font-size: 13px;
-}
-.stat { display: flex; gap: 6px; align-items: center; }
-.stat-label { color: var(--text-dim); }
-.stat-value { font-weight: 600; }
+.masthead{background:var(--navy);color:#fff;padding:20px 32px 0;border-bottom:4px solid var(--blue)}
+.masthead h1{font-size:22px;font-weight:700;letter-spacing:-.01em;color:#fff}
+.masthead .sub{color:#B6C6DA;font-size:14px;margin-top:4px}
+.caption{display:flex;flex-wrap:wrap;margin:18px 0 0;border-top:1px solid var(--navy-line)}
+.cap{padding:12px 26px 14px 0;margin-right:26px;border-right:1px solid var(--navy-line)}
+.cap:last-child{border-right:0}
+.cap .n{font-family:var(--mono);font-size:19px;font-weight:600;letter-spacing:-.02em;display:block}
+.cap .l{font-size:12px;color:#9FB3CC;text-transform:uppercase;letter-spacing:.04em}
+.cap.flag .n{color:#FF8A8A}
+.cap.ok .n{color:#7DD3A0}
 
-.main {
-  display: grid;
-  grid-template-columns: 300px 1fr;
-  height: calc(100vh - 100px);
-}
+.spread{display:flex;height:calc(100vh - 152px);min-height:520px}
+.docket{width:340px;flex:none;border-right:1px solid var(--rule);overflow-y:auto;background:var(--page)}
+.docket-head{position:sticky;top:0;background:var(--page);border-bottom:1px solid var(--rule);padding:14px 18px 10px;z-index:2}
+.docket-head .count{font-size:13px;color:var(--muted)}
+.filters{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
+.f{font-family:var(--mono);font-size:11.5px;padding:4px 9px;border:1px solid var(--rule);background:transparent;color:var(--muted);cursor:pointer;border-radius:2px}
+.f:hover{border-color:var(--faint)}
+.f.on{background:var(--blue);border-color:var(--blue);color:#fff;font-weight:600}
+.f:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
 
-.sidebar {
-  background: var(--surface);
-  border-right: 1px solid var(--border);
-  overflow-y: auto;
-}
-.sidebar-header {
-  padding: 12px 16px;
-  border-bottom: 1px solid var(--border);
-  font-size: 12px;
-  color: var(--text-dim);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  position: sticky;
-  top: 0;
-  background: var(--surface);
-  z-index: 1;
-  display: flex;
-  justify-content: space-between;
-}
-.record-item {
-  padding: 10px 16px;
-  border-bottom: 1px solid var(--border);
-  cursor: pointer;
-  font-size: 13px;
-  transition: background 0.15s;
-}
-.record-item:hover { background: var(--surface2); }
-.record-item.active { background: var(--surface2); border-left: 3px solid var(--accent); }
-.record-item .account-id { font-weight: 600; color: var(--accent); }
-.record-item .dispute-type { color: var(--text-dim); font-size: 11px; }
-.record-item .risk-dot {
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  margin-right: 6px;
-}
-.risk-high { background: var(--red); }
-.risk-medium { background: var(--yellow); }
-.risk-low { background: var(--green); }
+.rec{padding:13px 18px;border-bottom:1px solid var(--rule-soft);cursor:pointer;border-left:3px solid transparent}
+.rec:hover{background:#E3E9F1}
+.rec.on{background:var(--panel);border-left-color:var(--blue);box-shadow:0 1px 3px rgba(11,37,69,.10)}
+.rec:focus-visible{outline:2px solid var(--blue);outline-offset:-2px}
+.rec .id{font-family:var(--mono);font-size:12.5px;font-weight:600}
+.rec .who{font-size:14.5px;margin-top:1px}
+.rec .tags{margin-top:7px;display:flex;gap:6px;flex-wrap:wrap}
+.t{font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;padding:2px 7px;border-radius:2px;text-transform:uppercase}
+.t.pass{background:var(--green-bg);color:var(--green)}
+.t.flagd{background:var(--amber-bg);color:var(--amber)}
+.t.ref{background:var(--red);color:#fff}
+.t.risk{background:var(--blue-bg);color:var(--blue-deep);border:1px solid #C5DDFB}
 
-.content {
-  display: grid;
-  grid-template-rows: 1fr minmax(260px, 40vh);
-  overflow: hidden;
-}
-.panels {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  overflow: hidden;
-}
+.read{flex:1;overflow-y:auto;background:var(--panel)}
+.tabs{position:sticky;top:0;background:var(--panel);border-bottom:1px solid var(--rule);display:flex;padding:0 32px;z-index:2}
+.tb{font-family:var(--sans);font-size:15px;font-weight:600;padding:15px 0;margin-right:28px;background:none;border:0;border-bottom:2px solid transparent;color:var(--muted);cursor:pointer}
+.tb:hover{color:var(--ink)}
+.tb.on{color:var(--blue-deep);border-bottom-color:var(--blue)}
+.tb:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.pane{display:none;padding:28px 32px 60px;max-width:820px}
+.pane.on{display:block}
 
-.panel {
-  overflow-y: auto;
-  padding: 20px;
-  border-right: 1px solid var(--border);
-}
-.panel:last-child { border-right: none; }
-.panel-title {
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: var(--text-dim);
-  margin-bottom: 12px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid var(--border);
-}
+.hd{font-size:12px;font-weight:700;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin:30px 0 10px}
+.hd.first{margin-top:0}
 
-.narrative-text {
-  font-size: 13px;
-  line-height: 1.7;
-  white-space: pre-wrap;
-  color: var(--text);
-}
+.ledger{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));border:1px solid var(--rule);background:var(--panel);border-radius:3px;overflow:hidden}
+.ld{padding:11px 14px;border-right:1px solid var(--rule-soft);border-bottom:1px solid var(--rule-soft)}
+.ld .k{font-size:12px;color:var(--muted)}
+.ld .v{font-family:var(--mono);font-size:15px;font-weight:600;margin-top:2px}
 
-.record-meta {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-  margin-bottom: 16px;
-  font-size: 12px;
-}
-.meta-item { padding: 6px 10px; background: var(--surface2); border-radius: 4px; }
-.meta-label { color: var(--text-dim); }
-.meta-value { color: var(--text); font-weight: 500; }
+.letter{background:var(--panel);border:1px solid var(--rule);border-top:3px solid var(--navy);padding:30px 34px;font-family:var(--serif);font-size:16px;line-height:1.75;white-space:pre-wrap}
+.letter mark{background:var(--red-bg);color:var(--red);font-weight:700;padding:1px 4px;box-shadow:inset 0 -2px 0 var(--red)}
 
-.letter-text {
-  font-size: 13px;
-  line-height: 1.7;
-  white-space: pre-wrap;
-  font-family: 'Georgia', serif;
-  background: #fafaf5;
-  color: #1a1a1a;
-  padding: 24px;
-  border-radius: 4px;
-  border: 1px solid #ddd;
-  position: relative;
-}
-.letter-text .annotation-highlight {
-  background: rgba(224, 85, 85, 0.2);
-  border-bottom: 2px solid var(--red);
-  cursor: pointer;
-  position: relative;
-}
+.flagnote{border-left:4px solid var(--red);background:var(--red-bg);padding:14px 18px;margin:14px 0}
+.flagnote .why{font-size:15.5px}
+.flagnote .meta{font-family:var(--mono);font-size:12px;color:var(--red);margin-top:7px}
 
-.bottom-panel {
-  background: var(--surface);
-  border-top: 3px solid var(--border);
-  height: 100%;
-  overflow-y: auto;
-  resize: vertical;
-  position: relative;
-}
-.bottom-panel::before {
-  content: "";
-  position: sticky;
-  top: 0;
-  display: block;
-  width: 60px;
-  height: 4px;
-  margin: 6px auto 2px auto;
-  border-radius: 2px;
-  background: var(--border);
-  opacity: 0.9;
-  cursor: ns-resize;
-}
-.bottom-panel::after {
-  content: "";
-  position: sticky;
-  bottom: 0;
-  display: block;
-  height: 24px;
-  margin-top: -24px;
-  background: linear-gradient(to bottom, transparent, var(--surface));
-  pointer-events: none;
-}
+.verdict{border:1px solid var(--rule);padding:16px 20px;margin:18px 0}
+.verdict.refused{border-color:var(--red);border-left:4px solid var(--red);background:var(--red-bg)}
+.verdict.passed{border-color:var(--green);border-left:4px solid var(--green);background:var(--green-bg)}
+.verdict .big{font-size:17px;font-weight:600}
+.verdict.refused .big{color:var(--red)}
+.verdict.passed .big{color:var(--green)}
+.verdict .fine{font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-top:6px;line-height:1.55}
 
-.tab-bar {
-  display: flex;
-  border-bottom: 1px solid var(--border);
-  position: sticky;
-  top: 0;
-  background: var(--surface);
-  z-index: 1;
-}
-.tab {
-  padding: 10px 20px;
-  font-size: 12px;
-  cursor: pointer;
-  color: var(--text-dim);
-  border-bottom: 2px solid transparent;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-.tab.active { color: var(--accent); border-color: var(--accent); }
+blockquote.quote{border-left:4px solid var(--blue);background:var(--blue-bg);padding:14px 18px;color:var(--ink);font-size:15.5px;line-height:1.7}
+.two{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--rule);background:var(--panel);border-radius:3px;overflow:hidden}
+.two > div{padding:16px 18px}
+.two > div:first-child{border-right:1px solid var(--rule-soft)}
+.two .k{font-size:12.5px;color:var(--muted);margin-bottom:6px}
+ul.notes{list-style:none}
+ul.notes li{padding:8px 0;border-bottom:1px solid var(--rule-soft);font-size:15px}
+ul.notes li:before{content:"—";color:var(--faint);margin-right:9px}
+.dl{font-family:var(--mono);font-size:13.5px}
+.dl div{padding:7px 0;border-bottom:1px solid var(--rule-soft);display:flex;justify-content:space-between;gap:20px}
+.dl span:first-child{color:var(--muted)}
+.none{color:var(--faint);font-style:italic;padding:26px 0}
+.simulated{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;color:#fff;background:var(--red);padding:2px 8px;border-radius:2px;white-space:nowrap;font-weight:700}
 
-.tab-content { display: none; padding: 16px 20px; }
-.tab-content.active { display: block; }
-
-.finding {
-  padding: 8px 12px;
-  margin-bottom: 8px;
-  border-radius: 4px;
-  font-size: 13px;
-  border-left: 3px solid;
-}
-.finding-critical {
-  background: rgba(224, 85, 85, 0.1);
-  border-color: var(--red);
-}
-.finding-warning {
-  background: rgba(232, 184, 74, 0.1);
-  border-color: var(--yellow);
-}
-.finding .finding-type { font-weight: 600; text-transform: uppercase; font-size: 11px; }
-.finding .finding-reason { color: var(--text-dim); margin-top: 2px; }
-
-.annotation-item {
-  padding: 10px 12px;
-  margin-bottom: 8px;
-  border-radius: 4px;
-  background: var(--surface2);
-  font-size: 13px;
-}
-.annotation-item .severity-badge {
-  display: inline-block;
-  padding: 2px 8px;
-  border-radius: 3px;
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-}
-.severity-high { background: rgba(224, 85, 85, 0.2); color: var(--red); }
-.severity-medium { background: rgba(232, 184, 74, 0.2); color: var(--yellow); }
-.severity-low { background: rgba(76, 175, 134, 0.2); color: var(--green); }
-.annotation-item .cfpb-quote {
-  margin-top: 6px;
-  padding: 6px 10px;
-  background: var(--bg);
-  border-radius: 3px;
-  font-size: 12px;
-  color: var(--text-dim);
-  font-style: italic;
-}
-
-.intent-vs-impact {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  padding: 16px 0;
-}
-.intent-box, .impact-box {
-  padding: 12px;
-  border-radius: 4px;
-  font-size: 13px;
-}
-.intent-box {
-  background: rgba(76, 175, 134, 0.1);
-  border: 1px solid rgba(76, 175, 134, 0.3);
-}
-.impact-box {
-  background: rgba(224, 85, 85, 0.1);
-  border: 1px solid rgba(224, 85, 85, 0.3);
-}
-.box-label {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 6px;
-  font-weight: 600;
-}
-.intent-box .box-label { color: var(--green); }
-.impact-box .box-label { color: var(--red); }
-
-.filter-bar {
-  display: flex;
-  gap: 8px;
-  padding: 8px 16px;
-  border-bottom: 1px solid var(--border);
-}
-.filter-btn {
-  padding: 4px 10px;
-  border: 1px solid var(--border);
-  border-radius: 3px;
-  background: transparent;
-  color: var(--text-dim);
-  font-size: 11px;
-  cursor: pointer;
-  font-family: inherit;
-}
-.filter-btn.active { border-color: var(--accent); color: var(--accent); background: rgba(108, 140, 255, 0.1); }
-
-.empty-state {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  color: var(--text-dim);
-  font-size: 14px;
-  text-align: center;
-  padding: 40px;
-}
-
-.consumer-envelope {
-  max-width: 600px;
-  margin: 0 auto;
-  background: white;
-  border: 1px solid #ccc;
-  box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
-  padding: 40px;
-}
-
-/* Inline highlights in letter body */
-.annot-highlight {
-  border-radius: 2px;
-  padding: 1px 2px;
-  cursor: pointer;
-  transition: filter 0.15s;
-}
-.annot-highlight:hover { filter: brightness(0.85); }
-.annot-high { background: rgba(224, 85, 85, 0.25); border-bottom: 2px solid #e05555; }
-.annot-medium { background: rgba(232, 184, 74, 0.25); border-bottom: 2px solid #e8b84a; }
-.annot-low { background: rgba(76, 175, 134, 0.25); border-bottom: 2px solid #4caf86; }
-.review-highlight {
-  border-radius: 2px;
-  padding: 1px 2px;
-  cursor: pointer;
-  transition: filter 0.15s;
-}
-.review-highlight:hover { filter: brightness(0.85); }
-.review-critical { background: rgba(180, 40, 40, 0.2); border-bottom: 2px dashed #b42828; }
-.review-warning { background: rgba(200, 150, 30, 0.2); border-bottom: 2px dashed #c8961e; }
-
-/* Scroll-target flash */
-.finding-flash, .annotation-flash {
-  animation: flashHighlight 1.5s ease;
-}
-@keyframes flashHighlight {
-  0% { box-shadow: 0 0 0 3px var(--accent); }
-  100% { box-shadow: none; }
+@media(max-width:860px){
+  .spread{flex-direction:column;height:auto}
+  .docket{width:100%;max-height:290px}
+  .pane{padding:22px 20px 50px}
+  .masthead{padding:18px 20px 0}
+  .tabs{padding:0 20px;overflow-x:auto}
+  .two{grid-template-columns:1fr}
+  .two > div:first-child{border-right:0;border-bottom:1px solid var(--rule-soft)}
 }
 </style>
 </head>
 <body>
 
-<div class="header">
+<header class="masthead">
   <h1>Both Sides of the Letter</h1>
-  <div>
-    <span id="tier-badge" class="tier-badge tier-template">TEMPLATE</span>
-    <span style="color: var(--text-dim); font-size: 12px; margin-left: 12px;" id="record-count">0 records</span>
-  </div>
-</div>
+  <div class="sub">Dispute response pipeline — every claim checked against the source record <span class="simulated">SIMULATED</span></div>
+  <div class="caption" id="caption"></div>
+</header>
 
-<div class="stats-bar" id="stats-bar">
-  <div class="stat"><span class="stat-label">Processed:</span> <span class="stat-value" id="stat-processed">-</span></div>
-  <div class="stat"><span class="stat-label">Drafted:</span> <span class="stat-value" id="stat-drafted">-</span></div>
-  <div class="stat"><span class="stat-label">Passed Review:</span> <span class="stat-value" id="stat-passed" style="color: var(--green)">-</span></div>
-  <div class="stat"><span class="stat-label">Flagged:</span> <span class="stat-value" id="stat-flagged" style="color: var(--red)">-</span></div>
-  <div class="stat"><span class="stat-label">High Risk:</span> <span class="stat-value" id="stat-highrisk" style="color: var(--orange)">-</span></div>
-</div>
-
-<div class="main">
-  <div class="sidebar">
-    <div class="sidebar-header">
-      <span>Records</span>
-      <span id="filter-label">All</span>
-    </div>
-    <div class="filter-bar">
-      <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="flagged">Flagged</button>
-      <button class="filter-btn" data-filter="high">High Risk</button>
-      <button class="filter-btn" data-filter="passed">Passed</button>
-    </div>
-    <div id="record-list"></div>
-  </div>
-
-  <div class="content">
-    <div class="panels" id="panels">
-      <div class="panel" id="source-panel">
-        <div class="empty-state">Select a record from the sidebar to view details</div>
-      </div>
-      <div class="panel" id="letter-panel">
-        <div class="empty-state">The generated letter will appear here</div>
+<div class="spread">
+  <nav class="docket" aria-label="Records">
+    <div class="docket-head">
+      <div class="count" id="count"></div>
+      <div class="filters">
+        <button class="f on" data-f="all">All</button>
+        <button class="f" data-f="refused">Refused</button>
+        <button class="f" data-f="flagged">Flagged</button>
+        <button class="f" data-f="passed">Passed</button>
+        <button class="f" data-f="risk">High risk</button>
       </div>
     </div>
+    <div id="list"></div>
+  </nav>
 
-    <div class="bottom-panel" id="bottom-panel" style="display: none;">
-      <div class="tab-bar">
-        <div class="tab active" data-tab="review">Review Gate</div>
-        <div class="tab" data-tab="consumer">Consumer Impact</div>
-        <div class="tab" data-tab="intent">Intent vs Impact</div>
-        <div class="tab" data-tab="validation">Validation Log</div>
-      </div>
-      <div class="tab-content active" id="tab-review"></div>
-      <div class="tab-content" id="tab-consumer"></div>
-      <div class="tab-content" id="tab-intent"></div>
-      <div class="tab-content" id="tab-validation"></div>
+  <main class="read">
+    <div class="tabs" role="tablist">
+      <button class="tb on" data-t="review" role="tab">Review gate</button>
+      <button class="tb" data-t="consumer" role="tab">Consumer impact</button>
+      <button class="tb" data-t="intent" role="tab">Intent vs impact</button>
+      <button class="tb" data-t="validation" role="tab">Validation log</button>
     </div>
-  </div>
+    <section class="pane on" id="p-review" role="tabpanel"></section>
+    <section class="pane" id="p-consumer" role="tabpanel"></section>
+    <section class="pane" id="p-intent" role="tabpanel"></section>
+    <section class="pane" id="p-validation" role="tabpanel"></section>
+  </main>
 </div>
 
 <script>
-let DATA = [];
-let SUMMARY = {};
-let currentFilter = 'all';
-let currentRecord = null;
+let DATA=[],SUMMARY={},filt='all',cur=null;
+const $=s=>document.querySelector(s);
+const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const money=v=>{const n=parseFloat(String(v).replace(/[$,]/g,''));return isNaN(n)?String(v||'—'):'$'+n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});};
 
-async function loadData() {
-  // Prefer inlined data (written by run.py into index.html)
-  if (window.__PIPELINE_RECORDS && window.__PIPELINE_RECORDS.length > 0) {
-    DATA = window.__PIPELINE_RECORDS;
-    SUMMARY = window.__PIPELINE_SUMMARY || {};
-    updateStats();
-    renderList();
-    if (DATA.length > 0) selectRecord(0);
-    return;
-  }
-  // Fallback: try fetch (works when served via HTTP, fails on file://)
-  try {
-    const [recordsResp, summaryResp] = await Promise.all([
-      fetch('../output/records.json'),
-      fetch('../output/summary.json')
-    ]);
-    DATA = await recordsResp.json();
-    SUMMARY = await summaryResp.json();
-    updateStats();
-    renderList();
-    if (DATA.length > 0) selectRecord(0);
-  } catch (e) {
-    document.getElementById('record-list').innerHTML =
-      '<div class="empty-state">No data found. Run: python3 run.py</div>';
-  }
-}
+const drafted=r=>!!r.draft_letter;
+const refused=r=>!!r.remediation_refused;
+const flagged=r=>!refused(r)&&((r.review_findings||[]).length>0||r.review_passed===false);
+const passed=r=>drafted(r)&&!refused(r)&&!flagged(r);
+const risky=r=>['high','critical'].includes(String(r.engagement_risk_level||'').toLowerCase());
 
-function updateStats() {
-  document.getElementById('stat-processed').textContent = SUMMARY.total_records || DATA.length;
-  document.getElementById('stat-drafted').textContent = SUMMARY.drafted || '-';
-  document.getElementById('stat-passed').textContent = SUMMARY.review_passed || '-';
-  document.getElementById('stat-flagged').textContent = SUMMARY.review_flagged || '-';
-  document.getElementById('stat-highrisk').textContent = SUMMARY.high_risk_letters || '-';
-  document.getElementById('record-count').textContent = DATA.length + ' records';
-
-  // Set tier badge
-  const tiers = DATA.map(r => r.draft_tier).filter(Boolean);
-  const tierSet = new Set(tiers);
-  const badge = document.getElementById('tier-badge');
-  if (tierSet.has('api')) { badge.textContent = 'CLOUD API'; badge.className = 'tier-badge tier-api'; }
-  else if (tierSet.has('ollama')) { badge.textContent = 'LOCAL MODEL'; badge.className = 'tier-badge tier-ollama'; }
-  else if (tierSet.has('cache')) { badge.textContent = 'CACHED'; badge.className = 'tier-badge tier-cache'; }
-  else { badge.textContent = 'TEMPLATE'; badge.className = 'tier-badge tier-template'; }
-}
-
-function getFilteredData() {
-  switch (currentFilter) {
-    case 'flagged': return DATA.filter(r => r.draft_letter && !r.review_passed);
-    case 'high': return DATA.filter(r => r.engagement_risk_level === 'high');
-    case 'passed': return DATA.filter(r => r.review_passed);
-    default: return DATA;
-  }
-}
-
-function renderList() {
-  const filtered = getFilteredData();
-  const list = document.getElementById('record-list');
-  list.innerHTML = filtered.map((rec, i) => {
-    const globalIdx = DATA.indexOf(rec);
-    const risk = rec.engagement_risk_level || 'low';
-    const reviewIcon = rec.review_passed === false ? ' !' : '';
-    return `<div class="record-item" data-idx="${globalIdx}" onclick="selectRecord(${globalIdx})">
-      <span class="risk-dot risk-${risk}"></span>
-      <span class="account-id">${rec.account_id || '?'}</span>${reviewIcon}
-      <div class="dispute-type">${rec.classified_type || rec.dispute_type || '?'} &middot; $${formatBalance(rec.balance_current)}</div>
-    </div>`;
+function caption(){
+  const d=DATA.filter(drafted),ref=DATA.filter(refused),fl=DATA.filter(flagged),hr=DATA.filter(risky);
+  const mins=SUMMARY.elapsed_seconds?Math.round(SUMMARY.elapsed_seconds/60):null;
+  const cells=[
+    ['Records read',(SUMMARY.total_records||DATA.length).toLocaleString(),''],
+    ['Letters drafted',(SUMMARY.drafted||d.length).toLocaleString(),''],
+    ['Cleared the gate',Math.max(0,d.length-ref.length-fl.length).toLocaleString(),'ok'],
+    ['Refused to send',ref.length.toLocaleString(),'flag'],
+    ['Flagged for a human',(hr.length||SUMMARY.high_risk_letters||0).toLocaleString(),'']
+  ];
+  if(mins)cells.push(['Total run',mins+' min','']);
+  $('#caption').innerHTML=cells.map(function(c){
+    return '<div class="cap '+c[2]+'"><span class="n">'+c[1]+'</span><span class="l">'+c[0]+'</span></div>';
   }).join('');
-  document.getElementById('filter-label').textContent =
-    currentFilter === 'all' ? `All (${filtered.length})` : `${currentFilter} (${filtered.length})`;
 }
 
-function formatBalance(val) {
-  if (val === undefined || val === null) return '?';
-  const num = typeof val === 'string' ? parseFloat(val.replace(/[$,]/g, '')) : val;
-  if (isNaN(num)) return val;
-  return num.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+function visible(){
+  const m={all:drafted,refused:refused,flagged:flagged,passed:passed,risk:function(r){return drafted(r)&&risky(r);}};
+  return DATA.filter(m[filt]||m.all);
 }
 
-function selectRecord(idx) {
-  currentRecord = DATA[idx];
-  const rec = currentRecord;
+function list(){
+  const v=visible();
+  $('#count').textContent=v.length.toLocaleString()+(v.length===1?' record':' records');
+  $('#list').innerHTML=v.slice(0,400).map(function(r){
+    let tags='';
+    if(refused(r))tags+='<span class="t ref">Refused</span>';
+    else if(flagged(r))tags+='<span class="t flagd">Flagged</span>';
+    else tags+='<span class="t pass">Passed</span>';
+    if(risky(r))tags+='<span class="t risk">'+esc(r.engagement_risk_level)+' risk</span>';
+    return '<div class="rec'+(r===cur?' on':'')+'" tabindex="0" data-i="'+DATA.indexOf(r)+'">'+
+      '<div class="id">'+esc(r.account_id)+'</div>'+
+      '<div class="who">'+esc(r.consumer_name||'')+' · '+esc(String(r.classified_type||r.dispute_type||'').replace(/_/g,' '))+'</div>'+
+      '<div class="tags">'+tags+'</div></div>';
+  }).join('')||'<div class="none" style="padding:26px 18px">No records match this filter.</div>';
+}
 
-  // Highlight sidebar
-  document.querySelectorAll('.record-item').forEach(el => {
-    el.classList.toggle('active', parseInt(el.dataset.idx) === idx);
+function markAmounts(text,findings){
+  let out=esc(text||'');
+  (findings||[]).forEach(function(f){
+    if(!f.claim_value)return;
+    out=out.split(esc(f.claim_value)).join('<mark>'+esc(f.claim_value)+'</mark>');
   });
+  return out;
+}
 
-  // Source panel
-  const sp = document.getElementById('source-panel');
-  sp.innerHTML = `
-    <div class="panel-title">Source Record</div>
-    <div class="record-meta">
-      <div class="meta-item"><div class="meta-label">Account</div><div class="meta-value">${rec.account_id || '?'}</div></div>
-      <div class="meta-item"><div class="meta-label">Creditor</div><div class="meta-value">${rec.original_creditor || '?'}</div></div>
-      <div class="meta-item"><div class="meta-label">Balance</div><div class="meta-value">$${formatBalance(rec.balance_current)}</div></div>
-      <div class="meta-item"><div class="meta-label">Original</div><div class="meta-value">$${formatBalance(rec.balance_original)}</div></div>
-      <div class="meta-item"><div class="meta-label">State</div><div class="meta-value">${rec.state || '?'}</div></div>
-      <div class="meta-item"><div class="meta-label">Type</div><div class="meta-value">${rec.classified_type || rec.dispute_type || '?'}</div></div>
-      <div class="meta-item"><div class="meta-label">Charge-off</div><div class="meta-value">${rec.charge_off_date || '?'}</div></div>
-      <div class="meta-item"><div class="meta-label">Last Payment</div><div class="meta-value">${rec.last_payment_date || 'None'}</div></div>
-    </div>
-    <div class="panel-title" style="margin-top: 16px;">Consumer Narrative</div>
-    <div class="narrative-text">${escapeHtml(rec.narrative || 'No narrative')}</div>
-  `;
+function review(r){
+  if(!r)return '<div class="none">Choose a record from the list.</div>';
+  const fin=(r.original_review_findings&&r.original_review_findings.length)?r.original_review_findings:(r.review_findings||[]);
+  const led=[['Ledger balance',money(r.balance_current)],['Original balance',money(r.balance_original)],
+    ['Last payment',r.last_payment_amount?money(r.last_payment_amount):'none recorded'],
+    ['State',esc(r.state||'—')],['Dispute type',esc(String(r.classified_type||r.dispute_type||'').replace(/_/g,' '))]];
+  let h='<div class="hd first">The source record</div><div class="ledger">'+
+    led.map(function(p){return '<div class="ld"><div class="k">'+p[0]+'</div><div class="v">'+p[1]+'</div></div>';}).join('')+'</div>';
+  h+='<div class="hd">What the consumer wrote</div><blockquote class="quote">'+esc(r.narrative||'Not provided.')+'</blockquote>';
 
-  // Letter panel — highlight consumer-impact annotations and review findings inline
-  const lp = document.getElementById('letter-panel');
-  const letter = rec.draft_letter || 'No letter drafted';
-  const tier = rec.draft_tier || '?';
-  const annotations = rec.consumer_annotations || [];
-  const reviewFindings = (rec.review_findings || []).filter(f => f.claim_value);
+  if(!r.draft_letter){return h+'<div class="none">No letter was drafted for this record.</div>';}
 
-  // Build highlight markers from both annotation and review sources
-  let markers = [];
-  annotations.forEach((a, i) => {
-    markers.push({
-      text: a.matched_text,
-      cls: 'annot-highlight annot-' + a.severity,
-      id: 'annot-' + i,
-      tooltip: a.flag,
-      source: 'consumer'
-    });
-  });
-  reviewFindings.forEach((f, i) => {
-    markers.push({
-      text: f.claim_value,
-      cls: 'review-highlight review-' + f.severity,
-      id: 'review-' + i,
-      tooltip: f.reason,
-      source: 'review'
-    });
-  });
+  h+='<div class="hd">The drafted letter</div><div class="letter">'+markAmounts(r.original_draft_letter||r.draft_letter,fin)+'</div>';
 
-  // Apply highlights to escaped letter text
-  let annotatedLetter = escapeHtml(letter);
-  // Sort by length descending to avoid partial matches clobbering longer ones
-  markers.sort((a, b) => b.text.length - a.text.length);
-  markers.forEach(m => {
-    const escaped = escapeHtml(m.text);
-    if (escaped && annotatedLetter.includes(escaped)) {
-      annotatedLetter = annotatedLetter.replace(
-        escaped,
-        `<span class="${m.cls}" data-id="${m.id}" title="${escapeHtml(m.tooltip)}">${escaped}</span>`
-      );
+  if(fin.length){
+    h+='<div class="hd">What the gate caught</div>'+fin.map(function(f){
+      return '<div class="flagnote"><div class="why">'+esc(f.reason||'Unsupported claim')+'</div>'+
+        '<div class="meta">'+esc(f.severity||'')+' · '+esc(f.claim_type||'')+' · '+esc(f.claim_value||'')+
+        (f.position!=null?' · character '+f.position:'')+'</div></div>';}).join('');
+  }
+
+  if(refused(r)){
+    h+='<div class="hd">After '+(r.remediation_passes||2)+' attempts</div>'+
+      '<div class="verdict refused"><div class="big">Refused. The letter was never sent.</div>'+
+      '<div class="fine">The gate handed the model its own finding and asked for a rewrite. The claim survived every attempt, so the system stopped and escalated with the reason recorded.</div></div>';
+    if(r.draft_letter&&r.original_draft_letter&&r.draft_letter!==r.original_draft_letter){
+      h+='<div class="hd">The rewrite it produced anyway</div><div class="letter">'+markAmounts(r.draft_letter,r.review_findings)+'</div>';
     }
-  });
-
-  lp.innerHTML = `
-    <div class="panel-title">Generated Letter <span style="float: right; font-size: 11px; color: var(--text-dim)">Tier: ${tier}</span></div>
-    <div class="consumer-envelope">
-      <div class="letter-text">${annotatedLetter}</div>
-    </div>
-  `;
-
-  // Click-to-scroll: clicking a highlight scrolls to its flag in the bottom panel
-  lp.querySelectorAll('[data-id]').forEach(el => {
-    el.style.cursor = 'pointer';
-    el.addEventListener('click', () => {
-      const id = el.dataset.id;
-      const tabName = id.startsWith('annot-') ? 'consumer' : 'review';
-      // Switch to the right tab
-      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-      document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-      document.querySelector(`[data-tab="${tabName}"]`).classList.add('active');
-      document.getElementById('tab-' + tabName).classList.add('active');
-      // Scroll to the finding
-      const target = document.getElementById(id);
-      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    });
-  });
-
-  // Bottom panel
-  document.getElementById('bottom-panel').style.display = 'block';
-  renderReviewTab(rec);
-  renderConsumerTab(rec);
-  renderIntentTab(rec);
-  renderValidationTab(rec);
-}
-
-function renderReviewTab(rec) {
-  const findings = rec.review_findings || [];
-  const tab = document.getElementById('tab-review');
-  if (findings.length === 0) {
-    tab.innerHTML = '<div style="padding: 12px; color: var(--green);">No findings — letter passed review gate.</div>';
-    return;
+  } else if(fin.length){
+    h+='<div class="verdict passed"><div class="big">Corrected on re-draft, then cleared.</div>'+
+      '<div class="fine">'+(r.remediation_passes||1)+' pass. Every remaining claim traces to the ledger.</div></div>';
+  } else {
+    h+='<div class="verdict passed"><div class="big">Cleared the gate.</div>'+
+      '<div class="fine">Every factual claim in this letter matches the source record.</div></div>';
   }
-  tab.innerHTML = findings.map((f, i) => `
-    <div class="finding finding-${f.severity}" id="review-${i}">
-      <div class="finding-type">${f.severity}: ${f.claim_type}</div>
-      <div>${escapeHtml(f.claim_value || '')}</div>
-      <div class="finding-reason">${escapeHtml(f.reason)}</div>
-    </div>
-  `).join('');
+  return h;
 }
 
-function renderConsumerTab(rec) {
-  const annotations = rec.consumer_annotations || [];
-  const tab = document.getElementById('tab-consumer');
-  if (annotations.length === 0) {
-    tab.innerHTML = '<div style="padding: 12px; color: var(--green);">No disengagement patterns detected.</div>';
-    return;
+function consumer(r){
+  if(!r)return '<div class="none">Choose a record from the list.</div>';
+  let h='<div class="hd first">How this reads on the other end</div>';
+  h+='<div class="verdict '+(risky(r)?'refused':'passed')+'"><div class="big">Engagement risk: '+esc(r.engagement_risk_level||'not scored')+'</div>'+
+    '<div class="fine">Score '+esc(r.engagement_risk_score!=null?r.engagement_risk_score:'—')+'. Phrase matching, not comprehension. This score is not a second opinion on accuracy.</div></div>';
+  const ann=r.consumer_annotations||[];
+  if(ann.length)h+='<div class="hd">Phrases that carry weight</div><ul class="notes">'+
+    ann.map(function(a){return '<li>'+esc(typeof a==='string'?a:(a.text||a.phrase||JSON.stringify(a)))+'</li>';}).join('')+'</ul>';
+  if(r.consumer_view)h+='<div class="hd">The consumer\'s position</div><blockquote class="quote">'+esc(r.consumer_view)+'</blockquote>';
+  if(!ann.length&&!r.consumer_view)h+='<div class="none">No consumer-side annotations for this record.</div>';
+  return h;
+}
+
+function intent(r){
+  if(!r)return '<div class="none">Choose a record from the list.</div>';
+  if(!r.agency_intent&&!r.consumer_impact)return '<div class="none">Intent and impact were not scored for this record.</div>';
+  return '<div class="hd first">The same letter, from both ends</div><div class="two">'+
+    '<div><div class="k">What the agency meant</div>'+esc(r.agency_intent||'Not recorded.')+'</div>'+
+    '<div><div class="k">How it is likely to land</div>'+esc(r.consumer_impact||'Not recorded.')+'</div></div>'+
+    '<div class="hd">Why this is a separate reading</div>'+
+    '<p>A letter can be completely accurate and still land badly. The review gate checks whether claims are true. It does not check whether the letter answers the dispute.</p>';
+}
+
+function validation(r){
+  const v=SUMMARY.validation_stats||{};
+  let h='<div class="hd first">Data quality across the run</div><div class="dl">'+
+    Object.keys(v).map(function(k){
+      const val=v[k];
+      return '<div><span>'+esc(k.replace(/_/g,' '))+'</span><span>'+esc(typeof val==='object'?JSON.stringify(val):val)+'</span></div>';
+    }).join('')+'</div>';
+  if(r){
+    const rows=[['account_id',r.account_id],['complaint_id',r.complaint_id],['classification method',r.classification_method],
+      ['classification confidence',r.classification_confidence],['model tier',r.draft_tier],
+      ['validation requested',r.validation_requested],['prior contacts',r.prior_contacts]];
+    h+='<div class="hd">This record</div><div class="dl">'+rows.map(function(p){
+      return '<div><span>'+esc(p[0])+'</span><span>'+esc(p[1]==null?'—':p[1])+'</span></div>';}).join('')+'</div>';
   }
-  const risk = rec.engagement_risk_level || 'low';
-  const score = rec.engagement_risk_score || 0;
-  tab.innerHTML = `
-    <div style="padding: 8px 0 12px; font-size: 13px;">
-      Engagement Risk: <span class="severity-badge severity-${risk}">${risk.toUpperCase()} (${score})</span>
-    </div>
-    ${annotations.map((a, i) => `
-      <div class="annotation-item" id="annot-${i}">
-        <span class="severity-badge severity-${a.severity}">${a.severity}</span>
-        <strong style="margin-left: 8px;">${escapeHtml(a.matched_text)}</strong>
-        <div style="margin-top: 4px;">${escapeHtml(a.flag)}</div>
-        <div class="cfpb-quote">${escapeHtml(a.cfpb_grounding)}</div>
-      </div>
-    `).join('')}
-  `;
+  return h;
 }
 
-function renderIntentTab(rec) {
-  const tab = document.getElementById('tab-intent');
-  const intent = rec.agency_intent || '';
-  const impacts = rec.consumer_impact || [];
-  tab.innerHTML = `
-    <div class="intent-vs-impact">
-      <div class="intent-box">
-        <div class="box-label">What the agency intended</div>
-        ${escapeHtml(intent)}
-      </div>
-      <div class="impact-box">
-        <div class="box-label">What the consumer hears</div>
-        ${impacts.length > 0 ? impacts.map(i => `<div style="margin-bottom: 6px;">${escapeHtml(i)}</div>`).join('') : '<div style="color: var(--green);">Letter communicates intent clearly</div>'}
-      </div>
-    </div>
-  `;
+function render(){
+  $('#p-review').innerHTML=review(cur);
+  $('#p-consumer').innerHTML=consumer(cur);
+  $('#p-intent').innerHTML=intent(cur);
+  $('#p-validation').innerHTML=validation(cur);
 }
 
-function renderValidationTab(rec) {
-  const tab = document.getElementById('tab-validation');
-  const balance = rec.balance_current;
-  const isString = typeof balance === 'string' && (balance.includes('$') || balance.includes(','));
-  tab.innerHTML = `
-    <div style="padding: 12px;">
-      <div style="margin-bottom: 8px;"><strong>Balance value:</strong> <code>${escapeHtml(String(balance))}</code> ${isString ? '<span style="color: var(--red); font-weight: 600;"> STRING</span>' : '<span style="color: var(--green);"> NUMERIC</span>'}</div>
-      <div style="margin-bottom: 8px;"><strong>Classification:</strong> ${rec.classified_type || '?'} (${rec.classification_method || '?'}, confidence: ${rec.classification_confidence || '?'})</div>
-      <div style="margin-bottom: 8px;"><strong>Review passed:</strong> ${rec.review_passed ? '<span style="color: var(--green);">YES</span>' : '<span style="color: var(--red);">NO</span>'}</div>
-      <div><strong>Draft tier:</strong> ${rec.draft_tier || '?'}</div>
-      ${rec.original_draft_letter ? `
-      <div style="margin-top:16px;padding-top:12px;border-top:1px solid var(--border);">
-        <div style="margin-bottom:8px;"><strong>REMEDIATION</strong></div>
-        <div style="margin-bottom:6px;">Original findings: ${(rec.original_review_findings||[]).map(f=>f.reason).join('; ') || 'none'}</div>
-        <div style="margin-bottom:6px;">Attempts: ${rec.remediation_passes || 0}</div>
-        <div>Result: ${rec.remediation_refused ? '<span style="color: var(--red);">REFUSED - not sent, partner review required</span>' : '<span style="color: var(--green);">RECOVERED - now passes the gate</span>'}</div>
-      </div>` : ''}
-    </div>
-  `;
-}
-
-function escapeHtml(s) {
-  const div = document.createElement('div');
-  div.textContent = s;
-  return div.innerHTML;
-}
-
-// Tab switching
-document.querySelectorAll('.tab').forEach(tab => {
-  tab.addEventListener('click', () => {
-    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-    tab.classList.add('active');
-    document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
-  });
+document.addEventListener('click',function(e){
+  const f=e.target.closest('.f');
+  if(f){filt=f.dataset.f;document.querySelectorAll('.f').forEach(function(b){b.classList.toggle('on',b===f);});list();return;}
+  const t=e.target.closest('.tb');
+  if(t){document.querySelectorAll('.tb').forEach(function(b){b.classList.toggle('on',b===t);});
+    document.querySelectorAll('.pane').forEach(function(p){p.classList.toggle('on',p.id==='p-'+t.dataset.t);});return;}
+  const rec=e.target.closest('.rec');
+  if(rec){cur=DATA[+rec.dataset.i];list();render();}
+});
+document.addEventListener('keydown',function(e){
+  if(e.key==='Enter'&&e.target.classList&&e.target.classList.contains('rec')){cur=DATA[+e.target.dataset.i];list();render();}
 });
 
-// Filter buttons
-document.querySelectorAll('.filter-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    currentFilter = btn.dataset.filter;
-    renderList();
-  });
-});
-
-// Keyboard navigation
-document.addEventListener('keydown', (e) => {
-  if (!currentRecord) return;
-  const idx = DATA.indexOf(currentRecord);
-  if (e.key === 'ArrowDown' && idx < DATA.length - 1) { selectRecord(idx + 1); e.preventDefault(); }
-  if (e.key === 'ArrowUp' && idx > 0) { selectRecord(idx - 1); e.preventDefault(); }
-});
-
-// Load data on page open
-loadData();
+(function(){
+  DATA=window.__PIPELINE_RECORDS||[];
+  SUMMARY=window.__PIPELINE_SUMMARY||{};
+  cur=DATA.filter(refused)[0]||DATA.filter(flagged)[0]||DATA.filter(drafted)[0]||DATA[0]||null;
+  caption();list();render();
+})();
 </script>
 </body>
 </html>
