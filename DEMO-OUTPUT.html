@@ -24,7 +24,15 @@ body{background:var(--paper);color:var(--ink);font-family:var(--serif);line-heig
 .masthead h1{font-size:23px;font-weight:600;letter-spacing:-.01em}
 .masthead .sub{color:var(--muted);font-size:14.5px;margin-top:3px}
 .caption{display:flex;flex-wrap:wrap;margin:20px 0 0;border-top:1px solid var(--rule-soft)}
-.cap{padding:12px 26px 12px 0;margin-right:26px;border-right:1px solid var(--rule-soft)}
+.cap{padding:12px 26px 12px 0;margin-right:26px;border-right:1px solid var(--rule-soft);background:none;border-top:0;border-left:0;border-bottom:0;text-align:left;font:inherit;color:inherit}
+.cap[data-f]{cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px}
+.cap[data-f]:hover .n{text-decoration:underline;text-underline-offset:4px}
+.cap[data-f].sel{border-bottom-color:var(--oxblood)}
+.cap[data-f]:focus-visible{outline:2px solid var(--oxblood);outline-offset:2px}
+.cap.split{border-left:1px solid var(--rule);padding-left:26px}
+.reconcile{font-size:12.5px;color:var(--muted);padding:0 0 14px;line-height:1.5;max-width:760px}
+.reconcile b{color:var(--ink);font-weight:600}
+.axis{font-family:var(--mono);font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--faint);display:block;margin-bottom:3px}
 .cap:last-child{border-right:0}
 .cap .n{font-family:var(--mono);font-size:19px;font-weight:600;letter-spacing:-.02em;display:block}
 .cap .l{font-size:12.5px;color:var(--muted)}
@@ -98,6 +106,17 @@ ul.notes li:before{content:"—";color:var(--faint);margin-right:9px}
 .dl div{padding:7px 0;border-bottom:1px solid var(--rule-soft);display:flex;justify-content:space-between;gap:20px}
 .dl span:first-child{color:var(--muted)}
 .none{color:var(--faint);font-style:italic;padding:26px 0}
+.loop{border-left:2px solid var(--rule);margin:0 0 4px;padding:0 0 4px 22px;position:relative}
+.loop:last-child{border-left-color:transparent}
+.loop .step{position:absolute;left:-13px;top:0;width:24px;height:24px;border-radius:50%;background:var(--ink);color:var(--paper);font-family:var(--mono);font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center}
+.loop.stop .step{background:var(--oxblood)}
+.loop.win .step{background:var(--verified)}
+.loop h4{font-size:16px;font-weight:600;margin:2px 0 8px}
+.loop .body{padding-bottom:22px}
+.constraint{background:var(--ink);color:#F0EDE7;font-family:var(--mono);font-size:13px;line-height:1.6;padding:14px 18px;border-radius:2px}
+.constraint b{color:#FFB3A0;font-weight:600}
+.diffnote{font-size:13.5px;color:var(--muted);margin:10px 0 0}
+.letter ins{background:var(--verified-bg);color:#24512F;text-decoration:none;box-shadow:inset 0 -1px 0 var(--verified)}
 .simulated{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--oxblood);border:1px solid var(--oxblood);padding:2px 7px;border-radius:2px;white-space:nowrap}
 
 @media(max-width:860px){
@@ -117,19 +136,14 @@ ul.notes li:before{content:"—";color:var(--faint);margin-right:9px}
   <h1>Both Sides of the Letter</h1>
   <div class="sub">Dispute response pipeline — every claim checked against the source record <span class="simulated">SIMULATED</span></div>
   <div class="caption" id="caption"></div>
+  <div class="reconcile" id="reconcile"></div>
 </header>
 
 <div class="spread">
   <nav class="docket" aria-label="Records">
     <div class="docket-head">
       <div class="count" id="count"></div>
-      <div class="filters">
-        <button class="f on" data-f="all">All</button>
-        <button class="f" data-f="refused">Refused</button>
-        <button class="f" data-f="flagged">Flagged</button>
-        <button class="f" data-f="passed">Passed</button>
-        <button class="f" data-f="risk">High risk</button>
-      </div>
+      <div class="filters" id="filters"></div>
     </div>
     <div id="list"></div>
   </nav>
@@ -137,11 +151,13 @@ ul.notes li:before{content:"—";color:var(--faint);margin-right:9px}
   <main class="read">
     <div class="tabs" role="tablist">
       <button class="tb on" data-t="review" role="tab">Review gate</button>
+      <button class="tb" data-t="loop" role="tab">Remediation loop</button>
       <button class="tb" data-t="consumer" role="tab">Consumer impact</button>
       <button class="tb" data-t="intent" role="tab">Intent vs impact</button>
       <button class="tb" data-t="validation" role="tab">Validation log</button>
     </div>
     <section class="pane on" id="p-review" role="tabpanel"></section>
+    <section class="pane" id="p-loop" role="tabpanel"></section>
     <section class="pane" id="p-consumer" role="tabpanel"></section>
     <section class="pane" id="p-intent" role="tabpanel"></section>
     <section class="pane" id="p-validation" role="tabpanel"></section>
@@ -158,37 +174,67 @@ const money=v=>{const n=parseFloat(String(v).replace(/[$,]/g,''));return isNaN(n
 const drafted=r=>!!r.draft_letter;
 const refused=r=>!!r.remediation_refused;
 const flagged=r=>!refused(r)&&((r.review_findings||[]).length>0||r.review_passed===false);
-const passed=r=>drafted(r)&&!refused(r)&&!flagged(r);
+const passed=r=>drafted(r)&&!refused(r)&&!flagged(r)&&!remediated(r);
+const remediated=r=>!!(r.original_review_findings&&r.original_review_findings.length);
+const recovered=r=>remediated(r)&&!refused(r);
 const risky=r=>['high','critical'].includes(String(r.engagement_risk_level||'').toLowerCase());
 
 function caption(){
-  const d=DATA.filter(drafted),ref=DATA.filter(refused),fl=DATA.filter(flagged),hr=DATA.filter(risky);
+  const d=DATA.filter(drafted),ref=DATA.filter(refused),hr=DATA.filter(risky);
+  const clean=DATA.filter(passed),fixed=DATA.filter(recovered);
   const mins=SUMMARY.elapsed_seconds?Math.round(SUMMARY.elapsed_seconds/60):null;
   const cells=[
-    ['Records read',(SUMMARY.total_records||DATA.length).toLocaleString(),''],
-    ['Letters drafted',(SUMMARY.drafted||d.length).toLocaleString(),''],
-    ['Cleared the gate',Math.max(0,d.length-ref.length-fl.length).toLocaleString(),'ok'],
-    ['Refused to send',ref.length.toLocaleString(),'flag'],
-    ['Flagged for a human',(hr.length||SUMMARY.high_risk_letters||0).toLocaleString(),'']
+    ['Records read',(SUMMARY.total_records||DATA.length).toLocaleString(),'','all','Ingested'],
+    ['Letters drafted',(SUMMARY.drafted||d.length).toLocaleString(),'','all','Ingested'],
+    ['Cleared first pass',clean.length.toLocaleString(),'ok split','passed','Outcome, 1 of 3'],
+    ['Blocked, then fixed',fixed.length.toLocaleString(),'','recovered','Outcome, 2 of 3'],
+    ['Refused to send',ref.length.toLocaleString(),'flag','refused','Outcome, 3 of 3'],
+    ['Flagged for a human',(hr.length||SUMMARY.high_risk_letters||0).toLocaleString(),'split','risk','Separate score']
   ];
-  if(mins)cells.push(['Total run',mins+' min','']);
+  if(mins)cells.push(['Total run',mins+' min','split',null,'Elapsed']);
   $('#caption').innerHTML=cells.map(function(c){
-    return '<div class="cap '+c[2]+'"><span class="n">'+c[1]+'</span><span class="l">'+c[0]+'</span></div>';
+    const sel=c[3]===filt?' sel':'';
+    const inner='<span class="axis">'+c[4]+'</span><span class="n">'+c[1]+'</span><span class="l">'+c[0]+'</span>';
+    return c[3]?'<button class="cap '+c[2]+sel+'" data-f="'+c[3]+'">'+inner+'</button>'
+               :'<div class="cap '+c[2]+'">'+inner+'</div>';
   }).join('');
+
+  $('#reconcile').innerHTML=
+    'Every drafted letter lands in exactly one outcome: <b>'+clean.length+' cleared</b> + <b>'+
+    fixed.length+' fixed</b> + <b>'+ref.length+' refused</b> = <b>'+d.length+' letters</b>. '+
+    'Consumer risk is scored separately and does not change the outcome, so the <b>'+hr.length+
+    ' flagged for a human</b> are already counted inside those three. Click any figure to filter the list.';
 }
 
+const FILTERS=[['all','All drafted'],['passed','Cleared first pass'],['recovered','Fixed on re-draft'],
+  ['refused','Refused'],['risk','High risk']];
+function chips(){
+  const m=filterMap();
+  $('#filters').innerHTML=FILTERS.map(function(f){
+    return '<button class="f'+(filt===f[0]?' on':'')+'" data-f="'+f[0]+'">'+f[1]+
+      ' <span style="opacity:.65">'+DATA.filter(m[f[0]]).length+'</span></button>';
+  }).join('');
+}
+function filterMap(){
+  return {all:drafted,refused:refused,passed:passed,
+    remediated:remediated,recovered:recovered,
+    risk:function(r){return drafted(r)&&risky(r);}};
+}
 function visible(){
-  const m={all:drafted,refused:refused,flagged:flagged,passed:passed,risk:function(r){return drafted(r)&&risky(r);}};
+  const m=filterMap();
   return DATA.filter(m[filt]||m.all);
 }
 
 function list(){
   const v=visible();
-  $('#count').textContent=v.length.toLocaleString()+(v.length===1?' record':' records');
+  const names={all:'All drafted letters',passed:'Cleared the gate on the first pass',
+    recovered:'Blocked, then fixed by the model',refused:'Refused, never sent',
+    remediated:'Went through remediation',risk:'High consumer risk, any outcome'};
+  $('#count').innerHTML='<b>'+v.length.toLocaleString()+'</b> · '+esc(names[filt]||'');
   $('#list').innerHTML=v.slice(0,400).map(function(r){
     let tags='';
     if(refused(r))tags+='<span class="t ref">Refused</span>';
-    else if(flagged(r))tags+='<span class="t flagd">Flagged</span>';
+    else if(recovered(r))tags+='<span class="t flagd">Fixed on re-draft</span>';
     else tags+='<span class="t pass">Passed</span>';
     if(risky(r))tags+='<span class="t risk">'+esc(r.engagement_risk_level)+' risk</span>';
     return '<div class="rec'+(r===cur?' on':'')+'" tabindex="0" data-i="'+DATA.indexOf(r)+'">'+
@@ -285,16 +331,100 @@ function validation(r){
   return h;
 }
 
+
+function wordDiff(oldT,newT){
+  const A=String(oldT||'').split(/(\s+)/),B=String(newT||'').split(/(\s+)/);
+  const n=A.length,m=B.length,MAX=900;
+  if(n>MAX||m>MAX)return null;
+  const L=Array.from({length:n+1},()=>new Uint16Array(m+1));
+  for(let i=n-1;i>=0;i--)for(let j=m-1;j>=0;j--)
+    L[i][j]=A[i]===B[j]?L[i+1][j+1]+1:Math.max(L[i+1][j],L[i][j+1]);
+  let i=0,j=0,out='';
+  while(i<n&&j<m){
+    if(A[i]===B[j]){out+=esc(B[j]);i++;j++;}
+    else if(L[i+1][j]>=L[i][j+1]){i++;}
+    else {out+='<ins>'+esc(B[j])+'</ins>';j++;}
+  }
+  while(j<m){out+='<ins>'+esc(B[j])+'</ins>';j++;}
+  return out;
+}
+
+function markInside(html,findings){
+  (findings||[]).forEach(function(f){
+    if(!f.claim_value)return;
+    html=html.split(esc(f.claim_value)).join('<mark>'+esc(f.claim_value)+'</mark>');
+  });
+  return html;
+}
+
+function loop(r){
+  if(!r)return '<div class="none">Choose a record from the list.</div>';
+  if(!r.draft_letter)return '<div class="none">No letter was drafted for this record.</div>';
+  if(!remediated(r)){
+    return '<div class="hd first">No remediation needed</div>'+
+      '<p>This letter cleared the review gate on its first pass. Every dollar figure and date in it traces to the source record, so it was never handed back to the model.</p>'+
+      '<p style="margin-top:14px">Twenty of the three hundred letters in this run did need a second pass. Use the <strong>Blocked, then fixed</strong> or <strong>Refused to send</strong> filters above to read one.</p>';
+  }
+
+  const f0=r.original_review_findings||[], f1=r.review_findings||[];
+  const A=r.original_draft_letter||'', B=r.draft_letter||'';
+  const won=!refused(r);
+  let h='<div class="hd first">The remediation loop</div>'+
+    '<p>The gate does not just flag a letter and hand it to a person. It hands the letter back to the model with its own findings attached as constraints, then re-checks the result. Here is that loop for this record, step by step.</p>';
+
+  h+='<div class="loop"><div class="step">1</div><div class="body"><h4>The model drafts a letter</h4>'+
+     '<div class="letter">'+markInside(esc(A),f0)+'</div></div></div>';
+
+  h+='<div class="loop stop"><div class="step">2</div><div class="body"><h4>The gate checks every claim against the ledger</h4>'+
+     f0.map(function(f){return '<div class="flagnote"><div class="why">'+esc(f.reason||'Unsupported claim')+'</div>'+
+       '<div class="meta">'+esc(f.severity||'')+' · '+esc(f.claim_type||'')+' · '+esc(f.claim_value||'')+
+       (f.position!=null?' · character '+f.position:'')+'</div></div>';}).join('')+
+     '</div></div>';
+
+  h+='<div class="loop"><div class="step">3</div><div class="body"><h4>The finding goes back to the model as a constraint</h4>'+
+     '<p style="margin-bottom:10px">Not a generic retry. The model receives the specific claim that failed and is told not to repeat it.</p>'+
+     '<div class="constraint">A prior draft was rejected for this reason:<br><b>'+
+     esc((f0[0]||{}).reason||'unsupported claim')+'</b><br>Do not repeat it.</div></div></div>';
+
+  const dif=wordDiff(A,B);
+  h+='<div class="loop '+(won?'win':'stop')+'"><div class="step">4</div><div class="body"><h4>The model re-drafts</h4>'+
+     '<div class="letter">'+markInside(dif!==null?dif:esc(B),f1)+'</div>'+
+     (dif!==null?'<p class="diffnote">Green marks wording the model changed on the second pass. '+
+        (f1.length?'The unsupported figure survived the rewrite anyway, marked in red.':'The unsupported figure is gone.')+'</p>':'')+
+     '</div></div>';
+
+  h+='<div class="loop '+(won?'win':'stop')+'" style="border-left-color:transparent"><div class="step">'+(won?'\u2713':'\u2715')+'</div><div class="body"><h4>Outcome</h4>';
+  if(won){
+    h+='<div class="verdict passed"><div class="big">Fixed itself. No human needed.</div>'+
+       '<div class="fine">'+(r.remediation_passes||1)+' remediation pass. The re-draft cleared the gate, so this letter never reached anyone\u2019s desk.</div></div>'+
+       '<p style="margin-top:14px">Nineteen of the twenty blocked letters in this run ended here.</p>';
+  } else {
+    h+='<div class="verdict refused"><div class="big">Refused. The letter was never sent.</div>'+
+       '<div class="fine">'+(r.remediation_passes||2)+' remediation passes, both failing on the same unsupported amount. '+
+       'The system did not send it, did not patch it silently, and did not lower the standard to let it through. It stopped and escalated with the reason recorded.</div></div>'+
+       '<p style="margin-top:14px">One letter out of three hundred ended here. That is the number that matters.</p>';
+  }
+  h+='</div></div>';
+  return h;
+}
+
 function render(){
   $('#p-review').innerHTML=review(cur);
+  $('#p-loop').innerHTML=loop(cur);
   $('#p-consumer').innerHTML=consumer(cur);
   $('#p-intent').innerHTML=intent(cur);
   $('#p-validation').innerHTML=validation(cur);
 }
 
+function setFilter(v){
+  filt=v;
+  caption();chips();list();
+}
 document.addEventListener('click',function(e){
+  const cap=e.target.closest('.cap[data-f]');
+  if(cap){setFilter(cap.dataset.f);return;}
   const f=e.target.closest('.f');
-  if(f){filt=f.dataset.f;document.querySelectorAll('.f').forEach(function(b){b.classList.toggle('on',b===f);});list();return;}
+  if(f){setFilter(f.dataset.f);return;}
   const t=e.target.closest('.tb');
   if(t){document.querySelectorAll('.tb').forEach(function(b){b.classList.toggle('on',b===t);});
     document.querySelectorAll('.pane').forEach(function(p){p.classList.toggle('on',p.id==='p-'+t.dataset.t);});return;}
@@ -309,7 +439,7 @@ document.addEventListener('keydown',function(e){
   DATA=window.__PIPELINE_RECORDS||[];
   SUMMARY=window.__PIPELINE_SUMMARY||{};
   cur=DATA.filter(refused)[0]||DATA.filter(flagged)[0]||DATA.filter(drafted)[0]||DATA[0]||null;
-  caption();list();render();
+  caption();chips();list();render();
 })();
 </script>
 </body>
