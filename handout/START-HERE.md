@@ -3,6 +3,21 @@
 Dispute Response Pipeline — "Both Sides of the Letter"
 brainstorm 2026, Denver
 
+## Two links, typed out
+
+Scanning the QR code works on a phone. To follow along on a laptop,
+type either of these into your browser instead:
+
+  The finished demo, nothing to install:
+  nathanplatteruser.github.io/dispute-agent-demo/DEMO-OUTPUT.html
+
+  The full code and this handout:
+  github.com/nathanplatteruser/dispute-agent-demo
+
+Both are free and public. No account, no signup, no email required.
+
+---
+
 This folder contains the working code from the session. Everything runs
 on your own machine. Nothing phones home, nothing tracks you, nothing
 requires an account.
