@@ -76,3 +76,9 @@ your team.
 These three actions share a common thread: look at what you are already
 sending through the eyes of the person receiving it. The tooling matters
 less than the habit.
+
+---
+
+## Ops framing (Olga Mironova)
+
+When someone asks “how long does a dispute take,” use Olga’s FTE ranges — intake 3–5 · review ~4 · research 20–30 · draft 5–7 · compliance 3–6 · close 3–5 — not a single twelve-minute average. Complaints and disputes are different buckets; the demo’s public complaint language + synthetic ledger is honesty about the sandbox, and the same metadata shape points at a real dispute queue. Keep an examiner-readable refuse/gate trail.
