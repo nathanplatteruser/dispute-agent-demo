@@ -36,6 +36,31 @@ This session builds a system that measures both, live, offline, on a laptop.
 
 ---
 
+## Complaint language ≠ dispute queue (architecture)
+
+This demo is built on **public CFPB complaint narratives** joined to an honest **synthetic account ledger** — real consumer language, submitted by real people, without spending the session explaining a fake corpus. Complaints and disputes are not the same legal bucket. Architecture does not care: point the same pipeline at your own dispute queue and it is the same metadata, just different buckets and different template letters.
+
+Hero economics stay concrete: consumer complaint / draft echo **$1,000** vs ledger **$20,370.53**. On the locked 300-draft run: **300 drafted · 20 blocked · 19 recovered · 1 hard refuse**.
+
+## Examiner-readable audit trail
+
+Every refuse and gate outcome leaves a written trail: what failed the check, how many remediation attempts ran, and why the system stopped. Refused means refused — not sent, not quietly patched — so an examiner (or Aryeh’s audit segment) can read the gate without reconstructing intent from prose.
+
+## FTE minutes per dispute (Olga Mironova)
+
+| Stage | Minutes |
+| :--- | ---: |
+| Intake | 3–5 |
+| Review | ~4 |
+| Research | 20–30 |
+| Draft | 5–7 |
+| Compliance | 3–6 |
+| Close | 3–5 |
+
+Working range ≈ **38–57 min/dispute** (mid ~47). Do not cite a single “12 min” average.
+
+---
+
 ## The verified numbers
 
 Pooled across four runs, 1,640 drafted letters, all offline on a local model. September 1 to 2, 2026.
@@ -69,7 +94,7 @@ The flag rate held between 6.7 and 12.5 percent across every run. That consisten
 
 The session walks four approaches to the same problem. Each one solves the previous level's failure and introduces its own.
 
-Volume assumptions come from a practicing ARM attorney: 500 to 1,000 dispute letters per month, 10 to 15 minutes each by hand, handled by processing staff at 20 to 25 dollars per hour. Figures below assume 1,000 per month.
+Volume assumptions: 500 to 1,000 dispute letters per month (practicing ARM attorney). **Minutes per dispute use Olga Mironova’s FTE breakdown** (ops reality — not a universal client time-study, and not a single “12 min” average): intake 3–5 · review ~4 · research 20–30 · draft 5–7 · compliance 3–6 · close 3–5 (about 38–57 minutes end-to-end; research is the whale). Staffing rate for the comparison table: processing staff at 20 to 25 dollars per hour. Figures below assume 1,000 per month.
 
 ### Level 1. The Uploader
 
@@ -198,4 +223,4 @@ Requirements are a laptop, Python 3.10 or newer, and Ollama, which is free. Ther
 
 ---
 
-*All work runs on public CFPB complaint narratives joined to a synthetic account ledger. No personally identifiable information, no client data. Letters are drafted for review and never dispatched.*
+*All work runs on public CFPB complaint narratives joined to a synthetic account ledger (complaint language for honesty of voice; same metadata shape as a live dispute queue). No personally identifiable information, no client data. Letters are drafted for review and never dispatched. Gate refuses and remediation attempts are examiner-readable in the validation / remediation trail.*
