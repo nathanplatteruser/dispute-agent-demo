@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pretty is not true. Live refuse</title>
+<style>
+:root {
+  --canvas: #F3F1EC;
+  --stage: #F7F6F2;
+  --card: #FFFFFF;
+  --ink: #141311;
+  --muted: #6A655C;
+  --faint: #9A948A;
+  --line: #E6E2D8;
+  --amber: #C4840A;
+  --amber-soft: #F6E9C8;
+  --amber-ink: #8A5C07;
+  --refuse: #8C2F1E;
+  --refuse-soft: #F7EBE7;
+  --ok: #2F5D3A;
+  --ok-soft: #E8F1EA;
+  --shadow: 0 10px 28px rgba(20, 19, 17, 0.06);
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  min-height: 100vh;
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: var(--sans);
+  line-height: 1.45;
+}
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 22px 16px 40px;
+}
+
+.chrome {
+  width: min(var(--stage-w), calc(100% - 0px));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.wordmark {
+  font-size: 13px;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.wordmark span { color: var(--muted); font-weight: 500; }
+
+.seg {
+  display: inline-flex;
+  background: #E8E5DD;
+  border-radius: 999px;
+  padding: 3px;
+  gap: 2px;
+}
+.seg button {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  font: 600 13px/1 var(--sans);
+  padding: 8px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.seg button[aria-pressed="true"] {
+  background: var(--card);
+  color: var(--ink);
+  box-shadow: 0 1px 2px rgba(20, 19, 17, 0.12);
+}
+.seg button:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 2px;
+}
+
+.stage {
+  width: min(var(--stage-w), 100%);
+  background: var(--stage);
+  border-radius: 36px;
+  box-shadow: var(--shadow);
+  padding: var(--stage-pad);
+}
+body.mode-phone {
+  --stage-w: 390px;
+  --stage-pad: 28px 22px 32px;
+  --num: 44px;
+}
+body.mode-desk {
+  --stage-w: 920px;
+  --stage-pad: 40px 44px 44px;
+  --num: 56px;
+}
+
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--amber-ink);
+  background: var(--amber-soft);
+  border-radius: 999px;
+  padding: 6px 10px;
+}
+.kicker i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--amber);
+  display: inline-block;
+}
+
+h1 {
+  margin-top: 16px;
+  font-size: clamp(34px, 7vw, 52px);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  font-weight: 750;
+}
+.lede {
+  margin-top: 12px;
+  font-size: 17px;
+  color: var(--muted);
+  max-width: 34em;
+}
+
+.pair {
+  display: grid;
+  gap: 12px;
+  margin-top: 24px;
+}
+body.mode-phone .pair { grid-template-columns: 1fr; }
+body.mode-desk .pair { grid-template-columns: 1fr 1fr; }
+
+.card {
+  background: var(--card);
+  border-radius: 24px;
+  padding: 22px 22px 20px;
+  box-shadow: 0 1px 0 rgba(20, 19, 17, 0.04);
+}
+.label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+}
+.num {
+  margin-top: 8px;
+  font-size: var(--num);
+  font-weight: 750;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+.num.model { color: var(--refuse); }
+.num.truth { color: var(--ink); }
+.hint {
+  margin-top: 10px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.stack { margin-top: 12px; display: grid; gap: 12px; }
+
+.claim h2 {
+  font-size: 22px;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+}
+.claim p {
+  margin-top: 8px;
+  font-size: 16px;
+  color: #3D3A34;
+}
+
+.diff {
+  margin-top: 16px;
+  background: #F7F5F0;
+  border-radius: 16px;
+  padding: 14px 14px 12px;
+  font-size: 14px;
+}
+.diff .row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 10px;
+  padding: 8px 0;
+}
+.diff .row + .row { border-top: 1px solid var(--line); }
+.diff .tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--faint);
+  min-width: 58px;
+}
+.tok {
+  display: inline-block;
+  border-radius: 6px;
+  padding: 1px 6px;
+  font-weight: 650;
+}
+.tok.del { background: var(--refuse-soft); color: var(--refuse); text-decoration: line-through; }
+.tok.add { background: var(--ok-soft); color: var(--ok); }
+
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+.pill {
+  background: #F3F0E9;
+  color: #3F3B35;
+  border-radius: 999px;
+  padding: 7px 11px;
+  font-size: 12.5px;
+  font-weight: 650;
+}
+
+.note {
+  font-size: 15px;
+  color: var(--muted);
+}
+.note strong { color: var(--ink); font-weight: 650; }
+
+.links {
+  margin-top: 18px;
+  display: grid;
+  gap: 8px;
+}
+.links a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: var(--card);
+  color: var(--ink);
+  text-decoration: none;
+  border-radius: 18px;
+  padding: 16px 18px;
+  font-weight: 600;
+  font-size: 15px;
+}
+.links a:hover { background: #FFFEFB; }
+.links a:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+.links a em {
+  font-style: normal;
+  color: var(--amber);
+  font-weight: 750;
+}
+
+.foot {
+  width: min(var(--stage-w), 100%);
+  margin-top: 16px;
+  font-size: 12px;
+  color: var(--faint);
+  text-align: center;
+}
+</style>
+</head>
+<body class="mode-phone">
+  <div class="page">
+    <header class="chrome">
+      <div class="wordmark">Both Sides <span>of the Letter</span></div>
+      <div class="seg" role="group" aria-label="Layout">
+        <button type="button" id="btn-phone" aria-pressed="true">Phone</button>
+        <button type="button" id="btn-desk" aria-pressed="false">Desk</button>
+      </div>
+    </header>
+
+    <main class="stage">
+      <div class="kicker"><i></i> Live refuse · Simulated</div>
+      <h1>Pretty is not true.</h1>
+      <p class="lede">The model wrote $1,000. The ledger holds $20,370.53. Fail closed. Word-level diff.</p>
+
+      <section class="pair" aria-label="The two numbers">
+        <article class="card">
+          <div class="label">Model / letter</div>
+          <div class="num model">$1,000</div>
+          <p class="hint">Complaint echo. Amount not found in the source record.</p>
+        </article>
+        <article class="card">
+          <div class="label">Ledger truth</div>
+          <div class="num truth">$20,370.53</div>
+          <p class="hint">Current balance on the synthetic ledger.</p>
+        </article>
+      </section>
+
+      <div class="stack">
+        <article class="card claim">
+          <h2>Fail closed.</h2>
+          <p>One remediation. Then refuse. The letter was never sent. What failed, how many attempts, and why we stopped stay on an examiner-readable trail.</p>
+          <div class="diff" aria-label="Word-level diff">
+            <div class="row">
+              <span class="tag">Draft</span>
+              <span>disputed the amount of <span class="tok del">$1,000.00</span></span>
+            </div>
+            <div class="row">
+              <span class="tag">Ledger</span>
+              <span>current balance is <span class="tok add">$20,370.53</span></span>
+            </div>
+            <div class="row">
+              <span class="tag">Gate</span>
+              <span>Amount $1,000.00 not found in source record. 2 remediation passes. Refused.</span>
+            </div>
+          </div>
+          <div class="pills">
+            <span class="pill">300 drafted</span>
+            <span class="pill">20 blocked</span>
+            <span class="pill">19 recovered</span>
+            <span class="pill">1 refused</span>
+          </div>
+        </article>
+
+        <article class="card note">
+          <strong>Synthetic fixture.</strong> Not a client case. Not legal advice. Public CFPB complaint language joined to an honest synthetic ledger. Complaints and disputes are different legal buckets. The check is the same metadata pointed at a dispute queue.
+        </article>
+      </div>
+
+      <nav class="links" aria-label="More">
+        <a href="DEMO-OUTPUT.html">Full pipeline UI <em>Open</em></a>
+        <a href="https://nathanplatteruser.github.io/after-the-lightning/">After the Lightning <em>Open</em></a>
+        <a href="https://calendly.com/nathanplatter">Talk with Nathan <em>Book</em></a>
+      </nav>
+    </main>
+
+    <p class="foot">Phone is the default. Desk widens the stage and places the two numbers side by side.</p>
+  </div>
+
+<script>
+(function () {
+  var body = document.body;
+  var phone = document.getElementById("btn-phone");
+  var desk = document.getElementById("btn-desk");
+
+  function setMode(mode) {
+    var isPhone = mode === "phone";
+    body.classList.toggle("mode-phone", isPhone);
+    body.classList.toggle("mode-desk", !isPhone);
+    phone.setAttribute("aria-pressed", isPhone ? "true" : "false");
+    desk.setAttribute("aria-pressed", isPhone ? "false" : "true");
+  }
+
+  phone.addEventListener("click", function () { setMode("phone"); });
+  desk.addEventListener("click", function () { setMode("desk"); });
+})();
+</script>
+</body>
+</html>
