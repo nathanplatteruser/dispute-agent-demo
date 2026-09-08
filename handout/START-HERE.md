@@ -3,6 +3,23 @@
 Dispute Response Pipeline — "Both Sides of the Letter"
 brainstorm 2026, Denver
 
+**Thursday morning sandbox.** Ralph Hall · Nathan Platter · Olga Mironova · Aryeh Derman
+Session title goes on this line so it does not get mixed with Rob or Dan's lab.
+
+## Before you install anything
+
+Your company's security policy comes first. If you cannot install software on the machine you brought, skip the install and follow along. That is a valid way to attend.
+
+This session uses **Ollama**, not Anything LLM. Anything LLM is a different sandbox (Rob Graf Rath). Mixing the two will waste the hour.
+
+Bring a personal laptop if you can. Admin rights. About 8 GB RAM is enough for Ollama. Hotel Wi-Fi is unreliable. Download Ollama and the model before Wednesday if you can.
+
+All account data here is synthetic. Public CFPB narratives plus a fake ledger. Never a live file.
+
+This is Mike Gibb's conference. Help first. The sandbox track is sponsored by Clark Hill.
+
+---
+
 ## Two links, typed out
 
 Scanning the QR code works on a phone. To follow along on a laptop,
@@ -127,7 +144,7 @@ Open a terminal, navigate to the project folder, and run:
 
 **Windows:**
 
-    cd C:\path\to\the\project
+    cd C:\\path\\to\\the\\project
     python data/generate_synthetic.py
 
 This creates 3,000 synthetic account records. It takes about one second.
@@ -178,14 +195,20 @@ two options:
    `set ANTHROPIC_API_KEY=your-key-here` (Windows)
 3. Run: `python3 run.py --records 10`
 
+Do this on a personal laptop you control. Do not put an API key on a
+locked corporate machine. Company security policy first.
+
 ---
 
 ## Where to find help
 
+- **In the room:** help desk, registration area, Wednesday afternoon and Thursday all day. Genius bar. Bring the stuck thing.
 - **Python installation:** https://www.python.org/about/gettingstarted/
 - **Ollama (local AI):** https://ollama.com
 - **CFPB complaint database (the public data source):** https://www.consumerfinance.gov/data-research/consumer-complaints/
 - **FDCPA text:** https://www.ftc.gov/legal-library/browse/statutes/fair-debt-collection-practices-act
+
+If you want this gate on your own letters after the session: calendly.com/nathanplatter. That is after they ask, not a booth close.
 
 ---
 
