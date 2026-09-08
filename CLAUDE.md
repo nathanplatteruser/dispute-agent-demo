@@ -6,21 +6,30 @@ Read this before doing anything in this repo.
 
 A live conference demo for **brainstorm**, September 9-11, 2026, Denver.
 An AI conference for the third-party collections and accounts-receivable
-industry, roughly 200 attendees. Creditor-side names in the room include
+industry. About 290 attendees. Creditor-side names in the room include
 Ally Bank, U.S. Bank, Arvest, Prosper. AI people from AWS, Equifax,
 Resurgent, InDebted, TrueML.
 
 Nathan has two slots:
 
-1. **A 25-minute solo presentation.** The argument: your AI can pass every
+1. **A lightning / solo presentation.** The argument: your AI can pass every
    compliance check and still wreck your recovery rate, because compliant
-   and effective are different measurements. Ten minutes of idea, ten of
-   live proof, five on what the room does Monday.
-2. **A hands-on session** where the room builds along.
+   and effective are different measurements. Title in the dark. Hold
+   $1,000 vs $20,370.53. Two tests. Olga's 57 minutes. Monday checklist.
+   "I implement this." No GitHub navigation. No pricing on stage.
+2. **Thursday morning sandbox** with Ralph Hall, Olga Mironova, and Aryeh
+   Derman. The room builds along on Ollama. Personal laptop. Synthetic
+   data. Company security policy first.
 
 **One artifact powers both.** Never build two things. The solo talk is the
 argument with the demo as evidence. The hands-on is the same pipeline,
 unhurried, with the audience following.
+
+This is Mike Gibb's conference. Nathan is an honored guest. The sandbox
+track is sponsored by Clark Hill. Thank them. Do not compete with Jurgen's
+Doc or Rob Graf Rath's synthetic CRM. Help desk is a Genius bar
+(Wednesday afternoon and Thursday all day). Help first. Calendly after
+they ask. Do not pitch during someone else's session.
 
 ## HARD CONSTRAINTS — do not violate, ever
 
@@ -39,6 +48,16 @@ unhurried, with the audience following.
    promise made to the organizer, not a nice-to-have.
 5. **Original code only.** Do not copy code, prose, or letter templates
    verbatim from any source.
+6. **Company security policy first.** Do not tell attendees to override
+   IT. Personal laptop. If they cannot install, they watch.
+7. **Ollama for this session.** Anything LLM, Tesseract, Python-under-the-hood,
+   and WSL belong to Rob and Dan. Do not mix those install steps into
+   START-HERE.
+8. **No pricing on lightning, sandbox, or help-desk screens.** Pilot,
+   Firm, and Letter Risk Audit live after they ask. Never say $1,499.
+   Never quote fines or ROI. Never claim CFPB-approved.
+9. **Cite Olga.** Minutes are hers. Do not invent a 12-minute average.
+10. **No em dashes** in attendee-facing copy.
 
 ## Data
 
@@ -92,6 +111,7 @@ visible in the CFPB narratives themselves.
 - Stuck more than 20 minutes? Ship a working stub, log it, move on.
 - Offline tiers are verified by turning the network off and running it.
   Not by reading the code.
+- Attendee-facing docs follow `CONFERENCE-COC.md`.
 
 ## Machine
 
@@ -104,4 +124,5 @@ Build within that envelope.
   offline verified with the network actually off
 - **Aug 31** — 25-minute talk written
 - **Sept 1-7** — three timed rehearsals, one with wifi off
+- **Sept 8** — Mike Gibb sandbox briefing locked the guest rules
 - **Sept 9-11** — Denver
