@@ -1,5 +1,19 @@
 # Dispute Response Demo (Prototype)
 
+**brAInstorm 2026 session:** Taming the Dispute Queue  
+Thursday, September 10, 8:30am · Ralph Hall, Ari Derman, Olga Mironova, Nathan Platter
+
+Working title inside this repo: Both Sides of the Letter.
+
+## Audience links (send these, not the GitHub profile)
+
+- Live refused-letter demo, nothing to install: https://nathanplatteruser.github.io/dispute-agent-demo/DEMO-OUTPUT.html
+- This repository (default branch `demo/both-sides`, also aliased as `master`): https://github.com/nathanplatteruser/dispute-agent-demo
+- Setup guide: [00-START-HERE-Setup-Guide.docx](00-START-HERE-Setup-Guide.docx)
+- Session run of show: [SESSION-RUN-OF-SHOW.md](SESSION-RUN-OF-SHOW.md)
+- Attendee handout: [handout/START-HERE.md](handout/START-HERE.md)
+- Booth flash page (optional aisle follow-up): https://nathanplatteruser.github.io/settleup-booth-kit/
+
 A local, air-gapped-capable prototype that ingests fictional debt-collection dispute documents, classifies them, checks factual claims against a mock ledger, and drafts a response for **mandatory human review**. Built for a live session at Brainstorm 2026.
 
 ## What this is
@@ -7,6 +21,7 @@ A local, air-gapped-capable prototype that ingests fictional debt-collection dis
 - A hands-on prototype showing one narrow workflow: find factually unsupported claims in a drafted dispute response, and stage the letter for human sign-off.
 - Runs entirely on public CFPB narratives joined to a synthetic ledger. No PII, no client data.
 - Runs fully offline on a local model, with tiered failover. No accounts, no API keys, nothing leaves your machine.
+- Olga Mironova FTE ranges are cited on the demo page. Working range about 38 to 57 minutes per dispute. Do not cite a single 12-minute average.
 
 ## What this is NOT
 
