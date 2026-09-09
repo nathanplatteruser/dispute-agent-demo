@@ -72,6 +72,8 @@ body{background:var(--paper);color:var(--ink);font-family:var(--serif);line-heig
 
 .read{flex:1;overflow-y:auto;background:var(--panel)}
 .tabs{position:sticky;top:0;background:var(--panel);border-bottom:1px solid var(--rule);display:flex;padding:0 32px;z-index:2}
+.next-step{font-size:13.5px;color:var(--muted);padding:10px 32px 12px;border-bottom:1px solid var(--rule-soft);max-width:820px;line-height:1.5}
+.next-step a{color:var(--ink);font-weight:600}
 .tb{font-family:var(--serif);font-size:15px;padding:15px 0;margin-right:28px;background:none;border:0;border-bottom:2px solid transparent;color:var(--muted);cursor:pointer}
 .tb:hover{color:var(--ink)}
 .tb.on{color:var(--ink);border-bottom-color:var(--oxblood)}
@@ -133,6 +135,7 @@ ul.notes li:before{content:"—";color:var(--faint);margin-right:9px}
   .pane{padding:22px 20px 50px}
   .masthead{padding:18px 20px 0}
   .tabs{padding:0 20px;overflow-x:auto}
+  .next-step{padding-left:20px;padding-right:20px}
   .two{grid-template-columns:1fr}
   .two > div:first-child{border-right:0;border-bottom:1px solid var(--rule-soft)}
   .sq .caption{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}
@@ -177,6 +180,7 @@ ul.notes li:before{content:"—";color:var(--faint);margin-right:9px}
       <button class="tb" data-t="intent" role="tab">Intent vs impact</button>
       <button class="tb" data-t="validation" role="tab">Validation log</button>
     </div>
+    <p class="next-step">Next step is a person, not a checkout. <a href="https://calendly.com/nathanplatter">Book 20 minutes</a>. Do not buy from this page.</p>
     <section class="pane on" id="p-review" role="tabpanel"></section>
     <section class="pane" id="p-loop" role="tabpanel"></section>
     <section class="pane" id="p-consumer" role="tabpanel"></section>
@@ -547,8 +551,8 @@ function loop(r){
 
   h+='<div class="loop '+(won?'win':'stop')+'" style="border-left-color:transparent"><div class="step">'+(won?'\u2713':'\u2715')+'</div><div class="body"><h4>Outcome</h4>';
   if(won){
-    h+='<div class="verdict passed"><div class="big">Fixed itself. No human needed.</div>'+
-       '<div class="fine">'+(r.remediation_passes||1)+' remediation pass. The re-draft cleared the gate, so this letter never reached anyone\u2019s desk.</div></div>'+
+    h+='<div class="verdict passed"><div class="big">Cleared on re-draft. A person still reads it. This demo did not send it.</div>'+
+       '<div class="fine">'+(r.remediation_passes||1)+' remediation pass. This recording never dispatched the letter. A person still owns send.</div></div>'+
        '<p style="margin-top:14px">Nineteen of the twenty blocked letters in this run ended here.</p>';
   } else {
     h+='<div class="verdict refused"><div class="big">Refused. The letter was never sent.</div>'+
