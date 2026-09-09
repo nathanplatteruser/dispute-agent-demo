@@ -43,6 +43,8 @@ body{background:var(--paper);color:var(--ink);font-family:var(--serif);line-heig
 .sq-head{font-family:var(--mono);font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--faint);margin:14px 0 0}
 .sq .caption{margin-top:8px}
 .sq .cap .n{font-size:20px}
+.sq .cap.ceil .n{font-size:16px}
+.sq .ceil-line{font-size:12.5px;color:var(--muted);padding:6px 0 0;max-width:820px;line-height:1.5}
 .sq .reconcile{max-width:820px;padding-top:8px}
 
 .spread{display:flex;min-height:520px}
@@ -204,7 +206,12 @@ const STATUS_QUO={
   pilotMonth:499,
   jokeElectricity:0.25,
   // Olga Mironova FTE minutes per dispute (hers). Demo comparison uses UPPER. Nathan lock 2026-09-06.
-  olga:{intake:[3,5],review:[4,4],research:[20,30],draft:[5,7],compliance:[3,6],close:[3,5]}
+  olga:{intake:[3,5],review:[4,4],research:[20,30],draft:[5,7],compliance:[3,6],close:[3,5]},
+  // Displaceable share of her UPPER minutes. Not a second lunch/meeting haircut.
+  // Research one third (10 of 30). Draft half (3.5 of 7). Landed in the 4x-8x band; shares not tightened.
+  researchCredit:1/3,
+  draftCredit:1/2,
+  complianceCleanMin:2
 };
 
 function formatMinutes(min){
@@ -223,10 +230,13 @@ function usd(n){
   const cents=Math.round(x*100)%100!==0;
   return '$'+x.toLocaleString('en-US',{minimumFractionDigits:cents?2:0,maximumFractionDigits:2});
 }
+function roiX(x){return (Math.round(Number(x)*10)/10).toFixed(1)+'x';}
+function formatPct(p){return (Math.round(Number(p)*10)/10).toFixed(1)+'%';}
 function sqCap(axis,value,label,extra){
   return '<div class="cap '+(extra||'')+'"><span class="axis">'+axis+'</span><span class="n">'+value+'</span><span class="l">'+label+'</span></div>';
 }
-function statusQuoModel(letterCount){
+function statusQuoModel(letterCount,counts){
+  counts=counts||{};
   const n=Math.max(0,Number(letterCount)||0);
   const o=STATUS_QUO.olga;
   const pair=function(key){return [n*o[key][0],n*o[key][1]];};
@@ -238,8 +248,25 @@ function statusQuoModel(letterCount){
   const labor=upperHours*STATUS_QUO.rateHour;
   const processCost=STATUS_QUO.pilotMonth+STATUS_QUO.jokeElectricity;
   const roi=processCost>0?labor/processCost:0;
+  const highRisk=Math.max(0,Number(counts.highRisk)||0);
+  const refusedN=Math.max(0,Number(counts.refused)||0);
+  const flaggedN=Math.max(0,Number(counts.flagged)||0);
+  const refuseLike=Math.max(refusedN,flaggedN);
+  const cleanN=counts.clean!=null?Math.max(0,Number(counts.clean)||0):Math.max(0,n-highRisk-refuseLike);
+  const researchCreditMin=n*o.research[1]*STATUS_QUO.researchCredit;
+  const draftCreditMin=n*o.draft[1]*STATUS_QUO.draftCredit;
+  const complianceCreditMin=cleanN*STATUS_QUO.complianceCleanMin;
+  const gateMin=researchCreditMin+draftCreditMin+complianceCreditMin;
+  const gateHours=gateMin/60;
+  const gatePct=total[1]>0?gateMin/total[1]*100:0;
+  const adjLabor=gateHours*STATUS_QUO.rateHour;
+  const adjRoi=processCost>0?adjLabor/processCost:0;
   return {n:n,read:read,draft:draft,review:review,counsel:counsel,close:close,total:total,
-    upperHours:upperHours,labor:labor,processCost:processCost,roi:roi};
+    upperHours:upperHours,labor:labor,processCost:processCost,roi:roi,
+    highRisk:highRisk,refused:refusedN,flagged:flaggedN,cleanN:cleanN,
+    researchCreditMin:researchCreditMin,draftCreditMin:draftCreditMin,
+    complianceCreditMin:complianceCreditMin,gateMin:gateMin,gateHours:gateHours,gatePct:gatePct,
+    adjLabor:adjLabor,adjRoi:adjRoi};
 }
 
 function caption(){
@@ -266,36 +293,60 @@ function caption(){
   if(sqEl){
     const letters=SUMMARY.drafted||d.length;
     const raw=SUMMARY.total_records||DATA.length;
-    const m=statusQuoModel(letters);
-    const roiLabel=(Math.round(m.roi*10)/10).toFixed(1)+'x';
+    const m=statusQuoModel(letters,{
+      highRisk:hr.length||SUMMARY.high_risk_letters||0,
+      refused:ref.length,
+      flagged:SUMMARY.review_flagged||0,
+      clean:d.filter(function(r){return !risky(r)&&!refused(r);}).length
+    });
+    const adjLabel=roiX(m.adjRoi);
+    const rawLabel=roiX(m.roi);
     sqEl.innerHTML=
       '<div class="sq-head">Status quo time cost · Olga Mironova</div>'+
       '<div class="caption">'+
+        sqCap('Adjusted ROI',adjLabel,
+          usd(m.adjLabor)+' labor / '+usd(m.processCost)+' process','split wide')+
+        sqCap('Hours a gate can actually take',formatMinutes(m.gateMin),
+          formatPct(m.gatePct)+' of her '+formatMinutes(m.total[1])+' upper')+
         sqCap('Status quo time cost',formatRange(m.total[0],m.total[1]),
-          'Total for '+m.n.toLocaleString()+' letters','split')+
+          'Olga 38-57 min, '+m.n.toLocaleString()+' letters')+
         sqCap('Comparison line',formatMinutes(m.total[1]),
           'Upper end, 57 min each')+
-        sqCap('Read / research',formatRange(m.read[0],m.read[1]),
-          'Intake + research on those '+m.n.toLocaleString())+
-        sqCap('Time to draft',formatRange(m.draft[0],m.draft[1]),
-          'Olga draft 5-7')+
-        sqCap('Time to review',formatRange(m.review[0],m.review[1]),
-          'Olga review ~4')+
-        sqCap('Counsel second review',formatRange(m.counsel[0],m.counsel[1]),
-          'Olga compliance 3-6')+
-        sqCap('Labeled ROI',roiLabel,
-          usd(m.labor)+' labor / '+usd(m.processCost)+' process','split wide')+
+        sqCap('Research credit',formatMinutes(m.researchCreditMin),
+          'One third of her 30 (10 of 30). Gate cites the number.')+
+        sqCap('Draft credit',formatMinutes(m.draftCreditMin),
+          'Half of her 7 (3.5 of 7). Machine writes. Person still reads.')+
+        sqCap('Compliance first pass',formatMinutes(m.complianceCreditMin),
+          '2 of 6 min on '+m.cleanN.toLocaleString()+' clean letters. Counsel owns flagged and refused.')+
+        sqCap('Still human','0 min credited',
+          'Intake, review, and close stay with a person.')+
+        sqCap('Unadjusted ceiling',rawLabel,
+          'If the gate replaced every minute','ceil')+
       '</div>'+
+      '<p class="ceil-line">If the gate replaced every minute: <b>'+rawLabel+'</b> ('+
+      usd(m.labor)+' / '+usd(m.processCost)+'). That is the unadjusted ceiling, not the lead.</p>'+
       '<p class="reconcile">Olga Mironova FTE ranges, cited as hers, not Nathan\'s shop and not a universal time-study. '+
       'Applied to the <b>'+m.n.toLocaleString()+' drafted letters</b> (the dispute unit she used), not to all <b>'+
       Number(raw).toLocaleString()+' raw records</b> as if each row were a full dispute. '+
       'Records-read time is intake + research on those '+m.n.toLocaleString()+' only. '+
       'Demo comparison uses her upper end (57 min per dispute; Nathan lock 2026-09-06). '+
-      'Total includes her Close line (3-5 min), which is '+formatRange(m.close[0],m.close[1])+' for this batch. '+
-      'Labor dollars = upper-end hours x '+usd(STATUS_QUO.rateHour)+'/hour illustrative blended loaded rate (not Olga, not a wage study). '+
-      'This process cost = SettleUp Pilot '+usd(STATUS_QUO.pilotMonth)+' for one month, which covers this comparison, plus '+
-      usd(STATUS_QUO.jokeElectricity)+' joke electricity because Ollama is free (not a utility bill). '+
-      'ROI = '+usd(m.labor)+' / '+usd(m.processCost)+' = '+roiLabel+'. Labeled soft filter, not a kill claim. '+
+      'Her upper end already includes lunch, meetings, and context switches. We do not haircut again. '+
+      'The gate does not replace every Olga minute. A person still receives the dispute, still reads before send, still closes, '+
+      'and counsel still second-reviews anything flagged or refused. The gate checks the ledger and drafts. '+
+      'It does not do a 30-minute file research. '+
+      'Displaceable share: research one third of her 30; draft half of her 7; compliance first pass only, '+
+      STATUS_QUO.complianceCleanMin+' of her 6 minutes, on the <b>'+m.cleanN.toLocaleString()+
+      ' letters</b> that are not high-risk and not refused ('+m.highRisk.toLocaleString()+
+      ' high-risk + '+m.refused.toLocaleString()+' refused stay with counsel; review_flagged '+
+      m.flagged.toLocaleString()+' is that refused set). '+
+      'Intake, review, and close stay human. '+
+      'Hours a gate can actually take: <b>'+formatMinutes(m.gateMin)+'</b>, '+formatPct(m.gatePct)+
+      ' of her '+formatMinutes(m.total[1])+' upper. '+
+      'Adjusted labor = those hours x '+usd(STATUS_QUO.rateHour)+'/hour illustrative blended loaded rate (not Olga, not a wage study) = '+
+      usd(m.adjLabor)+'. Process cost = SettleUp Pilot '+usd(STATUS_QUO.pilotMonth)+
+      ' for one month + '+usd(STATUS_QUO.jokeElectricity)+' joke electricity (Ollama is free; not a utility bill) = '+
+      usd(m.processCost)+'. Adjusted ROI = '+usd(m.adjLabor)+' / '+usd(m.processCost)+' = '+adjLabel+
+      '. Soft filter, not a kill claim. '+
       'Firm $1,299 is not on this strip. Not legal advice. Synthetic ledger and public-complaint demo. '+
       'Letters drafted for review, never dispatched.</p>';
   }

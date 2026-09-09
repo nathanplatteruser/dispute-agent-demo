@@ -84,6 +84,17 @@ def test_strip(html, s):
         ("Firm $1,299 is not on this strip", "Firm kept off the strip"),
         ("never dispatched", "letters never dispatched"),
         ("Not legal advice", "not legal advice"),
+        ("Adjusted ROI", "adjusted ROI leads"),
+        ("Hours a gate can actually take", "gate hours chip"),
+        ("If the gate replaced every minute", "unadjusted ceiling labeled"),
+        ("Unadjusted ceiling", "ceiling chip"),
+        ("one third of her 30", "research one-third credit"),
+        ("Half of her 7", "draft half credit"),
+        ("Intake, review, and close stay human", "still-human line"),
+        ("We do not haircut again", "no lunch double-discount"),
+        ("researchCredit:1/3", "research share in one place"),
+        ("draftCredit:1/2", "draft share in one place"),
+        ("complianceCleanMin:2", "compliance first-pass minutes"),
     ]:
         if needle not in html:
             passed = fail(f"missing {label}")
@@ -123,13 +134,53 @@ def test_strip(html, s):
     cost = 499 + 0.25
     roi = labor / cost
     if labor != 11400:
-        passed = fail(f"labor {labor}, expected 11400")
+        passed = fail(f"unadjusted labor {labor}, expected 11400")
     else:
-        ok("upper labor $11,400")
+        ok("unadjusted labor $11,400")
     if round(roi, 1) != 22.8:
-        passed = fail(f"ROI {roi:.3f}, expected ~22.8")
+        passed = fail(f"unadjusted ROI {roi:.3f}, expected ~22.8")
     else:
-        ok(f"ROI {roi:.2f} -> 22.8x")
+        ok(f"unadjusted ceiling {roi:.2f} -> 22.8x")
+
+    high_risk = s.get("high_risk_letters") or 0
+    flagged = s.get("review_flagged") or 0
+    refused = 1  # locked refuse on this run; review_flagged is that letter
+    refuse_like = max(refused, flagged)
+    clean = n - high_risk - refuse_like
+    if clean != 251:
+        passed = fail(f"clean compliance subset {clean}, expected 251")
+    else:
+        ok("clean subset 251 (300 minus 48 high-risk minus 1 refused)")
+
+    research_credit = n * 30 * (1 / 3)
+    draft_credit = n * 7 * 0.5
+    compliance_credit = clean * 2
+    gate_min = research_credit + draft_credit + compliance_credit
+    adj_labor = (gate_min / 60) * 40
+    adj_roi = adj_labor / cost
+    if research_credit != 3000 or draft_credit != 1050:
+        passed = fail(f"credits research {research_credit} draft {draft_credit}")
+    else:
+        ok("research 50 hr (10 of 30) and draft 17 hr 30 min (3.5 of 7)")
+    if gate_min != 4552:
+        passed = fail(f"gate minutes {gate_min}, expected 4552")
+    else:
+        ok("gate can take 75 hr 52 min")
+    if round(adj_roi, 1) != 6.1:
+        passed = fail(f"adjusted ROI {adj_roi:.3f}, expected ~6.1")
+    else:
+        ok(f"adjusted lead ROI {adj_roi:.2f} -> 6.1x")
+    if not (4 <= adj_roi <= 8):
+        passed = fail(f"adjusted ROI {adj_roi:.2f} outside 4x-8x")
+    else:
+        ok("adjusted ROI inside 4x-8x; shares not tightened")
+
+    adj_pos = html.find("Adjusted ROI")
+    ceil_pos = html.find("Unadjusted ceiling")
+    if adj_pos < 0 or ceil_pos < 0 or adj_pos > ceil_pos:
+        passed = fail("adjusted ROI does not appear before the unadjusted ceiling")
+    else:
+        ok("adjusted ROI is the lead figure")
 
     elapsed_min = round(s["elapsed_seconds"] / 60)
     if elapsed_min != 78:
