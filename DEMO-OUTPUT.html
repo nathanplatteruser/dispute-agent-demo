@@ -39,7 +39,13 @@ body{background:var(--paper);color:var(--ink);font-family:var(--serif);line-heig
 .cap.flag .n{color:var(--oxblood)}
 .cap.ok .n{color:var(--verified)}
 
-.spread{display:flex;height:calc(100vh - 152px);min-height:520px}
+.sq{margin:0}
+.sq-head{font-family:var(--mono);font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--faint);margin:14px 0 0}
+.sq .caption{margin-top:8px}
+.sq .cap .n{font-size:20px}
+.sq .reconcile{max-width:820px;padding-top:8px}
+
+.spread{display:flex;min-height:520px}
 .docket{width:340px;flex:none;border-right:1px solid var(--rule);overflow-y:auto;background:var(--sunk)}
 .docket-head{position:sticky;top:0;background:var(--sunk);border-bottom:1px solid var(--rule);padding:14px 18px 10px;z-index:2}
 .docket-head .count{font-size:13px;color:var(--muted)}
@@ -127,6 +133,11 @@ ul.notes li:before{content:"—";color:var(--faint);margin-right:9px}
   .tabs{padding:0 20px;overflow-x:auto}
   .two{grid-template-columns:1fr}
   .two > div:first-child{border-right:0;border-bottom:1px solid var(--rule-soft)}
+  .sq .caption{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}
+  .sq .cap{margin-right:0;padding:14px 8px 14px 0;width:100%}
+  .sq .cap.split{padding-left:0;border-left:0}
+  .sq .cap .n{font-size:22px;line-height:1.15}
+  .sq .cap.wide{grid-column:1/-1}
 }
 </style>
 </head>
@@ -143,6 +154,7 @@ ul.notes li:before{content:"—";color:var(--faint);margin-right:9px}
 </div>
 
   <div class="caption" id="caption"></div>
+  <div class="sq" id="statusquo"></div>
   <div class="reconcile" id="reconcile"></div>
 </header>
 
@@ -186,10 +198,54 @@ const remediated=r=>!!(r.original_review_findings&&r.original_review_findings.le
 const recovered=r=>remediated(r)&&!refused(r);
 const risky=r=>['high','critical'].includes(String(r.engagement_risk_level||'').toLowerCase());
 
+// One place to change the illustrative blended loaded rate. Not Olga. Not a wage study.
+const STATUS_QUO={
+  rateHour:40,
+  pilotMonth:499,
+  jokeElectricity:0.25,
+  // Olga Mironova FTE minutes per dispute (hers). Demo comparison uses UPPER. Nathan lock 2026-09-06.
+  olga:{intake:[3,5],review:[4,4],research:[20,30],draft:[5,7],compliance:[3,6],close:[3,5]}
+};
+
+function formatMinutes(min){
+  const m=Math.max(0,Math.round(Number(min)||0));
+  const h=Math.floor(m/60),r=m%60;
+  if(h&&r)return h+' hr '+r+' min';
+  if(h)return h+' hr';
+  return r+' min';
+}
+function formatRange(lo,hi){
+  if(lo===hi)return formatMinutes(lo);
+  return formatMinutes(lo)+' to '+formatMinutes(hi);
+}
+function usd(n){
+  const x=Number(n);
+  const cents=Math.round(x*100)%100!==0;
+  return '$'+x.toLocaleString('en-US',{minimumFractionDigits:cents?2:0,maximumFractionDigits:2});
+}
+function sqCap(axis,value,label,extra){
+  return '<div class="cap '+(extra||'')+'"><span class="axis">'+axis+'</span><span class="n">'+value+'</span><span class="l">'+label+'</span></div>';
+}
+function statusQuoModel(letterCount){
+  const n=Math.max(0,Number(letterCount)||0);
+  const o=STATUS_QUO.olga;
+  const pair=function(key){return [n*o[key][0],n*o[key][1]];};
+  const add=function(a,b){return [a[0]+b[0],a[1]+b[1]];};
+  const read=add(pair('intake'),pair('research'));
+  const draft=pair('draft'),review=pair('review'),counsel=pair('compliance'),close=pair('close');
+  const total=add(add(add(add(read,draft),review),counsel),close);
+  const upperHours=total[1]/60;
+  const labor=upperHours*STATUS_QUO.rateHour;
+  const processCost=STATUS_QUO.pilotMonth+STATUS_QUO.jokeElectricity;
+  const roi=processCost>0?labor/processCost:0;
+  return {n:n,read:read,draft:draft,review:review,counsel:counsel,close:close,total:total,
+    upperHours:upperHours,labor:labor,processCost:processCost,roi:roi};
+}
+
 function caption(){
   const d=DATA.filter(drafted),ref=DATA.filter(refused),hr=DATA.filter(risky);
   const clean=DATA.filter(passed),fixed=DATA.filter(recovered);
-  const mins=SUMMARY.elapsed_seconds?Math.round(SUMMARY.elapsed_seconds/60):null;
+  const elapsed=SUMMARY.elapsed_seconds?formatMinutes(SUMMARY.elapsed_seconds/60):null;
   const cells=[
     ['Records read',(SUMMARY.total_records||DATA.length).toLocaleString(),'','all','Ingested'],
     ['Letters drafted',(SUMMARY.drafted||d.length).toLocaleString(),'','all','Ingested'],
@@ -198,13 +254,51 @@ function caption(){
     ['Refused to send',ref.length.toLocaleString(),'flag','refused','Outcome, 3 of 3'],
     ['Flagged for a human',(hr.length||SUMMARY.high_risk_letters||0).toLocaleString(),'split','risk','Separate score']
   ];
-  if(mins)cells.push(['Total run',mins+' min','split',null,'Elapsed']);
+  if(elapsed)cells.push(['Total run',elapsed,'split',null,'Elapsed']);
   $('#caption').innerHTML=cells.map(function(c){
     const sel=c[3]===filt?' sel':'';
     const inner='<span class="axis">'+c[4]+'</span><span class="n">'+c[1]+'</span><span class="l">'+c[0]+'</span>';
     return c[3]?'<button class="cap '+c[2]+sel+'" data-f="'+c[3]+'">'+inner+'</button>'
                :'<div class="cap '+c[2]+'">'+inner+'</div>';
   }).join('');
+
+  const sqEl=$('#statusquo');
+  if(sqEl){
+    const letters=SUMMARY.drafted||d.length;
+    const raw=SUMMARY.total_records||DATA.length;
+    const m=statusQuoModel(letters);
+    const roiLabel=(Math.round(m.roi*10)/10).toFixed(1)+'x';
+    sqEl.innerHTML=
+      '<div class="sq-head">Status quo time cost · Olga Mironova</div>'+
+      '<div class="caption">'+
+        sqCap('Status quo time cost',formatRange(m.total[0],m.total[1]),
+          'Total for '+m.n.toLocaleString()+' letters','split')+
+        sqCap('Comparison line',formatMinutes(m.total[1]),
+          'Upper end, 57 min each')+
+        sqCap('Read / research',formatRange(m.read[0],m.read[1]),
+          'Intake + research on those '+m.n.toLocaleString())+
+        sqCap('Time to draft',formatRange(m.draft[0],m.draft[1]),
+          'Olga draft 5-7')+
+        sqCap('Time to review',formatRange(m.review[0],m.review[1]),
+          'Olga review ~4')+
+        sqCap('Counsel second review',formatRange(m.counsel[0],m.counsel[1]),
+          'Olga compliance 3-6')+
+        sqCap('Labeled ROI',roiLabel,
+          usd(m.labor)+' labor / '+usd(m.processCost)+' process','split wide')+
+      '</div>'+
+      '<p class="reconcile">Olga Mironova FTE ranges, cited as hers, not Nathan\'s shop and not a universal time-study. '+
+      'Applied to the <b>'+m.n.toLocaleString()+' drafted letters</b> (the dispute unit she used), not to all <b>'+
+      Number(raw).toLocaleString()+' raw records</b> as if each row were a full dispute. '+
+      'Records-read time is intake + research on those '+m.n.toLocaleString()+' only. '+
+      'Demo comparison uses her upper end (57 min per dispute; Nathan lock 2026-09-06). '+
+      'Total includes her Close line (3-5 min), which is '+formatRange(m.close[0],m.close[1])+' for this batch. '+
+      'Labor dollars = upper-end hours x '+usd(STATUS_QUO.rateHour)+'/hour illustrative blended loaded rate (not Olga, not a wage study). '+
+      'This process cost = SettleUp Pilot '+usd(STATUS_QUO.pilotMonth)+' for one month, which covers this comparison, plus '+
+      usd(STATUS_QUO.jokeElectricity)+' joke electricity because Ollama is free (not a utility bill). '+
+      'ROI = '+usd(m.labor)+' / '+usd(m.processCost)+' = '+roiLabel+'. Labeled soft filter, not a kill claim. '+
+      'Firm $1,299 is not on this strip. Not legal advice. Synthetic ledger and public-complaint demo. '+
+      'Letters drafted for review, never dispatched.</p>';
+  }
 
   $('#reconcile').innerHTML=
     'Every drafted letter lands in exactly one outcome: <b>'+clean.length+' cleared</b> + <b>'+
