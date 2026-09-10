@@ -214,19 +214,27 @@ Three limitations, stated plainly, because a session about honest AI should be h
 
 ## Session flow
 
-Twenty-five minutes, four levels, three demonstrations.
+Sixty minutes total. The technical content lands inside thirty-five, which leaves real room for legal, operations and consulting questions from the floor. Basic, then technical, then basic again.
 
-| Time | Segment |
-| :--- | :--- |
-| 0:00 | The thesis. Compliant and effective are different measurements. |
-| 2:00 | Level 1. The Uploader. Read the consumer's own words. |
-| 5:00 | Level 2. The Prompt Engineer. Live run, and the data layer problem. |
-| 8:00 | Level 3. The Checker. Both measurements on screen. |
-| 12:00 | The letters the gate will not pass. |
-| 15:00 | Remediation. The report card goes back to the model. |
-| 18:00 | The letter the system refuses to send. |
-| 20:00 | Why the refused letter is the most readable one in the batch. |
-| 22:00 | What to run on Monday. |
+| Time | Segment | Led by |
+| :--- | :--- | :--- |
+| 0:00 | QR code and typed URL on screen. Everything is free, no signup, no account. Two lanes: install along, or watch and take the guide home. | Ralph |
+| 4:00 | The setup guide, and what happened when a working consultant followed it on an old Windows laptop. | Ralph |
+| 9:00 | The finished output. This is what you get. The hosted page, no terminal required. | Nathan |
+| 14:00 | The thesis. Compliant and effective are different measurements. | Nathan |
+| 17:00 | Level 1, the Uploader. Read the consumer's own words. | Nathan |
+| 20:00 | Level 2, the Prompt Engineer. Live run, and the data layer problem. | Nathan |
+| 24:00 | Level 3, the Checker. Both measurements on screen. | Nathan |
+| 28:00 | The letters the gate will not pass. | Nathan |
+| 31:00 | Remediation. The report card goes back to the model. Twenty blocked, nineteen fixed themselves. | Nathan |
+| 35:00 | The letter the system refuses to send, and why it was the most readable one in the batch. | Nathan |
+| 38:00 | The audit trail as something you hand an examiner. | Aryeh |
+| 41:00 | What an operations and audit-readiness team does with this. State examinations, GRC, garnishment and bankruptcy filings. | Olga |
+| 45:00 | Make or buy. About twenty-five hours with free tools. A vendor will quote you weeks and five figures. Neither answer is wrong. | Nathan |
+| 48:00 | The close. What problem are you solving, what is it costing you, what would it cost to fix. | Ralph |
+| 50:00 | Questions. Not negotiable. | All |
+
+The last ten minutes are protected. If the technical middle runs long, cut from it rather than from questions.
 
 ---
 
