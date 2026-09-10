@@ -1,0 +1,85 @@
+{
+  "title": "The Letter That Refused to Send",
+  "format": "two-voice public-radio feature, ~7 min",
+  "generated": "2026-09-10",
+  "voices": {
+    "DANA": "Path (Artlist library voice, female, adult, American)",
+    "RAY": "Gravity (Artlist library voice, male, middle-aged, American)"
+  },
+  "engine": "Artlist text-to-speech, English, American accent, default speed",
+  "note": "Each segment is one generation. Regenerate in order and concatenate. Numbers are spelled out on purpose so a listener never has to scan back.",
+  "segments": [
+    {
+      "index": 1,
+      "speaker": "DANA",
+      "voice": "Path (Artlist library voice, female, adult, American)",
+      "text": "A woman writes to a debt collector. She says: you offered me a discount. I paid it. One thousand dollars. And you sent me to collections anyway. So the collector's software writes back. Polite. Professional. And in the second paragraph it says: your dispute regarding the amount of one thousand dollars."
+    },
+    {
+      "index": 2,
+      "speaker": "RAY",
+      "voice": "Gravity (Artlist library voice, male, middle-aged, American)",
+      "text": "One problem. The account record doesn't say one thousand dollars. It says twenty thousand, three hundred seventy dollars and fifty-three cents. So where did the machine get the smaller number? From her. It read her complaint, and it agreed with her. And that's the whole story. A machine that invents a number out of nowhere, you'd catch. A machine that agrees with the person in front of it? That one gets mailed."
+    },
+    {
+      "index": 3,
+      "speaker": "DANA",
+      "voice": "Path (Artlist library voice, female, adult, American)",
+      "text": "This week in Denver, four people ran a live session pulling that failure apart. The demo runs on a laptop with the wifi off, and they published the run of show before the session, including the parts that don't work. Their argument is that AI systems should show their work. Hard to make that argument from behind a curtain. They walk it as four levels, and I want to run a parallel story alongside, because it maps almost perfectly onto taking your car to a shop."
+    },
+    {
+      "index": 4,
+      "speaker": "RAY",
+      "voice": "Gravity (Artlist library voice, male, middle-aged, American)",
+      "text": "Level one. The Uploader. You paste the dispute into a chat assistant, copy the letter, mail it. Thirty seconds, looks professional. In car terms: you tell the guy at the counter, I think it's the brakes. He writes brakes on the ticket. They do the brakes. Nobody opened the hood. At a thousand disputes a month, somewhere around seventy letters go out stating amounts that appear nowhere in the file. And you find out from a complaint, a regulator, or opposing counsel. It didn't lie. It agreed. And a wrong letter looks exactly like a right one."
+    },
+    {
+      "index": 5,
+      "speaker": "DANA",
+      "voice": "Path (Artlist library voice, female, adult, American)",
+      "text": "Level two. The Prompt Engineer. You get better at asking. Better prompts, worked examples, you tell the model in capital letters to use only the record. Now you've got the veteran service writer, twenty years on the counter, asking smarter questions. Better intake. Still nobody opened the hood. And it still fails about one letter in thirteen, because the model doesn't know when it's wrong. Here's the cruel part: the letters got better. Cleaner. More convincing. So the wrong ones are now harder to catch, not easier. Better prompts make the wrong letters more convincing, not rarer."
+    },
+    {
+      "index": 6,
+      "speaker": "RAY",
+      "voice": "Gravity (Artlist library voice, male, middle-aged, American)",
+      "text": "Level three. The Checker. Real engineering. Every dollar figure, every date, every payment claim gets pulled out of the draft and checked against the source record. Anything unsupported gets blocked. Finally, they put the car on the diagnostic machine. And it works. Of sixteen hundred and forty letters, a hundred and twenty-six caught. Zero fabrications reached the mail. And then the guy hands you a printout. Twelve codes. Here's everything wrong with your car. And you say, great, can you fix it? And he says, that's the diagnostic. Fixing is separate. You didn't remove the work. You relocated it, into a queue that didn't exist before. A gate that only says no is a smoke alarm. It tells you where the fire is. It doesn't go get water."
+    },
+    {
+      "index": 7,
+      "speaker": "DANA",
+      "voice": "Path (Artlist library voice, female, adult, American)",
+      "text": "Level four. Fix, then refuse. Every blocked letter goes back to the model with its own report card attached. Not try again. Specifically: you wrote one thousand dollars. That amount does not appear in the account record. The balance is twenty thousand three hundred seventy dollars and fifty-three cents. Draft it again. Then the gate re-runs. Now the shop reads its own codes, does the repair, puts the car back on the machine, and re-tests. And if it still fails, they don't hand you the keys. They call you and say, we could not make this safe. Across sixteen hundred and forty letters: a hundred twenty-six blocked, a hundred twenty-three fixed themselves, three refused. Refused means refused. Not sent, not quietly patched. Escalated to a person, with a written record of what was wrong and why the system stopped."
+    },
+    {
+      "index": 8,
+      "speaker": "RAY",
+      "voice": "Gravity (Artlist library voice, male, middle-aged, American)",
+      "text": "A few numbers worth hearing. Time to read a dispute and sort it: forty-six milliseconds, about a tenth of a blink. And that part uses no AI at all. Fifteen hundred records out of fifteen hundred sorted with zero calls to the model. Just rules. Time to draft one letter: fifteen point six seconds. Two very different speeds, and if a vendor quotes you one number for both, they're quoting you the wrong one. And across all four runs the flag rate stayed between six point seven and twelve and a half percent. It never spiked and never vanished. The consistency is the finding."
+    },
+    {
+      "index": 9,
+      "speaker": "DANA",
+      "voice": "Path (Artlist library voice, female, adult, American)",
+      "text": "And then they do something I've almost never seen in a demo. They spend a segment on what it can't do. Nothing in the system checks whether the answer answers the question. The gate verifies that claims are true. It has no opinion on whether the letter is responsive. The risk scorer is phrase matching, not comprehension. A lookup table, and they say so. And results aren't stable across runs, so they present from a locked file and tell the room. Back to the car: that's the shop taping a note to your steering wheel. We fixed the codes. We did not drive it on the highway. You'd trust that shop more, not less."
+    },
+    {
+      "index": 10,
+      "speaker": "RAY",
+      "voice": "Gravity (Artlist library voice, male, middle-aged, American)",
+      "text": "Last thing. This is not a headcount story. They're explicit about it. The argument is capacity. Right now dispute volume is a ceiling on how much business you can accept, because a bigger client means hiring before you can serve them. Remove the ceiling, same team, more work. Their estimate: thirty to sixty-five percent more volume without adding staff. And the people doing this today are the ones who know which disputes are genuinely dangerous. That judgment is the scarce thing. Not the typing."
+    },
+    {
+      "index": 11,
+      "speaker": "DANA",
+      "voice": "Path (Artlist library voice, female, adult, American)",
+      "text": "Everything we described is public and free. No signup, no account. It runs on a laptop with the wifi off. And the number that stays with me isn't forty-six milliseconds, impressive as that is. It's three."
+    },
+    {
+      "index": 12,
+      "speaker": "RAY",
+      "voice": "Gravity (Artlist library voice, male, middle-aged, American)",
+      "text": "Three letters, out of sixteen hundred and forty, that a machine looked at, tried twice to fix, couldn't defend, and refused to send. Most software is built to always produce an answer. This one was built to know when it shouldn't."
+    }
+  ]
+}
