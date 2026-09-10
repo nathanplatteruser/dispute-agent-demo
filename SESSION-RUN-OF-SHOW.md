@@ -214,27 +214,27 @@ Three limitations, stated plainly, because a session about honest AI should be h
 
 ## Session flow
 
-Sixty minutes total. The technical content lands inside thirty-five, which leaves real room for legal, operations and consulting questions from the floor. Basic, then technical, then basic again.
+Sixty minutes total. Everything we deliver lands inside forty, which leaves a full twenty minutes for questions from the floor. Basic, then technical, then basic again.
 
 | Time | Segment | Led by |
 | :--- | :--- | :--- |
 | 0:00 | QR code and typed URL on screen. Everything is free, no signup, no account. Two lanes: install along, or watch and take the guide home. | Ralph |
-| 4:00 | The setup guide, and what happened when a working consultant followed it on an old Windows laptop. | Ralph |
-| 9:00 | The finished output. This is what you get. The hosted page, no terminal required. | Nathan |
-| 14:00 | The thesis. Compliant and effective are different measurements. | Nathan |
-| 17:00 | Level 1, the Uploader. Read the consumer's own words. | Nathan |
-| 20:00 | Level 2, the Prompt Engineer. Live run, and the data layer problem. | Nathan |
-| 24:00 | Level 3, the Checker. Both measurements on screen. | Nathan |
-| 28:00 | The letters the gate will not pass. | Nathan |
-| 31:00 | Remediation. The report card goes back to the model. Twenty blocked, nineteen fixed themselves. | Nathan |
-| 35:00 | The letter the system refuses to send, and why it was the most readable one in the batch. | Nathan |
-| 38:00 | The audit trail as something you hand an examiner. | Aryeh |
-| 41:00 | What an operations and audit-readiness team does with this. State examinations, GRC, garnishment and bankruptcy filings. | Olga |
-| 45:00 | Make or buy. About twenty-five hours with free tools. A vendor will quote you weeks and five figures. Neither answer is wrong. | Nathan |
-| 48:00 | The close. What problem are you solving, what is it costing you, what would it cost to fix. | Ralph |
-| 50:00 | Questions. Not negotiable. | All |
+| 3:00 | The setup guide, and what happened when a working consultant followed it on an old Windows laptop. | Ralph |
+| 7:00 | The finished output. This is what you get. The hosted page, no terminal required. | Nathan |
+| 11:00 | The thesis. Compliant and effective are different measurements. | Nathan |
+| 13:00 | Level 1, the Uploader. Read the consumer's own words. | Nathan |
+| 16:00 | Level 2, the Prompt Engineer. Live run, and the data layer problem. | Nathan |
+| 19:00 | Level 3, the Checker. Both measurements on screen. | Nathan |
+| 23:00 | The letters the gate will not pass. | Nathan |
+| 26:00 | Remediation. The report card goes back to the model. Twenty blocked, nineteen fixed themselves. | Nathan |
+| 30:00 | The letter the system refuses to send, and why it was the most readable one in the batch. | Nathan |
+| 33:00 | The audit trail as something you hand an examiner. | Aryeh |
+| 36:00 | State examinations, GRC, garnishment and bankruptcy filings. What an operations and audit-readiness team does with this. | Olga |
+| 38:00 | Make or buy. About twenty-five hours with free tools. A vendor will quote you weeks and five figures. Neither answer is wrong. | Nathan |
+| 39:00 | The close. What problem are you solving, what is it costing you, what would it cost to fix. | Ralph |
+| 40:00 | Questions. Twenty minutes, and they are the point. | All |
 
-The last ten minutes are protected. If the technical middle runs long, cut from it rather than from questions.
+The last twenty minutes are protected. If the middle runs long, cut from the middle. Model choice, pricing, what a second version looks like, whether this fits a particular shop — those are the conversations worth having, and they only happen if we leave room for them.
 
 ---
 
