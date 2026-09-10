@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check the live refuse page still has the locked facts and a labeled status-quo / ROI strip."""
+"""Check the live refuse page still has the locked facts and a time-saved status-quo strip."""
 
 import json
 import os
@@ -8,6 +8,7 @@ import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LIVE = os.path.join(ROOT, "DEMO-OUTPUT.html")
+TEMPLATE = os.path.join(ROOT, "ui", "_template.html")
 
 
 def fail(msg):
@@ -20,8 +21,8 @@ def ok(msg):
     return True
 
 
-def load():
-    with open(LIVE, encoding="utf-8") as f:
+def load(path):
+    with open(path, encoding="utf-8") as f:
         return f.read()
 
 
@@ -32,9 +33,12 @@ def summary(html):
     return json.loads(m.group(1))
 
 
-def const_int(html, key):
-    m = re.search(rf"{key}:(\d+(?:\.\d+)?)", html)
-    return float(m.group(1)) if m else None
+def strip_block(html):
+    start = html.find("const STATUS_QUO")
+    end = html.find("const FILTERS")
+    if start < 0 or end < 0 or end <= start:
+        return ""
+    return html[start:end]
 
 
 def test_locked_facts(html, s):
@@ -69,37 +73,31 @@ def test_locked_facts(html, s):
     return passed
 
 
-def test_strip(html, s):
+def test_no_public_list_prices(html, block):
     passed = True
     for needle, label in [
-        ('id="statusquo"', "statusquo mount"),
-        ("STATUS_QUO", "STATUS_QUO const"),
-        ("rateHour:40", "$40 rate in one place"),
-        ("pilotMonth:499", "Pilot $499"),
-        ("jokeElectricity:0.25", "joke electricity"),
-        ("Olga Mironova", "Olga cited by name"),
-        ("not a wage study", "rate labeled illustrative"),
-        ("not a kill claim", "soft filter, not a kill claim"),
-        ("joke electricity", "electricity called a joke"),
-        ("Firm $1,299 is not on this strip", "Firm kept off the strip"),
-        ("never dispatched", "letters never dispatched"),
-        ("Not legal advice", "not legal advice"),
-        ("Adjusted ROI", "adjusted ROI leads"),
-        ("Hours a gate can actually take", "gate hours chip"),
-        ("If the gate replaced every minute", "unadjusted ceiling labeled"),
-        ("Unadjusted ceiling", "ceiling chip"),
-        ("one third of her 30", "research one-third credit"),
-        ("Half of her 7", "draft half credit"),
-        ("Intake, review, and close stay human", "still-human line"),
-        ("We do not haircut again", "no lunch double-discount"),
-        ("researchCredit:1/3", "research share in one place"),
-        ("draftCredit:1/2", "draft share in one place"),
-        ("complianceCleanMin:2", "compliance first-pass minutes"),
+        ("pilotMonth", "pilotMonth const"),
+        ("jokeElectricity", "joke electricity const"),
+        ("SettleUp Pilot", "SettleUp Pilot offer"),
+        ("processCost", "processCost identifier"),
+        ("process-cost", "process-cost copy"),
+        ("process cost", "process cost copy"),
+        ("list price", "list price copy"),
+        ("Pilot", "Pilot product name"),
+        ("Adjusted ROI", "adjusted dollar ROI"),
+        ("adjRoi", "adjRoi math"),
+        ("Firm $1,299", "Firm list price"),
+        ("$1,299", "Firm dollars"),
+        ("$499", "Pilot dollars"),
+        ("rateHour", "invented hourly rate on the strip"),
+        ("stripe.com", "Stripe checkout"),
+        ("stripe.com/checkout", "Stripe checkout path"),
     ]:
-        if needle not in html:
-            passed = fail(f"missing {label}")
+        hay = html if needle in ("stripe.com", "stripe.com/checkout") else block
+        if needle in hay:
+            passed = fail(f"public list price leak: {label}")
         else:
-            ok(label)
+            ok(f"no {label}")
 
     if "1,499" in html or "$1499" in html:
         passed = fail("found $1,499")
@@ -109,9 +107,41 @@ def test_strip(html, s):
         passed = fail("Dell appears in the live file")
     else:
         ok("no Dell")
+    return passed
 
-    # New user-facing block should not use em dashes.
-    block = html[html.find("const STATUS_QUO"): html.find("const FILTERS")]
+
+def test_strip(html, s):
+    passed = True
+    block = strip_block(html)
+    if not block:
+        return fail("STATUS_QUO / FILTERS block missing")
+
+    for needle, label in [
+        ('id="statusquo"', "statusquo mount"),
+        ("STATUS_QUO", "STATUS_QUO const"),
+        ("Olga Mironova", "Olga cited by name"),
+        ("not a kill claim", "soft filter, not a kill claim"),
+        ("never dispatched", "letters never dispatched"),
+        ("Not legal advice", "not legal advice"),
+        ("Hours a gate can actually take", "gate hours chip leads"),
+        ("If the gate replaced every minute", "unadjusted time ceiling labeled"),
+        ("Unadjusted time ceiling", "ceiling chip"),
+        ("one third of her 30", "research one-third credit"),
+        ("Half of her 7", "draft half credit"),
+        ("Intake, review, and close stay human", "still-human line"),
+        ("We do not haircut again", "no lunch double-discount"),
+        ("researchCredit:1/3", "research share in one place"),
+        ("draftCredit:1/2", "draft share in one place"),
+        ("complianceCleanMin:2", "compliance first-pass minutes"),
+        ("Time saved is the frame", "soft ROI stays time-saved"),
+        ("https://calendly.com/nathanplatter", "Calendly CTA"),
+        ("Next step is a person, not a checkout", "no buy CTA"),
+    ]:
+        if needle not in html:
+            passed = fail(f"missing {label}")
+        else:
+            ok(label)
+
     if "—" in block:
         passed = fail("em dash in new status-quo copy")
     else:
@@ -130,18 +160,6 @@ def test_strip(html, s):
     else:
         ok("Olga stages sum to 38-57 min / dispute")
 
-    labor = (total[1] / 60) * 40
-    cost = 499 + 0.25
-    roi = labor / cost
-    if labor != 11400:
-        passed = fail(f"unadjusted labor {labor}, expected 11400")
-    else:
-        ok("unadjusted labor $11,400")
-    if round(roi, 1) != 22.8:
-        passed = fail(f"unadjusted ROI {roi:.3f}, expected ~22.8")
-    else:
-        ok(f"unadjusted ceiling {roi:.2f} -> 22.8x")
-
     high_risk = s.get("high_risk_letters") or 0
     flagged = s.get("review_flagged") or 0
     refused = 1  # locked refuse on this run; review_flagged is that letter
@@ -156,8 +174,6 @@ def test_strip(html, s):
     draft_credit = n * 7 * 0.5
     compliance_credit = clean * 2
     gate_min = research_credit + draft_credit + compliance_credit
-    adj_labor = (gate_min / 60) * 40
-    adj_roi = adj_labor / cost
     if research_credit != 3000 or draft_credit != 1050:
         passed = fail(f"credits research {research_credit} draft {draft_credit}")
     else:
@@ -166,21 +182,13 @@ def test_strip(html, s):
         passed = fail(f"gate minutes {gate_min}, expected 4552")
     else:
         ok("gate can take 75 hr 52 min")
-    if round(adj_roi, 1) != 6.1:
-        passed = fail(f"adjusted ROI {adj_roi:.3f}, expected ~6.1")
-    else:
-        ok(f"adjusted lead ROI {adj_roi:.2f} -> 6.1x")
-    if not (4 <= adj_roi <= 8):
-        passed = fail(f"adjusted ROI {adj_roi:.2f} outside 4x-8x")
-    else:
-        ok("adjusted ROI inside 4x-8x; shares not tightened")
 
-    adj_pos = html.find("Adjusted ROI")
-    ceil_pos = html.find("Unadjusted ceiling")
-    if adj_pos < 0 or ceil_pos < 0 or adj_pos > ceil_pos:
-        passed = fail("adjusted ROI does not appear before the unadjusted ceiling")
+    hours_pos = html.find("Hours a gate can actually take")
+    ceil_pos = html.find("Unadjusted time ceiling")
+    if hours_pos < 0 or ceil_pos < 0 or hours_pos > ceil_pos:
+        passed = fail("gate hours do not appear before the unadjusted time ceiling")
     else:
-        ok("adjusted ROI is the lead figure")
+        ok("gate hours is the lead figure")
 
     elapsed_min = round(s["elapsed_seconds"] / 60)
     if elapsed_min != 78:
@@ -188,22 +196,46 @@ def test_strip(html, s):
     else:
         ok("SUMMARY elapsed formats as 1 hr 18 min")
 
-    if const_int(html, "rateHour") != 40:
-        passed = fail("rateHour is not 40")
+    passed = test_no_public_list_prices(html, block) and passed
+    return passed
+
+
+def test_template_locked():
+    if not os.path.exists(TEMPLATE):
+        return fail("ui/_template.html missing")
+    html = load(TEMPLATE)
+    block = strip_block(html)
+    passed = True
+    if "https://calendly.com/nathanplatter" not in html:
+        passed = fail("template missing Calendly CTA")
+    else:
+        ok("template Calendly CTA")
+    if "pilotMonth" in html or "$499" in html or "Firm $1,299" in html:
+        passed = fail("template still quotes a product list price")
+    else:
+        ok("template has no Pilot/Firm list prices")
+    if re.search(r"process[- ]cost|list price|\bPilot\b", html, re.I):
+        passed = fail("template strip still answers what Nathan charges")
+    else:
+        ok("template does not name process-cost or Pilot")
+    if "—" in block:
+        passed = fail("em dash in template status-quo copy")
+    else:
+        ok("no em dash in template strip copy")
     return passed
 
 
 def main():
-    print("status-quo / ROI strip")
+    print("status-quo / time-saved strip")
     if not os.path.exists(LIVE):
         print("  FAIL  DEMO-OUTPUT.html missing")
         return 1
-    html = load()
+    html = load(LIVE)
     s = summary(html)
     if not s:
         print("  FAIL  SUMMARY missing")
         return 1
-    results = [test_locked_facts(html, s), test_strip(html, s)]
+    results = [test_locked_facts(html, s), test_strip(html, s), test_template_locked()]
     print("PASS" if all(results) else "FAIL")
     return 0 if all(results) else 1
 
