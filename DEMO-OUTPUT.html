@@ -204,7 +204,7 @@ const remediated=r=>!!(r.original_review_findings&&r.original_review_findings.le
 const recovered=r=>remediated(r)&&!refused(r);
 const risky=r=>['high','critical'].includes(String(r.engagement_risk_level||'').toLowerCase());
 
-// Time-saved frame only. No product list price, no process-cost offer. Nathan lock 2026-09-10.
+// Time-saved frame only. Nathan lock 2026-09-10.
 const STATUS_QUO={
   // Olga Mironova FTE minutes per dispute (hers). Demo comparison uses UPPER. Nathan lock 2026-09-06.
   olga:{intake:[3,5],review:[4,4],research:[20,30],draft:[5,7],compliance:[3,6],close:[3,5]},
@@ -326,11 +326,9 @@ function caption(){
       'Intake, review, and close stay human. '+
       'Hours a gate can actually take: <b>'+formatMinutes(m.gateMin)+'</b>, '+formatPct(m.gatePct)+
       ' of her '+formatMinutes(m.total[1])+' upper. '+
-      'Time saved is the frame. No product list price and no process-cost offer on this strip. '+
-      'Soft filter, not a kill claim. '+
+      'Time saved is the frame. Soft filter, not a kill claim. '+
       'Not legal advice. Synthetic ledger and public-complaint demo. '+
-      'Letters drafted for review, never dispatched. '+
-      'Next step is a person, not a checkout.</p>';
+      'Letters drafted for review, never dispatched.</p>';
   }
 
   $('#reconcile').innerHTML=

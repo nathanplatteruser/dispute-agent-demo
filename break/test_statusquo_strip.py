@@ -79,7 +79,11 @@ def test_no_public_list_prices(html, block):
         ("pilotMonth", "pilotMonth const"),
         ("jokeElectricity", "joke electricity const"),
         ("SettleUp Pilot", "SettleUp Pilot offer"),
-        ("processCost", "process-cost dollars"),
+        ("processCost", "processCost identifier"),
+        ("process-cost", "process-cost copy"),
+        ("process cost", "process cost copy"),
+        ("list price", "list price copy"),
+        ("Pilot", "Pilot product name"),
         ("Adjusted ROI", "adjusted dollar ROI"),
         ("adjRoi", "adjRoi math"),
         ("Firm $1,299", "Firm list price"),
@@ -130,7 +134,6 @@ def test_strip(html, s):
         ("draftCredit:1/2", "draft share in one place"),
         ("complianceCleanMin:2", "compliance first-pass minutes"),
         ("Time saved is the frame", "soft ROI stays time-saved"),
-        ("No product list price", "list prices locked off the strip"),
         ("https://calendly.com/nathanplatter", "Calendly CTA"),
         ("Next step is a person, not a checkout", "no buy CTA"),
     ]:
@@ -211,6 +214,10 @@ def test_template_locked():
         passed = fail("template still quotes a product list price")
     else:
         ok("template has no Pilot/Firm list prices")
+    if re.search(r"process[- ]cost|list price|\bPilot\b", html, re.I):
+        passed = fail("template strip still answers what Nathan charges")
+    else:
+        ok("template does not name process-cost or Pilot")
     if "—" in block:
         passed = fail("em dash in template status-quo copy")
     else:
