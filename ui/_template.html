@@ -129,6 +129,21 @@ ul.notes li:before{content:"—";color:var(--faint);margin-right:9px}
 .letter ins{background:var(--verified-bg);color:#24512F;text-decoration:none;box-shadow:inset 0 -1px 0 var(--verified)}
 .simulated{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--oxblood);border:1px solid var(--oxblood);padding:2px 7px;border-radius:2px;white-space:nowrap}
 
+.offer{margin:16px 0 4px;max-width:920px;padding:16px 18px;border:1px solid var(--rule);background:var(--panel)}
+.offer .kicker{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--oxblood);margin-bottom:6px}
+.offer h2{font-size:17px;font-weight:600;letter-spacing:-.01em;margin:0 0 8px}
+.offer p{font-size:13.5px;color:var(--muted);margin:0 0 9px;line-height:1.55}
+.offer p:last-child{margin-bottom:0}
+.offer p b{color:var(--ink)}
+.offer .pillars{display:grid;grid-template-columns:1fr 1fr;gap:8px 16px;margin:10px 0}
+.offer .pillar{border-top:1px solid var(--rule-soft);padding-top:7px}
+.offer .pillar .n{font-size:13.5px;font-weight:600;color:var(--ink)}
+.offer .pillar .l{font-size:12.5px;color:var(--muted);margin-top:2px}
+.offer .spine{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 10px}
+.offer .pill{font-family:var(--mono);font-size:11px;padding:3px 8px;border:1px solid var(--rule);background:var(--sunk)}
+.offer .pill.ref{background:var(--oxblood);color:#fff;border-color:var(--oxblood)}
+.offer a{color:var(--ink);font-weight:600}
+
 @media(max-width:860px){
   .spread{flex-direction:column;height:auto}
   .docket{width:100%;max-height:290px}
@@ -143,6 +158,7 @@ ul.notes li:before{content:"—";color:var(--faint);margin-right:9px}
   .sq .cap.split{padding-left:0;border-left:0}
   .sq .cap .n{font-size:22px;line-height:1.15}
   .sq .cap.wide{grid-column:1/-1}
+  .offer .pillars{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -150,7 +166,28 @@ ul.notes li:before{content:"—";color:var(--faint);margin-right:9px}
 
 <header class="masthead">
   <h1>Both Sides of the Letter</h1>
-  <div class="sub">Dispute response pipeline — every claim checked against the source record <span class="simulated">SIMULATED</span></div>
+  <div class="sub">SettleUp Collections · Level-4 dispute-letter gate. Every claim checked against the source record. <span class="simulated">SIMULATED</span></div>
+  <section class="offer" aria-label="Public offering">
+    <div class="kicker">Loud Refuse</div>
+    <h2>Draft. Check vs ledger. One Remediate. Loud Refuse. Human owns Send.</h2>
+    <p>We sit beside your recovery stack. We do not replace dialer, payments, or CMS. Default demo: claim asserted <b>$1,000</b> × 3 vs ledger <b>$20,370.53</b>. Still wrong after one remediation. <b>REFUSED</b>, inspectable reason, operator escalation.</p>
+    <div class="spine" aria-label="Verified fixture spine">
+      <span class="pill">300 drafted</span>
+      <span class="pill">20 blocked</span>
+      <span class="pill">19 remediations</span>
+      <span class="pill ref">1 refuse</span>
+    </div>
+    <div class="pillars">
+      <div class="pillar"><div class="n">Controls in the workflow</div><div class="l">Gate fires at draft time, not in annual theater.</div></div>
+      <div class="pillar"><div class="n">Fits your stack</div><div class="l">Bolt onto CMS / agency desk. CSV, SFTP, or assisted import.</div></div>
+      <div class="pillar"><div class="n">Diligence-grade trust</div><div class="l">Claim to ledger to attempts to refuse trail. Admin, Contributor, Compliance.</div></div>
+      <div class="pillar"><div class="n">Live in weeks</div><div class="l">Start on fixtures, then your book. Expand when earned.</div></div>
+    </div>
+    <p>Capacity means <b>more accurate dispute volume with a hard stop when the ledger disagrees</b>. Refuse protects the creditor brand and the agency relationship. Not a layoff tool. Not an FTE-replace pitch.</p>
+    <p>Complementary to recovery platforms that own contact, placement, scoring, and digital engage. SettleUp owns <b>letter content risk</b> before Send.</p>
+    <p>Out forever: unsupervised auto-send · dialer / Reg F contact engine · payments portal · CMS rip-replace · claiming we are Equabli · SOC 2 badge without evidence.</p>
+    <p>Book a walkthrough: <a href="https://calendly.com/nathanplatter">calendly.com/nathanplatter</a>. No public price sheet. Not legal advice. Not CFPB-approved. Synthetic demo only. <a href="index.html">Full offering</a>.</p>
+  </section>
   <div class="caption" id="caption"></div>
   <div class="sq" id="statusquo"></div>
   <div class="reconcile" id="reconcile"></div>
@@ -173,7 +210,7 @@ ul.notes li:before{content:"—";color:var(--faint);margin-right:9px}
       <button class="tb" data-t="intent" role="tab">Intent vs impact</button>
       <button class="tb" data-t="validation" role="tab">Validation log</button>
     </div>
-    <p class="next-step">Next step is a person, not a checkout. <a href="https://calendly.com/nathanplatter">Book 20 minutes</a>. Do not buy from this page.</p>
+    <p class="next-step">Next step is a person, not a checkout. <a href="https://calendly.com/nathanplatter">Book a walkthrough</a>. No public price sheet.</p>
     <section class="pane on" id="p-review" role="tabpanel"></section>
     <section class="pane" id="p-loop" role="tabpanel"></section>
     <section class="pane" id="p-consumer" role="tabpanel"></section>
@@ -200,7 +237,7 @@ const risky=r=>['high','critical'].includes(String(r.engagement_risk_level||'').
 const STATUS_QUO={
   // Olga Mironova FTE minutes per dispute (hers). Demo comparison uses UPPER. Nathan lock 2026-09-06.
   olga:{intake:[3,5],review:[4,4],research:[20,30],draft:[5,7],compliance:[3,6],close:[3,5]},
-  // Displaceable share of her UPPER minutes. Not a second lunch/meeting haircut.
+  // Capacity credit of her UPPER minutes. Not a second lunch/meeting haircut.
   // Research one third (10 of 30). Draft half (3.5 of 7). Shares not tightened.
   researchCredit:1/3,
   draftCredit:1/2,
@@ -300,17 +337,17 @@ function caption(){
         sqCap('If every minute',formatMinutes(m.total[1]),
           'Unadjusted time ceiling, not the lead','ceil')+
       '</div>'+
-      '<p class="ceil-line">If the gate replaced every minute: <b>'+formatMinutes(m.total[1])+'</b>. That is the unadjusted time ceiling, not the lead.</p>'+
-      '<p class="reconcile">Olga Mironova FTE ranges, cited as hers, not Nathan\'s shop and not a universal time-study. '+
+      '<p class="ceil-line">Capacity-with-gate: more accurate dispute volume, with a hard stop when the ledger disagrees. Unadjusted time ceiling <b>'+formatMinutes(m.total[1])+'</b> is the comparison line, not a headcount claim.</p>'+
+      '<p class="reconcile">Olga Mironova minutes per dispute, cited as hers, not Nathan\'s shop and not a universal time-study. '+
       'Applied to the <b>'+m.n.toLocaleString()+' drafted letters</b> (the dispute unit she used), not to all <b>'+
       Number(raw).toLocaleString()+' raw records</b> as if each row were a full dispute. '+
       'Records-read time is intake + research on those '+m.n.toLocaleString()+' only. '+
       'Demo comparison uses her upper end (57 min per dispute; Nathan lock 2026-09-06). '+
       'Her upper end already includes lunch, meetings, and context switches. We do not haircut again. '+
-      'The gate does not replace every Olga minute. A person still receives the dispute, still reads before send, still closes, '+
+      'The gate does not take every Olga minute. A person still receives the dispute, still reads before send, still closes, '+
       'and counsel still second-reviews anything flagged or refused. The gate checks the ledger and drafts. '+
       'It does not do a 30-minute file research. '+
-      'Displaceable share: research one third of her 30; draft half of her 7; compliance first pass only, '+
+      'Capacity credit: research one third of her 30; draft half of her 7; compliance first pass only, '+
       STATUS_QUO.complianceCleanMin+' of her 6 minutes, on the <b>'+m.cleanN.toLocaleString()+
       ' letters</b> that are not high-risk and not refused ('+m.highRisk.toLocaleString()+
       ' high-risk + '+m.refused.toLocaleString()+' refused stay with counsel; review_flagged '+
@@ -318,8 +355,8 @@ function caption(){
       'Intake, review, and close stay human. '+
       'Hours a gate can actually take: <b>'+formatMinutes(m.gateMin)+'</b>, '+formatPct(m.gatePct)+
       ' of her '+formatMinutes(m.total[1])+' upper. '+
-      'Time saved is the frame. Soft filter, not a kill claim. '+
-      'Not legal advice. Synthetic ledger and public-complaint demo. '+
+      'Capacity-with-gate is the frame. Hard stop when the ledger disagrees. Not a layoff pitch. '+
+      'Not legal advice. Not CFPB-approved. Synthetic ledger and public-complaint demo. '+
       'Letters drafted for review, never dispatched.</p>';
   }
 
